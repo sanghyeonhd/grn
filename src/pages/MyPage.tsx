@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Bell, ShoppingBag, Wallet, CalendarCheck, Gift, ScrollText, Home, BookOpen, Scan, Heart, User } from 'lucide-react';
@@ -79,7 +80,10 @@ const MyPage = () => {
             <Wallet className="w-6 h-6" />
             <span className="text-sm">포인트</span>
           </button>
-          <button className="flex flex-col items-center gap-2">
+          <button 
+            className="flex flex-col items-center gap-2"
+            onClick={() => navigate('/attendance')}
+          >
             <CalendarCheck className="w-6 h-6" />
             <span className="text-sm">출석체크</span>
           </button>

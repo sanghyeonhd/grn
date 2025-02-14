@@ -31,41 +31,11 @@ const Checkout = () => {
           <button onClick={() => navigate(-1)} className="mr-4">
             <ChevronLeft className="w-6 h-6" />
           </button>
-          <h1 className="text-lg">선물 결제하기</h1>
+          <h1 className="text-lg">결제하기</h1>
         </div>
       </div>
 
       <div className="p-4 space-y-6">
-        {/* 선물 메시지 */}
-        <section>
-          <h2 className="text-sm mb-2">선물 메시지</h2>
-          <div className="rounded overflow-hidden">
-            <img 
-              src="/lovable-uploads/76703d4e-500f-4dc4-b4aa-f9b18e5e378e.png"
-              alt="선물 메시지 이미지"
-              className="w-full h-32 object-cover"
-            />
-          </div>
-        </section>
-
-        {/* 선물할 받는 분 정보 */}
-        <section>
-          <h2 className="text-sm mb-2">선물할 받는 분 정보</h2>
-          <div className="flex items-center mb-4">
-            <input type="radio" name="giftType" id="kakao" defaultChecked className="mr-2" />
-            <label htmlFor="kakao" className="text-sm">카카오톡으로 선물</label>
-            <input type="radio" name="giftType" id="phone" className="ml-6 mr-2" />
-            <label htmlFor="phone" className="text-sm">전화번호로선물</label>
-          </div>
-          <div className="border-b border-gray-100 pb-4">
-            <input
-              type="text"
-              placeholder="선물할 분의 이름을 입력해 주세요."
-              className="w-full p-3 border rounded-sm text-sm"
-            />
-          </div>
-        </section>
-
         {/* 배송정보 */}
         <section>
           <div className="flex justify-between items-center mb-4">

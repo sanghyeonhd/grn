@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ChevronLeft } from 'lucide-react';
+import { ChevronLeft, Heart } from 'lucide-react';
 import {
   Sheet,
   SheetContent,

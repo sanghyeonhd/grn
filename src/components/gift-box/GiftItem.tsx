@@ -1,4 +1,3 @@
-
 import { ChevronRight } from "lucide-react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useState } from "react";
@@ -152,55 +151,13 @@ const GiftItem = ({ item }: GiftItemProps) => {
           </Dialog>
         </div>
       ) : item.id === "2" ? (
-        <div className="grid grid-cols-2 gap-2">
-          <Dialog open={openCancelDialog} onOpenChange={setOpenCancelDialog}>
-            <DialogTrigger asChild>
-              <button className="py-3 border text-sm">
-                주문 취소
-              </button>
-            </DialogTrigger>
-            <DialogContent className="bg-white p-6 max-w-xs w-full">
-              <div className="text-center">
-                <h2 className="text-lg font-medium mb-4">취소 유의사항 안내</h2>
-                <p className="text-sm text-gray-500 mb-6">주고 좋은 선물도 취소 상황이 여러가 수 있어요.</p>
-                <div className="grid grid-cols-2 gap-2">
-                  <button
-                    className="py-3 border text-sm"
-                    onClick={() => setOpenCancelDialog(false)}
-                  >
-                    담기
-                  </button>
-                  <button
-                    className="py-3 border text-sm"
-                    onClick={() => {
-                      setOpenCancelDialog(false);
-                      setOpenCancelConfirmDialog(true);
-                    }}
-                  >
-                    주문 취소
-                  </button>
-                </div>
-              </div>
-            </DialogContent>
-          </Dialog>
-
-          <Dialog open={openCancelConfirmDialog} onOpenChange={setOpenCancelConfirmDialog}>
-            <DialogContent className="bg-white p-6 max-w-xs w-full">
-              <div className="text-center">
-                <h2 className="text-lg font-medium mb-4">취소 불가 안내</h2>
-                <p className="text-sm text-gray-500 mb-6">선택하신 선물을 수령하여 취소가 불가능해요.</p>
-                <button
-                  className="w-32 py-3 border text-sm mx-auto"
-                  onClick={() => setOpenCancelConfirmDialog(false)}
-                >
-                  확인
-                </button>
-              </div>
-            </DialogContent>
-          </Dialog>
-
-          <button className="py-3 border text-sm">
-            다른 사람에게 선물하기
+        <div className="space-y-2">
+          <div className="grid grid-cols-2 gap-2">
+            <button className="py-3 border text-sm">배송 조회</button>
+            <button className="py-3 border text-sm">교환/반품 신청</button>
+          </div>
+          <button className="w-full py-3 border text-sm">
+            구매 확정
           </button>
         </div>
       ) : (

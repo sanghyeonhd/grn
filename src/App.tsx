@@ -45,6 +45,7 @@ import SignupComplete from "./pages/SignupComplete";
 import TermDetail from "./pages/TermDetail";
 import MemberGeneralInfo from "./pages/MemberGeneralInfo";
 import MemberSocialInfo from "./pages/MemberSocialInfo";
+import Withdraw from "./pages/Withdraw";
 
 const queryClient = new QueryClient();
 
@@ -100,6 +101,7 @@ const App = () => (
             <Route path="/term-detail" element={<TermDetail />} />
             <Route path="/member-general-info" element={<MemberGeneralInfo />} />
             <Route path="/member-social-info" element={<MemberSocialInfo />} />
+            <Route path="/withdraw" element={<Withdraw />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </TooltipProvider>

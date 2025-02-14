@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, User } from 'lucide-react';
@@ -107,7 +106,10 @@ const MemberGeneralInfo = () => {
           <span>로그아웃</span>
           <span>→</span>
         </button>
-        <button className="w-full text-left py-4 text-gray-500">
+        <button 
+          onClick={() => navigate('/withdraw')}
+          className="w-full text-left py-4 text-gray-500"
+        >
           회원탈퇴
         </button>
       </div>

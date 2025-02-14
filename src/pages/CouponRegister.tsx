@@ -22,11 +22,15 @@ const CouponRegister = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="p-4 flex items-center gap-4 border-b">
+      <div className="p-4 flex items-center gap-4">
         <button onClick={() => navigate(-1)}>
           <ChevronLeft className="w-6 h-6" />
         </button>
-        <div className="flex-1">
+        <h1 className="text-lg font-medium">나의 쿠폰함</h1>
+      </div>
+      
+      <div className="border-b">
+        <div className="px-4">
           <Tabs defaultValue="register" className="w-full">
             <TabsList className="w-full bg-transparent border-b">
               <TabsTrigger 

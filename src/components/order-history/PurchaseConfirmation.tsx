@@ -91,26 +91,33 @@ const PurchaseConfirmation = ({
                   <div className="font-medium mt-1">
                     {product.price.toLocaleString()}원
                   </div>
-                  <div className="mt-4 space-y-1">
-                    <div className="flex">
-                      <div className="w-20 text-sm text-gray-400">옵션</div>
-                      <div className="flex-1 text-sm">{product.option}</div>
-                    </div>
-                    {product.stampingLabel && (
+                  <div className="flex items-start gap-4 mt-4">
+                    <img 
+                      src={product.image} 
+                      alt={product.name}
+                      className="w-20 h-20 object-cover"
+                    />
+                    <div className="flex-1 space-y-1">
                       <div className="flex">
-                        <div className="w-20 text-sm text-gray-400">스탬핑 네임</div>
-                        <div className="flex-1 text-sm">{product.stampingLabel}</div>
+                        <div className="w-20 text-sm text-gray-400">옵션</div>
+                        <div className="flex-1 text-sm">{product.option}</div>
                       </div>
-                    )}
-                    {product.stampingType && (
+                      {product.stampingLabel && (
+                        <div className="flex">
+                          <div className="w-20 text-sm text-gray-400">스탬핑 네임</div>
+                          <div className="flex-1 text-sm">{product.stampingLabel}</div>
+                        </div>
+                      )}
+                      {product.stampingType && (
+                        <div className="flex">
+                          <div className="w-20 text-sm text-gray-400">스탬핑 종류</div>
+                          <div className="flex-1 text-sm">{product.stampingType}</div>
+                        </div>
+                      )}
                       <div className="flex">
-                        <div className="w-20 text-sm text-gray-400">스탬핑 종류</div>
-                        <div className="flex-1 text-sm">{product.stampingType}</div>
+                        <div className="w-20 text-sm text-gray-400">쇼핑백</div>
+                        <div className="flex-1 text-sm">{product.points ? `추가 구매 (+${product.points}P)` : '-'}</div>
                       </div>
-                    )}
-                    <div className="flex">
-                      <div className="w-20 text-sm text-gray-400">쇼핑백</div>
-                      <div className="flex-1 text-sm">{product.points ? `추가 구매 (+${product.points}P)` : '-'}</div>
                     </div>
                   </div>
                 </div>

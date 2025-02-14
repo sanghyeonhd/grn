@@ -77,7 +77,7 @@ const OrderStatusHistory = () => {
             </div>
             <div className="flex gap-4">
               <img
-                src={order.image}
+                src={order.product.image}
                 alt={order.product.name}
                 className="w-20 h-20 object-cover"
               />

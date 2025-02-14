@@ -6,7 +6,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
-import { Alert, AlertDescription } from "@/components/ui/alert"
+import { AlertDialog, AlertDialogContent, AlertDialogFooter } from "@/components/ui/alert-dialog"
 import { useToast } from "@/hooks/use-toast"
 
 const Withdraw = () => {
@@ -16,6 +16,7 @@ const Withdraw = () => {
   const [reason, setReason] = useState("");
   const [detailReason, setDetailReason] = useState("");
   const [agreed, setAgreed] = useState(false);
+  const [showCompleteModal, setShowCompleteModal] = useState(false);
 
   const reasons = [
     "원하는 상품이 없어요.",
@@ -42,9 +43,16 @@ const Withdraw = () => {
       return;
     }
 
-    if (step < 4) {
+    if (step === 3) {
+      setShowCompleteModal(true);
+    } else {
       setStep(step + 1);
     }
+  };
+
+  const handleComplete = () => {
+    setShowCompleteModal(false);
+    navigate('/');
   };
 
   const renderStep1 = () => (
@@ -151,19 +159,6 @@ const Withdraw = () => {
     </div>
   );
 
-  const renderStep4 = () => (
-    <div className="p-4">
-      <Alert className="mb-4">
-        <AlertDescription>
-          회원탈퇴가 정상적으로 완료되었습니다.
-        </AlertDescription>
-      </Alert>
-      <div className="text-center text-sm text-gray-500">
-        다음에도 더 좋은 10년 보내 줄 파가겠니다.
-      </div>
-    </div>
-  );
-
   return (
     <div className="min-h-screen bg-white">
       <div className="sticky top-0 bg-white border-b">
@@ -178,7 +173,6 @@ const Withdraw = () => {
       {step === 1 && renderStep1()}
       {step === 2 && renderStep2()}
       {step === 3 && renderStep3()}
-      {step === 4 && renderStep4()}
 
       <div className="fixed bottom-0 left-0 right-0 p-4 flex gap-3 bg-white border-t">
         <Button 
@@ -197,6 +191,22 @@ const Withdraw = () => {
           </Button>
         )}
       </div>
+
+      <AlertDialog open={showCompleteModal} onOpenChange={setShowCompleteModal}>
+        <AlertDialogContent className="bg-white p-0 gap-0">
+          <div className="p-6 text-center">
+            <p>회원탈퇴가 정상적으로 완료되었습니다.</p>
+          </div>
+          <AlertDialogFooter className="p-0">
+            <Button 
+              onClick={handleComplete} 
+              className="w-full rounded-none bg-[#2C2C2C] text-white hover:bg-[#1a1a1a]"
+            >
+              확인
+            </Button>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };

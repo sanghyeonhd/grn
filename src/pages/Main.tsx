@@ -55,7 +55,11 @@ const Main = () => {
   }];
 
   const handleNavigation = (path: string) => {
-    navigate(`/${path.toLowerCase()}`);
+    if (path === 'JOURNAL') {
+      navigate(`/journal/${journalItems[0].id}`);
+    } else {
+      navigate(`/${path.toLowerCase()}`);
+    }
   };
 
   return <div className="min-h-screen bg-[#FDFBF5]">

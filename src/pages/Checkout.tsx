@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
@@ -239,7 +240,6 @@ const Checkout = () => {
           <ChevronLeft className="w-4 h-4 rotate-180" />
         </button>
       </section>
-    </div>
 
       {/* 결제하기 버튼 */}
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t">

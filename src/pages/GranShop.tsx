@@ -11,28 +11,28 @@ const products = {
       name: "Trio Gift Set",
       description: "서재 & 본드-펄 & 핸드워시 세트 | 40g & 60g & 450m",
       price: "68,000 KRW",
-      image: "/lovable-uploads/71a458a8-7beb-4c87-b6fc-bf415e70dd7a.png"
+      image: "/lovable-uploads/e6a279b9-9d0b-4b1e-9f18-5fd4ff57fe59.png"
     },
     {
       id: 2,
       name: "Trio Gift Set",
       description: "서재 & 본드-펄 & 핸드워시 세트 | 40g & 60g & 450m",
       price: "68,000 KRW",
-      image: "/lovable-uploads/71a458a8-7beb-4c87-b6fc-bf415e70dd7a.png"
+      image: "/lovable-uploads/e6a279b9-9d0b-4b1e-9f18-5fd4ff57fe59.png"
     },
     {
       id: 3,
       name: "Trio Gift Set",
       description: "서재 & 본드-펄 & 핸드워시 세트 | 40g & 60g & 450m",
       price: "68,000 KRW",
-      image: "/lovable-uploads/71a458a8-7beb-4c87-b6fc-bf415e70dd7a.png"
+      image: "/lovable-uploads/e6a279b9-9d0b-4b1e-9f18-5fd4ff57fe59.png"
     },
     {
       id: 4,
       name: "Trio Gift Set",
       description: "서재 & 본드-펄 & 핸드워시 세트 | 40g & 60g & 450m",
       price: "68,000 KRW",
-      image: "/lovable-uploads/71a458a8-7beb-4c87-b6fc-bf415e70dd7a.png"
+      image: "/lovable-uploads/e6a279b9-9d0b-4b1e-9f18-5fd4ff57fe59.png"
     }
   ]
 };

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card } from "@/components/ui/card";
@@ -45,8 +46,12 @@ const Main = () => {
       <section className="px-6 pt-[37px]">
         <h3 className="text-[14px] font-bold leading-[22px] text-[#6F6963] font-pretendard mb-6">브랜드 숍</h3>
         <div className="flex gap-2">
-          <button className="h-[50px] px-4 bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap">
-            GRANHAND
+          <button className="h-[50px] bg-[#FDFBF5] rounded-[50px] px-4 flex items-center justify-center">
+            <img 
+              src="/public/lovable-uploads/c7dcf8c0-da2c-494c-bef0-9742b4053335.png" 
+              alt="GRANHAND" 
+              className="h-5 object-contain"
+            />
           </button>
           <button className="h-[50px] px-4 bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap">
             heiion

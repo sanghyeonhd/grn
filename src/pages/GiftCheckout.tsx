@@ -15,14 +15,13 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 
 const GiftCheckout = () => {
   const navigate = useNavigate();
   const [useCoupon, setUseCoupon] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("simple");
+  const [deliveryMethod, setDeliveryMethod] = useState("kakao");
 
   return (
     <div className="min-h-screen bg-white pb-20">
@@ -37,19 +36,59 @@ const GiftCheckout = () => {
       </div>
 
       <div className="p-4 space-y-6">
-        {/* 선물 메시지 섹션 */}
+        {/* 선물 메시지 */}
         <section>
-          <div className="bg-white border rounded-lg p-4 mb-4">
+          <h2 className="text-base mb-4">선물 메시지</h2>
+          <div className="relative mb-4">
             <img 
-              src="/lovable-uploads/09d701c7-ea2c-4c9c-81be-90a5040af573.png"
+              src="/lovable-uploads/29b0770e-1ae6-4e2c-b680-aa6a22207749.png"
               alt="선물 메시지 이미지"
-              className="w-full h-32 object-cover rounded mb-4"
+              className="w-full aspect-[2/1] object-cover rounded-lg"
             />
-            <h2 className="text-sm font-medium mb-2">선물할 때 본 모습</h2>
-            <ul className="text-xs text-gray-600 space-y-1">
-              <li>• 카카오톡으로 전달</li>
-              <li>• 카카오톡으로 전달</li>
-            </ul>
+            <div className="absolute bottom-4 right-4 text-white text-sm">
+              18/100
+            </div>
+          </div>
+          
+          {/* 선물 받는 분 정보 */}
+          <div className="space-y-4">
+            <h3 className="text-sm">선물 받는 분 정보</h3>
+            <div className="flex items-center gap-6">
+              <div className="flex items-center gap-2">
+                <input 
+                  type="radio" 
+                  id="kakao" 
+                  name="deliveryMethod"
+                  checked={deliveryMethod === "kakao"}
+                  onChange={() => setDeliveryMethod("kakao")}
+                  className="w-4 h-4"
+                />
+                <label htmlFor="kakao" className="text-sm">카카오톡으로 선물</label>
+              </div>
+              <div className="flex items-center gap-2">
+                <input 
+                  type="radio" 
+                  id="sms" 
+                  name="deliveryMethod"
+                  checked={deliveryMethod === "sms"}
+                  onChange={() => setDeliveryMethod("sms")}
+                  className="w-4 h-4"
+                />
+                <label htmlFor="sms" className="text-sm">문자(SMS)로 선물</label>
+              </div>
+            </div>
+            
+            <div className="space-y-2">
+              <input
+                type="text"
+                placeholder="받는 분의 성함을 입력해 주세요."
+                className="w-full p-3 border rounded text-sm"
+              />
+              <div className="text-xs text-gray-500 space-y-1">
+                <p>• 선물하기 결제 후 카카오톡 덕구 메세지로 받을 수 있어요.</p>
+                <p>• 포인트 선물은 그랜핸드 회원만 받을 수 있어요.</p>
+              </div>
+            </div>
           </div>
         </section>
 

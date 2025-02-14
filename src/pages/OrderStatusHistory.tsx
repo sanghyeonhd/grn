@@ -57,6 +57,20 @@ const OrderStatusHistory = () => {
     }
   ];
 
+  const handleDetailClick = (type: "cancel" | "exchange" | "return") => {
+    switch (type) {
+      case "cancel":
+        navigate("/order-cancel-detail");
+        break;
+      case "exchange":
+        navigate("/order-exchange-detail");
+        break;
+      case "return":
+        navigate("/order-return-detail");
+        break;
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <header className="sticky top-0 bg-white border-b">
@@ -91,7 +105,10 @@ const OrderStatusHistory = () => {
                 <div className="font-medium mt-1">{order.product.price.toLocaleString()}원</div>
               </div>
             </div>
-            <button className="w-full py-3 border text-sm">
+            <button 
+              className="w-full py-3 border text-sm"
+              onClick={() => handleDetailClick(order.type)}
+            >
               {order.type === 'cancel' && '취소 상세 보기'}
               {order.type === 'exchange' && '교환 상세 보기'}
               {order.type === 'return' && '반품 상세 보기'}

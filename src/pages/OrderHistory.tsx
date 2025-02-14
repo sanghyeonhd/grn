@@ -104,7 +104,7 @@ const OrderHistory = () => {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 px-0">
                     <input
                       type="text"
                       value={startDate}

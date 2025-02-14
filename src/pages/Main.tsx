@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card } from "@/components/ui/card";
@@ -7,7 +8,7 @@ const Main = () => {
 
   const journalItems = [{
     id: 1,
-    image: "/public/lovable-uploads/ad6ff026-1dc4-453b-8e88-0913eb046a87.png",
+    image: "/public/lovable-uploads/2c8101d5-73d5-41b7-acc5-1dd784aa0ecd.png",
     category: "브랜드",
     title: "2025 Calender",
     description: "1월 뉴스레터에서 신청하세요",

@@ -97,17 +97,6 @@ const GiftCheckout = () => {
           />
         </section>
 
-        {/* 배송지 입력 */}
-        <section>
-          <h2 className="text-sm mb-2">배송지<span className="text-red-500">*</span></h2>
-          <button 
-            onClick={() => navigate('/address/list')}
-            className="w-full p-3 border rounded text-sm text-left text-gray-400"
-          >
-            배송지를 입력해주세요.
-          </button>
-        </section>
-
         {/* 주문 상품 정보 */}
         <section>
           <h2 className="text-sm mb-4">주문 상품 정보</h2>

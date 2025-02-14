@@ -35,7 +35,7 @@ const Main = () => {
     id: 2,
     category: "하남",
     title: "",
-    image: "/public/lovable-uploads/ad6a0482-cc5a-4641-956e-7b86bedb9da1.png",
+    image: "/public/lovable-uploads/a17ca42e-b6f9-4aa8-8bef-3e29fbd53b22.png",
     date: "2023-07-08",
     views: 412
   }, {

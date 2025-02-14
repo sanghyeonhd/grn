@@ -229,7 +229,7 @@ const Checkout = () => {
             <div className="flex justify-between font-medium pt-3 border-t">
               <div>
                 <span>결제 금액</span>
-                <div className="text-sm text-gray-600">←신용카드 결제</div>
+                <div className="text-sm text-gray-600">└신용카드 결제</div>
               </div>
               <span>25,500원</span>
             </div>

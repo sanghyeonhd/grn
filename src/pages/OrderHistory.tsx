@@ -1,12 +1,5 @@
 
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -17,7 +10,10 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
+import OrderHeader from '@/components/order-history/OrderHeader';
+import OrderTabs from '@/components/order-history/OrderTabs';
+import OrderStatus from '@/components/order-history/OrderStatus';
+import OrderItem from '@/components/order-history/OrderItem';
 
 interface OrderItem {
   id: string;
@@ -32,7 +28,6 @@ interface OrderItem {
 }
 
 const OrderHistory = () => {
-  const navigate = useNavigate();
   const [selectedPeriod, setSelectedPeriod] = useState("최근 1년");
   const [startDate, setStartDate] = useState("2022.10.28");
   const [endDate, setEndDate] = useState("2023.10.28");
@@ -65,162 +60,31 @@ const OrderHistory = () => {
     }
   ];
 
-  const handlePeriodSelect = (period: string) => {
-    setSelectedPeriod(period);
-  };
-
   return (
     <div className="min-h-screen bg-white">
-      <header className="flex items-center gap-4 p-4 border-b">
-        <button onClick={() => navigate(-1)}>
-          <ChevronLeft className="w-6 h-6" />
-        </button>
-        <h1 className="text-lg font-medium">주문 내역</h1>
-        <div className="flex-1 flex justify-end">
-          <Sheet>
-            <SheetTrigger asChild>
-              <button className="text-sm">
-                기간설정
-              </button>
-            </SheetTrigger>
-            <SheetContent side="bottom" className="h-[400px] p-0 bg-white">
-              <div className="space-y-8 px-6 pt-6 pb-10">
-                <div className="space-y-6">
-                  <h2 className="text-lg font-medium">기간설정</h2>
-                  <div className="grid grid-cols-4 gap-2">
-                    {["최근 1년", "1주일", "1개월", "3개월"].map((period) => (
-                      <button
-                        key={period}
-                        className={`h-10 border rounded-sm text-sm ${
-                          selectedPeriod === period
-                            ? "border-black bg-black text-white"
-                            : "border-gray-300"
-                        }`}
-                        onClick={() => handlePeriodSelect(period)}
-                      >
-                        {period}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <input
-                      type="text"
-                      value={startDate}
-                      onChange={(e) => setStartDate(e.target.value)}
-                      className="flex-1 h-10 border border-gray-300 px-4 rounded-sm text-sm"
-                      placeholder="YYYY.MM.DD"
-                    />
-                    <span className="text-gray-400">-</span>
-                    <input
-                      type="text"
-                      value={endDate}
-                      onChange={(e) => setEndDate(e.target.value)}
-                      className="flex-1 h-10 border border-gray-300 px-4 rounded-sm text-sm"
-                      placeholder="YYYY.MM.DD"
-                    />
-                  </div>
-                </div>
-                <Button 
-                  className="w-full h-12 text-white bg-[#2C2C2C] hover:bg-[#1a1a1a] rounded-none"
-                  onClick={() => {
-                    // Add your search logic here
-                  }}
-                >
-                  조회하기
-                </Button>
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
-      </header>
+      <OrderHeader 
+        selectedPeriod={selectedPeriod}
+        startDate={startDate}
+        endDate={endDate}
+        onPeriodSelect={setSelectedPeriod}
+        onStartDateChange={setStartDate}
+        onEndDateChange={setEndDate}
+      />
 
-      <div className="flex gap-4 p-4 border-b">
-        <button 
-          className={`text-sm ${selectedTab === "전체" ? "font-medium" : "text-gray-500"}`}
-          onClick={() => setSelectedTab("전체")}
-        >
-          전체
-        </button>
-        <button 
-          className={`text-sm ${selectedTab === "최근 1년" ? "font-medium" : "text-gray-500"}`}
-          onClick={() => setSelectedTab("최근 1년")}
-        >
-          최근 1년
-        </button>
-      </div>
+      <OrderTabs 
+        selectedTab={selectedTab}
+        onTabChange={setSelectedTab}
+      />
 
-      <div className="grid grid-cols-5 py-4 text-center text-sm border-b">
-        <div>
-          <div>1</div>
-          <div className="text-gray-500">입금/결제</div>
-        </div>
-        <div>
-          <div>0</div>
-          <div className="text-gray-500">배송준비</div>
-        </div>
-        <div>
-          <div>0</div>
-          <div className="text-gray-500">배송중</div>
-        </div>
-        <div>
-          <div>1</div>
-          <div className="text-gray-500">배송완료</div>
-        </div>
-        <div>
-          <div>17</div>
-          <div className="text-gray-500">구매확정</div>
-        </div>
-      </div>
+      <OrderStatus />
 
       <div className="space-y-4 p-4">
         {orderItems.map((item) => (
-          <div key={item.id} className="space-y-4 pb-6 border-b last:border-b-0">
-            <div 
-              className="flex justify-between items-center cursor-pointer"
-              onClick={() => navigate(`/order-history/${item.id}`)}
-            >
-              <div className="text-lg">{item.date}</div>
-              <ChevronRight className="w-5 h-5" />
-            </div>
-            <div className="flex gap-4">
-              <img
-                src={item.product.image}
-                alt={item.product.name}
-                className="w-20 h-20 object-cover"
-              />
-              <div className="flex-1">
-                <div className="text-gray-500 flex items-center gap-2">
-                  {item.status}
-                  {item.status === "입금 대기" && (
-                    <button className="text-sm underline">문의하기</button>
-                  )}
-                </div>
-                <div className="font-medium">{item.product.name}</div>
-                <div className="text-sm text-gray-500">{item.product.option}</div>
-                <div className="font-medium mt-1">{item.product.price.toLocaleString()}원</div>
-              </div>
-            </div>
-            {item.id === "1" ? (
-              <button
-                className="w-full py-3 border text-sm"
-                onClick={() => setIsCancelModalOpen(true)}
-              >
-                주문 취소
-              </button>
-            ) : item.id === "2" ? (
-              <div className="space-y-2">
-                <div className="grid grid-cols-2 gap-2">
-                  <button className="py-3 border text-sm">배송 조회</button>
-                  <button className="py-3 border text-sm">교환/반품 신청</button>
-                </div>
-                <button className="w-full py-3 border text-sm">
-                  구매 확정
-                </button>
-              </div>
-            ) : null}
-          </div>
+          <OrderItem 
+            key={item.id}
+            item={item}
+            onCancelClick={() => setIsCancelModalOpen(true)}
+          />
         ))}
       </div>
 

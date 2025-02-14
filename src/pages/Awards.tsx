@@ -166,7 +166,7 @@ const Awards = () => {
         <div className="p-4 space-y-4">
           <div className="aspect-video bg-[#F5F5F5] rounded-lg">
             <img 
-              src="/public/lovable-uploads/85c4c9b1-b2ae-4bcc-802f-9907227ae6b0.png"
+              src="/public/lovable-uploads/63303077-f358-433e-921d-30b925a8b863.png"
               alt="당선작"
               className="w-full h-full object-cover rounded-lg"
             />

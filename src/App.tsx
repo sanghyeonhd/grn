@@ -44,7 +44,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <Routes>
-            <Route path="/" element={<Navigate to="/main" replace />} />
+            <Route path="/" element={<Index />} />
             <Route path="/main" element={<Main />} />
             <Route path="/journal" element={<Navigate to="/main" />} />
             <Route path="/event" element={<Navigate to="/main" />} />

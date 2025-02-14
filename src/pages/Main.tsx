@@ -42,7 +42,7 @@ const Main = () => {
     id: 3,
     category: "브랜드",
     title: "2025 신규 브랜드",
-    image: "/public/lovable-uploads/2c8101d5-73d5-41b7-acc5-1dd784aa0ecd.png",
+    image: "/public/lovable-uploads/569b0ab8-dafd-4552-b7c1-a7996f402d41.png",
     date: "2023-07-08",
     views: 325
   }, {

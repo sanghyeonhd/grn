@@ -49,7 +49,7 @@ const Main = () => {
     id: 4,
     category: "하남",
     title: "새로운 매장 오픈",
-    image: "/public/lovable-uploads/5543f85b-0d24-4ab3-a996-08c599742a75.png",
+    image: "/public/lovable-uploads/1d1389b4-ba40-4651-9de6-76e7d34864ab.png",
     date: "2023-07-08",
     views: 287
   }];

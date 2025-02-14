@@ -12,6 +12,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Loading from "./pages/Loading";
 import AttendanceCheck from "./pages/AttendanceCheck";
 import FindId from "./pages/FindId";
+import FindIdPhone from "./pages/FindIdPhone";
 import FindIdResult from "./pages/FindIdResult";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/loading" element={<Loading />} />
           <Route path="/attendance" element={<AttendanceCheck />} />
           <Route path="/find-id" element={<FindId />} />
+          <Route path="/find-id/phone" element={<FindIdPhone />} />
           <Route path="/find-id/result" element={<FindIdResult />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

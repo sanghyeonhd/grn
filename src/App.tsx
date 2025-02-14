@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -48,6 +49,7 @@ import MemberSocialInfo from "./pages/MemberSocialInfo";
 import Withdraw from "./pages/Withdraw";
 import CustomerService from "./pages/CustomerService";
 import FAQ from "./pages/FAQ";
+import ChatSupport from "./pages/ChatSupport";
 
 const queryClient = new QueryClient();
 
@@ -106,6 +108,7 @@ const App = () => (
             <Route path="/withdraw" element={<Withdraw />} />
             <Route path="/customer-service" element={<CustomerService />} />
             <Route path="/faq" element={<FAQ />} />
+            <Route path="/chat-support" element={<ChatSupport />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </TooltipProvider>

@@ -34,8 +34,8 @@ const Main = () => {
   }, {
     id: 2,
     category: "하남",
-    title: "NOLL 놀에 대한 모든 것.",
-    image: "/public/lovable-uploads/5543f85b-0d24-4ab3-a996-08c599742a75.png",
+    title: "",
+    image: "/public/lovable-uploads/ad6a0482-cc5a-4641-956e-7b86bedb9da1.png",
     date: "2023-07-08",
     views: 412
   }, {

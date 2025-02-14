@@ -5,12 +5,27 @@ import { ChevronLeft, Heart, Share2 } from 'lucide-react';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { cn } from '@/lib/utils';
 import { useToast } from "@/components/ui/use-toast";
+import ProductOptionSheet from '@/components/product/ProductOptionSheet';
 
 const PerfumeDetail = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { toast } = useToast();
   const [selectedVolume, setSelectedVolume] = useState<'100ml' | '200ml'>('100ml');
+  const [isGiftSheetOpen, setIsGiftSheetOpen] = useState(false);
+  const [isPurchaseSheetOpen, setIsPurchaseSheetOpen] = useState(false);
+  const [selectedProducts, setSelectedProducts] = useState<Array<{
+    name: string;
+    price: number;
+    quantity: number;
+    option?: string;
+  }>>([]);
+  const [selectedPurchaseProducts, setSelectedPurchaseProducts] = useState<Array<{
+    name: string;
+    price: number;
+    quantity: number;
+    option?: string;
+  }>>([]);
 
   const product = {
     id: '1',
@@ -52,6 +67,54 @@ const PerfumeDetail = () => {
       image: '/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png',
     },
   ];
+
+  const handleProductSelect = (option: string) => {
+    if (option === '구매 안함') return;
+    
+    setSelectedProducts([{
+      name: product.name,
+      price: product.price + (option.includes('500') ? 500 : 0),
+      quantity: 1,
+      option,
+    }]);
+  };
+
+  const handlePurchaseProductSelect = (option: string) => {
+    setSelectedPurchaseProducts([{
+      name: product.name,
+      price: product.price,
+      quantity: 1,
+      option,
+    }]);
+  };
+
+  const handleQuantityChange = (index: number, increment: boolean) => {
+    setSelectedProducts(prev => prev.map((item, i) => {
+      if (i === index) {
+        const newQuantity = increment ? item.quantity + 1 : Math.max(1, item.quantity - 1);
+        return { ...item, quantity: newQuantity };
+      }
+      return item;
+    }));
+  };
+
+  const handlePurchaseQuantityChange = (index: number, increment: boolean) => {
+    setSelectedPurchaseProducts(prev => prev.map((item, i) => {
+      if (i === index) {
+        const newQuantity = increment ? item.quantity + 1 : Math.max(1, item.quantity - 1);
+        return { ...item, quantity: newQuantity };
+      }
+      return item;
+    }));
+  };
+
+  const getTotalPrice = () => {
+    return selectedProducts.reduce((total, item) => total + (item.price * item.quantity), 0);
+  };
+
+  const getPurchaseTotalPrice = () => {
+    return selectedPurchaseProducts.reduce((total, item) => total + (item.price * item.quantity), 0);
+  };
 
   const handleNotify = () => {
     toast({
@@ -156,10 +219,16 @@ const PerfumeDetail = () => {
 
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t space-y-3">
         <div className="grid grid-cols-2 gap-3">
-          <button className="py-3 border border-black text-black">
+          <button 
+            className="py-3 border border-black text-black"
+            onClick={() => setIsGiftSheetOpen(true)}
+          >
             선물하기
           </button>
-          <button className="py-3 bg-[#2C2C2C] text-white">
+          <button 
+            className="py-3 bg-[#2C2C2C] text-white"
+            onClick={() => setIsPurchaseSheetOpen(true)}
+          >
             구매하기
           </button>
         </div>
@@ -172,6 +241,26 @@ const PerfumeDetail = () => {
           </button>
         )}
       </div>
+
+      <ProductOptionSheet 
+        isOpen={isGiftSheetOpen}
+        onOpenChange={setIsGiftSheetOpen}
+        type="gift"
+        selectedProducts={selectedProducts}
+        onProductSelect={handleProductSelect}
+        onQuantityChange={handleQuantityChange}
+        getTotalPrice={getTotalPrice}
+      />
+
+      <ProductOptionSheet 
+        isOpen={isPurchaseSheetOpen}
+        onOpenChange={setIsPurchaseSheetOpen}
+        type="purchase"
+        selectedProducts={selectedPurchaseProducts}
+        onProductSelect={handlePurchaseProductSelect}
+        onQuantityChange={handlePurchaseQuantityChange}
+        getTotalPrice={getPurchaseTotalPrice}
+      />
     </div>
   );
 };

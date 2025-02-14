@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Heart } from "lucide-react";
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 interface GiftSetProduct {
   id: number;
@@ -14,12 +13,12 @@ interface GiftSetProduct {
 }
 
 const GiftSet = () => {
-  const navigate = useNavigate();
   const location = useLocation();
   const [selectedBrand, setSelectedBrand] = useState('GRANHAND.');
   const [selectedTab, setSelectedTab] = useState(() => {
-    if (location.pathname === '/granshop/gift-set') return '기프트 세트';
-    if (location.pathname === '/granshop/perfume') return '퍼퓸';
+    const path = location.pathname.split('/').pop();
+    if (path === 'gift-set') return '기프트 세트';
+    if (path === 'perfume') return '퍼퓸';
     return '전체';
   });
   
@@ -62,12 +61,8 @@ const GiftSet = () => {
   ];
 
   const handleTabClick = (tab: string) => {
-    if (tab === '기프트 세트') {
-      navigate('/granshop/gift-set');
-    } else if (tab === '퍼퓸') {
-      navigate('/granshop/perfume');
-    }
     setSelectedTab(tab);
+    window.history.pushState(null, '', `/granshop${tab === '기프트 세트' ? '/gift-set' : tab === '퍼퓸' ? '/perfume' : ''}`);
   };
 
   return (
@@ -244,4 +239,3 @@ const GiftSet = () => {
 };
 
 export default GiftSet;
-

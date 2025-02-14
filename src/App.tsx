@@ -20,6 +20,7 @@ import Notifications from "./pages/Notifications";
 import Settings from "./pages/Settings";
 import MyCoupon from "./pages/MyCoupon";
 import CouponRegister from "./pages/CouponRegister";
+import Points from "./pages/Points";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +50,7 @@ const App = () => (
           <Route path="/settings" element={<Settings />} />
           <Route path="/my-coupon" element={<MyCoupon />} />
           <Route path="/coupon-register" element={<CouponRegister />} />
+          <Route path="/points" element={<Points />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

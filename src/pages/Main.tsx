@@ -64,14 +64,14 @@ const Main = () => {
         <h3 className="text-[14px] font-bold leading-[22px] text-[#6F6963] font-pretendard mb-6">
           BRAND SHOP
         </h3>
-        <div className="flex gap-4">
-          <button className="h-[50px] px-8 bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard">
+        <div className="flex gap-2">
+          <button className="h-[50px] px-4 bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap">
             GRANHAND
           </button>
-          <button className="h-[50px] px-8 bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard">
+          <button className="h-[50px] px-4 bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap">
             heiion
           </button>
-          <button className="h-[50px] px-8 bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard">
+          <button className="h-[50px] px-4 bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap">
             Komfortabel coffee
           </button>
         </div>

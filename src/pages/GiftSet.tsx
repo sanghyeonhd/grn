@@ -130,8 +130,8 @@ const GiftSet = () => {
 
       {/* 필터 */}
       <div className="flex justify-between items-center px-4 py-3">
-        <p className="text-sm">전체</p>
-        <button className="text-sm text-gray-600">추천순 ▼</button>
+        <p className="text-xs">전체</p>
+        <button className="text-xs text-gray-600">추천순 ▼</button>
       </div>
 
       {/* 상품 그리드 */}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronLeft } from 'lucide-react';
+import { ChevronLeft, Info } from 'lucide-react';
 import {
   Select,
   SelectContent,
@@ -234,15 +234,16 @@ const Checkout = () => {
               <span>25,500원</span>
             </div>
           </div>
-        </section>
-
-        {/* 적립 예정 포인트 */}
-        <section className="bg-gray-50 p-4 space-y-1">
-          <div className="flex items-center justify-between text-sm">
-            <span className="text-gray-600">적립 예정 포인트</span>
-            <span className="font-medium text-blue-500">+700</span>
+          <div className="mt-3">
+            <div className="flex items-center justify-between text-sm mb-1">
+              <span className="text-gray-600">적립 예정 포인트</span>
+              <span className="font-medium text-blue-500">+700</span>
+            </div>
+            <div className="flex items-start gap-1 text-xs text-gray-500">
+              <Info className="w-3 h-3 mt-0.5 flex-shrink-0" />
+              <span>구매 확정 시 회원 등급별 혜택에 따라 포인트가 지급됩니다.</span>
+            </div>
           </div>
-          <p className="text-xs text-gray-500">구매 확정 시 회원 등급별 혜택에 따라 포인트가 지급됩니다.</p>
         </section>
 
         {/* 합계 */}

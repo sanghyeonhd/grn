@@ -37,6 +37,16 @@ const products = {
       image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png",
       soldOut: false
     }
+  ],
+  giftsets: [
+    {
+      id: 1,
+      name: "Gift Set Example",
+      description: "선물 세트 예시",
+      price: "50,000 KRW",
+      image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png",
+      soldOut: false
+    }
   ]
 };
 

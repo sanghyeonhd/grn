@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Bell, ShoppingBag } from 'lucide-react';
+import { Bell, ShoppingBag, Wallet, CalendarCheck, Gift, ScrollText } from 'lucide-react';
 
 const MyPage = () => {
   const navigate = useNavigate();
@@ -54,7 +53,6 @@ const MyPage = () => {
             </div>
           </div>
 
-          {/* 이미지 추가 */}
           <div className="mt-4">
             <img 
               src="/lovable-uploads/7a38547d-6152-4ebb-a55b-86c27fd71d22.png" 
@@ -75,20 +73,20 @@ const MyPage = () => {
 
         <div className="mt-8 grid grid-cols-4 gap-4">
           <button className="flex flex-col items-center gap-2">
+            <Wallet className="w-6 h-6" />
             <span className="text-sm">포인트</span>
-            <span className="text-xs">0</span>
           </button>
           <button className="flex flex-col items-center gap-2">
+            <CalendarCheck className="w-6 h-6" />
             <span className="text-sm">출석체크</span>
-            <span className="text-xs">0</span>
           </button>
           <button className="flex flex-col items-center gap-2">
+            <Gift className="w-6 h-6" />
             <span className="text-sm">선물함</span>
-            <span className="text-xs">0</span>
           </button>
           <button className="flex flex-col items-center gap-2">
+            <ScrollText className="w-6 h-6" />
             <span className="text-sm">주문내역</span>
-            <span className="text-xs">0</span>
           </button>
         </div>
 

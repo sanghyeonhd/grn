@@ -75,7 +75,7 @@ const GuideResult = () => {
         <p className="text-sm leading-6 mb-8">{sampleResult.review}</p>
 
         <h3 className="text-lg font-bold mb-4">RECOMMENDED</h3>
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto scrollbar-hide">
           <div className="flex gap-4 pb-4" style={{ minWidth: 'min-content' }}>
             {sampleResult.recommendedProducts.map((product, index) => (
               <div key={index} className="flex-none">

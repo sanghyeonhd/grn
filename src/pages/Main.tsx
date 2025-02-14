@@ -1,11 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card } from "@/components/ui/card";
+
 const Main = () => {
   const navigate = useNavigate();
+
   const journalItems = [{
     id: 1,
-    image: "/public/lovable-uploads/a0b924b4-c414-41e8-8e2d-e878cf941a1c.png",
+    image: "/public/lovable-uploads/ad6ff026-1dc4-453b-8e88-0913eb046a87.png",
     category: "브랜드",
     title: "2025 Calender",
     description: "1월 뉴스레터에서 신청하세요",
@@ -19,10 +21,16 @@ const Main = () => {
     date: "2023-07-08",
     views: 412
   }];
-  return <div className="min-h-screen bg-[#FDFBF5]">
+
+  return (
+    <div className="min-h-screen bg-[#FDFBF5]">
       {/* 헤더 이미지 섹션 */}
       <div className="relative h-[482px]">
-        <img src={journalItems[0].image} alt="2025 Calendar" className="w-full h-full object-cover" />
+        <img 
+          src={journalItems[0].image}
+          alt="2025 Calendar"
+          className="w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute bottom-8 left-[7.69%] right-[4.62%]">
           <h1 className="text-[32px] font-bold leading-[42px] text-[#FDFBF5] font-pretendard mb-4">
@@ -84,6 +92,8 @@ const Main = () => {
             </Card>)}
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default Main;

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, Info } from 'lucide-react';
@@ -42,7 +43,10 @@ const Checkout = () => {
             <h2 className="text-sm">배송정보</h2>
             <button className="text-sm text-blue-500">배송지 목록</button>
           </div>
-          <button className="w-full mb-4 py-3 border border-gray-200 rounded-sm text-sm">
+          <button 
+            onClick={() => navigate('/address/list')} 
+            className="w-full mb-4 py-3 border border-gray-200 rounded-sm text-sm"
+          >
             새 배송지 추가
           </button>
           <div className="mb-4 bg-[#322A24]/[0.03] p-4 rounded text-[10px] text-gray-500 space-y-1">

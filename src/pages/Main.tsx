@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 
 const Main = () => {
   const navigate = useNavigate();
+
   const journalItems = [{
     id: 1,
     image: "/public/lovable-uploads/2c8101d5-73d5-41b7-acc5-1dd784aa0ecd.png",
@@ -22,10 +23,15 @@ const Main = () => {
     views: 412
   }];
 
-  return <div className="min-h-screen bg-[#FDFBF5]">
+  return (
+    <div className="min-h-screen bg-[#FDFBF5]">
       {/* 헤더 이미지 섹션 */}
       <div className="relative h-[482px]">
-        <img src={journalItems[0].image} alt="2025 Calendar" className="w-full h-full object-cover" />
+        <img 
+          src={journalItems[0].image}
+          alt="2025 Calendar"
+          className="w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute bottom-8 left-[7.69%] right-[4.62%]">
           <h1 className="text-[32px] font-bold leading-[42px] text-[#FDFBF5] font-pretendard mb-4">
@@ -46,28 +52,18 @@ const Main = () => {
 
       {/* 브랜드샵 섹션 */}
       <section className="px-6 pt-[37px]">
-        <h3 className="text-[14px] font-bold leading-[22px] text-[#6F6963] font-pretendard mb-6">브랜드 숍</h3>
+        <h3 className="text-[14px] font-bold leading-[22px] text-[#6F6963] font-pretendard mb-6">
+          브랜드샵
+        </h3>
         <div className="flex gap-2">
-          <button className="h-[50px] bg-white rounded-[50px] px-4 flex items-center justify-center">
-            <img 
-              src="/public/lovable-uploads/b8ea3ae1-bc76-40dc-9a17-44f3e64553af.png" 
-              alt="GRANHAND" 
-              className="h-5 object-contain"
-            />
+          <button className="h-[50px] px-4 bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap">
+            GRANHAND
           </button>
-          <button className="h-[50px] bg-[#322A24] rounded-[50px] px-4 flex items-center justify-center">
-            <img 
-              src="/public/lovable-uploads/236cc52b-886b-440d-a738-4c442393f3f4.png" 
-              alt="heiion" 
-              className="h-5 object-contain"
-            />
+          <button className="h-[50px] px-4 bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap">
+            heiion
           </button>
-          <button className="h-[50px] bg-[#322A24] rounded-[50px] px-4 flex items-center justify-center">
-            <img 
-              src="/public/lovable-uploads/ad6ff026-1dc4-453b-8e88-0913eb046a87.png" 
-              alt="Komfortabel coffee" 
-              className="h-5 object-contain"
-            />
+          <button className="h-[50px] px-4 bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap">
+            Komfortabel coffee
           </button>
         </div>
       </section>
@@ -97,7 +93,8 @@ const Main = () => {
             </Card>)}
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
 
 export default Main;

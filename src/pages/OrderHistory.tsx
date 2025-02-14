@@ -176,7 +176,7 @@ const OrderHistory = () => {
 
       <div className="space-y-4 p-4">
         {orderItems.map((item) => (
-          <div key={item.id} className="space-y-4">
+          <div key={item.id} className="space-y-4 pb-6 border-b last:border-b-0">
             <div 
               className="flex justify-between items-center cursor-pointer"
               onClick={() => navigate(`/order-history/${item.id}`)}
@@ -202,12 +202,24 @@ const OrderHistory = () => {
                 <div className="font-medium mt-1">{item.product.price.toLocaleString()}원</div>
               </div>
             </div>
-            <button
-              className="w-full py-3 border text-sm"
-              onClick={() => item.id === "1" ? setIsCancelModalOpen(true) : null}
-            >
-              {item.id === "1" ? "주문 취소" : "다른 사람에게 선물하기"}
-            </button>
+            {item.id === "1" ? (
+              <button
+                className="w-full py-3 border text-sm"
+                onClick={() => setIsCancelModalOpen(true)}
+              >
+                주문 취소
+              </button>
+            ) : item.id === "2" ? (
+              <div className="space-y-2">
+                <div className="grid grid-cols-2 gap-2">
+                  <button className="py-3 border text-sm">배송 조회</button>
+                  <button className="py-3 border text-sm">교환/반품 신청</button>
+                </div>
+                <button className="w-full py-3 border text-sm">
+                  구매 확정
+                </button>
+              </div>
+            ) : null}
           </div>
         ))}
       </div>

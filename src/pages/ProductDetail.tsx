@@ -139,7 +139,7 @@ const ProductDetail = () => {
 
       {/* Gift Sheet */}
       <Sheet open={isGiftSheetOpen} onOpenChange={setIsGiftSheetOpen}>
-        <SheetContent side="bottom" className="h-[80vh]">
+        <SheetContent side="bottom" className="h-[80vh] bg-white">
           <div className="h-full flex flex-col">
             <div className="flex-1 overflow-auto">
               <h2 className="text-lg font-medium mb-4">쇼핑백</h2>

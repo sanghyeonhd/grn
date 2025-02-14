@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -110,75 +109,30 @@ const Awards = () => {
 
       {submenuTab === '참가접수' && (
         <div className="p-4">
-          <div className="mb-8">
-            <h3 className="text-lg font-bold mb-2">제4회 그랜핸드 {activeTab}</h3>
-            <p className="text-sm text-[#666666]">접수기간: 2024.04.01 - 2024.05.31</p>
+          <div className="aspect-video bg-[#F5F5F5] rounded-none mb-4">
+            <img 
+              src="/public/lovable-uploads/11bd89c5-c86d-4f5b-8521-4a1ea4334711.png"
+              alt="FPAG Award"
+              className="w-full h-full object-cover"
+            />
           </div>
-          
-          <form className="space-y-6">
-            <div>
-              <label className="block text-sm font-medium mb-2">이름</label>
-              <input 
-                type="text" 
-                className="w-full p-3 text-sm border border-[#EAEAEA] rounded-lg focus:outline-none focus:border-[#1A1A1A]"
-                placeholder="이름을 입력해주세요"
-              />
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium mb-2">연락처</label>
-              <input 
-                type="tel" 
-                className="w-full p-3 text-sm border border-[#EAEAEA] rounded-lg focus:outline-none focus:border-[#1A1A1A]"
-                placeholder="연락처를 입력해주세요"
-              />
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium mb-2">이메일</label>
-              <input 
-                type="email" 
-                className="w-full p-3 text-sm border border-[#EAEAEA] rounded-lg focus:outline-none focus:border-[#1A1A1A]"
-                placeholder="이메일을 입력해주세요"
-              />
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium mb-2">참가부문</label>
-              <select className="w-full p-3 text-sm border border-[#EAEAEA] rounded-lg focus:outline-none focus:border-[#1A1A1A] bg-white">
-                <option value="">부문을 선택해주세요</option>
-                <option value="nature">Nature 자연</option>
-                <option value="people">People 사람</option>
-                <option value="daily">Daily Life 일상</option>
-                <option value="still">Still Life 정물</option>
-              </select>
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium mb-2">작품설명</label>
-              <textarea 
-                className="w-full p-3 text-sm border border-[#EAEAEA] rounded-lg focus:outline-none focus:border-[#1A1A1A] h-32"
-                placeholder="작품에 대한 설명을 입력해주세요"
-              />
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium mb-2">작품 첨부</label>
-              <div className="border-2 border-dashed border-[#EAEAEA] rounded-lg p-8 text-center">
-                <p className="text-sm text-[#666666] mb-2">JPG, PNG 파일 업로드 (최대 5MB)</p>
-                <button type="button" className="text-sm text-[#1A1A1A] font-medium underline">
-                  파일 선택하기
-                </button>
-              </div>
-            </div>
-            
-            <button 
-              type="submit" 
-              className="w-full bg-[#1A1A1A] text-white py-4 rounded-lg text-sm font-medium"
-            >
-              접수하기
-            </button>
-          </form>
+          <h3 className="text-base font-medium mb-1">GRANHAND, Film Photography Award</h3>
+          <p className="text-base mb-6">2025 그랜핸드 필름사진상</p>
+          <ul className="space-y-2 mb-8">
+            <li className="flex items-start">
+              <span className="text-sm">접수 : </span>
+              <span className="text-sm ml-1">2025.01.07(월) - 20(일)</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-sm">발표 : </span>
+              <span className="text-sm ml-1">2025.01.28(월)</span>
+            </li>
+          </ul>
+          <button 
+            className="w-32 h-10 border border-[#1A1A1A] text-sm"
+          >
+            참가 접수
+          </button>
         </div>
       )}
 

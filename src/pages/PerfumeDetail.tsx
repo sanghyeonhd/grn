@@ -97,23 +97,22 @@ const PerfumeDetail = () => {
         </div>
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t">
-        {product.isOutOfStock ? (
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t space-y-3">
+        <div className="grid grid-cols-2 gap-3">
+          <button className="py-3 border border-black text-black">
+            선물하기
+          </button>
+          <button className="py-3 bg-[#2C2C2C] text-white">
+            구매하기
+          </button>
+        </div>
+        {product.isOutOfStock && (
           <button 
             onClick={handleNotify}
             className="w-full py-3 bg-gray-900 text-white"
           >
             재입고 알림 신청
           </button>
-        ) : (
-          <div className="grid grid-cols-2 gap-3">
-            <button className="py-3 border border-black text-black">
-              선물하기
-            </button>
-            <button className="py-3 bg-[#2C2C2C] text-white">
-              구매하기
-            </button>
-          </div>
         )}
       </div>
     </div>

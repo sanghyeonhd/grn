@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
@@ -35,9 +34,22 @@ const Checkout = () => {
             <button className="text-sm text-blue-500">배송지 목록</button>
           </div>
           <div className="space-y-2">
-            <p className="font-medium">김 명</p>
-            <p className="text-sm">010-1234-5678</p>
-            <p className="text-sm text-gray-600">부산광역시 부전동 서면로 범내골 비자파크</p>
+            <div className="border rounded p-4 flex items-start">
+              <input type="checkbox" className="mt-1 mr-3" />
+              <div>
+                <p className="font-medium">김 명</p>
+                <p className="text-sm">010-1234-5678</p>
+                <p className="text-sm text-gray-600">부산광역시 부전동 서면로 범내골 비자파크</p>
+              </div>
+            </div>
+            <div className="border rounded p-4 flex items-start">
+              <input type="checkbox" className="mt-1 mr-3" />
+              <div>
+                <p className="font-medium">홍 길동</p>
+                <p className="text-sm">010-9876-5432</p>
+                <p className="text-sm text-gray-600">서울특별시 강남구 테헤란로 123</p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -92,6 +104,10 @@ const Checkout = () => {
               className="flex-1 p-3 border rounded-sm text-sm"
             />
             <button className="px-4 py-2 border rounded-sm">특수기호</button>
+          </div>
+          <div className="mt-2 text-[10px] text-gray-500 space-y-1">
+            <p>10자 이하 영문 대문자, 숫자, 특수기호(. , ! % & ? ❤️)만 가능합니다.</p>
+            <p>스탬핑 작업 시 교환 및 환불이 불가능합니다.</p>
           </div>
         </section>
 

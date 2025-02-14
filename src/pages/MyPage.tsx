@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Bell, ShoppingBag, Wallet, CalendarCheck, Gift, ScrollText } from 'lucide-react';
@@ -106,16 +107,16 @@ const MyPage = () => {
           <span className="text-xs">홈</span>
         </button>
         <button className="flex flex-col items-center justify-center">
-          <span className="text-xs">카테고리</span>
+          <span className="text-xs">향가이드</span>
         </button>
         <button className="flex flex-col items-center justify-center">
-          <span className="text-xs">좋아요</span>
+          <span className="text-xs">스캔</span>
         </button>
         <button className="flex flex-col items-center justify-center">
-          <span className="text-xs">검색</span>
+          <span className="text-xs">관심상품</span>
         </button>
         <button className="flex flex-col items-center justify-center">
-          <span className="text-xs text-black font-bold">마이</span>
+          <span className="text-xs text-black font-bold">MY</span>
         </button>
       </div>
     </div>

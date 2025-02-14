@@ -60,12 +60,14 @@ const Main = () => {
             Komfortabel coffee
           </button>
         </div>
-        <div className="w-[342px] h-[100px] rounded-2xl overflow-hidden">
-          <img 
-            src="/public/lovable-uploads/5efa3b32-af2d-4af0-9928-c99bfed9e19a.png" 
-            alt="Roland Banner" 
-            className="w-full h-full object-cover"
-          />
+        <div className="flex justify-center">
+          <div className="w-[342px] h-[100px] rounded-2xl overflow-hidden">
+            <img 
+              src="/public/lovable-uploads/5efa3b32-af2d-4af0-9928-c99bfed9e19a.png" 
+              alt="Roland Banner" 
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </section>
 

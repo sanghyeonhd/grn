@@ -116,16 +116,24 @@ const Withdraw = () => {
       <p className="mb-4">유의사항을 확인해 주세요.</p>
       <div className="bg-gray-50 p-4 rounded text-sm space-y-6">
         <div>
-          <h3 className="font-medium mb-1">회원탈퇴 후 재가입</h3>
-          <p className="text-gray-600">동일한 본인 확인 휴대폰으로는 30일 이후에 재가입 가능합니다.</p>
+          <h3 className="font-medium mb-1">회원 탈퇴 후 재가입</h3>
+          <p className="text-gray-600">동일한 본인 정보 휴대폰으로는 30일 이후에 재가입 가능합니다.</p>
         </div>
         <div>
-          <h3 className="font-medium mb-1">탈퇴 후 재가입 시 기회 박탈</h3>
+          <h3 className="font-medium mb-1">탈퇴 후 재가입 시 가입 혜택 제한</h3>
           <p className="text-gray-600">탈퇴 후 재가입 시 신규 가입 혜택에 제한이 있을 수 있습니다.</p>
+        </div>
+        <div>
+          <h3 className="font-medium mb-1">아이디 재사용 및 복구 불가</h3>
+          <p className="text-gray-600">회원 정보는 탈퇴 가완 즉시로 모든 정보가 사제되며, 재가입 시에도 기존 아이디는 더 이상 사용할 수 없습니다.</p>
         </div>
         <div>
           <h3 className="font-medium mb-1">회원정보/서비스 이용 기록 삭제</h3>
           <p className="text-gray-600">회원 정보, 포인트, 쿠폰, 구매내역는 물론 대아디감 전부가 삭제되며 복구가 불가능합니다. 단만, 일부 주문 정보는 단순 탈퇴 불가능니다. 홈택 배달 당자 목적 으로 더 긴은 1년간 보관 후 파기됩니다.</p>
+        </div>
+        <div>
+          <h3 className="font-medium mb-1">등록 게시물 유지</h3>
+          <p className="text-gray-600">게시글, 문의 내역 등의 데이터는 사제되지 않으며, 반드시 탈퇴 전 직접 삭제해야 합니다.</p>
         </div>
       </div>
       <div className="mt-4 flex items-center space-x-2">

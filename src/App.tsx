@@ -5,13 +5,18 @@ import AddressForm from "./pages/AddressForm";
 import Checkout from "./pages/Checkout";
 import Main from "./pages/Main";
 import ErrorPage from "./pages/ErrorPage";
+import Index from "./pages/Index";
 import { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main />,
+    element: <Index />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: "/granshop",
+    element: <Main />,
   },
   {
     path: "/address/list",

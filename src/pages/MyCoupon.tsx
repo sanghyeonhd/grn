@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, X } from 'lucide-react';
@@ -121,25 +120,24 @@ const MyCoupon = () => {
       </div>
 
       <Sheet open={selectedCoupon !== null} onOpenChange={() => setSelectedCoupon(null)}>
-        <SheetContent side="bottom" className="h-[90vh] rounded-t-xl">
-          <SheetHeader className="relative border-b pb-4">
+        <SheetContent side="bottom" className="h-[90vh] p-0 bg-white">
+          <div className="p-4 border-b relative">
             <button 
               onClick={() => setSelectedCoupon(null)}
-              className="absolute right-0 top-0"
+              className="absolute right-4 top-1/2 -translate-y-1/2"
             >
-              <X className="h-6 w-6" />
+              <X className="h-5 w-5" />
             </button>
-            <SheetTitle className="text-left text-lg">
-              {selectedCouponData?.title}
-            </SheetTitle>
-          </SheetHeader>
-          <div className="flex flex-col items-center justify-center py-8">
-            <div className="w-64 h-64 bg-gray-100 flex items-center justify-center mb-4">
+            <h2 className="text-center pr-8">QR 코드 등록</h2>
+          </div>
+          <div className="flex flex-col items-center justify-center p-8">
+            <div className="w-64 h-64 bg-white border rounded-lg mb-4 flex items-center justify-center">
               {/* QR 코드 이미지가 들어갈 자리 */}
               <div className="text-center">QR 코드</div>
             </div>
-            <p className="text-sm text-gray-600">{selectedCouponData?.description}</p>
-            <p className="text-xs text-gray-400 mt-1">{selectedCouponData?.validUntil}</p>
+            <p className="text-center font-medium">{selectedCouponData?.title}</p>
+            <p className="text-center text-sm text-gray-600 mt-2">{selectedCouponData?.description}</p>
+            <p className="text-center text-xs text-gray-400 mt-1">{selectedCouponData?.validUntil}</p>
           </div>
         </SheetContent>
       </Sheet>

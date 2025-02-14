@@ -24,7 +24,7 @@ const OrderDetail = () => {
           <h2 className="text-lg font-medium mb-4">선물 보내신 분 정보</h2>
           <div className="bg-gray-50 p-4 rounded">
             <img 
-              src="/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png" 
+              src="/lovable-uploads/c4405cbc-95f4-4898-9d74-1d34e74d9e08.png" 
               alt="Gift"
               className="w-full h-48 object-cover mb-4"
             />

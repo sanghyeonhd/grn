@@ -51,7 +51,7 @@ const ProductDetail = () => {
       <div className="pt-[56px] pb-[100px]">
         <div className="aspect-square">
           <img 
-            src="/lovable-uploads/07bd9556-ce74-44fd-832b-e7677fffc09d.png"
+            src="/lovable-uploads/a66b55f3-2b6b-41f7-9e15-737e9f5491fd.png"
             alt="Roland Multi Perfume" 
             className="w-full h-full object-cover"
           />

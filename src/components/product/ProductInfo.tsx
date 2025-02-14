@@ -38,9 +38,8 @@ const ProductInfo = () => {
             </SheetHeader>
             <div className="mt-6">
               <p className="text-sm text-gray-600">
-                롤랑 브랜드에서 향기를 만나다.<br />
-                감각과 감성이 살아나던 순간, 향에 몰입할 수 있었던 롤랑과의 만남.<br />
-                향에 대한 깊은 프로그래밍처럼 시그니처로 향을 맡을 수 있습니다.
+                롤랑 브랜드에서 '향기'를 만나다. '감각'과 '감성'이 살아나던 순간.<br />
+                순간마다 변화하는 향이, 향을 맡는 프로그래머처럼 스스니처 향으로써 향에 몰입할 수 있었습니다.
               </p>
             </div>
           </SheetContent>
@@ -51,8 +50,7 @@ const ProductInfo = () => {
         <div className="space-y-2">
           <h3 className="font-medium">배송 예정 안내</h3>
           <p className="text-sm text-gray-600">
-            - 당일 배송 / 배송비 3,000원<br />
-            - 홈택배 봉투로 발송됨
+            - 당일 배송 / 홈택배 봉투로 발송됨 / 우체국택배 / 배송비무료
           </p>
         </div>
 
@@ -67,7 +65,7 @@ const ProductInfo = () => {
           <h3 className="font-medium">문의</h3>
           <p className="text-sm text-gray-600">
             - 배송 전/후 교환 및 반품 가능<br />
-            - 문의 접수는 CS팀에서 처리됩니다 (상담시간: 13:00~18:00)
+            - 문의 접수는 CS팀에서 처리됩니다 (상담 시간: 13:00~18:00)
           </p>
         </div>
 
@@ -99,18 +97,6 @@ const ProductInfo = () => {
               <span className="w-20 text-gray-500">제조국</span>
               <span>대한민국</span>
             </div>
-            <div className="flex text-sm">
-              <span className="w-20 text-gray-500">제조사</span>
-              <span>Roland 롤랑</span>
-            </div>
-            <div className="flex text-sm">
-              <span className="w-20 text-gray-500">제조일자</span>
-              <span>2023.12</span>
-            </div>
-            <div className="flex text-sm">
-              <span className="w-20 text-gray-500">사용기한</span>
-              <span>제조일로부터 24개월</span>
-            </div>
           </div>
         </div>
       </div>
@@ -122,7 +108,7 @@ const ProductInfo = () => {
             <div key={i} className="space-y-2">
               <div className="relative aspect-square">
                 <img 
-                  src="/lovable-uploads/07bd9556-ce74-44fd-832b-e7677fffc09d.png"
+                  src="/lovable-uploads/a66b55f3-2b6b-41f7-9e15-737e9f5491fd.png"
                   alt="Roland Multi Perfume"
                   className="w-full h-full object-cover"
                 />
@@ -146,7 +132,7 @@ const ProductInfo = () => {
             <div key={i} className="space-y-2">
               <div className="relative aspect-square">
                 <img 
-                  src="/lovable-uploads/07bd9556-ce74-44fd-832b-e7677fffc09d.png"
+                  src="/lovable-uploads/a66b55f3-2b6b-41f7-9e15-737e9f5491fd.png"
                   alt="Roland Multi Perfume"
                   className="w-full h-full object-cover"
                 />

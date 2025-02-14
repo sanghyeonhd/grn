@@ -23,6 +23,7 @@ import CouponRegister from "./pages/CouponRegister";
 import Points from "./pages/Points";
 import AttendanceCheck from "./pages/AttendanceCheck";
 import OrderHistory from "./pages/OrderHistory";
+import GiftBox from "./pages/GiftBox";
 
 const queryClient = new QueryClient();
 
@@ -55,6 +56,7 @@ const App = () => (
           <Route path="/points" element={<Points />} />
           <Route path="/attendance" element={<AttendanceCheck />} />
           <Route path="/order-history" element={<OrderHistory />} />
+          <Route path="/gift-box" element={<GiftBox />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

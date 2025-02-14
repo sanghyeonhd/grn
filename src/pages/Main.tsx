@@ -2,8 +2,27 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card } from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+
 const Main = () => {
   const navigate = useNavigate();
+  const bannerItems = [
+    {
+      id: 1,
+      image: "/public/lovable-uploads/5efa3b32-af2d-4af0-9928-c99bfed9e19a.png",
+      text: "Sometimes You win,\nSometimes you learn."
+    },
+    {
+      id: 2,
+      image: "/public/lovable-uploads/5efa3b32-af2d-4af0-9928-c99bfed9e19a.png",
+      text: "Second banner text"
+    },
+    {
+      id: 3,
+      image: "/public/lovable-uploads/5efa3b32-af2d-4af0-9928-c99bfed9e19a.png",
+      text: "Third banner text"
+    }
+  ];
   const journalItems = [{
     id: 1,
     image: "/public/lovable-uploads/2c8101d5-73d5-41b7-acc5-1dd784aa0ecd.png",
@@ -61,13 +80,26 @@ const Main = () => {
           </button>
         </div>
         <div className="flex justify-center">
-          <div className="w-[342px] h-[100px] rounded-2xl overflow-hidden">
-            <img 
-              src="/public/lovable-uploads/5efa3b32-af2d-4af0-9928-c99bfed9e19a.png" 
-              alt="Roland Banner" 
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <Carousel className="w-[342px]" opts={{ loop: true, align: "start", active: true }}>
+            <CarouselContent>
+              {bannerItems.map((item) => (
+                <CarouselItem key={item.id}>
+                  <div className="relative h-[100px] rounded-2xl overflow-hidden">
+                    <img 
+                      src={item.image} 
+                      alt={`Banner ${item.id}`} 
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 flex items-center">
+                      <p className="text-[#FDFBF5] text-lg font-bold pl-6 whitespace-pre-line">
+                        {item.text}
+                      </p>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
       </section>
 

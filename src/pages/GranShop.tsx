@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Heart, Search, ShoppingCart } from "lucide-react";
 
@@ -55,6 +56,14 @@ const ProductCard = ({ product }: { product: any }) => (
 );
 
 const GiftSet = () => {
+  const navigate = useNavigate();
+
+  const handleCategoryClick = (category: string) => {
+    if (category === '기프트 세트') {
+      navigate('/granshop/giftset');
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -92,11 +101,16 @@ const GiftSet = () => {
       {/* Categories */}
       <div className="px-4 border-b">
         <div className="flex items-center gap-4 py-3 text-[0.688rem] overflow-x-auto scrollbar-hide">
-          <button className="whitespace-nowrap font-medium">전체</button>
-          <button className="whitespace-nowrap text-gray-600">기프트 세트</button>
-          <button className="whitespace-nowrap text-gray-600">퍼퓸</button>
-          <button className="whitespace-nowrap text-gray-600">공간</button>
-          <button className="whitespace-nowrap text-gray-600">바디</button>
+          <button className="whitespace-nowrap font-medium" onClick={() => handleCategoryClick('전체')}>전체</button>
+          <button 
+            className="whitespace-nowrap text-gray-600" 
+            onClick={() => handleCategoryClick('기프트 세트')}
+          >
+            기프트 세트
+          </button>
+          <button className="whitespace-nowrap text-gray-600" onClick={() => handleCategoryClick('퍼퓸')}>퍼퓸</button>
+          <button className="whitespace-nowrap text-gray-600" onClick={() => handleCategoryClick('공간')}>공간</button>
+          <button className="whitespace-nowrap text-gray-600" onClick={() => handleCategoryClick('바디')}>바디</button>
         </div>
       </div>
 

@@ -86,7 +86,10 @@ const MyPage = () => {
             <CalendarCheck className="w-6 h-6" />
             <span className="text-sm">출석체크</span>
           </button>
-          <button className="flex flex-col items-center gap-2">
+          <button 
+            className="flex flex-col items-center gap-2"
+            onClick={() => navigate('/gift-box')}
+          >
             <Gift className="w-6 h-6" />
             <span className="text-sm">선물함</span>
           </button>

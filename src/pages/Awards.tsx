@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -74,7 +73,7 @@ const Awards = () => {
             <img 
               src="/public/lovable-uploads/707d314f-2527-46c5-a639-c450c208981a.png" 
               alt="FPAG Logo"
-              className="w-48 h-auto mb-6"
+              className="w-full h-auto mb-6"
             />
             <p className="text-sm text-[#1A1A1A] leading-6 mb-8">
               그랜핸드 {activeTab}은 그랜핸드가 유치하는 이념로고 감상과 함께 삶에 대한 성찰을 사진으로 표현하여 아마추어리즘 작가를 발굴하고 소개합니다. 수상자들은 그랜핸드와 함께 다양한 협업을 진행하여 전시에 참여할 기회가 제공됩니다.

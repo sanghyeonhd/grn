@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Heart } from "lucide-react";
@@ -105,9 +104,9 @@ const GiftSet = () => {
       </div>
 
       {/* 배너 이미지 */}
-      <div className="relative h-[200px] bg-[#F5F5F5]">
+      <div className="relative h-[130px] bg-[#F5F5F5]">
         <img 
-          src="/public/lovable-uploads/092eb283-23bd-407b-b1b5-32f31494fe52.png" 
+          src="/public/lovable-uploads/6636d39a-ad0a-41a2-9827-05059fd77488.png" 
           alt="Banner" 
           className="w-full h-full object-cover"
         />

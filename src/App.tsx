@@ -52,6 +52,8 @@ import ChatSupport from "./pages/ChatSupport";
 import Partnership from "./pages/Partnership";
 import Notice from "./pages/Notice";
 import Terms from "./pages/Terms";
+import LanguageSettings from "./pages/LanguageSettings";
+import NotificationSettings from "./pages/NotificationSettings";
 
 const queryClient = new QueryClient();
 
@@ -80,6 +82,8 @@ const App = () => (
             <Route path="/grade-guide" element={<GradeGuide />} />
             <Route path="/notifications" element={<Notifications />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/settings/language" element={<LanguageSettings />} />
+            <Route path="/settings/notification" element={<NotificationSettings />} />
             <Route path="/my-coupon" element={<MyCoupon />} />
             <Route path="/coupon-register" element={<CouponRegister />} />
             <Route path="/points" element={<Points />} />

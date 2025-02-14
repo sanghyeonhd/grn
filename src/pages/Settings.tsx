@@ -1,8 +1,7 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronLeft } from 'lucide-react';
-import { Switch } from "@/components/ui/switch";
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Settings = () => {
   const navigate = useNavigate();
@@ -13,34 +12,34 @@ const Settings = () => {
         <button onClick={() => navigate(-1)}>
           <ChevronLeft className="w-6 h-6" />
         </button>
-        <h1 className="text-lg">알림 설정</h1>
+        <h1 className="text-lg">설정</h1>
       </div>
       
-      <div className="p-4 space-y-6">
-        <div className="space-y-3">
-          <div className="flex items-center justify-between">
-            <h2 className="font-medium">서비스 알림</h2>
-            <Switch className="data-[state=checked]:bg-blue-500 data-[state=checked]:hover:bg-blue-600" />
-          </div>
-          <p className="text-[10px] text-gray-600">기기의 '설정 &gt; 그랑핸드 &gt; 알림'에서 설정</p>
-        </div>
+      <div className="p-4">
+        <button 
+          onClick={() => navigate('/settings/notification')}
+          className="w-full py-4 flex items-center justify-between border-b"
+        >
+          <span>알림 설정</span>
+          <ChevronRight className="w-5 h-5 text-gray-400" />
+        </button>
 
-        <div className="space-y-3">
-          <div className="flex items-center justify-between">
-            <h2 className="font-medium">혜택 정보 알림</h2>
-            <Switch className="data-[state=checked]:bg-blue-500 data-[state=checked]:hover:bg-blue-600" />
+        <button 
+          onClick={() => navigate('/settings/language')}
+          className="w-full py-4 flex items-center justify-between border-b"
+        >
+          <span>언어 설정</span>
+          <div className="flex items-center text-gray-400">
+            <span className="mr-2">한국어</span>
+            <ChevronRight className="w-5 h-5" />
           </div>
-          <p className="text-[10px] text-gray-600">그랑핸드 회원을 위한 할인 소식, 쿠폰 등 혜택 정보를 알려드립니다.<br/>영리성 목적 외의 정보성 내용은 설정 여부와 무관하게 발송됩니다.</p>
-        </div>
+        </button>
 
-        <div className="space-y-4">
-          <div className="flex items-center justify-between">
-            <span className="font-medium">앱 푸시</span>
-            <Switch className="data-[state=checked]:bg-blue-500 data-[state=checked]:hover:bg-blue-600" />
-          </div>
-          <div className="flex items-center justify-between">
-            <span className="font-medium">SMS</span>
-            <Switch className="data-[state=checked]:bg-blue-500 data-[state=checked]:hover:bg-blue-600" />
+        <div className="w-full py-4 flex items-center justify-between border-b">
+          <span>버전 정보</span>
+          <div className="flex items-center">
+            <span className="mr-2 text-gray-400">1.00.0</span>
+            <span className="text-xs text-gray-400">최신 버전 사용중</span>
           </div>
         </div>
       </div>

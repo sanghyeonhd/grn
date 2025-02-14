@@ -134,7 +134,12 @@ const MyPage = () => {
           >
             고객센터
           </button>
-          <button className="w-full py-3 text-left border-t">설정</button>
+          <button 
+            className="w-full py-3 text-left border-t"
+            onClick={() => navigate('/settings')}
+          >
+            설정
+          </button>
         </div>
       </div>
 

@@ -1,6 +1,8 @@
 
 import { ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import PurchaseConfirmation from './PurchaseConfirmation';
 
 interface OrderItemProps {
   item: {
@@ -19,6 +21,13 @@ interface OrderItemProps {
 
 const OrderItem = ({ item, onCancelClick }: OrderItemProps) => {
   const navigate = useNavigate();
+  const [isPurchaseConfirmOpen, setIsPurchaseConfirmOpen] = useState(false);
+
+  const handlePurchaseConfirm = (selectedProducts: string[]) => {
+    console.log('Selected products for purchase confirmation:', selectedProducts);
+    setIsPurchaseConfirmOpen(false);
+    // Here you would typically make an API call to confirm the purchase
+  };
 
   return (
     <div className="space-y-4 pb-6 border-b last:border-b-0">
@@ -60,11 +69,44 @@ const OrderItem = ({ item, onCancelClick }: OrderItemProps) => {
             <button className="py-3 border text-sm">배송 조회</button>
             <button className="py-3 border text-sm">교환/반품 신청</button>
           </div>
-          <button className="w-full py-3 border text-sm">
+          <button 
+            className="w-full py-3 border text-sm"
+            onClick={() => setIsPurchaseConfirmOpen(true)}
+          >
             구매 확정
           </button>
         </div>
       ) : null}
+
+      <PurchaseConfirmation
+        isOpen={isPurchaseConfirmOpen}
+        onClose={() => setIsPurchaseConfirmOpen(false)}
+        onConfirm={handlePurchaseConfirm}
+        products={[
+          {
+            id: "1",
+            brand: "GRANHAND",
+            name: "Roland Multi Perfume",
+            price: 55500,
+            image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png",
+            option: "롤랑 멀티퍼퓸 200ml / 1개",
+            stampingLabel: "",
+            stampingType: "",
+            points: 500
+          },
+          {
+            id: "2",
+            brand: "GRANHAND",
+            name: "Cask Signature Perfume",
+            price: 110000,
+            image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png",
+            option: "캐스크 시그니처퍼퓸 100ml / 1개",
+            stampingLabel: "",
+            stampingType: "",
+            points: 500
+          }
+        ]}
+      />
     </div>
   );
 };

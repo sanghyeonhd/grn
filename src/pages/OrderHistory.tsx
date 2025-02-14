@@ -38,6 +38,7 @@ const OrderHistory = () => {
   const [endDate, setEndDate] = useState("2023.10.28");
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
   const [isCancelModalOpen, setIsCancelModalOpen] = useState(false);
+  const [selectedTab, setSelectedTab] = useState("전체");
 
   const orderItems: OrderItem[] = [
     {
@@ -124,6 +125,21 @@ const OrderHistory = () => {
         </div>
       </header>
 
+      <div className="flex gap-4 p-4 border-b">
+        <button 
+          className={`text-sm ${selectedTab === "전체" ? "font-medium" : "text-gray-500"}`}
+          onClick={() => setSelectedTab("전체")}
+        >
+          전체
+        </button>
+        <button 
+          className={`text-sm ${selectedTab === "최근 1년" ? "font-medium" : "text-gray-500"}`}
+          onClick={() => setSelectedTab("최근 1년")}
+        >
+          최근 1년
+        </button>
+      </div>
+
       <div className="grid grid-cols-5 py-4 text-center text-sm border-b">
         <div>
           <div>1</div>
@@ -161,7 +177,12 @@ const OrderHistory = () => {
                 className="w-20 h-20 object-cover"
               />
               <div className="flex-1">
-                <div className="text-gray-500">{item.status}</div>
+                <div className="text-gray-500 flex items-center gap-2">
+                  {item.status}
+                  {item.status === "입금 대기" && (
+                    <button className="text-sm underline">문의하기</button>
+                  )}
+                </div>
                 <div className="font-medium">{item.product.name}</div>
                 <div className="text-sm text-gray-500">{item.product.option}</div>
                 <div className="font-medium mt-1">{item.product.price.toLocaleString()}원</div>
@@ -169,9 +190,9 @@ const OrderHistory = () => {
             </div>
             <button
               className="w-full py-3 border text-sm"
-              onClick={() => setIsCancelModalOpen(true)}
+              onClick={() => item.id === "1" ? setIsCancelModalOpen(true) : null}
             >
-              주문 취소
+              {item.id === "1" ? "주문 취소" : "다른 사람에게 선물하기"}
             </button>
           </div>
         ))}

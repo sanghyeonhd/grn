@@ -46,21 +46,21 @@ const OrderDetail = () => {
         <div className="mt-8">
           <h2 className="text-lg font-medium mb-4">배송지 정보</h2>
           <div className="space-y-4">
-            <div className="flex justify-between">
-              <div className="text-gray-500">받는 분</div>
+            <div className="flex">
+              <div className="w-20 text-gray-500">받는 분</div>
               <div>홍*동</div>
             </div>
-            <div className="flex justify-between">
-              <div className="text-gray-500">연락처</div>
+            <div className="flex">
+              <div className="w-20 text-gray-500">연락처</div>
               <div>010-****-5678</div>
             </div>
-            <div className="flex justify-between">
-              <div className="text-gray-500">주소</div>
-              <div className="text-right">[47291]부산 부산진구 서전로<br />********** 선정로</div>
+            <div className="flex">
+              <div className="w-20 text-gray-500">주소</div>
+              <div>[47291]부산 부산진구 서전로<br />********** 선정로</div>
             </div>
-            <div className="flex justify-between">
-              <div className="text-gray-500">요청사항</div>
-              <div className="text-right">벨 눌르지 말고 노크 톡톡 2번만 해주세요.</div>
+            <div className="flex">
+              <div className="w-20 text-gray-500">요청사항</div>
+              <div>벨 눌르지 말고 노크 톡톡 2번만 해주세요.</div>
             </div>
           </div>
         </div>

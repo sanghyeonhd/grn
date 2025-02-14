@@ -30,7 +30,10 @@ const Checkout = () => {
       <div className="p-4 space-y-6">
         {/* 배송정보 */}
         <section>
-          <h2 className="text-sm mb-4">배송정보</h2>
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-sm">배송정보</h2>
+            <button className="text-sm text-blue-500">배송지 목록</button>
+          </div>
           <div className="space-y-2">
             <p className="font-medium">김 명</p>
             <p className="text-sm">010-1234-5678</p>
@@ -76,18 +79,25 @@ const Checkout = () => {
           </div>
         </section>
 
-        {/* 스템프 적립 */}
-        <section className="flex items-center justify-between">
-          <div>
-            <h2 className="text-sm mb-1">스템프 적립</h2>
-            <p className="text-xs text-gray-500">로그인 후 적립 신청해 주세요.</p>
+        {/* 스탬핑 문구 */}
+        <section>
+          <div className="flex items-center justify-between mb-2">
+            <h2 className="text-sm">스탬핑 문구</h2>
+            <Switch />
           </div>
-          <Switch />
+          <div className="flex gap-2">
+            <input
+              type="text"
+              placeholder="원하는 문구를 입력해 주세요."
+              className="flex-1 p-3 border rounded-sm text-sm"
+            />
+            <button className="px-4 py-2 border rounded-sm">특수기호</button>
+          </div>
         </section>
 
-        {/* 사용 가능 포인트 */}
+        {/* 사용 가능 쿠폰 */}
         <section>
-          <h2 className="text-sm mb-2">사용 가능 포인트</h2>
+          <h2 className="text-sm mb-2">사용 가능 쿠폰</h2>
           <Select>
             <SelectTrigger className="w-full">
               <SelectValue placeholder="5,000원 또는 (10,000원 이상 적립 가능)" />

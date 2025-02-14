@@ -71,36 +71,34 @@ const AddressList = () => {
               key={address.id}
               className={`border rounded-sm p-4 ${selectedAddress === address.id ? 'border-black' : 'border-gray-200'}`}
             >
-              <div className="flex items-start">
-                <div className="flex items-center gap-2 mt-1">
-                  <input
-                    type="checkbox"
-                    checked={selectedAddress === address.id}
-                    onChange={() => handleCheckboxChange(address.id)}
-                    className="mr-1"
-                  />
-                  <span className="text-sm">{address.label}</span>
-                </div>
-                <div className="flex-1 ml-3">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      {address.isDefault && (
-                        <div className="text-xs text-gray-500 mb-1">기본 배송지</div>
-                      )}
-                      <p className="font-medium">{address.name}</p>
-                      <p className="text-sm mt-1">{address.phone}</p>
-                      <p className="text-sm text-gray-600 mt-1">{address.address}</p>
-                    </div>
-                    <div className="flex items-center gap-4 whitespace-nowrap">
-                      <button className="text-sm text-gray-500">수정</button>
-                      <button 
-                        onClick={() => handleDelete(address.id)} 
-                        className="text-sm text-gray-500"
-                      >
-                        삭제
-                      </button>
-                    </div>
+              <div className="flex items-start justify-between">
+                <div className="flex items-start flex-1">
+                  <div className="flex items-center gap-2 mt-1">
+                    <input
+                      type="checkbox"
+                      checked={selectedAddress === address.id}
+                      onChange={() => handleCheckboxChange(address.id)}
+                      className="mr-1"
+                    />
+                    <span className="text-sm">{address.label}</span>
                   </div>
+                  <div className="ml-3">
+                    {address.isDefault && (
+                      <div className="text-xs text-gray-500 mb-1">기본 배송지</div>
+                    )}
+                    <p className="font-medium">{address.name}</p>
+                    <p className="text-sm mt-1">{address.phone}</p>
+                    <p className="text-sm text-gray-600 mt-1">{address.address}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 whitespace-nowrap ml-4">
+                  <button className="text-sm text-gray-500">수정</button>
+                  <button 
+                    onClick={() => handleDelete(address.id)} 
+                    className="text-sm text-gray-500"
+                  >
+                    삭제
+                  </button>
                 </div>
               </div>
             </div>

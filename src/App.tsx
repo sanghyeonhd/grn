@@ -20,6 +20,7 @@ import FindPasswordReset from "./pages/FindPasswordReset";
 import SignupTerms from "./pages/SignupTerms";
 import TermDetail from "./pages/TermDetail";
 import Signup from "./pages/Signup";
+import SignupVerify from "./pages/SignupVerify";
 import SignupComplete from "./pages/SignupComplete";
 
 const queryClient = new QueryClient();
@@ -46,6 +47,7 @@ const App = () => (
           <Route path="/signup/terms" element={<SignupTerms />} />
           <Route path="/terms/:type" element={<TermDetail />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/signup/verify" element={<SignupVerify />} />
           <Route path="/signup/complete" element={<SignupComplete />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

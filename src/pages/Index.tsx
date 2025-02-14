@@ -1,62 +1,80 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useIsMobile } from '../hooks/use-mobile';
-import { 
-  Carousel, 
-  CarouselContent, 
-  CarouselItem, 
-  CarouselPrevious, 
-  CarouselNext 
-} from "@/components/ui/carousel"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+import Splash from '../components/Splash';
 
 const Index = () => {
   const isMobile = useIsMobile();
+  const [showSplash, setShowSplash] = useState(true);
 
-  const images = [
-    "/placeholder.svg",
-    "/placeholder.svg",
-    "/placeholder.svg",
-    "/placeholder.svg"
-  ];
+  if (showSplash) {
+    return <Splash onComplete={() => setShowSplash(false)} />;
+  }
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className={`container mx-auto ${isMobile ? 'px-4' : 'px-8'} py-6`}>
-        <h1 className={`text-center font-bold mb-6 ${isMobile ? 'text-2xl' : 'text-4xl'}`}>
-          사진 갤러리
-        </h1>
+    <div className="min-h-screen bg-white">
+      <div className="px-4 py-6 space-y-6">
+        {/* 헤더 */}
+        <header className="text-2xl font-bold">
+          GRANHAND.
+        </header>
 
-        <Carousel className="w-full max-w-screen-lg mx-auto">
-          <CarouselContent>
-            {images.map((image, index) => (
-              <CarouselItem key={index}>
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg">
-                  <img
-                    src={image}
-                    alt={`Gallery image ${index + 1}`}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className={isMobile ? "-left-2" : "-left-12"} />
-          <CarouselNext className={isMobile ? "-right-2" : "-right-12"} />
-        </Carousel>
+        {/* 로그인 폼 */}
+        <div className="space-y-4">
+          <div className="space-y-2">
+            <label className="text-sm">아이디</label>
+            <Input 
+              type="email" 
+              placeholder="이메일을 입력해주세요."
+              className="w-full border-gray-300"
+            />
+          </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow"
-            >
-              <img
-                src={image}
-                alt={`Thumbnail ${index + 1}`}
-                className="object-cover w-full h-full"
-              />
+          <div className="space-y-2">
+            <label className="text-sm">비밀번호</label>
+            <Input 
+              type="password" 
+              placeholder="비밀번호를 입력해주세요."
+              className="w-full border-gray-300"
+            />
+          </div>
+
+          <Button 
+            className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white rounded-none h-12"
+          >
+            로그인
+          </Button>
+
+          <Button 
+            variant="outline"
+            className="w-full border-gray-300 rounded-none h-12"
+          >
+            이메일 회원가입
+          </Button>
+
+          <div className="flex justify-center space-x-2 text-sm text-gray-500">
+            <button className="hover:underline">아이디 찾기</button>
+            <span>|</span>
+            <button className="hover:underline">비밀번호 찾기</button>
+          </div>
+
+          {/* 소셜 로그인 */}
+          <div className="pt-4">
+            <p className="text-center text-sm text-gray-500 mb-4">간편 로그인</p>
+            <div className="flex justify-center space-x-4">
+              <button className="w-10 h-10">
+                <img src="/public/lovable-uploads/6f4cb4c7-7087-4c4d-ac4a-7a8a9591edb2.png" alt="Apple" className="w-full" />
+              </button>
+              <button className="w-10 h-10">
+                <img src="/public/lovable-uploads/9a46f8c3-c0e0-480f-84ea-85c9fbcf3ee1.png" alt="Naver" className="w-full" />
+              </button>
+              <button className="w-10 h-10">
+                <img src="/public/lovable-uploads/a6f9138a-d672-46fe-85f6-0c2bf8162c97.png" alt="Kakao" className="w-full" />
+              </button>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </div>

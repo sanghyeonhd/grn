@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -44,6 +43,7 @@ import SignupTerms from "./pages/SignupTerms";
 import SignupVerify from "./pages/SignupVerify";
 import SignupComplete from "./pages/SignupComplete";
 import TermDetail from "./pages/TermDetail";
+import MemberGeneralInfo from "./pages/MemberGeneralInfo";
 
 const queryClient = new QueryClient();
 
@@ -97,6 +97,7 @@ const App = () => (
             <Route path="/signup/verify" element={<SignupVerify />} />
             <Route path="/signup/complete" element={<SignupComplete />} />
             <Route path="/term-detail" element={<TermDetail />} />
+            <Route path="/member-general-info" element={<MemberGeneralInfo />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </TooltipProvider>

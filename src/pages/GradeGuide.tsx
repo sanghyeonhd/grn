@@ -38,6 +38,10 @@ const GradeGuide = () => {
 
         <div className="mt-8">
           <h2 className="text-lg font-medium mb-4">등급 혜택 안내</h2>
+          <div className="flex gap-4 mb-4">
+            <span className="text-sm text-gray-600">회원등급기준안내</span>
+            <span className="text-sm text-gray-600">회원등급혜택안내</span>
+          </div>
           {[
             { 
               name: 'Basic', 

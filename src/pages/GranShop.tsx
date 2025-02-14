@@ -71,9 +71,15 @@ const products = {
 
 const ProductCard = ({ product }: { product: any }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  const handleClick = () => {
+    const category = location.pathname.split('/')[2] || 'giftset';
+    navigate(`/granshop/${category}/${product.id}`);
+  };
   
   return (
-    <div className="relative" onClick={() => navigate(`/product/${product.id}`)}>
+    <div className="relative" onClick={handleClick}>
       <div className="relative">
         <img 
           src={product.image} 

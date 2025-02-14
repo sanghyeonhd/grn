@@ -193,24 +193,15 @@ const GiftRefuse = () => {
           <h1 className="flex-1 text-center pr-10">주문 취소</h1>
         </div>
         <div className="flex">
-          <button 
-            className={`flex-1 py-3 ${step === "select" ? "border-b-2 border-black" : "text-gray-400"}`}
-            onClick={() => setStep("select")}
-          >
+          <div className={`flex-1 py-3 ${step === "select" ? "border-b-2 border-black" : "text-gray-400"}`}>
             상품 선택
-          </button>
-          <button 
-            className={`flex-1 py-3 ${step === "reason" ? "border-b-2 border-black" : "text-gray-400"}`}
-            onClick={() => setStep("reason")}
-          >
+          </div>
+          <div className={`flex-1 py-3 ${step === "reason" ? "border-b-2 border-black" : "text-gray-400"}`}>
             사유 작성
-          </button>
-          <button 
-            className={`flex-1 py-3 ${step === "confirm" ? "border-b-2 border-black" : "text-gray-400"}`}
-            onClick={() => setStep("confirm")}
-          >
+          </div>
+          <div className={`flex-1 py-3 ${step === "confirm" ? "border-b-2 border-black" : "text-gray-400"}`}>
             취소 정보 확인
-          </button>
+          </div>
         </div>
       </header>
 

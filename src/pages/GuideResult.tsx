@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { Heart } from 'lucide-react';
 
 const GuideResult = () => {
   const location = useLocation();
@@ -22,13 +23,13 @@ const GuideResult = () => {
         name: "SUSIE SALMON Muti Perfume",
         description: "수지살몬 멀티 퍼퓸 100ml",
         price: "35,000 KRW",
-        image: "/public/lovable-uploads/e90ce380-13e9-47b6-85ae-01977715dc75.png"
+        image: "/public/lovable-uploads/27f9f5a7-09d9-4903-a3d9-014614aaff1e.png"
       },
       {
         name: "SUSIE SALMON Hand Cream",
         description: "수지살몬 핸드크림 160ml",
         price: "25,000 KRW",
-        image: "/public/lovable-uploads/88d4aa47-a1b1-4440-8599-18396dfefb7f.png"
+        image: "/public/lovable-uploads/27f9f5a7-09d9-4903-a3d9-014614aaff1e.png"
       }
     ]
   };
@@ -71,12 +72,10 @@ const GuideResult = () => {
         <div className="grid grid-cols-2 gap-4">
           {sampleResult.recommendedProducts.map((product, index) => (
             <div key={index} className="space-y-2">
-              <div className="relative aspect-square bg-gray-100">
+              <div className="relative aspect-square bg-gray-100" style={{ height: 'calc(100% + 10px)' }}>
                 <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
                 <button className="absolute top-2 right-2">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                  </svg>
+                  <Heart className="text-white" size={24} />
                 </button>
               </div>
               <h4 className="font-medium text-sm">{product.name}</h4>

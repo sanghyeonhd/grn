@@ -46,6 +46,26 @@ const products = {
       image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png",
       soldOut: false
     }
+  ],
+  space: [
+    {
+      id: 1,
+      name: "Space Diffuser",
+      description: "공간 디퓨저 150ml",
+      price: "45,000 KRW",
+      image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png",
+      soldOut: false
+    }
+  ],
+  body: [
+    {
+      id: 1,
+      name: "Body Lotion",
+      description: "바디 로션 250ml",
+      price: "38,000 KRW",
+      image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png",
+      soldOut: false
+    }
   ]
 };
 
@@ -91,15 +111,28 @@ const GranShop = () => {
       navigate('/granshop/giftset');
     } else if (category === '퍼퓸') {
       navigate('/granshop/perfume');
+    } else if (category === '공간') {
+      navigate('/granshop/space');
+    } else if (category === '바디') {
+      navigate('/granshop/body');
+    } else {
+      navigate('/granshop');
     }
   };
 
-  const displayProducts = location.pathname.includes('perfume') ? products.perfumes : products.giftsets;
+  const getDisplayProducts = () => {
+    if (location.pathname.includes('perfume')) return products.perfumes;
+    if (location.pathname.includes('giftset')) return products.giftsets;
+    if (location.pathname.includes('space')) return products.space;
+    if (location.pathname.includes('body')) return products.body;
+    return products.giftsets; // default to giftsets
+  };
+
   const isGiftsetPath = location.pathname.includes('giftset');
+  const displayProducts = getDisplayProducts();
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
       <div className="fixed top-0 left-0 right-0 bg-white z-50">
         <div className="flex items-center justify-between p-4">
           <h1 className="text-xl font-bold">GRANHAND.</h1>
@@ -115,7 +148,6 @@ const GranShop = () => {
         </div>
       </div>
 
-      {/* Banner */}
       <div className="pt-[72px] relative">
         <div className="h-[130px] relative">
           <img 
@@ -133,7 +165,6 @@ const GranShop = () => {
         </div>
       </div>
 
-      {/* Categories */}
       <div className="px-4 border-b">
         <div className="flex items-center gap-4 py-3 text-[0.688rem] overflow-x-auto scrollbar-hide">
           <button 
@@ -169,18 +200,14 @@ const GranShop = () => {
         </div>
       </div>
 
-      {/* Sub Categories - Only show if not on giftset path */}
-      {!isGiftsetPath && (
-        <div className="px-4 border-b">
-          <div className="flex items-center gap-4 py-3 text-[0.688rem] overflow-x-auto scrollbar-hide">
-            <button className="whitespace-nowrap text-gray-600">시그니처</button>
-            <button className="whitespace-nowrap text-gray-600">퍼퓸</button>
-            <button className="whitespace-nowrap text-gray-600">멀티 퍼퓸</button>
-          </div>
+      <div className="px-4 border-b">
+        <div className="flex items-center gap-4 py-3 text-[0.688rem] overflow-x-auto scrollbar-hide">
+          <button className="whitespace-nowrap text-gray-600">시그니처</button>
+          <button className="whitespace-nowrap text-gray-600">퍼퓸</button>
+          <button className="whitespace-nowrap text-gray-600">멀티 퍼퓸</button>
         </div>
-      )}
+      </div>
 
-      {/* Filter Section */}
       <div className="px-4 py-3 flex items-center justify-between border-b">
         <span className="text-sm">전체</span>
         <button className="text-sm flex items-center gap-1">
@@ -191,7 +218,6 @@ const GranShop = () => {
         </button>
       </div>
 
-      {/* Product Grid */}
       <div className="px-4 py-4">
         <div className="grid grid-cols-2 gap-x-4 gap-y-8">
           {displayProducts.map((product) => (
@@ -200,7 +226,6 @@ const GranShop = () => {
         </div>
       </div>
 
-      {/* Bottom Navigation */}
       <nav className="fixed bottom-0 left-0 right-0 bg-white border-t">
         <div className="flex justify-around items-center h-[60px]">
           <button 

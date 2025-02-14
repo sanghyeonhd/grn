@@ -1,12 +1,20 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ChevronLeft, Heart, Share2 } from 'lucide-react';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import ProductOptionSheet from '@/components/product/ProductOptionSheet';
 
 const GiftSetDetail = () => {
   const navigate = useNavigate();
   const { id } = useParams();
+  const [isGiftSheetOpen, setIsGiftSheetOpen] = useState(false);
+  const [selectedProducts, setSelectedProducts] = useState<Array<{
+    name: string;
+    price: number;
+    quantity: number;
+    option?: string;
+  }>>([]);
 
   const product = {
     id: '1',
@@ -15,6 +23,31 @@ const GiftSetDetail = () => {
     price: 68000,
     image: '/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png',
     story: '마음의 향, 손 끝을 거쳐 세상을 향해 전달되다. 세월이 흘러도 변치 않는 마음을 향기로 담아 전합니다.',
+  };
+
+  const handleProductSelect = (option: string) => {
+    if (option === '구매 안함') return;
+    
+    setSelectedProducts([{
+      name: product.name,
+      price: product.price + (option.includes('500') ? 500 : 0),
+      quantity: 1,
+      option,
+    }]);
+  };
+
+  const handleQuantityChange = (index: number, increment: boolean) => {
+    setSelectedProducts(prev => prev.map((item, i) => {
+      if (i === index) {
+        const newQuantity = increment ? item.quantity + 1 : Math.max(1, item.quantity - 1);
+        return { ...item, quantity: newQuantity };
+      }
+      return item;
+    }));
+  };
+
+  const getTotalPrice = () => {
+    return selectedProducts.reduce((total, item) => total + (item.price * item.quantity), 0);
   };
 
   return (
@@ -66,7 +99,10 @@ const GiftSetDetail = () => {
 
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t">
         <div className="grid grid-cols-2 gap-3">
-          <button className="py-3 border border-black text-black">
+          <button 
+            className="py-3 border border-black text-black"
+            onClick={() => setIsGiftSheetOpen(true)}
+          >
             선물하기
           </button>
           <button className="py-3 bg-[#2C2C2C] text-white">
@@ -74,6 +110,16 @@ const GiftSetDetail = () => {
           </button>
         </div>
       </div>
+
+      <ProductOptionSheet 
+        isOpen={isGiftSheetOpen}
+        onOpenChange={setIsGiftSheetOpen}
+        type="gift"
+        selectedProducts={selectedProducts}
+        onProductSelect={handleProductSelect}
+        onQuantityChange={handleQuantityChange}
+        getTotalPrice={getTotalPrice}
+      />
     </div>
   );
 };

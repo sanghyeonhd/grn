@@ -1,14 +1,25 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronLeft, Minus, Plus } from 'lucide-react';
+import { ChevronLeft, Minus, Plus, ChevronDown } from 'lucide-react';
 import {
   AlertDialog,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogTrigger,
   AlertDialogAction,
-} from "@/components/ui/alert-dialog"
+} from "@/components/ui/alert-dialog";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface CartItem {
   id: number;
@@ -18,11 +29,13 @@ interface CartItem {
   option: string;
   shippingOption: string;
   quantity: number;
+  sizes: string[];
 }
 
 const Cart = () => {
   const navigate = useNavigate();
   const [selectedItems, setSelectedItems] = useState<number[]>([]);
+  const [selectedItemForOptions, setSelectedItemForOptions] = useState<CartItem | null>(null);
   const [cartItems, setCartItems] = useState<CartItem[]>([
     {
       id: 1,
@@ -31,7 +44,8 @@ const Cart = () => {
       image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png",
       option: "롤랑 멀티퍼퓸 100ml / 1개",
       shippingOption: "구매 안함",
-      quantity: 1
+      quantity: 1,
+      sizes: ["100ml", "200ml"]
     },
     {
       id: 2,
@@ -40,7 +54,8 @@ const Cart = () => {
       image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png",
       option: "롤랑 멀티퍼퓸 200ml / 1개",
       shippingOption: "구매 안함",
-      quantity: 1
+      quantity: 1,
+      sizes: ["100ml", "200ml"]
     },
     {
       id: 3,
@@ -49,7 +64,8 @@ const Cart = () => {
       image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png",
       option: "수지샐몬 멀티퍼퓸 100ml / 1개",
       shippingOption: "구매 안함",
-      quantity: 1
+      quantity: 1,
+      sizes: ["100ml"]
     }
   ]);
 
@@ -77,13 +93,38 @@ const Cart = () => {
     setSelectedItems([]);
   };
 
+  const handleOptionChange = (itemId: number, newSize: string) => {
+    setCartItems(prev => prev.map(item => {
+      if (item.id === itemId) {
+        const newPrice = newSize === "200ml" ? 55000 : 35000;
+        return {
+          ...item,
+          price: newPrice,
+          option: item.option.replace(/\d+ml/, newSize)
+        };
+      }
+      return item;
+    }));
+  };
+
+  const handleShippingOptionChange = (itemId: number, newOption: string) => {
+    setCartItems(prev => prev.map(item => {
+      if (item.id === itemId) {
+        return {
+          ...item,
+          shippingOption: newOption
+        };
+      }
+      return item;
+    }));
+  };
+
   const totalAmount = cartItems
     .filter(item => selectedItems.includes(item.id))
     .reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
   return (
     <div className="min-h-screen bg-white pb-20">
-      {/* Header */}
       <div className="sticky top-0 bg-white border-b">
         <div className="flex items-center justify-between p-4">
           <div className="flex items-center">
@@ -118,7 +159,6 @@ const Cart = () => {
         </div>
       </div>
 
-      {/* Cart Items */}
       <div className="divide-y">
         <div className="p-4 flex items-center">
           <input
@@ -153,20 +193,72 @@ const Cart = () => {
                   <p className="text-gray-600">옵션: {item.option}</p>
                   <p className="text-gray-600">쇼핑백: {item.shippingOption}</p>
                 </div>
-                <div className="mt-3 flex items-center border rounded-md w-fit">
-                  <button 
-                    onClick={() => handleQuantityChange(item.id, false)}
-                    className="px-3 py-1"
-                  >
-                    <Minus className="w-4 h-4" />
-                  </button>
-                  <span className="px-3 py-1 border-x">{item.quantity}</span>
-                  <button 
-                    onClick={() => handleQuantityChange(item.id, true)}
-                    className="px-3 py-1"
-                  >
-                    <Plus className="w-4 h-4" />
-                  </button>
+                <div className="mt-3 flex items-center gap-2">
+                  <div className="flex items-center border rounded-md">
+                    <button 
+                      onClick={() => handleQuantityChange(item.id, false)}
+                      className="px-3 py-1"
+                    >
+                      <Minus className="w-4 h-4" />
+                    </button>
+                    <span className="px-3 py-1 border-x">{item.quantity}</span>
+                    <button 
+                      onClick={() => handleQuantityChange(item.id, true)}
+                      className="px-3 py-1"
+                    >
+                      <Plus className="w-4 h-4" />
+                    </button>
+                  </div>
+                  <Sheet>
+                    <SheetTrigger asChild>
+                      <button 
+                        className="px-3 py-1 border rounded-md text-sm"
+                        onClick={() => setSelectedItemForOptions(item)}  
+                      >
+                        옵션변경
+                      </button>
+                    </SheetTrigger>
+                    <SheetContent side="bottom" className="bg-white">
+                      <div className="px-4 py-6 space-y-6">
+                        <h3 className="text-lg font-medium">옵션 변경</h3>
+                        <div className="space-y-4">
+                          <div>
+                            <div className="mb-2">옵션 선택</div>
+                            <div className="grid grid-cols-2 gap-2">
+                              {item.sizes.map((size) => (
+                                <button
+                                  key={size}
+                                  onClick={() => handleOptionChange(item.id, size)}
+                                  className={`py-2 border rounded-sm ${
+                                    item.option.includes(size) 
+                                      ? 'border-black bg-black text-white' 
+                                      : 'border-gray-300'
+                                  }`}
+                                >
+                                  {size}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                          <div>
+                            <div className="mb-2">쇼핑백</div>
+                            <Select
+                              value={item.shippingOption}
+                              onValueChange={(value) => handleShippingOptionChange(item.id, value)}
+                            >
+                              <SelectTrigger className="w-full">
+                                <SelectValue placeholder="쇼핑백 옵션 선택" />
+                              </SelectTrigger>
+                              <SelectContent className="bg-white">
+                                <SelectItem value="구매 안함">구매 안함</SelectItem>
+                                <SelectItem value="추가 구매 (+500원)">추가 구매 (+500원)</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        </div>
+                      </div>
+                    </SheetContent>
+                  </Sheet>
                 </div>
               </div>
             </div>
@@ -174,7 +266,6 @@ const Cart = () => {
         ))}
       </div>
 
-      {/* Footer */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t px-4 py-4">
         <div className="text-right mb-2">
           <span className="text-sm">합계 </span>

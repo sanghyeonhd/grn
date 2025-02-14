@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Heart, Search, ShoppingCart, Home, BookOpen, Scan, User } from "lucide-react";
@@ -53,10 +54,10 @@ const ProductCard = ({ product, category }: { product: any; category: string }) 
   const navigate = useNavigate();
   
   const handleClick = () => {
-    if (category === '기프트 세트') {
+    if (category === '퍼퓸') {
+      navigate(`/granshop/perfume/${product.id}`);
+    } else if (category === '기프트 세트') {
       navigate(`/product/${product.id}`);
-    } else {
-      navigate(`/granshop/${category.toLowerCase()}/${product.id}`);
     }
   };
   
@@ -95,11 +96,8 @@ const GranShop = () => {
   };
 
   const handleCategoryClick = (category: string) => {
-    if (category === '기프트 세트') {
-      navigate('/granshop/giftset');
-    } else if (category === '퍼퓸') {
-      navigate('/granshop/perfume');
-    }
+    // 모든 카테고리 클릭 시 메인 화면으로 이동
+    navigate('/granshop');
   };
 
   const displayProducts = location.pathname.includes('perfume') ? products.perfumes : products.giftsets;

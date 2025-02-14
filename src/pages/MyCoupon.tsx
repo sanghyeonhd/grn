@@ -131,13 +131,13 @@ const MyCoupon = () => {
             </button>
             <h2 className="text-center">쿠폰바로 교환권</h2>
           </div>
-          <div className="flex flex-col h-full p-6">
-            <div className="mb-auto">
-              <p className="text-left font-medium text-lg mb-2">{selectedCouponData?.title}</p>
+          <div className="flex flex-col h-full p-4">
+            <div className="mb-6">
+              <p className="text-left font-medium text-lg mb-1">{selectedCouponData?.title}</p>
               <p className="text-left text-sm text-gray-600">{selectedCouponData?.description}</p>
               <p className="text-left text-xs text-gray-400 mt-1">{selectedCouponData?.validUntil}</p>
             </div>
-            <div className="w-full aspect-square max-w-[300px] mx-auto border rounded-lg flex items-center justify-center">
+            <div className="w-full aspect-square max-w-[280px] mx-auto border rounded-lg flex items-center justify-center">
               {/* QR 코드 이미지가 들어갈 자리 */}
               <div className="text-center">QR 코드</div>
             </div>

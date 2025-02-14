@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useIsMobile } from '../hooks/use-mobile';
 import { Input } from "@/components/ui/input"
@@ -143,6 +144,7 @@ const Index = () => {
             variant="outline"
             className="w-full border-gray-300 rounded-none h-12"
             type="button"
+            onClick={() => navigate('/signup/terms')}
           >
             이메일 회원가입
           </Button>

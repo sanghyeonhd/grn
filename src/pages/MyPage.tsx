@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Bell, ShoppingBag, Wallet, CalendarCheck, Gift, ScrollText, Home, MapPin, Scan, Heart, User } from 'lucide-react';
+import { Bell, ShoppingBag, Wallet, CalendarCheck, Gift, ScrollText, Home, BookOpen, Scan, Heart, User } from 'lucide-react';
 
 const MyPage = () => {
   const navigate = useNavigate();
@@ -108,7 +108,7 @@ const MyPage = () => {
           <span className="text-xs">홈</span>
         </button>
         <button className="flex flex-col items-center justify-center gap-1">
-          <MapPin className="w-5 h-5" />
+          <BookOpen className="w-5 h-5" />
           <span className="text-xs">향가이드</span>
         </button>
         <button className="flex flex-col items-center justify-center gap-1">

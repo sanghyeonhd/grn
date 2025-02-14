@@ -21,7 +21,8 @@ const Withdraw = () => {
     "원하는 상품이 없어요.",
     "쿠폰/포인트 등의 혜택이 너무 적어요.",
     "구매/포인트 등의 혜택이 너무 적어요.",
-    "다른 계정으로 가입하고 싶어요."
+    "다른 계정으로 가입하고 싶어요.",
+    "직접입력"
   ];
 
   const handleNext = () => {
@@ -57,13 +58,12 @@ const Withdraw = () => {
           </div>
         ))}
       </RadioGroup>
-      {reason && (
+      {reason === "직접입력" && (
         <div className="mt-6">
-          <p className="text-sm mb-2">직접 입력</p>
           <Textarea
             value={detailReason}
             onChange={(e) => setDetailReason(e.target.value)}
-            placeholder="그랑앤드"
+            placeholder="탈퇴 사유를 입력해 주세요"
             className="resize-none"
             maxLength={200}
           />

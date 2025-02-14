@@ -1,40 +1,28 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card } from "@/components/ui/card";
-
 const Main = () => {
   const navigate = useNavigate();
-
-  const journalItems = [
-    {
-      id: 1,
-      image: "/public/lovable-uploads/a0b924b4-c414-41e8-8e2d-e878cf941a1c.png",
-      category: "브랜드",
-      title: "2025 Calender",
-      description: "1월 뉴스레터에서 신청하세요",
-      date: "2023-07-08",
-      views: 412
-    },
-    {
-      id: 2,
-      category: "하남",
-      title: "NOLL 놀에 대한 모든 것.",
-      image: "/public/lovable-uploads/5543f85b-0d24-4ab3-a996-08c599742a75.png",
-      date: "2023-07-08",
-      views: 412
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-[#FDFBF5]">
+  const journalItems = [{
+    id: 1,
+    image: "/public/lovable-uploads/a0b924b4-c414-41e8-8e2d-e878cf941a1c.png",
+    category: "브랜드",
+    title: "2025 Calender",
+    description: "1월 뉴스레터에서 신청하세요",
+    date: "2023-07-08",
+    views: 412
+  }, {
+    id: 2,
+    category: "하남",
+    title: "NOLL 놀에 대한 모든 것.",
+    image: "/public/lovable-uploads/5543f85b-0d24-4ab3-a996-08c599742a75.png",
+    date: "2023-07-08",
+    views: 412
+  }];
+  return <div className="min-h-screen bg-[#FDFBF5]">
       {/* 헤더 이미지 섹션 */}
       <div className="relative h-[482px]">
-        <img 
-          src={journalItems[0].image}
-          alt="2025 Calendar"
-          className="w-full h-full object-cover"
-        />
+        <img src={journalItems[0].image} alt="2025 Calendar" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute bottom-8 left-[7.69%] right-[4.62%]">
           <h1 className="text-[32px] font-bold leading-[42px] text-[#FDFBF5] font-pretendard mb-4">
@@ -48,15 +36,9 @@ const Main = () => {
 
       {/* 네비게이션 메뉴 */}
       <nav className="flex px-6 py-4 bg-[#FDFBF5] shadow-[0px_4px_10px_rgba(0,0,0,0.03)]">
-        {['JOURNAL', 'EVENT', 'AWARDS', 'STORES'].map((item) => (
-          <button 
-            key={item}
-            onClick={() => navigate(`/${item.toLowerCase()}`)}
-            className="text-[14px] font-bold text-[#6F6963] leading-[22px] font-pretendard mr-6"
-          >
+        {['JOURNAL', 'EVENT', 'AWARDS', 'STORES'].map(item => <button key={item} onClick={() => navigate(`/${item.toLowerCase()}`)} className="text-[14px] font-bold text-[#6F6963] leading-[22px] font-pretendard mr-6">
             {item}
-          </button>
-        ))}
+          </button>)}
       </nav>
 
       {/* 브랜드샵 섹션 */}
@@ -71,7 +53,7 @@ const Main = () => {
           <button className="h-[50px] px-4 bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap">
             heiion
           </button>
-          <button className="h-[50px] px-4 bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap">
+          <button className="h-[50px] bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap px-[10px]">
             Komfortabel coffee
           </button>
         </div>
@@ -83,18 +65,9 @@ const Main = () => {
           저널
         </h3>
         <div className="space-y-4">
-          {journalItems.map((item) => (
-            <Card 
-              key={item.id}
-              className="p-0 overflow-hidden cursor-pointer border-none shadow-none"
-              onClick={() => navigate(`/journal/${item.id}`)}
-            >
+          {journalItems.map(item => <Card key={item.id} className="p-0 overflow-hidden cursor-pointer border-none shadow-none" onClick={() => navigate(`/journal/${item.id}`)}>
               <div className="relative h-[460px]">
-                <img 
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover"
-                />
+                <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black/20" />
                 <div className="absolute bottom-16 left-4">
                   <p className="text-[12px] font-bold leading-[20px] text-[#FDFBF5] font-pretendard mb-1">
@@ -108,12 +81,9 @@ const Main = () => {
                   </p>
                 </div>
               </div>
-            </Card>
-          ))}
+            </Card>)}
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Main;

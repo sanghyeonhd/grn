@@ -6,19 +6,40 @@ import { Card } from "@/components/ui/card";
 const Main = () => {
   const navigate = useNavigate();
 
+  const journalItems = [
+    {
+      id: 1,
+      image: "/public/lovable-uploads/a0b924b4-c414-41e8-8e2d-e878cf941a1c.png",
+      category: "브랜드",
+      title: "2025 Calender",
+      description: "1월 뉴스레터에서 신청하세요",
+      date: "2023-07-08",
+      views: 412
+    },
+    {
+      id: 2,
+      category: "하남",
+      title: "NOLL 놀에 대한 모든 것.",
+      image: "/public/lovable-uploads/5543f85b-0d24-4ab3-a996-08c599742a75.png",
+      date: "2023-07-08",
+      views: 412
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white">
-      {/* 헤더 섹션 */}
-      <div className="relative h-[40vh]">
+      {/* 헤더 이미지 섹션 */}
+      <div className="relative h-[50vh]">
         <img 
-          src="/public/lovable-uploads/236cc52b-886b-440d-a738-4c442393f3f4.png"
+          src={journalItems[0].image}
           alt="2025 Calendar"
           className="w-full h-full object-cover"
         />
-        <div className="absolute bottom-4 left-4 text-white">
-          <h1 className="text-2xl font-bold">2025</h1>
-          <h2 className="text-xl">Calender</h2>
-          <p className="mt-2">1월 뉴스레터에서 신청하세요</p>
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute bottom-8 left-6 text-white">
+          <h1 className="text-3xl font-bold">2025</h1>
+          <h2 className="text-2xl mb-2">Calender</h2>
+          <p className="text-sm">1월 뉴스레터에서 신청하세요</p>
         </div>
       </div>
 
@@ -28,7 +49,7 @@ const Main = () => {
           <button 
             key={item}
             onClick={() => navigate(`/${item.toLowerCase()}`)}
-            className="text-sm font-medium text-gray-600"
+            className="text-sm font-medium text-gray-600 hover:text-black transition-colors"
           >
             {item}
           </button>
@@ -36,53 +57,43 @@ const Main = () => {
       </nav>
 
       {/* 브랜드샵 섹션 */}
-      <section className="px-4 py-6">
-        <h3 className="text-sm mb-4">BRAND SHOP</h3>
-        <div className="flex space-x-2">
-          <button className="px-4 py-2 bg-black text-white rounded-full text-sm">
+      <section className="px-6 py-8">
+        <h3 className="text-sm font-medium mb-4">BRAND SHOP</h3>
+        <div className="flex flex-wrap gap-2">
+          <button className="px-6 py-2.5 bg-black text-white rounded-full text-sm">
             GRANHAND
           </button>
-          <button className="px-4 py-2 border border-gray-300 rounded-full text-sm">
-            houga
+          <button className="px-6 py-2.5 border border-gray-300 rounded-full text-sm">
+            heiion
           </button>
-          <button className="px-4 py-2 border border-gray-300 rounded-full text-sm">
-            Comfortable coffee
+          <button className="px-6 py-2.5 border border-gray-300 rounded-full text-sm">
+            Komfortabel coffee
           </button>
         </div>
       </section>
 
-      {/* 컨텐츠 목록 */}
-      <section className="px-4 space-y-4">
-        <Card 
-          className="p-0 overflow-hidden cursor-pointer"
-          onClick={() => navigate('/journal/1')}
-        >
-          <img 
-            src="/public/lovable-uploads/5543f85b-0d24-4ab3-a996-08c599742a75.png"
-            alt="Sometimes you win sometimes you learn"
-            className="w-full h-48 object-cover"
-          />
-          <div className="p-4">
-            <p className="text-sm text-gray-500 mb-2">하남</p>
-            <h3 className="font-medium mb-1">NOLL 놀에 대한 모든 것.</h3>
-            <p className="text-xs text-gray-500">2023-07-08 조회 412</p>
-          </div>
-        </Card>
-
-        <Card 
-          className="p-0 overflow-hidden cursor-pointer"
-          onClick={() => navigate('/event/1')}
-        >
-          <img 
-            src="/public/lovable-uploads/183e831a-0ce5-4fe8-a07d-3a1388afd6c3.png"
-            alt="Calendar event"
-            className="w-full h-48 object-cover"
-          />
-          <div className="p-4">
-            <h3 className="font-medium mb-1">2024 Calender | 10월 뉴스레터에서 신청하세요</h3>
-            <p className="text-xs text-gray-500">2023-07-08</p>
-          </div>
-        </Card>
+      {/* 저널 목록 */}
+      <section className="px-6 space-y-6">
+        {journalItems.map((item, index) => (
+          <Card 
+            key={item.id}
+            className="p-0 overflow-hidden cursor-pointer border-none shadow-none"
+            onClick={() => navigate(`/journal/${item.id}`)}
+          >
+            <img 
+              src={item.image}
+              alt={item.title}
+              className="w-full aspect-[4/3] object-cover rounded-lg mb-4"
+            />
+            <div className="space-y-2">
+              <p className="text-sm text-gray-500">{item.category}</p>
+              <h3 className="text-lg font-medium">{item.title}</h3>
+              <p className="text-xs text-gray-500">
+                {item.date} {item.views && `조회 ${item.views}`}
+              </p>
+            </div>
+          </Card>
+        ))}
       </section>
     </div>
   );

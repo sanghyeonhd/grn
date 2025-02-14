@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Heart } from "lucide-react";
@@ -19,28 +20,28 @@ const GiftSet = () => {
       name: "Trio Gift Set",
       description: "샤워 & 핸드크림 & 핸드워시 세트 | 40g & 60g & 450ml",
       price: "68,000 KRW",
-      image: "/public/lovable-uploads/15b89736-7180-4170-8fa8-388ebf811ccc.png"
+      image: "/public/lovable-uploads/aa82fdf9-9d4c-4eec-a133-84419ab1802c.png"
     },
     {
       id: 2,
       name: "Trio Gift Set",
       description: "샤워 & 핸드크림 & 핸드워시 세트 | 40g & 60g & 450ml",
       price: "68,000 KRW",
-      image: "/public/lovable-uploads/15b89736-7180-4170-8fa8-388ebf811ccc.png"
+      image: "/public/lovable-uploads/aa82fdf9-9d4c-4eec-a133-84419ab1802c.png"
     },
     {
       id: 3,
       name: "Trio Gift Set",
       description: "샤워 & 핸드크림 & 핸드워시 세트 | 40g & 60g & 450ml",
       price: "68,000 KRW",
-      image: "/public/lovable-uploads/15b89736-7180-4170-8fa8-388ebf811ccc.png"
+      image: "/public/lovable-uploads/aa82fdf9-9d4c-4eec-a133-84419ab1802c.png"
     },
     {
       id: 4,
       name: "Trio Gift Set",
       description: "샤워 & 핸드크림 & 핸드워시 세트 | 40g & 60g & 450ml",
       price: "68,000 KRW",
-      image: "/public/lovable-uploads/15b89736-7180-4170-8fa8-388ebf811ccc.png"
+      image: "/public/lovable-uploads/aa82fdf9-9d4c-4eec-a133-84419ab1802c.png"
     }
   ];
 

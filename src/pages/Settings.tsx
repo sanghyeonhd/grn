@@ -22,7 +22,7 @@ const Settings = () => {
             <h2 className="font-medium">서비스 알림</h2>
             <Switch className="data-[state=checked]:bg-blue-500 data-[state=checked]:hover:bg-blue-600" />
           </div>
-          <p className="text-sm text-gray-600">기기의 '설정 &gt; 그랑핸드 &gt; 알림'에서 설정</p>
+          <p className="text-[10px] text-gray-600">기기의 '설정 &gt; 그랑핸드 &gt; 알림'에서 설정</p>
         </div>
 
         <div className="space-y-3">
@@ -30,7 +30,7 @@ const Settings = () => {
             <h2 className="font-medium">혜택 정보 알림</h2>
             <Switch className="data-[state=checked]:bg-blue-500 data-[state=checked]:hover:bg-blue-600" />
           </div>
-          <p className="text-sm text-gray-600">그랑핸드 회원을 위한 할인 소식, 쿠폰 등 혜택 정보를 알려드립니다.<br/>영리성 목적 외의 정보성 내용은 설정 여부와 무관하게 발송됩니다.</p>
+          <p className="text-[10px] text-gray-600">그랑핸드 회원을 위한 할인 소식, 쿠폰 등 혜택 정보를 알려드립니다.<br/>영리성 목적 외의 정보성 내용은 설정 여부와 무관하게 발송됩니다.</p>
         </div>
 
         <div className="space-y-4">

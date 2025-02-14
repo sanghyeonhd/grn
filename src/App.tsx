@@ -18,6 +18,7 @@ import MyPage from "./pages/MyPage";
 import GradeGuide from "./pages/GradeGuide";
 import Notifications from "./pages/Notifications";
 import Settings from "./pages/Settings";
+import MyCoupon from "./pages/MyCoupon";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +46,7 @@ const App = () => (
           <Route path="/grade-guide" element={<GradeGuide />} />
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/my-coupon" element={<MyCoupon />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -1,7 +1,9 @@
+
 import { ChevronRight } from "lucide-react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import AddressForm from "@/pages/AddressForm";
 
 interface GiftItemProps {
   item: {
@@ -23,8 +25,7 @@ const GiftItem = ({ item }: GiftItemProps) => {
   const [openConfirmDialog, setOpenConfirmDialog] = useState(false);
   const [openRejectDialog, setOpenRejectDialog] = useState(false);
   const [openRejectConfirmDialog, setOpenRejectConfirmDialog] = useState(false);
-  const [openCancelDialog, setOpenCancelDialog] = useState(false);
-  const [openCancelConfirmDialog, setOpenCancelConfirmDialog] = useState(false);
+  const [openAddressDialog, setOpenAddressDialog] = useState(false);
 
   return (
     <div className="space-y-4 pb-6 border-b last:border-b-0">
@@ -95,11 +96,22 @@ const GiftItem = ({ item }: GiftItemProps) => {
                   </button>
                   <button
                     className="py-3 border text-sm"
-                    onClick={() => setOpenConfirmDialog(false)}
+                    onClick={() => {
+                      setOpenConfirmDialog(false);
+                      setOpenAddressDialog(true);
+                    }}
                   >
                     배송지 입력
                   </button>
                 </div>
+              </div>
+            </DialogContent>
+          </Dialog>
+
+          <Dialog open={openAddressDialog} onOpenChange={setOpenAddressDialog}>
+            <DialogContent className="bg-white sm:max-w-[425px]">
+              <div className="max-h-[80vh] overflow-y-auto">
+                <AddressForm />
               </div>
             </DialogContent>
           </Dialog>
@@ -170,3 +182,4 @@ const GiftItem = ({ item }: GiftItemProps) => {
 };
 
 export default GiftItem;
+

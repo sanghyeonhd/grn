@@ -101,7 +101,9 @@ const GranShop = () => {
         <div className="flex items-center justify-between p-4">
           <h1 className="text-xl font-bold">GRANHAND.</h1>
           <div className="flex items-center gap-4">
-            <Search className="w-5 h-5" />
+            <button onClick={() => navigate('/search')}>
+              <Search className="w-5 h-5" />
+            </button>
             <div className="relative">
               <ShoppingCart className="w-5 h-5" />
               <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">2</span>

@@ -1,11 +1,10 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
 
 const GradeGuide = () => {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<'criteria' | 'benefits'>('criteria');
 
   const criteriaGuide = [
     "• 매일 1회 회원 등급이 갱신됩니다.",
@@ -106,31 +105,20 @@ const GradeGuide = () => {
         </div>
 
         <div className="mt-8">
-          <div className="border-b">
-            <div className="flex gap-6">
-              <button 
-                className={`text-sm pb-2 ${activeTab === 'criteria' ? 'text-black font-medium border-b-2 border-black' : 'text-gray-400'}`}
-                onClick={() => setActiveTab('criteria')}
-              >
-                회원등급기준안내
-              </button>
-              <button 
-                className={`text-sm pb-2 ${activeTab === 'benefits' ? 'text-black font-medium border-b-2 border-black' : 'text-gray-400'}`}
-                onClick={() => setActiveTab('benefits')}
-              >
-                회원등급혜택안내
-              </button>
-            </div>
+          <h3 className="text-lg font-medium mb-4">회원등급기준안내</h3>
+          <div className="space-y-2">
+            {criteriaGuide.map((text, index) => (
+              <p key={index} className="text-sm text-gray-600">{text}</p>
+            ))}
           </div>
-          <div className="mt-4 space-y-2">
-            {activeTab === 'criteria' 
-              ? criteriaGuide.map((text, index) => (
-                  <p key={index} className="text-sm text-gray-600">{text}</p>
-                ))
-              : benefitsGuide.map((text, index) => (
-                  <p key={index} className="text-sm text-gray-600">{text}</p>
-                ))
-            }
+        </div>
+
+        <div className="mt-8">
+          <h3 className="text-lg font-medium mb-4">회원등급혜택안내</h3>
+          <div className="space-y-2">
+            {benefitsGuide.map((text, index) => (
+              <p key={index} className="text-sm text-gray-600">{text}</p>
+            ))}
           </div>
         </div>
       </div>

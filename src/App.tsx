@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -29,6 +28,7 @@ import GiftBox from "./pages/GiftBox";
 import GiftRefuse from "./pages/GiftRefuse";
 import OrderReturn from "./pages/OrderReturn";
 import RecentProducts from "./pages/RecentProducts";
+import OrderStatusHistory from "./pages/OrderStatusHistory";
 
 const queryClient = new QueryClient();
 
@@ -67,6 +67,7 @@ const App = () => (
             <Route path="/order/refuse" element={<GiftRefuse />} />
             <Route path="/order/return" element={<OrderReturn />} />
             <Route path="/recent-products" element={<RecentProducts />} />
+            <Route path="/order-status-history" element={<OrderStatusHistory />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </TooltipProvider>

@@ -110,7 +110,12 @@ const MyPage = () => {
             최근 본 상품
           </button>
           <button className="w-full py-3 text-left border-t">챌린지</button>
-          <button className="w-full py-3 text-left border-t">취소/교환/반품 내역</button>
+          <button 
+            className="w-full py-3 text-left border-t"
+            onClick={() => navigate('/order-status-history')}
+          >
+            취소/교환/반품 내역
+          </button>
           <button className="w-full py-3 text-left border-t">회원정보</button>
           <button className="w-full py-3 text-left border-t">고객센터</button>
           <button className="w-full py-3 text-left border-t">설정</button>

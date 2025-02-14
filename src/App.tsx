@@ -11,6 +11,8 @@ import JournalDetail from "./pages/JournalDetail";
 import EventDetail from "./pages/EventDetail";
 import Awards from "./pages/Awards";
 import Stores from "./pages/Stores";
+import Guide from "./pages/Guide";
+import GuideResult from "./pages/GuideResult";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +29,8 @@ const App = () => (
           <Route path="/event" element={<Navigate to="/main" />} />
           <Route path="/awards" element={<Awards />} />
           <Route path="/stores" element={<Stores />} />
+          <Route path="/guide" element={<Guide />} />
+          <Route path="/guide/result" element={<GuideResult />} />
           <Route path="/journal/:id" element={<JournalDetail />} />
           <Route path="/event/:id" element={<EventDetail />} />
           <Route path="*" element={<NotFound />} />

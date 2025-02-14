@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
@@ -209,21 +208,33 @@ const Checkout = () => {
 
         {/* 최종 결제 금액 */}
         <section>
-          <h2 className="text-sm mb-4">최종 결제 금액</h2>
           <div className="space-y-2">
             <div className="flex justify-between text-sm">
               <span>상품금액</span>
               <span>35,500원</span>
             </div>
             <div className="flex justify-between text-sm">
+              <span>할인</span>
+              <span>0원</span>
+            </div>
+            <div className="flex justify-between text-sm">
               <span>포인트</span>
               <span className="text-blue-500">-5,000원</span>
             </div>
             <div className="flex justify-between font-medium pt-2 border-t">
-              <span>최종 결제</span>
+              <span>결제 금액</span>
               <span>25,500원</span>
             </div>
           </div>
+        </section>
+
+        {/* 적립 예정 포인트 */}
+        <section className="bg-gray-50 p-4 space-y-1">
+          <div className="flex items-center justify-between text-sm">
+            <span className="text-gray-600">적립 예정 포인트</span>
+            <span className="font-medium text-blue-500">+700</span>
+          </div>
+          <p className="text-xs text-gray-500">구매 시 0.1% 적립되어 적용됩니다.</p>
         </section>
 
         {/* 약관 동의 */}
@@ -241,6 +252,13 @@ const Checkout = () => {
             <ChevronLeft className="w-4 h-4 rotate-180" />
           </button>
         </section>
+
+        {/* 총 결제 금액 표시 */}
+        <div className="flex items-center justify-between text-sm pt-4">
+          <span>총</span>
+          <span className="font-bold text-lg">25,500원</span>
+        </div>
+        <p className="text-xs text-gray-500">주문 내용을 확인하였으며, 약관에 동의 후 결제합니다.</p>
       </div>
 
       {/* 결제하기 버튼 */}

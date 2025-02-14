@@ -1,10 +1,11 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
 
 const MyCoupon = () => {
   const navigate = useNavigate();
+  const [sortType, setSortType] = useState<'latest' | 'expiry'>('latest');
 
   // 임시 쿠폰 데이터
   const coupons = [
@@ -50,12 +51,34 @@ const MyCoupon = () => {
       </div>
 
       <div className="p-4">
-        <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <span className="font-medium">보유 쿠폰(5)</span>
             <span className="text-gray-400 text-sm">쿠폰 등록</span>
           </div>
-          <span className="text-sm text-gray-400">유효기간순</span>
+        </div>
+
+        <div className="flex gap-2 mb-4">
+          <button
+            onClick={() => setSortType('latest')}
+            className={`px-3 py-1.5 rounded-full text-sm ${
+              sortType === 'latest'
+                ? 'bg-black text-white'
+                : 'bg-gray-100 text-gray-600'
+            }`}
+          >
+            최신순
+          </button>
+          <button
+            onClick={() => setSortType('expiry')}
+            className={`px-3 py-1.5 rounded-full text-sm ${
+              sortType === 'expiry'
+                ? 'bg-black text-white'
+                : 'bg-gray-100 text-gray-600'
+            }`}
+          >
+            유효기간순
+          </button>
         </div>
         
         <div className="space-y-3">

@@ -35,6 +35,8 @@ const App = () => (
           <Route path="/journal/:id" element={<JournalDetail />} />
           <Route path="/event/:id" element={<EventDetail />} />
           <Route path="/granshop" element={<GiftSet />} />
+          <Route path="/granshop/gift-set" element={<GiftSet />} />
+          <Route path="/granshop/perfume" element={<GiftSet />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
@@ -43,3 +45,4 @@ const App = () => (
 );
 
 export default App;
+

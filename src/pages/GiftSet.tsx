@@ -1,7 +1,8 @@
+
 import React, { useState } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Heart } from "lucide-react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface GiftSetProduct {
   id: number;
@@ -14,8 +15,13 @@ interface GiftSetProduct {
 
 const GiftSet = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [selectedBrand, setSelectedBrand] = useState('GRANHAND.');
-  const [selectedTab, setSelectedTab] = useState('퍼퓸');
+  const [selectedTab, setSelectedTab] = useState(() => {
+    if (location.pathname === '/granshop/gift-set') return '기프트 세트';
+    if (location.pathname === '/granshop/perfume') return '퍼퓸';
+    return '전체';
+  });
   
   const products: GiftSetProduct[] = [
     {
@@ -61,6 +67,7 @@ const GiftSet = () => {
     } else if (tab === '퍼퓸') {
       navigate('/granshop/perfume');
     }
+    setSelectedTab(tab);
   };
 
   return (
@@ -131,31 +138,31 @@ const GiftSet = () => {
       <div className="flex border-b border-gray-200 px-4">
         <button 
           onClick={() => handleTabClick('전체')}
-          className="px-3 py-3 text-xs text-gray-600"
+          className={`px-3 py-3 text-xs ${selectedTab === '전체' ? 'font-bold border-b-2 border-black' : 'text-gray-600'}`}
         >
           전체
         </button>
         <button 
           onClick={() => handleTabClick('기프트 세트')}
-          className="px-3 py-3 text-xs text-gray-600"
+          className={`px-3 py-3 text-xs ${selectedTab === '기프트 세트' ? 'font-bold border-b-2 border-black' : 'text-gray-600'}`}
         >
           기프트 세트
         </button>
         <button 
           onClick={() => handleTabClick('퍼퓸')}
-          className="px-3 py-3 text-xs font-bold border-b-2 border-black"
+          className={`px-3 py-3 text-xs ${selectedTab === '퍼퓸' ? 'font-bold border-b-2 border-black' : 'text-gray-600'}`}
         >
           퍼퓸
         </button>
         <button 
           onClick={() => handleTabClick('공간')}
-          className="px-3 py-3 text-xs text-gray-600"
+          className={`px-3 py-3 text-xs ${selectedTab === '공간' ? 'font-bold border-b-2 border-black' : 'text-gray-600'}`}
         >
           공간
         </button>
         <button 
           onClick={() => handleTabClick('바디')}
-          className="px-3 py-3 text-xs text-gray-600"
+          className={`px-3 py-3 text-xs ${selectedTab === '바디' ? 'font-bold border-b-2 border-black' : 'text-gray-600'}`}
         >
           바디
         </button>
@@ -237,3 +244,4 @@ const GiftSet = () => {
 };
 
 export default GiftSet;
+

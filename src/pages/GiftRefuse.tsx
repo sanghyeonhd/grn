@@ -4,6 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
+import {
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogFooter,
+} from "@/components/ui/alert-dialog";
 
 interface Product {
   id: string;
@@ -21,6 +28,7 @@ const GiftRefuse = () => {
   const [step, setStep] = useState<"select" | "reason" | "confirm">("select");
   const [reason, setReason] = useState("");
   const [reasonDetail, setReasonDetail] = useState("");
+  const [showCompleteModal, setShowCompleteModal] = useState(false);
 
   const products: Product[] = [
     {
@@ -180,6 +188,10 @@ const GiftRefuse = () => {
     </div>
   );
 
+  const handleComplete = () => {
+    setShowCompleteModal(true);
+  };
+
   return (
     <div className="min-h-screen bg-white pb-20">
       <header className="border-b">
@@ -264,13 +276,58 @@ const GiftRefuse = () => {
             if (step === "select") setStep("reason");
             else if (step === "reason") setStep("confirm");
             else if (step === "confirm") {
-              // Handle final submission
+              handleComplete();
             }
           }}
         >
           {step === "confirm" ? "신청하기" : "다음"}
         </button>
       </div>
+
+      <AlertDialog open={showCompleteModal} onOpenChange={setShowCompleteModal}>
+        <AlertDialogContent className="max-w-[320px] rounded-none">
+          <AlertDialogHeader className="gap-6">
+            <div className="flex justify-between items-center">
+              <AlertDialogTitle className="text-lg">주문 취소</AlertDialogTitle>
+              <button onClick={() => setShowCompleteModal(false)}>
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+            <div className="flex flex-col items-center justify-center pt-8 pb-12">
+              <div className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center mb-4">
+                <div className="w-2 h-4 border-r-2 border-b-2 border-black transform rotate-45 translate-y-[-2px]" />
+              </div>
+              <div className="text-center">
+                취소 신청이 완료되었습니다.
+              </div>
+            </div>
+            <div className="text-sm text-gray-500 space-y-1 px-4">
+              <div>• 환불 일시마다 환불 완료 처리 5일(영업일 기준) 이후 소요될 수 있습니다.</div>
+              <div>• 상품이 출하되어 배송 예정이라면 취소 수락 진행이 어려울 수 있습니다.</div>
+            </div>
+          </AlertDialogHeader>
+          <AlertDialogFooter className="flex flex-row gap-2 sm:gap-2">
+            <button
+              className="flex-1 py-3 px-4 border border-gray-300"
+              onClick={() => {
+                setShowCompleteModal(false);
+                navigate('/order-history');
+              }}
+            >
+              주문 내역으로 이동
+            </button>
+            <button
+              className="flex-1 py-3 px-4 bg-[#2C2C2C] text-white"
+              onClick={() => {
+                setShowCompleteModal(false);
+                navigate('/main');
+              }}
+            >
+              홈으로 가기
+            </button>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };

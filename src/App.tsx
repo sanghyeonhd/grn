@@ -46,6 +46,8 @@ import TermDetail from "./pages/TermDetail";
 import MemberGeneralInfo from "./pages/MemberGeneralInfo";
 import MemberSocialInfo from "./pages/MemberSocialInfo";
 import Withdraw from "./pages/Withdraw";
+import CustomerService from "./pages/CustomerService";
+import FAQ from "./pages/FAQ";
 
 const queryClient = new QueryClient();
 
@@ -102,6 +104,8 @@ const App = () => (
             <Route path="/member-general-info" element={<MemberGeneralInfo />} />
             <Route path="/member-social-info" element={<MemberSocialInfo />} />
             <Route path="/withdraw" element={<Withdraw />} />
+            <Route path="/customer-service" element={<CustomerService />} />
+            <Route path="/faq" element={<FAQ />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </TooltipProvider>

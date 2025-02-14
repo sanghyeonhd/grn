@@ -75,14 +75,16 @@ const Stores = () => {
       </div>
 
       {/* 매장 정보 */}
-      <div className="px-6 mt-6">
-        <p className="text-sm text-gray-600 mb-2">{selectedBrand} {selectedTab}</p>
-        <p className="text-sm text-gray-800 mb-4">{storeAddresses[selectedTab]}</p>
+      <div className="mt-6">
+        <div className="px-6">
+          <p className="text-sm text-gray-600 mb-2">{selectedBrand} {selectedTab}</p>
+          <p className="text-sm text-gray-800 mb-4">{storeAddresses[selectedTab]}</p>
+        </div>
         
         {/* 매장 이미지 */}
         <div className="space-y-4">
           {storeImages[selectedTab]?.map((image, index) => (
-            <div key={index} className="w-full aspect-[4/3] overflow-hidden rounded-lg">
+            <div key={index} className="w-full aspect-[3/2]">
               <img src={image} alt={`Store ${index + 1}`} className="w-full h-full object-cover" />
             </div>
           ))}

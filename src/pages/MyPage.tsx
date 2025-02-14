@@ -43,6 +43,15 @@ const MyPage = () => {
           <div>
             <p className="text-[13px]"><span className="font-bold">68,000원</span> 추가 구매 시 Bronze 달성</p>
             <p className="text-sm text-gray-500">다음달 예상 등급 Basic</p>
+            <div className="mt-2 relative">
+              <div className="h-1 w-full bg-gray-200 rounded">
+                <div className="h-full w-[32%] bg-black rounded" />
+              </div>
+              <div className="flex justify-between text-xs mt-1 text-gray-500">
+                <span>32,000원</span>
+                <span>100,000원</span>
+              </div>
+            </div>
           </div>
         </div>
 

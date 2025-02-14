@@ -16,6 +16,7 @@ import GuideResult from "./pages/GuideResult";
 import GranShop from "./pages/GranShop";
 import MyPage from "./pages/MyPage";
 import GradeGuide from "./pages/GradeGuide";
+import Notifications from "./pages/Notifications";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="/granshop/perfume" element={<GranShop />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/grade-guide" element={<GradeGuide />} />
+          <Route path="/notifications" element={<Notifications />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

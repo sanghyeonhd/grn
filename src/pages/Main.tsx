@@ -25,7 +25,7 @@ const Main = () => {
   ];
   const journalItems = [{
     id: 1,
-    image: "/public/lovable-uploads/dc101e40-6344-4c65-a61d-504f1e769c1b.png",
+    image: "/public/lovable-uploads/3bb0ea96-deb8-4824-a935-28d1a109940b.png",
     category: "브랜드",
     title: "NOLL 놀에 대한 모든 것.",
     description: "1월 뉴스레터에서 신청하세요",

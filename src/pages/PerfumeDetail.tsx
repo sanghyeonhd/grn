@@ -22,6 +22,37 @@ const PerfumeDetail = () => {
     isOutOfStock: true,
   };
 
+  const recommendedProducts = [
+    {
+      id: '2',
+      name: 'Cask Signature Perfume',
+      description: '캐스크 시그니처 퍼퓸 100ml',
+      price: 55000,
+      image: '/lovable-uploads/49950af0-c308-4706-9628-6fc190caba7f.png',
+    },
+    {
+      id: '3',
+      name: 'Roland Multi Perfume',
+      description: '롤랑 멀티퍼퓸 200ml',
+      price: 45000,
+      image: '/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png',
+    },
+    {
+      id: '4',
+      name: 'Cask Signature Perfume',
+      description: '캐스크 시그니처 퍼퓸 200ml',
+      price: 75000,
+      image: '/lovable-uploads/49950af0-c308-4706-9628-6fc190caba7f.png',
+    },
+    {
+      id: '5',
+      name: 'Roland Multi Perfume',
+      description: '롤랑 멀티퍼퓸 100ml',
+      price: 35000,
+      image: '/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png',
+    },
+  ];
+
   const handleNotify = () => {
     toast({
       title: "재입고 알림 신청 완료",
@@ -94,6 +125,32 @@ const PerfumeDetail = () => {
               </div>
             </SheetContent>
           </Sheet>
+
+          <div className="space-y-4">
+            <h2 className="text-lg font-medium">추천</h2>
+            <div className="grid grid-cols-2 gap-4">
+              {recommendedProducts.map((product) => (
+                <button 
+                  key={product.id}
+                  onClick={() => navigate(`/granshop/perfume/${product.id}`)}
+                  className="text-left space-y-2"
+                >
+                  <div className="aspect-square bg-gray-50">
+                    <img 
+                      src={product.image} 
+                      alt={product.name}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <div className="text-sm font-medium">{product.name}</div>
+                    <div className="text-xs text-gray-600">{product.description}</div>
+                    <div className="text-sm font-medium">{product.price.toLocaleString()} KRW</div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 

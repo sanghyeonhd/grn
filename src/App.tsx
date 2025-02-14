@@ -34,7 +34,9 @@ const App = () => (
           <Route path="/guide/result" element={<GuideResult />} />
           <Route path="/journal/:id" element={<JournalDetail />} />
           <Route path="/event/:id" element={<EventDetail />} />
-          <Route path="/granshop/*" element={<GranShop />} />
+          <Route path="/granshop" element={<GranShop />} />
+          <Route path="/granshop/giftset" element={<GranShop />} />
+          <Route path="/granshop/perfume" element={<GranShop />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

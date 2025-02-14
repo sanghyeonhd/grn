@@ -58,6 +58,8 @@ import LanguageSettings from "./pages/LanguageSettings";
 import NotificationSettings from "./pages/NotificationSettings";
 import Search from "./pages/Search";
 import Cart from "./pages/Cart";
+import Challenge from "./pages/Challenge";
+import ChallengeSeasons from "./pages/ChallengeSeasons";
 
 const queryClient = new QueryClient();
 
@@ -126,6 +128,8 @@ const App = () => (
             <Route path="/terms" element={<Terms />} />
             <Route path="/search" element={<Search />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/challenge" element={<Challenge />} />
+            <Route path="/challenge/seasons" element={<ChallengeSeasons />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </TooltipProvider>

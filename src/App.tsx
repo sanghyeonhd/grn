@@ -27,6 +27,7 @@ import OrderHistory from "./pages/OrderHistory";
 import OrderDetail from "./pages/OrderDetail";
 import GiftBox from "./pages/GiftBox";
 import GiftRefuse from "./pages/GiftRefuse";
+import OrderReturn from "./pages/OrderReturn";
 
 const queryClient = new QueryClient();
 
@@ -63,6 +64,7 @@ const App = () => (
             <Route path="/order-history/:id" element={<OrderDetail />} />
             <Route path="/gift-box" element={<GiftBox />} />
             <Route path="/order/refuse" element={<GiftRefuse />} />
+            <Route path="/order/return" element={<OrderReturn />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </TooltipProvider>

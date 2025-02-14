@@ -14,6 +14,9 @@ import AttendanceCheck from "./pages/AttendanceCheck";
 import FindId from "./pages/FindId";
 import FindIdPhone from "./pages/FindIdPhone";
 import FindIdResult from "./pages/FindIdResult";
+import FindPassword from "./pages/FindPassword";
+import FindPasswordVerify from "./pages/FindPasswordVerify";
+import FindPasswordReset from "./pages/FindPasswordReset";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +36,9 @@ const App = () => (
           <Route path="/find-id" element={<FindId />} />
           <Route path="/find-id/phone" element={<FindIdPhone />} />
           <Route path="/find-id/result" element={<FindIdResult />} />
+          <Route path="/find-password" element={<FindPassword />} />
+          <Route path="/find-password/verify" element={<FindPasswordVerify />} />
+          <Route path="/find-password/reset" element={<FindPasswordReset />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

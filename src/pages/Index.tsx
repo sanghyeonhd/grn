@@ -156,7 +156,13 @@ const Index = () => {
               아이디 찾기
             </button>
             <span>|</span>
-            <button type="button" className="hover:underline">비밀번호 찾기</button>
+            <button 
+              type="button" 
+              className="hover:underline"
+              onClick={() => navigate('/find-password')}
+            >
+              비밀번호 찾기
+            </button>
           </div>
 
           <div className="pt-4">

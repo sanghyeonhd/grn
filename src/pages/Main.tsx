@@ -54,6 +54,10 @@ const Main = () => {
     views: 287
   }];
 
+  const handleNavigation = (path: string) => {
+    navigate(`/${path.toLowerCase()}`);
+  };
+
   return <div className="min-h-screen bg-[#FDFBF5]">
       {/* 헤더 이미지 섹션 */}
       <div className="relative h-[482px]">
@@ -71,9 +75,15 @@ const Main = () => {
 
       {/* 네비게이션 메뉴 */}
       <nav className="flex px-6 py-4 bg-[#FDFBF5] shadow-[0px_4px_10px_rgba(0,0,0,0.03)]">
-        {['JOURNAL', 'EVENT', 'AWARDS', 'STORES'].map(item => <button key={item} onClick={() => navigate(`/${item.toLowerCase()}`)} className="text-[14px] font-bold text-[#6F6963] leading-[22px] font-pretendard mr-6">
+        {['JOURNAL', 'EVENT', 'AWARDS', 'STORES'].map(item => (
+          <button 
+            key={item} 
+            onClick={() => handleNavigation(item)}
+            className="text-[14px] font-bold text-[#6F6963] leading-[22px] font-pretendard mr-6"
+          >
             {item}
-          </button>)}
+          </button>
+        ))}
       </nav>
 
       {/* 브랜드샵 섹션 */}
@@ -124,7 +134,12 @@ const Main = () => {
           저널
         </h3>
         <div className="space-y-4">
-          {journalItems.map(item => <Card key={item.id} className="p-0 overflow-hidden cursor-pointer border-none shadow-none" onClick={() => navigate(`/journal/${item.id}`)}>
+          {journalItems.map(item => (
+            <Card 
+              key={item.id} 
+              className="p-0 overflow-hidden cursor-pointer border-none shadow-none" 
+              onClick={() => navigate(`/journal/${item.id}`)}
+            >
               <div className="relative h-[460px]">
                 <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black/20" />
@@ -140,9 +155,11 @@ const Main = () => {
                   </p>
                 </div>
               </div>
-            </Card>)}
+            </Card>
+          ))}
         </div>
       </section>
     </div>;
 };
+
 export default Main;

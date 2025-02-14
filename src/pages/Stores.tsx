@@ -16,7 +16,6 @@ const Stores = () => {
   const storeImages = {
     '도산': [
       "/public/lovable-uploads/b1cc3b7b-845f-48e4-9eea-ddc074ef85a5.png",
-      "/public/lovable-uploads/2180f816-9f95-4423-8ee2-2da1bbdeb014.png",
       "/public/lovable-uploads/f840d0b4-5178-4b14-9014-8889798756d3.png"
     ],
     '시청': [

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Plus, Minus } from 'lucide-react';
 import {
@@ -9,6 +8,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
+import { useNavigate } from 'react-router-dom';
 
 interface ProductOptionSheetProps {
   isOpen: boolean;
@@ -34,6 +34,8 @@ const ProductOptionSheet = ({
   onQuantityChange,
   getTotalPrice,
 }: ProductOptionSheetProps) => {
+  const navigate = useNavigate();
+
   return (
     <Sheet open={isOpen} onOpenChange={onOpenChange}>
       <SheetContent side="bottom" className="h-[80vh] bg-white">
@@ -101,7 +103,10 @@ const ProductOptionSheet = ({
             {type === 'gift' ? (
               <button 
                 className="w-full py-3 bg-[#2C2C2C] text-white"
-                onClick={() => onOpenChange(false)}
+                onClick={() => {
+                  onOpenChange(false);
+                  navigate('/gift-checkout');
+                }}
               >
                 선물하기
               </button>

@@ -7,6 +7,7 @@ import { StrictMode } from "react";
 import AddressList from "./pages/AddressList";
 import AddressForm from "./pages/AddressForm";
 import Checkout from "./pages/Checkout";
+import GiftCheckout from "./pages/GiftCheckout";
 import Main from "./pages/Main";
 import NotFound from "./pages/NotFound";
 import JournalDetail from "./pages/JournalDetail";
@@ -79,6 +80,7 @@ const App = () => (
             <Route path="/address/list" element={<AddressList />} />
             <Route path="/address/new" element={<AddressForm />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/gift-checkout" element={<GiftCheckout />} />
             <Route path="/journal" element={<Navigate to="/main" />} />
             <Route path="/event" element={<Navigate to="/main" />} />
             <Route path="/awards" element={<Awards />} />

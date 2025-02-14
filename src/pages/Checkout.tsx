@@ -40,6 +40,7 @@ const Checkout = () => {
         <section>
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-sm">배송정보</h2>
+            <button className="text-sm text-blue-500">배송지 목록</button>
           </div>
           <button className="w-full mb-4 py-3 border border-gray-200 rounded-sm text-sm">
             새 배송지 추가
@@ -47,9 +48,6 @@ const Checkout = () => {
           <div className="mb-4 bg-[#322A24]/[0.03] p-4 rounded text-[10px] text-gray-500 space-y-1">
             <p>정확한 배송을 위해 도로명 주소만 사용합니다.</p>
             <p>배송지 불분명으로 반송되지 않도록 한 번 더 확인해 주세요.</p>
-          </div>
-          <div className="flex justify-end mb-4">
-            <button className="text-sm text-blue-500">배송지 목록</button>
           </div>
           <div className="space-y-2">
             <div className="border rounded p-4 flex items-start">

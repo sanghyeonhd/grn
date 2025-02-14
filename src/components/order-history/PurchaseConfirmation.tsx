@@ -163,7 +163,7 @@ const PurchaseConfirmation = ({
       </div>
 
       <AlertDialog open={isConfirmModalOpen} onOpenChange={setIsConfirmModalOpen}>
-        <AlertDialogContent className="w-[320px] rounded-none">
+        <AlertDialogContent className="w-[320px] rounded-none bg-white">
           <AlertDialogHeader className="text-center">
             <AlertDialogTitle>구매 확정</AlertDialogTitle>
             <AlertDialogDescription>

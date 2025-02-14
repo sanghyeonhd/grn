@@ -1,11 +1,24 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useToast } from "@/hooks/use-toast";
 
 const CouponRegister = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
+  const [couponNumber, setCouponNumber] = useState('');
+
+  const handleRegister = () => {
+    if (couponNumber === '1111') {
+      toast({
+        title: "쿠폰이 등록되었습니다. 보유쿠폰에서 확인해 주세요!",
+        className: "bg-red-500 text-white border-none",
+      });
+      setCouponNumber('');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -38,19 +51,27 @@ const CouponRegister = () => {
         <div className="space-y-4">
           <div>
             <label htmlFor="couponNumber" className="block text-sm font-medium text-gray-700 mb-1">
-              쿠폰 번호 입력
+              쿠폰 번호
             </label>
             <input
               type="text"
               id="couponNumber"
-              className="w-full p-3 border rounded-lg"
-              placeholder="쿠폰 번호를 입력해주세요"
+              value={couponNumber}
+              onChange={(e) => setCouponNumber(e.target.value)}
+              className="w-full p-3 border rounded-md"
+              placeholder="쿠폰 번호를 입력해 주세요."
             />
           </div>
-          <button className="w-full bg-black text-white py-3 rounded-lg">
-            등록하기
-          </button>
         </div>
+      </div>
+
+      <div className="fixed bottom-0 left-0 right-0 p-4">
+        <button 
+          onClick={handleRegister}
+          className="w-full bg-[#2D2D2D] text-white py-4 rounded-md"
+        >
+          쿠폰 등록
+        </button>
       </div>
     </div>
   );

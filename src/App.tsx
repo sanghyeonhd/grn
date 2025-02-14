@@ -55,6 +55,7 @@ import Terms from "./pages/Terms";
 import LanguageSettings from "./pages/LanguageSettings";
 import NotificationSettings from "./pages/NotificationSettings";
 import Search from "./pages/Search";
+import Cart from "./pages/Cart";
 
 const queryClient = new QueryClient();
 
@@ -120,6 +121,7 @@ const App = () => (
             <Route path="/notice" element={<Notice />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/search" element={<Search />} />
+            <Route path="/cart" element={<Cart />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </TooltipProvider>

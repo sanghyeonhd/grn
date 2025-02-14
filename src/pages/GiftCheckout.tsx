@@ -78,9 +78,11 @@ const GiftCheckout = () => {
               </div>
             </div>
             
-            <div className="text-xs text-gray-500 space-y-1">
-              <p>• 선물하기 결제 후 카카오톡 덕구 메세지로 받을 수 있어요.</p>
-              <p>• 포인트 선물은 그랜핸드 회원만 받을 수 있어요.</p>
+            <div className="bg-[#322A24]/[0.03] p-4 rounded">
+              <div className="text-xs text-gray-500 space-y-1">
+                <p>• 선물하기 결제 후 카카오톡 덕구 메세지로 받을 수 있어요.</p>
+                <p>• 포인트 선물은 그랜핸드 회원만 받을 수 있어요.</p>
+              </div>
             </div>
           </div>
         </section>

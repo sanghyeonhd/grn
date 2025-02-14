@@ -5,7 +5,7 @@ import { ArrowLeft, User } from 'lucide-react';
 
 const MemberGeneralInfo = () => {
   const navigate = useNavigate();
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(2);
   const [id] = useState('gran****@****.com');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('홍길동');
@@ -18,43 +18,6 @@ const MemberGeneralInfo = () => {
       setStep(3);
     }
   };
-
-  const renderStep1 = () => (
-    <div className="p-4">
-      <h2 className="text-lg font-medium mb-2">비밀번호 재확인</h2>
-      <p className="text-sm text-gray-600 mb-6">
-        회원님의 정보를 안전하게 보호하기 위해 비밀번호를
-        다시 한번 확인해 주세요.
-      </p>
-      <div className="space-y-4">
-        <div>
-          <label className="text-sm">아이디</label>
-          <input
-            type="text"
-            value={id}
-            disabled
-            className="w-full p-3 bg-gray-100 rounded border mt-1"
-          />
-        </div>
-        <div>
-          <label className="text-sm">비밀번호</label>
-          <input
-            type="password"
-            placeholder="현재 비밀번호를 입력해 주세요."
-            className="w-full p-3 bg-white rounded border mt-1"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-      </div>
-      <button
-        onClick={() => setStep(2)}
-        className="w-full py-3 bg-gray-200 text-black rounded mt-8"
-      >
-        확인
-      </button>
-    </div>
-  );
 
   const renderStep2 = () => (
     <div className="p-4">
@@ -157,7 +120,6 @@ const MemberGeneralInfo = () => {
         </div>
       </div>
 
-      {step === 1 && renderStep1()}
       {step === 2 && renderStep2()}
       {step === 3 && renderStep3()}
     </div>

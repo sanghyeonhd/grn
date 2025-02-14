@@ -1,11 +1,19 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Share } from 'lucide-react';
 
 const Awards = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('필름사진상');
   const [submenuTab, setSubmenuTab] = useState('행사안내');
+  const [showShareDialog, setShowShareDialog] = useState(false);
 
   const mainTabs = ['필름사진상', '사생대회', '문예공모전'];
   const subTabs = ['행사안내', '참가접수', '당선작'];
@@ -20,12 +28,8 @@ const Awards = () => {
           </svg>
         </button>
         <h1 className="text-[18px] font-bold leading-[28px] text-[#1A1A1A]">AWARDS</h1>
-        <button className="ml-auto">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M4 12V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V12" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M16 6L12 2L8 6" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M12 2V15" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+        <button className="ml-auto" onClick={() => setShowShareDialog(true)}>
+          <Share className="w-5 h-5 text-[#1A1A1A]" />
         </button>
       </div>
 
@@ -68,7 +72,7 @@ const Awards = () => {
         <div className="px-4 py-8">
           <div className="mb-8">
             <img 
-              src="/public/lovable-uploads/961faff7-e422-4ec5-94d0-a3811072e752.png" 
+              src="/public/lovable-uploads/707d314f-2527-46c5-a639-c450c208981a.png" 
               alt="FPAG Logo"
               className="w-48 h-auto mb-6"
             />
@@ -101,25 +105,6 @@ const Awards = () => {
               </div>
             </div>
           </div>
-          
-          {/* 공유하기 섹션 */}
-          <div>
-            <h3 className="text-sm mb-2">공유하기</h3>
-            <div className="flex items-center border border-[#EAEAEA] rounded p-3">
-              <input 
-                type="text" 
-                value="https://granhand.com/evnet/11832" 
-                readOnly
-                className="flex-1 text-sm text-[#999999] bg-transparent outline-none"
-              />
-              <button className="ml-2">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M16.6667 7.5H8.33333C7.41286 7.5 6.66667 8.24619 6.66667 9.16667V16.6667C6.66667 17.5871 7.41286 18.3333 8.33333 18.3333H16.6667C17.5871 18.3333 18.3333 17.5871 18.3333 16.6667V9.16667C18.3333 8.24619 17.5871 7.5 16.6667 7.5Z" stroke="#999999" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M3.33333 12.5H2.5C2.03976 12.5 1.66667 12.1269 1.66667 11.6667V4.16667C1.66667 3.70643 2.03976 3.33333 2.5 3.33333H10.8333C11.2936 3.33333 11.6667 3.70643 11.6667 4.16667V5" stroke="#999999" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-            </div>
-          </div>
         </div>
       )}
 
@@ -144,6 +129,29 @@ const Awards = () => {
           </div>
         </div>
       )}
+
+      {/* 공유하기 다이얼로그 */}
+      <Dialog open={showShareDialog} onOpenChange={setShowShareDialog}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-sm mb-4">공유하기</DialogTitle>
+          </DialogHeader>
+          <div className="flex items-center border border-[#EAEAEA] rounded p-3">
+            <input 
+              type="text" 
+              value="https://granhand.com/evnet/11832" 
+              readOnly
+              className="flex-1 text-sm text-[#999999] bg-transparent outline-none"
+            />
+            <button className="ml-2">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M16.6667 7.5H8.33333C7.41286 7.5 6.66667 8.24619 6.66667 9.16667V16.6667C6.66667 17.5871 7.41286 18.3333 8.33333 18.3333H16.6667C17.5871 18.3333 18.3333 17.5871 18.3333 16.6667V9.16667C18.3333 8.24619 17.5871 7.5 16.6667 7.5Z" stroke="#999999" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M3.33333 12.5H2.5C2.03976 12.5 1.66667 12.1269 1.66667 11.6667V4.16667C1.66667 3.70643 2.03976 3.33333 2.5 3.33333H10.8333C11.2936 3.33333 11.6667 3.70643 11.6667 4.16667V5" stroke="#999999" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

@@ -84,7 +84,7 @@ const OrderHistory = () => {
               </button>
             </SheetTrigger>
             <SheetContent side="bottom" className="h-[400px] p-0 bg-white">
-              <div className="space-y-8 p-6">
+              <div className="space-y-8 px-6 pt-6 pb-10">
                 <div className="space-y-6">
                   <h2 className="text-lg font-medium">기간설정</h2>
                   <div className="grid grid-cols-4 gap-2">
@@ -104,7 +104,7 @@ const OrderHistory = () => {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2 px-0">
+                  <div className="flex items-center gap-2">
                     <input
                       type="text"
                       value={startDate}

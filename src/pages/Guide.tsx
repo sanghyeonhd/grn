@@ -87,12 +87,12 @@ const Guide = () => {
         {/* 질문 1 */}
         <div className="mb-8">
           <h2 className="text-base mb-4">{questions[1].question}</h2>
-          <div className="flex gap-2">
+          <div className="flex gap-2 overflow-x-auto whitespace-nowrap">
             {questions[1].options.map((option) => (
               <button
                 key={option}
                 onClick={() => handleAnswer(1, option)}
-                className={`px-4 py-2 rounded-full text-sm ${
+                className={`px-3 py-1.5 rounded-full text-xs flex-shrink-0 ${
                   step1Answer === option
                     ? 'bg-black text-white'
                     : 'bg-[#F5F5F5] text-black'
@@ -108,12 +108,12 @@ const Guide = () => {
         {step1Answer && (
           <div className="mb-8">
             <h2 className="text-base mb-4">{questions[2].question}</h2>
-            <div className="flex gap-2 flex-wrap">
+            <div className="flex gap-2 overflow-x-auto whitespace-nowrap">
               {questions[2].options.map((option) => (
                 <button
                   key={option}
                   onClick={() => handleAnswer(2, option)}
-                  className={`px-4 py-2 rounded-full text-sm ${
+                  className={`px-3 py-1.5 rounded-full text-xs flex-shrink-0 ${
                     step2Answer === option
                       ? 'bg-black text-white'
                       : 'bg-[#F5F5F5] text-black'
@@ -130,12 +130,12 @@ const Guide = () => {
         {step2Answer && (
           <div className="mb-8">
             <h2 className="text-base mb-4">{questions[3].question}</h2>
-            <div className="flex gap-2 flex-wrap">
+            <div className="flex gap-2 overflow-x-auto whitespace-nowrap">
               {questions[3].options.map((option) => (
                 <button
                   key={option}
                   onClick={() => handleAnswer(3, option)}
-                  className={`px-4 py-2 rounded-full text-sm ${
+                  className={`px-3 py-1.5 rounded-full text-xs flex-shrink-0 ${
                     step3Answer === option
                       ? 'bg-black text-white'
                       : 'bg-[#F5F5F5] text-black'
@@ -152,12 +152,12 @@ const Guide = () => {
         {step3Answer && (
           <div className="mb-8">
             <h2 className="text-base mb-4">{questions[4].question}</h2>
-            <div className="flex gap-2 flex-wrap">
+            <div className="flex gap-2 overflow-x-auto whitespace-nowrap">
               {questions[4].options.map((option) => (
                 <button
                   key={option}
                   onClick={() => handleAnswer(4, option)}
-                  className={`px-4 py-2 rounded-full text-sm ${
+                  className={`px-3 py-1.5 rounded-full text-xs flex-shrink-0 ${
                     step4Answer === option
                       ? 'bg-black text-white'
                       : 'bg-[#F5F5F5] text-black'

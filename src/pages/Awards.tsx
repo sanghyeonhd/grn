@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -109,11 +110,11 @@ const Awards = () => {
 
       {submenuTab === '참가접수' && (
         <div className="p-4">
-          <div className="aspect-video bg-[#F5F5F5] rounded-none mb-4">
+          <div className="w-full h-[180px] bg-[#F5F5F5] mb-4">
             <img 
-              src="/public/lovable-uploads/11bd89c5-c86d-4f5b-8521-4a1ea4334711.png"
+              src="/public/lovable-uploads/983770e1-f9fd-4581-bec2-3b910c2630fc.png"
               alt="FPAG Award"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain bg-[#F5F5F5]"
             />
           </div>
           <h3 className="text-base font-medium mb-1">GRANHAND, Film Photography Award</h3>

@@ -27,10 +27,10 @@ const Settings = () => {
 
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <h2 className="font-medium">혜택 알림</h2>
+            <h2 className="font-medium">혜택 정보 알림</h2>
             <Switch className="data-[state=checked]:bg-blue-500 data-[state=checked]:hover:bg-blue-600" />
           </div>
-          <p className="text-sm text-gray-600">혜택 및 홍보 알림 (필수 안내는 설정과 관계없이 발송)</p>
+          <p className="text-sm text-gray-600">그랑핸드 회원을 위한 할인 소식, 쿠폰 등 혜택 정보를 알려드립니다.<br/>영리성 목적 외의 정보성 내용은 설정 여부와 무관하게 발송됩니다.</p>
         </div>
 
         <div className="space-y-4">

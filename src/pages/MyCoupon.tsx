@@ -1,11 +1,18 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronLeft } from 'lucide-react';
+import { ChevronLeft, X } from 'lucide-react';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
 
 const MyCoupon = () => {
   const navigate = useNavigate();
   const [sortType, setSortType] = useState<'latest' | 'expiry'>('latest');
+  const [selectedCoupon, setSelectedCoupon] = useState<number | null>(null);
 
   // 임시 쿠폰 데이터
   const coupons = [
@@ -38,6 +45,12 @@ const MyCoupon = () => {
       validUntil: '2024-01-31까지 사용 가능',
     }
   ];
+
+  const handleCouponClick = (id: number) => {
+    setSelectedCoupon(id);
+  };
+
+  const selectedCouponData = coupons.find(coupon => coupon.id === selectedCoupon);
 
   return (
     <div className="min-h-screen bg-white">
@@ -85,7 +98,8 @@ const MyCoupon = () => {
           {coupons.map((coupon) => (
             <div 
               key={coupon.id} 
-              className="border rounded-lg p-4 bg-white"
+              className="border rounded-lg p-4 bg-white cursor-pointer"
+              onClick={() => handleCouponClick(coupon.id)}
             >
               <div className="flex gap-1 mb-2">
                 {coupon.type.map((tag, index) => (
@@ -105,6 +119,30 @@ const MyCoupon = () => {
           ))}
         </div>
       </div>
+
+      <Sheet open={selectedCoupon !== null} onOpenChange={() => setSelectedCoupon(null)}>
+        <SheetContent side="bottom" className="h-[90vh] rounded-t-xl">
+          <SheetHeader className="relative border-b pb-4">
+            <button 
+              onClick={() => setSelectedCoupon(null)}
+              className="absolute right-0 top-0"
+            >
+              <X className="h-6 w-6" />
+            </button>
+            <SheetTitle className="text-left text-lg">
+              {selectedCouponData?.title}
+            </SheetTitle>
+          </SheetHeader>
+          <div className="flex flex-col items-center justify-center py-8">
+            <div className="w-64 h-64 bg-gray-100 flex items-center justify-center mb-4">
+              {/* QR 코드 이미지가 들어갈 자리 */}
+              <div className="text-center">QR 코드</div>
+            </div>
+            <p className="text-sm text-gray-600">{selectedCouponData?.description}</p>
+            <p className="text-xs text-gray-400 mt-1">{selectedCouponData?.validUntil}</p>
+          </div>
+        </SheetContent>
+      </Sheet>
     </div>
   );
 };

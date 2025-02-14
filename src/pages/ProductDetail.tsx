@@ -27,11 +27,12 @@ interface SelectedProduct {
 const ProductDetail = () => {
   const navigate = useNavigate();
   const [isGiftSheetOpen, setIsGiftSheetOpen] = useState(false);
+  const [isPurchaseSheetOpen, setIsPurchaseSheetOpen] = useState(false);
   const [selectedProducts, setSelectedProducts] = useState<SelectedProduct[]>([]);
 
   const handleProductSelect = (option: string) => {
     const newProduct = {
-      name: "Roland Multi Perfume",
+      name: "Trio Gift Set",
       price: 35500,
       quantity: 1,
       option: option
@@ -131,7 +132,10 @@ const ProductDetail = () => {
           >
             선물하기
           </button>
-          <button className="py-3 bg-[#2C2C2C] text-white">
+          <button 
+            className="py-3 bg-[#2C2C2C] text-white"
+            onClick={() => setIsPurchaseSheetOpen(true)}
+          >
             구매하기
           </button>
         </div>
@@ -159,7 +163,6 @@ const ProductDetail = () => {
                   <div className="flex justify-between items-start mb-2">
                     <div>
                       <h3 className="font-medium">{product.name}</h3>
-                      <p className="text-sm text-gray-600">용량: 100ml</p>
                       <p className="text-sm text-gray-600">쇼핑백: {product.option}</p>
                     </div>
                     <button className="text-gray-400">삭제</button>
@@ -191,6 +194,76 @@ const ProductDetail = () => {
               >
                 선물하기
               </button>
+            </div>
+          </div>
+        </SheetContent>
+      </Sheet>
+
+      {/* Purchase Sheet */}
+      <Sheet open={isPurchaseSheetOpen} onOpenChange={setIsPurchaseSheetOpen}>
+        <SheetContent side="bottom" className="h-[80vh] bg-white">
+          <div className="h-full flex flex-col">
+            <div className="flex-1 overflow-auto">
+              <h2 className="text-lg font-medium mb-4">향 종류</h2>
+              
+              <Select onValueChange={handleProductSelect}>
+                <SelectTrigger className="w-full mb-4">
+                  <SelectValue placeholder="옵션을 선택해 주세요" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="마린우드">마린우드</SelectItem>
+                  <SelectItem value="수자삼">수자삼</SelectItem>
+                  <SelectItem value="규장">규장</SelectItem>
+                  <SelectItem value="월리 오멜">월리 오멜</SelectItem>
+                  <SelectItem value="트와버드">트와버드</SelectItem>
+                  <SelectItem value="비올레또">비올레또</SelectItem>
+                </SelectContent>
+              </Select>
+
+              {selectedProducts.map((product, index) => (
+                <div key={index} className="border-t py-4">
+                  <div className="flex justify-between items-start mb-2">
+                    <div>
+                      <h3 className="font-medium">{product.name}</h3>
+                      <p className="text-sm text-gray-600">{product.option}</p>
+                    </div>
+                    <button className="text-gray-400">삭제</button>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <div className="font-medium">{product.price.toLocaleString()}원</div>
+                    <div className="flex items-center gap-3">
+                      <button onClick={() => updateQuantity(index, false)}>
+                        <Minus className="w-4 h-4" />
+                      </button>
+                      <span>{product.quantity}</span>
+                      <button onClick={() => updateQuantity(index, true)}>
+                        <Plus className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="border-t pt-4">
+              <div className="flex justify-between items-center mb-4">
+                <span>합계</span>
+                <span className="font-medium">{getTotalPrice().toLocaleString()}원</span>
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <button 
+                  className="py-3 border border-black text-black"
+                  onClick={() => setIsPurchaseSheetOpen(false)}
+                >
+                  장바구니 담기
+                </button>
+                <button 
+                  className="py-3 bg-[#2C2C2C] text-white"
+                  onClick={() => setIsPurchaseSheetOpen(false)}
+                >
+                  구매하기
+                </button>
+              </div>
             </div>
           </div>
         </SheetContent>

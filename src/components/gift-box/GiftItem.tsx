@@ -2,6 +2,7 @@
 import { ChevronRight } from "lucide-react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface GiftItemProps {
   item: {
@@ -18,6 +19,7 @@ interface GiftItemProps {
 }
 
 const GiftItem = ({ item }: GiftItemProps) => {
+  const navigate = useNavigate();
   const [openDialog, setOpenDialog] = useState(false);
   const [openConfirmDialog, setOpenConfirmDialog] = useState(false);
   const [openRejectDialog, setOpenRejectDialog] = useState(false);
@@ -27,7 +29,10 @@ const GiftItem = ({ item }: GiftItemProps) => {
 
   return (
     <div className="space-y-4 pb-6 border-b last:border-b-0">
-      <div className="flex justify-between items-center">
+      <div 
+        className="flex justify-between items-center cursor-pointer"
+        onClick={() => navigate(`/order-history/${item.id}`)}
+      >
         <div className="text-lg">{item.date}</div>
         <ChevronRight className="w-5 h-5" />
       </div>

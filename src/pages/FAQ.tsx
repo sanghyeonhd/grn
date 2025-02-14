@@ -57,7 +57,7 @@ const FAQ = () => {
           <TabsList className="w-full h-12 p-0 bg-white border-b space-x-4">
             <TabsTrigger 
               value="product" 
-              className={`flex-1 h-full rounded-none border-b-2 data-[state=active]:border-black data-[state=active]:bg-white data-[state=active]:shadow-none ${
+              className={`flex-1 h-full rounded-none border-b-2 data-[state=active]:border-black data-[state=active]:bg-white data-[state=active]:shadow-none text-sm text-left justify-start px-2 ${
                 activeTab === "product" ? "text-black" : "text-gray-400 border-transparent"
               }`}
             >
@@ -65,7 +65,7 @@ const FAQ = () => {
             </TabsTrigger>
             <TabsTrigger 
               value="delivery" 
-              className={`flex-1 h-full rounded-none border-b-2 data-[state=active]:border-black data-[state=active]:bg-white data-[state=active]:shadow-none ${
+              className={`flex-1 h-full rounded-none border-b-2 data-[state=active]:border-black data-[state=active]:bg-white data-[state=active]:shadow-none text-sm text-left justify-start px-2 ${
                 activeTab === "delivery" ? "text-black" : "text-gray-400 border-transparent"
               }`}
             >
@@ -73,7 +73,7 @@ const FAQ = () => {
             </TabsTrigger>
             <TabsTrigger 
               value="orderCancel" 
-              className={`flex-1 h-full rounded-none border-b-2 data-[state=active]:border-black data-[state=active]:bg-white data-[state=active]:shadow-none ${
+              className={`flex-1 h-full rounded-none border-b-2 data-[state=active]:border-black data-[state=active]:bg-white data-[state=active]:shadow-none text-sm text-left justify-start px-2 ${
                 activeTab === "orderCancel" ? "text-black" : "text-gray-400 border-transparent"
               }`}
             >
@@ -81,7 +81,7 @@ const FAQ = () => {
             </TabsTrigger>
             <TabsTrigger 
               value="orderDelivery" 
-              className={`flex-1 h-full rounded-none border-b-2 data-[state=active]:border-black data-[state=active]:bg-white data-[state=active]:shadow-none ${
+              className={`flex-1 h-full rounded-none border-b-2 data-[state=active]:border-black data-[state=active]:bg-white data-[state=active]:shadow-none text-sm text-left justify-start px-2 ${
                 activeTab === "orderDelivery" ? "text-black" : "text-gray-400 border-transparent"
               }`}
             >

@@ -3,11 +3,93 @@ import React, { useState } from 'react';
 import { useIsMobile } from '../hooks/use-mobile';
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { useToast } from "@/components/ui/use-toast"
 import Splash from '../components/Splash';
 
 const Index = () => {
   const isMobile = useIsMobile();
   const [showSplash, setShowSplash] = useState(true);
+  const { toast } = useToast();
+  
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const [errors, setErrors] = useState({
+    email: '',
+    password: '',
+  });
+
+  // 이메일 유효성 검사
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+      return '이메일을 입력해주세요.';
+    }
+    if (!emailRegex.test(email)) {
+      return '올바른 이메일 형식으로 입력해주세요.';
+    }
+    return '';
+  };
+
+  // 비밀번호 유효성 검사
+  const validatePassword = (password: string) => {
+    if (!password) {
+      return '비밀번호를 입력해주세요.';
+    }
+    if (password.length < 8) {
+      return '비밀번호는 8자 이상이어야 합니다.';
+    }
+    return '';
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+
+    // 실시간 유효성 검사
+    if (name === 'email') {
+      setErrors(prev => ({
+        ...prev,
+        email: validateEmail(value)
+      }));
+    } else if (name === 'password') {
+      setErrors(prev => ({
+        ...prev,
+        password: validatePassword(value)
+      }));
+    }
+  };
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // 모든 필드 유효성 검사
+    const emailError = validateEmail(formData.email);
+    const passwordError = validatePassword(formData.password);
+
+    setErrors({
+      email: emailError,
+      password: passwordError
+    });
+
+    // 에러가 있으면 중단
+    if (emailError || passwordError) {
+      return;
+    }
+
+    // 여기에 로그인 로직 추가
+    console.log('로그인 시도:', formData);
+    toast({
+      title: "로그인 시도",
+      description: "아이디 또는 비밀번호를 확인해주세요.",
+      variant: "destructive"
+    });
+  };
 
   if (showSplash) {
     return <Splash onComplete={() => setShowSplash(false)} />;
@@ -22,26 +104,43 @@ const Index = () => {
         </header>
 
         {/* 로그인 폼 */}
-        <div className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-4">
           <div className="space-y-2">
             <label className="text-sm">아이디</label>
-            <Input 
-              type="email" 
-              placeholder="이메일을 입력해주세요."
-              className="w-full border-gray-300"
-            />
+            <div className="space-y-1">
+              <Input 
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="이메일을 입력해주세요."
+                className={`w-full border-gray-300 ${errors.email ? 'border-red-500' : ''}`}
+              />
+              {errors.email && (
+                <p className="text-sm text-red-500">{errors.email}</p>
+              )}
+            </div>
           </div>
 
           <div className="space-y-2">
             <label className="text-sm">비밀번호</label>
-            <Input 
-              type="password" 
-              placeholder="비밀번호를 입력해주세요."
-              className="w-full border-gray-300"
-            />
+            <div className="space-y-1">
+              <Input 
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                placeholder="비밀번호를 입력해주세요."
+                className={`w-full border-gray-300 ${errors.password ? 'border-red-500' : ''}`}
+              />
+              {errors.password && (
+                <p className="text-sm text-red-500">{errors.password}</p>
+              )}
+            </div>
           </div>
 
           <Button 
+            type="submit"
             className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white rounded-none h-12"
           >
             로그인
@@ -50,32 +149,33 @@ const Index = () => {
           <Button 
             variant="outline"
             className="w-full border-gray-300 rounded-none h-12"
+            type="button"
           >
             이메일 회원가입
           </Button>
 
           <div className="flex justify-center space-x-2 text-sm text-gray-500">
-            <button className="hover:underline">아이디 찾기</button>
+            <button type="button" className="hover:underline">아이디 찾기</button>
             <span>|</span>
-            <button className="hover:underline">비밀번호 찾기</button>
+            <button type="button" className="hover:underline">비밀번호 찾기</button>
           </div>
 
           {/* 소셜 로그인 */}
           <div className="pt-4">
             <p className="text-center text-sm text-gray-500 mb-4">간편 로그인</p>
             <div className="flex justify-center space-x-4">
-              <button className="w-10 h-10">
+              <button type="button" className="w-10 h-10">
                 <img src="/public/lovable-uploads/6f4cb4c7-7087-4c4d-ac4a-7a8a9591edb2.png" alt="Apple" className="w-full" />
               </button>
-              <button className="w-10 h-10">
+              <button type="button" className="w-10 h-10">
                 <img src="/public/lovable-uploads/9a46f8c3-c0e0-480f-84ea-85c9fbcf3ee1.png" alt="Naver" className="w-full" />
               </button>
-              <button className="w-10 h-10">
+              <button type="button" className="w-10 h-10">
                 <img src="/public/lovable-uploads/a6f9138a-d672-46fe-85f6-0c2bf8162c97.png" alt="Kakao" className="w-full" />
               </button>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

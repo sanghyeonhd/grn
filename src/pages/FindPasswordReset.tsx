@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { useToast } from "@/components/ui/use-toast"
+import { useToast } from "@/hooks/use-toast"
 
 const FindPasswordReset = () => {
   const navigate = useNavigate();
@@ -23,8 +23,18 @@ const FindPasswordReset = () => {
       });
       return;
     }
+
     // API 호출 후 성공 시
-    navigate('/');
+    toast({
+      title: "비밀번호가 변경되었습니다.",
+      description: "로그인 페이지로 이동합니다.",
+      variant: "default",
+    });
+
+    // 토스트 메시지가 보여진 후 페이지 이동
+    setTimeout(() => {
+      navigate('/');
+    }, 1000);
   };
 
   return (

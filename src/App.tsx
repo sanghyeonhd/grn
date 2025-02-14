@@ -60,6 +60,7 @@ import Search from "./pages/Search";
 import Cart from "./pages/Cart";
 import Challenge from "./pages/Challenge";
 import ChallengeSeasons from "./pages/ChallengeSeasons";
+import ProductDetail from "./pages/ProductDetail";
 
 const queryClient = new QueryClient();
 
@@ -130,6 +131,7 @@ const App = () => (
             <Route path="/cart" element={<Cart />} />
             <Route path="/challenge" element={<Challenge />} />
             <Route path="/challenge/seasons" element={<ChallengeSeasons />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </TooltipProvider>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Heart, Search, ShoppingCart, Home, BookOpen, Scan, User } from "lucide-react";
@@ -50,30 +49,34 @@ const products = {
   ]
 };
 
-const ProductCard = ({ product }: { product: any }) => (
-  <div className="relative">
-    <div className="relative">
-      <img 
-        src={product.image} 
-        alt={product.name}
-        className="w-full aspect-square object-cover rounded-none"
-      />
-      <button className="absolute top-4 right-4">
-        <Heart className="w-6 h-6 text-white" />
-      </button>
-      {product.soldOut && (
-        <div className="absolute inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center">
-          <span className="text-white font-medium">Sold out</span>
-        </div>
-      )}
+const ProductCard = ({ product }: { product: any }) => {
+  const navigate = useNavigate();
+  
+  return (
+    <div className="relative" onClick={() => navigate(`/product/${product.id}`)}>
+      <div className="relative">
+        <img 
+          src={product.image} 
+          alt={product.name}
+          className="w-full aspect-square object-cover rounded-none"
+        />
+        <button className="absolute top-4 right-4" onClick={(e) => e.stopPropagation()}>
+          <Heart className="w-6 h-6 text-white" />
+        </button>
+        {product.soldOut && (
+          <div className="absolute inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center">
+            <span className="text-white font-medium">Sold out</span>
+          </div>
+        )}
+      </div>
+      <div className="mt-3 space-y-1">
+        <h3 className="text-base font-medium">{product.name}</h3>
+        <p className="text-sm text-gray-600">{product.description}</p>
+        <p className="font-medium">{product.price}</p>
+      </div>
     </div>
-    <div className="mt-3 space-y-1">
-      <h3 className="text-base font-medium">{product.name}</h3>
-      <p className="text-sm text-gray-600">{product.description}</p>
-      <p className="font-medium">{product.price}</p>
-    </div>
-  </div>
-);
+  );
+};
 
 const GranShop = () => {
   const navigate = useNavigate();

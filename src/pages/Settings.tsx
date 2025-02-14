@@ -18,12 +18,18 @@ const Settings = () => {
       
       <div className="p-4 space-y-6">
         <div className="space-y-3">
-          <h2 className="font-medium">서비스 알림</h2>
+          <div className="flex items-center justify-between">
+            <h2 className="font-medium">서비스 알림</h2>
+            <Switch className="data-[state=checked]:bg-blue-500 data-[state=checked]:hover:bg-blue-600" />
+          </div>
           <p className="text-sm text-gray-600">기기 설정 &gt; 그랜드 &gt; 알림에서 변경 가능</p>
         </div>
 
         <div className="space-y-3">
-          <h2 className="font-medium">혜택 알림</h2>
+          <div className="flex items-center justify-between">
+            <h2 className="font-medium">혜택 알림</h2>
+            <Switch className="data-[state=checked]:bg-blue-500 data-[state=checked]:hover:bg-blue-600" />
+          </div>
           <p className="text-sm text-gray-600">
             그랜드의 혜택 및 홍보 알림입니다.<br/>
             필수 안내는 설정과 관계없이 발송됩니다.

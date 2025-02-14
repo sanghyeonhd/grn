@@ -72,7 +72,7 @@ const GuideResult = () => {
         <div className="grid grid-cols-2 gap-4">
           {sampleResult.recommendedProducts.map((product, index) => (
             <div key={index} className="space-y-2">
-              <div className="relative aspect-square bg-gray-100" style={{ height: 'calc(100% + 10px)' }}>
+              <div className="relative bg-gray-100" style={{ width: '163px', height: '200px' }}>
                 <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
                 <button className="absolute top-2 right-2">
                   <Heart className="text-white" size={24} />

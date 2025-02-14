@@ -45,7 +45,7 @@ const OrderDetail = () => {
 
         <div className="mt-8">
           <h2 className="text-lg font-medium mb-4">배송지 정보</h2>
-          <div className="space-y-4">
+          <div className="space-y-4 text-[10px]">
             <div className="flex">
               <div className="w-20 text-gray-500">받는 분</div>
               <div>홍*동</div>

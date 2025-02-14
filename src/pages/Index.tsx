@@ -1,16 +1,17 @@
-
 import React, { useState } from 'react';
 import { useIsMobile } from '../hooks/use-mobile';
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/components/ui/use-toast"
 import Splash from '../components/Splash';
+import { useNavigate } from 'react-router-dom';
 
 const Index = () => {
   const isMobile = useIsMobile();
   const [showSplash, setShowSplash] = useState(true);
   const { toast } = useToast();
-  
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -21,7 +22,6 @@ const Index = () => {
     password: '',
   });
 
-  // 이메일 유효성 검사
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email) {
@@ -33,7 +33,6 @@ const Index = () => {
     return '';
   };
 
-  // 비밀번호 유효성 검사
   const validatePassword = (password: string) => {
     if (!password) {
       return '비밀번호를 입력해주세요.';
@@ -51,7 +50,6 @@ const Index = () => {
       [name]: value
     }));
 
-    // 실시간 유효성 검사
     if (name === 'email') {
       setErrors(prev => ({
         ...prev,
@@ -68,7 +66,6 @@ const Index = () => {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // 모든 필드 유효성 검사
     const emailError = validateEmail(formData.email);
     const passwordError = validatePassword(formData.password);
 
@@ -77,12 +74,10 @@ const Index = () => {
       password: passwordError
     });
 
-    // 에러가 있으면 중단
     if (emailError || passwordError) {
       return;
     }
 
-    // 여기에 로그인 로직 추가
     console.log('로그인 시도:', formData);
     toast({
       title: "로그인 시도",
@@ -98,12 +93,10 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       <div className="px-4 py-6 space-y-6">
-        {/* 헤더 */}
         <header className="text-2xl font-bold">
           GRANHAND.
         </header>
 
-        {/* 로그인 폼 */}
         <form onSubmit={handleLogin} className="space-y-4">
           <div className="space-y-2">
             <label className="text-sm">아이디</label>
@@ -155,12 +148,17 @@ const Index = () => {
           </Button>
 
           <div className="flex justify-center space-x-2 text-sm text-gray-500">
-            <button type="button" className="hover:underline">아이디 찾기</button>
+            <button 
+              type="button" 
+              className="hover:underline"
+              onClick={() => navigate('/find-id')}
+            >
+              아이디 찾기
+            </button>
             <span>|</span>
             <button type="button" className="hover:underline">비밀번호 찾기</button>
           </div>
 
-          {/* 소셜 로그인 */}
           <div className="pt-4">
             <p className="text-center text-sm text-gray-500 mb-4">간편 로그인</p>
             <div className="flex justify-center space-x-4">

@@ -11,6 +11,8 @@ import InternetError from "./pages/InternetError";
 import ErrorPage from "./pages/ErrorPage";
 import Loading from "./pages/Loading";
 import AttendanceCheck from "./pages/AttendanceCheck";
+import FindId from "./pages/FindId";
+import FindIdResult from "./pages/FindIdResult";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +29,8 @@ const App = () => (
           <Route path="/error" element={<ErrorPage />} />
           <Route path="/loading" element={<Loading />} />
           <Route path="/attendance" element={<AttendanceCheck />} />
+          <Route path="/find-id" element={<FindId />} />
+          <Route path="/find-id/result" element={<FindIdResult />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -8,8 +8,8 @@ const CustomerService = () => {
   
   const menuItems = [
     { title: "자주 묻는 질문", path: "/faq" },
-    { title: "세탁 문의", path: "#" },
-    { title: "제품 문의", path: "#" },
+    { title: "채팅 문의", path: "#" },
+    { title: "제휴 문의", path: "#" },
     { title: "공지사항", path: "#" },
     { title: "약관 및 정책", path: "#" }
   ];

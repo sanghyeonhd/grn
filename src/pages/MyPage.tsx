@@ -103,7 +103,12 @@ const MyPage = () => {
         </div>
 
         <div className="mt-8 space-y-4">
-          <button className="w-full py-3 text-left border-t">최근 본 상품</button>
+          <button 
+            className="w-full py-3 text-left border-t"
+            onClick={() => navigate('/recent-products')}
+          >
+            최근 본 상품
+          </button>
           <button className="w-full py-3 text-left border-t">챌린지</button>
           <button className="w-full py-3 text-left border-t">취소/교환/반품 내역</button>
           <button className="w-full py-3 text-left border-t">회원정보</button>

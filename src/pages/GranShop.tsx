@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Heart, Search, ShoppingCart, Home, BookOpen, Scan, User } from "lucide-react";
@@ -50,19 +49,11 @@ const products = {
   ]
 };
 
-const ProductCard = ({ product, category }: { product: any; category: string }) => {
+const ProductCard = ({ product }: { product: any }) => {
   const navigate = useNavigate();
   
-  const handleClick = () => {
-    if (category === '퍼퓸') {
-      navigate(`/granshop/perfume/${product.id}`);
-    } else if (category === '기프트 세트') {
-      navigate(`/product/${product.id}`);
-    }
-  };
-  
   return (
-    <div className="relative" onClick={handleClick}>
+    <div className="relative" onClick={() => navigate(`/product/${product.id}`)}>
       <div className="relative">
         <img 
           src={product.image} 
@@ -96,8 +87,11 @@ const GranShop = () => {
   };
 
   const handleCategoryClick = (category: string) => {
-    // 모든 카테고리 클릭 시 메인 화면으로 이동
-    navigate('/granshop');
+    if (category === '기프트 세트') {
+      navigate('/granshop/giftset');
+    } else if (category === '퍼퓸') {
+      navigate('/granshop/perfume');
+    }
   };
 
   const displayProducts = location.pathname.includes('perfume') ? products.perfumes : products.giftsets;
@@ -105,6 +99,7 @@ const GranShop = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Header */}
       <div className="fixed top-0 left-0 right-0 bg-white z-50">
         <div className="flex items-center justify-between p-4">
           <h1 className="text-xl font-bold">GRANHAND.</h1>
@@ -120,6 +115,7 @@ const GranShop = () => {
         </div>
       </div>
 
+      {/* Banner */}
       <div className="pt-[72px] relative">
         <div className="h-[130px] relative">
           <img 
@@ -137,6 +133,7 @@ const GranShop = () => {
         </div>
       </div>
 
+      {/* Categories */}
       <div className="px-4 border-b">
         <div className="flex items-center gap-4 py-3 text-[0.688rem] overflow-x-auto scrollbar-hide">
           <button 
@@ -172,6 +169,7 @@ const GranShop = () => {
         </div>
       </div>
 
+      {/* Sub Categories - Only show if not on giftset path */}
       {!isGiftsetPath && (
         <div className="px-4 border-b">
           <div className="flex items-center gap-4 py-3 text-[0.688rem] overflow-x-auto scrollbar-hide">
@@ -182,6 +180,7 @@ const GranShop = () => {
         </div>
       )}
 
+      {/* Filter Section */}
       <div className="px-4 py-3 flex items-center justify-between border-b">
         <span className="text-sm">전체</span>
         <button className="text-sm flex items-center gap-1">
@@ -192,20 +191,16 @@ const GranShop = () => {
         </button>
       </div>
 
+      {/* Product Grid */}
       <div className="px-4 py-4">
         <div className="grid grid-cols-2 gap-x-4 gap-y-8">
           {displayProducts.map((product) => (
-            <ProductCard 
-              key={product.id} 
-              product={product} 
-              category={location.pathname.includes('perfume') ? '퍼퓸' : 
-                        location.pathname.includes('space') ? '공간' :
-                        location.pathname.includes('body') ? '바디' : '기프트 세트'} 
-            />
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </div>
 
+      {/* Bottom Navigation */}
       <nav className="fixed bottom-0 left-0 right-0 bg-white border-t">
         <div className="flex justify-around items-center h-[60px]">
           <button 

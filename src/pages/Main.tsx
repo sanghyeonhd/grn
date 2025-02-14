@@ -6,7 +6,7 @@ const Main = () => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    navigate('/granshop');
+    navigate('/address/list');
   }, [navigate]);
 
   return null;

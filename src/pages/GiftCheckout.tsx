@@ -78,18 +78,21 @@ const GiftCheckout = () => {
               </div>
             </div>
             
-            <div className="space-y-2">
-              <input
-                type="text"
-                placeholder="받는 분의 성함을 입력해 주세요."
-                className="w-full p-3 border rounded text-sm"
-              />
-              <div className="text-xs text-gray-500 space-y-1">
-                <p>• 선물하기 결제 후 카카오톡 덕구 메세지로 받을 수 있어요.</p>
-                <p>• 포인트 선물은 그랜핸드 회원만 받을 수 있어요.</p>
-              </div>
+            <div className="text-xs text-gray-500 space-y-1">
+              <p>• 선물하기 결제 후 카카오톡 덕구 메세지로 받을 수 있어요.</p>
+              <p>• 포인트 선물은 그랜핸드 회원만 받을 수 있어요.</p>
             </div>
           </div>
+        </section>
+
+        {/* 받는 분 입력 */}
+        <section>
+          <h2 className="text-sm mb-2">받는 분<span className="text-red-500">*</span></h2>
+          <input
+            type="text"
+            placeholder="받는 분의 성함을 입력해 주세요."
+            className="w-full p-3 border rounded text-sm"
+          />
         </section>
 
         {/* 주문 상품 정보 */}

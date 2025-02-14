@@ -1,17 +1,61 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronLeft, Heart, Share2 } from 'lucide-react';
+import { ChevronLeft, Heart, Share2, Plus, Minus } from 'lucide-react';
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet"
+} from "@/components/ui/sheet";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+interface SelectedProduct {
+  name: string;
+  price: number;
+  quantity: number;
+  option?: string;
+}
 
 const ProductDetail = () => {
   const navigate = useNavigate();
+  const [isGiftSheetOpen, setIsGiftSheetOpen] = useState(false);
+  const [selectedProducts, setSelectedProducts] = useState<SelectedProduct[]>([]);
+
+  const handleProductSelect = (option: string) => {
+    const newProduct = {
+      name: "Roland Multi Perfume",
+      price: 35500,
+      quantity: 1,
+      option: option
+    };
+    setSelectedProducts([...selectedProducts, newProduct]);
+  };
+
+  const updateQuantity = (index: number, increment: boolean) => {
+    setSelectedProducts(products => 
+      products.map((product, i) => {
+        if (i === index) {
+          return {
+            ...product,
+            quantity: increment ? product.quantity + 1 : Math.max(1, product.quantity - 1)
+          };
+        }
+        return product;
+      })
+    );
+  };
+
+  const getTotalPrice = () => {
+    return selectedProducts.reduce((total, product) => total + (product.price * product.quantity), 0);
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -47,7 +91,7 @@ const ProductDetail = () => {
         {/* Product Info */}
         <div className="p-5 space-y-4">
           <div className="space-y-1">
-            <div className="text-sm text-gray-500">기프트 > 전체</div>
+            <div className="text-sm text-gray-500">기프트 &gt; 전체</div>
             <h1 className="text-2xl font-medium">Trio Gift Set</h1>
             <p className="text-sm text-gray-600">서바이 & 핸드크림 & 핸드워시 세트 | 40g & 60g & 450ml</p>
             <div className="text-lg font-medium">68,000 KRW</div>
@@ -81,7 +125,10 @@ const ProductDetail = () => {
       {/* Bottom Buttons */}
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t">
         <div className="grid grid-cols-2 gap-3">
-          <button className="py-3 border border-black text-black">
+          <button 
+            className="py-3 border border-black text-black"
+            onClick={() => setIsGiftSheetOpen(true)}
+          >
             선물하기
           </button>
           <button className="py-3 bg-[#2C2C2C] text-white">
@@ -89,6 +136,65 @@ const ProductDetail = () => {
           </button>
         </div>
       </div>
+
+      {/* Gift Sheet */}
+      <Sheet open={isGiftSheetOpen} onOpenChange={setIsGiftSheetOpen}>
+        <SheetContent side="bottom" className="h-[80vh]">
+          <div className="h-full flex flex-col">
+            <div className="flex-1 overflow-auto">
+              <h2 className="text-lg font-medium mb-4">쇼핑백</h2>
+              
+              <Select onValueChange={handleProductSelect}>
+                <SelectTrigger className="w-full mb-4">
+                  <SelectValue placeholder="선택해 주세요" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="구매 안함">구매 안함</SelectItem>
+                  <SelectItem value="추가 구매(+500원)">추가 구매(+500원)</SelectItem>
+                </SelectContent>
+              </Select>
+
+              {selectedProducts.map((product, index) => (
+                <div key={index} className="border-t py-4">
+                  <div className="flex justify-between items-start mb-2">
+                    <div>
+                      <h3 className="font-medium">{product.name}</h3>
+                      <p className="text-sm text-gray-600">용량: 100ml</p>
+                      <p className="text-sm text-gray-600">쇼핑백: {product.option}</p>
+                    </div>
+                    <button className="text-gray-400">삭제</button>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <div className="font-medium">{product.price.toLocaleString()}원</div>
+                    <div className="flex items-center gap-3">
+                      <button onClick={() => updateQuantity(index, false)}>
+                        <Minus className="w-4 h-4" />
+                      </button>
+                      <span>{product.quantity}</span>
+                      <button onClick={() => updateQuantity(index, true)}>
+                        <Plus className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="border-t pt-4">
+              <div className="flex justify-between items-center mb-4">
+                <span>합계</span>
+                <span className="font-medium">{getTotalPrice().toLocaleString()}원</span>
+              </div>
+              <button 
+                className="w-full py-3 bg-[#2C2C2C] text-white"
+                onClick={() => setIsGiftSheetOpen(false)}
+              >
+                선물하기
+              </button>
+            </div>
+          </div>
+        </SheetContent>
+      </Sheet>
     </div>
   );
 };

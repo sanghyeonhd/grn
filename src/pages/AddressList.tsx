@@ -82,7 +82,7 @@ const AddressList = () => {
                     />
                     <span className="text-sm">{address.label}</span>
                   </div>
-                  <div className="ml-3">
+                  <div className="ml-3 text-left">
                     {address.isDefault && (
                       <div className="text-xs text-gray-500 mb-1">기본 배송지</div>
                     )}

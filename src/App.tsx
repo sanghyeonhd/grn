@@ -62,6 +62,7 @@ import Challenge from "./pages/Challenge";
 import ChallengeSeasons from "./pages/ChallengeSeasons";
 import GiftSetDetail from "./pages/GiftSetDetail";
 import PerfumeDetail from "./pages/PerfumeDetail";
+import WishList from "./pages/WishList";
 
 const queryClient = new QueryClient();
 
@@ -74,6 +75,7 @@ const App = () => (
           <Sonner />
           <Routes>
             <Route path="/" element={<Main />} />
+            <Route path="/wishlist" element={<WishList />} />
             <Route path="/address/list" element={<AddressList />} />
             <Route path="/address/new" element={<AddressForm />} />
             <Route path="/checkout" element={<Checkout />} />

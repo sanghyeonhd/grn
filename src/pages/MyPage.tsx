@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Bell, ShoppingBag, Wallet, CalendarCheck, Gift, ScrollText, Home, BookOpen, Scan, Heart, User } from 'lucide-react';
@@ -91,7 +90,10 @@ const MyPage = () => {
             <Gift className="w-6 h-6" />
             <span className="text-sm">선물함</span>
           </button>
-          <button className="flex flex-col items-center gap-2">
+          <button 
+            className="flex flex-col items-center gap-2"
+            onClick={() => navigate('/order-history')}
+          >
             <ScrollText className="w-6 h-6" />
             <span className="text-sm">주문내역</span>
           </button>

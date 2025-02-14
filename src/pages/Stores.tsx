@@ -15,11 +15,11 @@ const Stores = () => {
 
   const storeImages = {
     '도산': [
-      "/public/lovable-uploads/b1cc3b7b-845f-48e4-9eea-ddc074ef85a5.png",
-      "/public/lovable-uploads/f840d0b4-5178-4b14-9014-8889798756d3.png"
+      "/lovable-uploads/b1cc3b7b-845f-48e4-9eea-ddc074ef85a5.png",
+      "/lovable-uploads/f840d0b4-5178-4b14-9014-8889798756d3.png"
     ],
     '시청': [
-      "/public/lovable-uploads/8281c082-a0c5-4f00-be7b-d23871ccf7b0.png"
+      "/lovable-uploads/8281c082-a0c5-4f00-be7b-d23871ccf7b0.png"
     ]
   };
 

@@ -28,13 +28,12 @@ const MyPage = () => {
           </div>
           <div>
             <h2 className="font-medium">홍길동님</h2>
-            <p className="text-sm text-gray-500">Bronze 달성</p>
           </div>
         </div>
 
         <div className="mt-6 flex justify-between">
           <div>
-            <p className="text-lg font-medium">68,000원</p>
+            <p className="text-lg font-medium">68,000원 추가 구매 시 Bronze 달성</p>
             <p className="text-sm text-gray-500">다음달 예상 등급 Basic</p>
           </div>
           <button 

@@ -2,6 +2,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const CouponRegister = () => {
   const navigate = useNavigate();
@@ -13,7 +14,23 @@ const CouponRegister = () => {
           <ChevronLeft className="w-6 h-6" />
         </button>
         <div className="flex-1">
-          <h1 className="text-lg">쿠폰 등록</h1>
+          <Tabs defaultValue="register" className="w-full">
+            <TabsList className="w-full bg-transparent border-b">
+              <TabsTrigger 
+                value="mycoupon" 
+                className="flex-1 data-[state=inactive]:bg-transparent data-[state=inactive]:text-gray-400"
+                onClick={() => navigate('/my-coupon')}
+              >
+                보유 쿠폰
+              </TabsTrigger>
+              <TabsTrigger 
+                value="register" 
+                className="flex-1 data-[state=inactive]:bg-transparent data-[state=inactive]:text-gray-400"
+              >
+                쿠폰 등록
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
         </div>
       </div>
 

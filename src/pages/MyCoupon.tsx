@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, X } from 'lucide-react';
@@ -7,6 +8,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const MyCoupon = () => {
   const navigate = useNavigate();
@@ -58,7 +60,23 @@ const MyCoupon = () => {
           <ChevronLeft className="w-6 h-6" />
         </button>
         <div className="flex-1">
-          <h1 className="text-lg">나의 쿠폰함</h1>
+          <Tabs defaultValue="mycoupon" className="w-full">
+            <TabsList className="w-full bg-transparent border-b">
+              <TabsTrigger 
+                value="mycoupon" 
+                className="flex-1 data-[state=inactive]:bg-transparent data-[state=inactive]:text-gray-400"
+              >
+                보유 쿠폰
+              </TabsTrigger>
+              <TabsTrigger 
+                value="register" 
+                className="flex-1 data-[state=inactive]:bg-transparent data-[state=inactive]:text-gray-400"
+                onClick={() => navigate('/coupon-register')}
+              >
+                쿠폰 등록
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
         </div>
       </div>
 
@@ -66,12 +84,6 @@ const MyCoupon = () => {
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <span className="font-medium text-[14px]">보유 쿠폰(5)</span>
-            <button 
-              onClick={() => navigate('/coupon-register')}
-              className="text-gray-400 text-[14px]"
-            >
-              쿠폰 등록
-            </button>
           </div>
         </div>
 

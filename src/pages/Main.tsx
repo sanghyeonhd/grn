@@ -9,23 +9,23 @@ const Main = () => {
   const bannerItems = [
     {
       id: 1,
-      image: "/public/lovable-uploads/5efa3b32-af2d-4af0-9928-c99bfed9e19a.png",
+      image: "/lovable-uploads/5efa3b32-af2d-4af0-9928-c99bfed9e19a.png",
       text: "Sometimes You win,\nSometimes you learn."
     },
     {
       id: 2,
-      image: "/public/lovable-uploads/5efa3b32-af2d-4af0-9928-c99bfed9e19a.png",
+      image: "/lovable-uploads/5efa3b32-af2d-4af0-9928-c99bfed9e19a.png",
       text: "Second banner text"
     },
     {
       id: 3,
-      image: "/public/lovable-uploads/5efa3b32-af2d-4af0-9928-c99bfed9e19a.png",
+      image: "/lovable-uploads/5efa3b32-af2d-4af0-9928-c99bfed9e19a.png",
       text: "Third banner text"
     }
   ];
   const journalItems = [{
     id: 1,
-    image: "/public/lovable-uploads/3bb0ea96-deb8-4824-a935-28d1a109940b.png",
+    image: "/lovable-uploads/3bb0ea96-deb8-4824-a935-28d1a109940b.png",
     category: "브랜드",
     title: "NOLL 놀에 대한 모든 것.",
     description: "1월 뉴스레터에서 신청하세요",
@@ -35,21 +35,21 @@ const Main = () => {
     id: 2,
     category: "하남",
     title: "",
-    image: "/public/lovable-uploads/a17ca42e-b6f9-4aa8-8bef-3e29fbd53b22.png",
+    image: "/lovable-uploads/a17ca42e-b6f9-4aa8-8bef-3e29fbd53b22.png",
     date: "2023-07-08",
     views: 412
   }, {
     id: 3,
     category: "브랜드",
     title: "2025 신규 브랜드",
-    image: "/public/lovable-uploads/569b0ab8-dafd-4552-b7c1-a7996f402d41.png",
+    image: "/lovable-uploads/569b0ab8-dafd-4552-b7c1-a7996f402d41.png",
     date: "2023-07-08",
     views: 325
   }, {
     id: 4,
     category: "하남",
     title: "새로운 매장 오픈",
-    image: "/public/lovable-uploads/1d1389b4-ba40-4651-9de6-76e7d34864ab.png",
+    image: "/lovable-uploads/1d1389b4-ba40-4651-9de6-76e7d34864ab.png",
     date: "2023-07-08",
     views: 287
   }];
@@ -98,7 +98,7 @@ const Main = () => {
         <div className="flex gap-2 mb-6">
           <button className="h-[50px] bg-[#FDFBF5] rounded-[50px] px-4 flex items-center justify-center">
             <img 
-              src="/public/lovable-uploads/c7dcf8c0-da2c-494c-bef0-9742b4053335.png" 
+              src="/lovable-uploads/c7dcf8c0-da2c-494c-bef0-9742b4053335.png" 
               alt="GRANHAND" 
               className="h-5 object-contain"
             />

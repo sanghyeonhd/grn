@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Heart, Search, ShoppingCart } from "lucide-react";
 
@@ -57,6 +57,11 @@ const ProductCard = ({ product }: { product: any }) => (
 
 const GiftSet = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isCurrentPath = (path: string) => {
+    return location.pathname.includes(path);
+  };
 
   const handleCategoryClick = (category: string) => {
     if (category === '기프트 세트') {
@@ -103,21 +108,36 @@ const GiftSet = () => {
       {/* Categories */}
       <div className="px-4 border-b">
         <div className="flex items-center gap-4 py-3 text-[0.688rem] overflow-x-auto scrollbar-hide">
-          <button className="whitespace-nowrap text-gray-600" onClick={() => handleCategoryClick('전체')}>전체</button>
           <button 
-            className="whitespace-nowrap font-medium text-black" 
+            className={`whitespace-nowrap ${isCurrentPath('/granshop/all') ? 'font-medium text-black' : 'text-gray-600'}`} 
+            onClick={() => handleCategoryClick('전체')}
+          >
+            전체
+          </button>
+          <button 
+            className={`whitespace-nowrap ${isCurrentPath('/granshop/giftset') ? 'font-medium text-black' : 'text-gray-600'}`}
             onClick={() => handleCategoryClick('기프트 세트')}
           >
             기프트 세트
           </button>
           <button 
-            className="whitespace-nowrap text-gray-600" 
+            className={`whitespace-nowrap ${isCurrentPath('/granshop/perfume') ? 'font-medium text-black' : 'text-gray-600'}`}
             onClick={() => handleCategoryClick('퍼퓸')}
           >
             퍼퓸
           </button>
-          <button className="whitespace-nowrap text-gray-600" onClick={() => handleCategoryClick('공간')}>공간</button>
-          <button className="whitespace-nowrap text-gray-600" onClick={() => handleCategoryClick('바디')}>바디</button>
+          <button 
+            className={`whitespace-nowrap ${isCurrentPath('/granshop/space') ? 'font-medium text-black' : 'text-gray-600'}`}
+            onClick={() => handleCategoryClick('공간')}
+          >
+            공간
+          </button>
+          <button 
+            className={`whitespace-nowrap ${isCurrentPath('/granshop/body') ? 'font-medium text-black' : 'text-gray-600'}`}
+            onClick={() => handleCategoryClick('바디')}
+          >
+            바디
+          </button>
         </div>
       </div>
 

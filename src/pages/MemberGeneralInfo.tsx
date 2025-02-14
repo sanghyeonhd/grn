@@ -59,7 +59,12 @@ const MemberGeneralInfo = () => {
           <span className="text-2xl">B</span>
         </div>
         <p className="text-gray-600 text-sm">{id}</p>
-        <p className="text-sm">비밀번호 변경</p>
+        <button 
+          onClick={() => navigate('/find-password/reset')}
+          className="text-sm underline"
+        >
+          비밀번호 변경
+        </button>
       </div>
 
       <div className="space-y-6">

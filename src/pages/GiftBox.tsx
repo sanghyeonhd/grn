@@ -30,6 +30,10 @@ const GiftBox = () => {
   const navigate = useNavigate();
   const [selectedTab, setSelectedTab] = useState("받은 선물");
   const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
+  const [openConfirmDialog, setOpenConfirmDialog] = useState(false);
+  const [openRejectDialog, setOpenRejectDialog] = useState(false);
+  const [openRejectConfirmDialog, setOpenRejectConfirmDialog] = useState(false);
 
   const giftItems: GiftItem[] = [
     {
@@ -66,9 +70,6 @@ const GiftBox = () => {
       }
     }
   ];
-
-  const [openDialog, setOpenDialog] = useState(false);
-  const [openConfirmDialog, setOpenConfirmDialog] = useState(false);
 
   return (
     <div className="min-h-screen bg-white">
@@ -171,9 +172,59 @@ const GiftBox = () => {
                       </DialogContent>
                     </Dialog>
 
-                    <button className="py-3 border text-sm">
-                      선물 거절
-                    </button>
+                    <Dialog open={openRejectDialog} onOpenChange={setOpenRejectDialog}>
+                      <DialogTrigger asChild>
+                        <button className="py-3 border text-sm">
+                          선물 거절
+                        </button>
+                      </DialogTrigger>
+                      <DialogContent className="bg-white p-6 max-w-xs w-full">
+                        <div className="text-center">
+                          <h2 className="text-lg font-medium mb-4">선물 거절</h2>
+                          <p className="text-sm text-gray-500 mb-6">선물 거절 완료시 취소가 불가능해요.</p>
+                          <div className="grid grid-cols-2 gap-2">
+                            <button
+                              className="py-3 border text-sm"
+                              onClick={() => setOpenRejectDialog(false)}
+                            >
+                              담기
+                            </button>
+                            <button
+                              className="py-3 border text-sm"
+                              onClick={() => {
+                                setOpenRejectDialog(false);
+                                setOpenRejectConfirmDialog(true);
+                              }}
+                            >
+                              거절
+                            </button>
+                          </div>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+
+                    <Dialog open={openRejectConfirmDialog} onOpenChange={setOpenRejectConfirmDialog}>
+                      <DialogContent className="bg-white p-6 max-w-xs w-full">
+                        <div className="text-center">
+                          <h2 className="text-lg font-medium mb-4">선물 거절 완료</h2>
+                          <p className="text-sm text-gray-500 mb-6">선물을 거절하시겠어요?</p>
+                          <div className="grid grid-cols-2 gap-2">
+                            <button
+                              className="py-3 border text-sm"
+                              onClick={() => setOpenRejectConfirmDialog(false)}
+                            >
+                              담기
+                            </button>
+                            <button
+                              className="py-3 border text-sm"
+                              onClick={() => setOpenRejectConfirmDialog(false)}
+                            >
+                              거절
+                            </button>
+                          </div>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                   </div>
                 )}
                 {item.id !== "1" && (

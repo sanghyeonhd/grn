@@ -142,106 +142,104 @@ const Checkout = () => {
           </div>
         </section>
 
-        {/* 결제수단 */}
-        <section>
-          <h2 className="text-sm mb-4">결제수단</h2>
-          <RadioGroup 
-            value={paymentMethod} 
-            onValueChange={setPaymentMethod}
-            className="space-y-4"
-          >
-            {/* 간편결제 */}
-            <div className="space-y-4">
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="simple" id="simple" />
-                <label htmlFor="simple" className="text-sm font-medium">간편결제</label>
-              </div>
-              {paymentMethod === "simple" && (
-                <div className="pl-6">
-                  <Carousel className="w-full max-w-sm">
-                    <CarouselContent>
-                      <CarouselItem>
-                        <div className="bg-black text-white p-4 rounded-sm">
-                          <p className="text-sm font-medium">현대카드</p>
-                          <p className="text-xs mt-1">•••• 2332</p>
-                        </div>
-                      </CarouselItem>
-                      <CarouselItem>
-                        <div className="border border-gray-200 p-4 rounded-sm text-left">
-                          <p className="text-sm font-medium text-blue-500">신규 카드</p>
-                          <p className="text-xs mt-1 text-gray-500">등록 후 결제하기</p>
-                        </div>
-                      </CarouselItem>
-                    </CarouselContent>
-                  </Carousel>
-                </div>
-              )}
+      {/* 결제수단 */}
+      <section>
+        <h2 className="text-sm mb-4">결제수단</h2>
+        <RadioGroup 
+          value={paymentMethod} 
+          onValueChange={setPaymentMethod}
+          className="space-y-4"
+        >
+          {/* 간편결제 */}
+          <div className="space-y-4">
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="simple" id="simple" />
+              <label htmlFor="simple" className="text-sm font-medium">간편결제</label>
             </div>
-
-            {/* 일반결제 */}
-            <div className="space-y-4">
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="normal" id="normal" />
-                <label htmlFor="normal" className="text-sm font-medium">일반결제</label>
+            {paymentMethod === "simple" && (
+              <div className="pl-6">
+                <Carousel className="w-full max-w-sm">
+                  <CarouselContent>
+                    <CarouselItem>
+                      <div className="bg-black text-white p-4 rounded-sm">
+                        <p className="text-sm font-medium">현대카드</p>
+                        <p className="text-xs mt-1">•••• 2332</p>
+                      </div>
+                    </CarouselItem>
+                    <CarouselItem>
+                      <div className="border border-gray-200 p-4 rounded-sm text-left">
+                        <p className="text-sm font-medium text-blue-500">신규 카드</p>
+                        <p className="text-xs mt-1 text-gray-500">등록 후 결제하기</p>
+                      </div>
+                    </CarouselItem>
+                  </CarouselContent>
+                </Carousel>
               </div>
-              {paymentMethod === "normal" && (
-                <div className="pl-6 space-y-4">
-                  <div className="grid grid-cols-2 gap-2">
-                    <button className="border border-gray-200 p-4 rounded-sm text-left">
-                      <p className="text-sm font-medium">신용/체크카드</p>
-                    </button>
-                    <button className="border border-gray-200 p-4 rounded-sm text-left">
-                      <p className="text-sm font-medium">토스 퀵 계좌이체</p>
-                    </button>
-                    <button className="border border-gray-200 p-4 rounded-sm text-left">
-                      <p className="text-sm font-medium">네이버페이</p>
-                    </button>
-                    <button className="border border-gray-200 p-4 rounded-sm text-left">
-                      <p className="text-sm font-medium">무통장 입금</p>
-                    </button>
-                  </div>
-                  <div className="text-[10px] text-gray-500 space-y-1">
-                    <p>무통장 입금은 영업일 기준 24시간 이내 확인됩니다.</p>
-                    <p>주문 후 72시간 이내에 미입금 시 자동 취소됩니다.</p>
-                  </div>
-                </div>
-              )}
+            )}
+          </div>
+
+          {/* 일반결제 */}
+          <div className="space-y-4">
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="normal" id="normal" />
+              <label htmlFor="normal" className="text-sm font-medium">일반결제</label>
             </div>
-          </RadioGroup>
-        </section>
+            <div className="pl-6 space-y-4">
+              <div className="grid grid-cols-2 gap-2">
+                <button className="border border-gray-200 p-4 rounded-sm text-left">
+                  <p className="text-sm font-medium">신용/체크카드</p>
+                </button>
+                <button className="border border-gray-200 p-4 rounded-sm text-left">
+                  <p className="text-sm font-medium">토스 퀵 계좌이체</p>
+                </button>
+                <button className="border border-gray-200 p-4 rounded-sm text-left">
+                  <p className="text-sm font-medium">네이버페이</p>
+                </button>
+                <button className="border border-gray-200 p-4 rounded-sm text-left">
+                  <p className="text-sm font-medium">무통장 입금</p>
+                </button>
+              </div>
+              <div className="text-[10px] text-gray-500 space-y-1">
+                <p>무통장 입금은 영업일 기준 24시간 이내 확인됩니다.</p>
+                <p>주문 후 72시간 이내에 미입금 시 자동 취소됩니다.</p>
+              </div>
+            </div>
+          </div>
+        </RadioGroup>
+      </section>
 
-        {/* 최종 결제 금액 */}
-        <section className="space-y-2">
-          <div className="flex justify-between text-sm">
-            <span>상품금액</span>
-            <span>35,500원</span>
-          </div>
-          <div className="flex justify-between text-sm">
-            <span>포인트</span>
-            <span className="text-blue-500">-5,000원</span>
-          </div>
-          <div className="flex justify-between font-medium pt-2 border-t">
-            <span>최종 결제</span>
-            <span>25,500원</span>
-          </div>
-        </section>
+      {/* 최종 결제 금액 */}
+      <section className="space-y-2">
+        <div className="flex justify-between text-sm">
+          <span>상품금액</span>
+          <span>35,500원</span>
+        </div>
+        <div className="flex justify-between text-sm">
+          <span>포인트</span>
+          <span className="text-blue-500">-5,000원</span>
+        </div>
+        <div className="flex justify-between font-medium pt-2 border-t">
+          <span>최종 결제</span>
+          <span>25,500원</span>
+        </div>
+      </section>
 
-        {/* 약관 동의 */}
-        <section className="space-y-2">
-          <button className="flex items-center justify-between w-full py-2">
-            <span className="text-sm text-gray-600">(필수) 개인정보 수집 • 이용 동의</span>
-            <ChevronLeft className="w-4 h-4 rotate-180" />
-          </button>
-          <button className="flex items-center justify-between w-full py-2">
-            <span className="text-sm text-gray-600">(필수) 개인정보 제3자 정보 제공 동의</span>
-            <ChevronLeft className="w-4 h-4 rotate-180" />
-          </button>
-          <button className="flex items-center justify-between w-full py-2">
-            <span className="text-sm text-gray-600">(필수) 결제대행 서비스 이용약관 동의</span>
-            <ChevronLeft className="w-4 h-4 rotate-180" />
-          </button>
-        </section>
-      </div>
+      {/* 약관 동의 */}
+      <section className="space-y-2">
+        <button className="flex items-center justify-between w-full py-2">
+          <span className="text-sm text-gray-600">(필수) 개인정보 수집 • 이용 동의</span>
+          <ChevronLeft className="w-4 h-4 rotate-180" />
+        </button>
+        <button className="flex items-center justify-between w-full py-2">
+          <span className="text-sm text-gray-600">(필수) 개인정보 제3자 정보 제공 동의</span>
+          <ChevronLeft className="w-4 h-4 rotate-180" />
+        </button>
+        <button className="flex items-center justify-between w-full py-2">
+          <span className="text-sm text-gray-600">(필수) 결제대행 서비스 이용약관 동의</span>
+          <ChevronLeft className="w-4 h-4 rotate-180" />
+        </button>
+      </section>
+    </div>
 
       {/* 결제하기 버튼 */}
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t">

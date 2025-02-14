@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Heart, Search, ShoppingCart, Home, BookOpen, Scan, User } from "lucide-react";
@@ -131,7 +132,7 @@ const GranShop = () => {
     if (location.pathname.includes('giftset')) return products.giftsets;
     if (location.pathname.includes('space')) return products.space;
     if (location.pathname.includes('body')) return products.body;
-    return products.giftsets; // default to giftsets
+    return products.giftsets;
   };
 
   const isGiftsetPath = location.pathname.includes('giftset');
@@ -206,13 +207,15 @@ const GranShop = () => {
         </div>
       </div>
 
-      <div className="px-4 border-b">
-        <div className="flex items-center gap-4 py-3 text-[0.688rem] overflow-x-auto scrollbar-hide">
-          <button className="whitespace-nowrap text-gray-600">시그니처</button>
-          <button className="whitespace-nowrap text-gray-600">퍼퓸</button>
-          <button className="whitespace-nowrap text-gray-600">멀티 퍼퓸</button>
+      {!isGiftsetPath && (
+        <div className="px-4 border-b">
+          <div className="flex items-center gap-4 py-3 text-[0.688rem] overflow-x-auto scrollbar-hide">
+            <button className="whitespace-nowrap text-gray-600">시그니처</button>
+            <button className="whitespace-nowrap text-gray-600">퍼퓸</button>
+            <button className="whitespace-nowrap text-gray-600">멀티 퍼퓸</button>
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="px-4 py-3 flex items-center justify-between border-b">
         <span className="text-sm">전체</span>

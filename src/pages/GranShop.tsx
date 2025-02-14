@@ -1,52 +1,62 @@
 
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Heart, Search, ShoppingCart } from "lucide-react";
 
 const products = {
-  giftsets: [
+  perfumes: [
     {
       id: 1,
-      name: "Trio Gift Set",
-      description: "서재 & 본드-펄 & 핸드워시 세트 | 40g & 60g & 450m",
-      price: "68,000 KRW",
-      image: "/lovable-uploads/e6a279b9-9d0b-4b1e-9f18-5fd4ff57fe59.png"
+      name: "Roland Multi Perfume",
+      description: "롤랑 멀티퍼퓸 100ml / 200ml",
+      price: "35,000 KRW",
+      image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png",
+      soldOut: false
     },
     {
       id: 2,
-      name: "Trio Gift Set",
-      description: "서재 & 본드-펄 & 핸드워시 세트 | 40g & 60g & 450m",
-      price: "68,000 KRW",
-      image: "/lovable-uploads/e6a279b9-9d0b-4b1e-9f18-5fd4ff57fe59.png"
+      name: "Roland Multi Perfume",
+      description: "롤랑 멀티퍼퓸 100ml / 200ml",
+      price: "35,000 KRW",
+      image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png",
+      soldOut: true
     },
     {
       id: 3,
-      name: "Trio Gift Set",
-      description: "서재 & 본드-펄 & 핸드워시 세트 | 40g & 60g & 450m",
-      price: "68,000 KRW",
-      image: "/lovable-uploads/e6a279b9-9d0b-4b1e-9f18-5fd4ff57fe59.png"
+      name: "Roland Multi Perfume",
+      description: "롤랑 멀티퍼퓸 100ml / 200ml",
+      price: "35,000 KRW",
+      image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png",
+      soldOut: false
     },
     {
       id: 4,
-      name: "Trio Gift Set",
-      description: "서재 & 본드-펄 & 핸드워시 세트 | 40g & 60g & 450m",
-      price: "68,000 KRW",
-      image: "/lovable-uploads/e6a279b9-9d0b-4b1e-9f18-5fd4ff57fe59.png"
+      name: "Roland Multi Perfume",
+      description: "롤랑 멀티퍼퓸 100ml / 200ml",
+      price: "35,000 KRW",
+      image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png",
+      soldOut: false
     }
   ]
 };
 
 const ProductCard = ({ product }: { product: any }) => (
   <div className="relative">
-    <img 
-      src={product.image} 
-      alt={product.name}
-      className="w-full aspect-square object-cover rounded-none"
-    />
-    <button className="absolute top-4 right-4">
-      <Heart className="w-6 h-6 text-white" />
-    </button>
+    <div className="relative">
+      <img 
+        src={product.image} 
+        alt={product.name}
+        className="w-full aspect-square object-cover rounded-none"
+      />
+      <button className="absolute top-4 right-4">
+        <Heart className="w-6 h-6 text-white" />
+      </button>
+      {product.soldOut && (
+        <div className="absolute inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center">
+          <span className="text-white font-medium">Sold out</span>
+        </div>
+      )}
+    </div>
     <div className="mt-3 space-y-1">
       <h3 className="text-base font-medium">{product.name}</h3>
       <p className="text-sm text-gray-600">{product.description}</p>
@@ -55,7 +65,7 @@ const ProductCard = ({ product }: { product: any }) => (
   </div>
 );
 
-const GiftSet = () => {
+const GranShop = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -70,6 +80,9 @@ const GiftSet = () => {
       navigate('/granshop/perfume');
     }
   };
+
+  // 현재 경로에 따라 표시할 상품 결정
+  const displayProducts = location.pathname.includes('perfume') ? products.perfumes : products.giftsets;
 
   return (
     <div className="min-h-screen bg-white">
@@ -109,7 +122,7 @@ const GiftSet = () => {
       <div className="px-4 border-b">
         <div className="flex items-center gap-4 py-3 text-[0.688rem] overflow-x-auto scrollbar-hide">
           <button 
-            className={`whitespace-nowrap ${isCurrentPath('/granshop/all') ? 'font-medium text-black' : 'text-gray-600'}`} 
+            className={`whitespace-nowrap ${isCurrentPath('/granshop/all') ? 'font-medium text-black' : 'text-gray-600'}`}
             onClick={() => handleCategoryClick('전체')}
           >
             전체
@@ -141,6 +154,15 @@ const GiftSet = () => {
         </div>
       </div>
 
+      {/* Sub Categories */}
+      <div className="px-4 border-b">
+        <div className="flex items-center gap-4 py-3 text-[0.688rem] overflow-x-auto scrollbar-hide">
+          <button className="whitespace-nowrap text-gray-600">시그니처</button>
+          <button className="whitespace-nowrap text-gray-600">퍼퓸</button>
+          <button className="whitespace-nowrap text-gray-600">멀티 퍼퓸</button>
+        </div>
+      </div>
+
       {/* Filter Section */}
       <div className="px-4 py-3 flex items-center justify-between border-b">
         <span className="text-sm">전체</span>
@@ -155,7 +177,7 @@ const GiftSet = () => {
       {/* Product Grid */}
       <div className="px-4 py-4">
         <div className="grid grid-cols-2 gap-x-4 gap-y-8">
-          {products.giftsets.map((product) => (
+          {displayProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
@@ -184,4 +206,4 @@ const GiftSet = () => {
   );
 };
 
-export default GiftSet;
+export default GranShop;

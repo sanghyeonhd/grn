@@ -88,10 +88,10 @@ const OrderItem = ({ item, onCancelClick }: OrderItemProps) => {
             brand: "GRANHAND",
             name: "Roland Multi Perfume",
             price: 55500,
-            image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png",
+            image: "/lovable-uploads/49950af0-c308-4706-9628-6fc190caba7f.png",
             option: "롤랑 멀티퍼퓸 200ml / 1개",
-            stampingLabel: "",
-            stampingType: "",
+            stampingLabel: "Y",
+            stampingType: "GRANHAND ❤️",
             points: 500
           },
           {
@@ -99,7 +99,7 @@ const OrderItem = ({ item, onCancelClick }: OrderItemProps) => {
             brand: "GRANHAND",
             name: "Cask Signature Perfume",
             price: 110000,
-            image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png",
+            image: "/lovable-uploads/49950af0-c308-4706-9628-6fc190caba7f.png",
             option: "캐스크 시그니처퍼퓸 100ml / 1개",
             stampingLabel: "",
             stampingType: "",

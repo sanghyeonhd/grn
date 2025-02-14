@@ -17,27 +17,27 @@ const Settings = () => {
       </div>
       
       <div className="p-4 space-y-6">
-        <div className="space-y-4">
+        <div className="space-y-3">
           <h2 className="font-medium">서비스 알림</h2>
-          <p className="text-sm text-gray-500">푸시 설정된 기기와 설정 &gt; 그랜드 &gt; 알림에서 설정 가능합니다.</p>
+          <p className="text-sm text-gray-600">기기 설정 &gt; 그랜드 &gt; 알림에서 변경 가능</p>
         </div>
 
-        <div className="space-y-4">
-          <h2 className="font-medium">혜택 정보 알림</h2>
-          <p className="text-sm text-gray-500">
-            그랜드는 혜택을 위한 홍보성-서, 우울을 통해 회원을 업데이트합니다.<br/>
-            알림에 동의 하신 회원 안내성내용은 설정 여부와 무관하게 발송됩니다.
+        <div className="space-y-3">
+          <h2 className="font-medium">혜택 알림</h2>
+          <p className="text-sm text-gray-600">
+            그랜드의 혜택 및 홍보 알림입니다.<br/>
+            필수 안내는 설정과 관계없이 발송됩니다.
           </p>
         </div>
 
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <span>앱 푸시</span>
-            <Switch />
+            <span className="font-medium">앱 푸시</span>
+            <Switch className="data-[state=checked]:bg-blue-500 data-[state=checked]:hover:bg-blue-600" />
           </div>
           <div className="flex items-center justify-between">
-            <span>SMS</span>
-            <Switch />
+            <span className="font-medium">SMS</span>
+            <Switch className="data-[state=checked]:bg-blue-500 data-[state=checked]:hover:bg-blue-600" />
           </div>
         </div>
       </div>

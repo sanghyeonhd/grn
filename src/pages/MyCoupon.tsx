@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, X } from 'lucide-react';
@@ -128,16 +129,18 @@ const MyCoupon = () => {
             >
               <X className="h-5 w-5" />
             </button>
-            <h2 className="text-center pr-8">QR 코드 등록</h2>
+            <h2 className="text-center">쿠폰바로 교환권</h2>
           </div>
-          <div className="flex flex-col items-center justify-center p-8">
-            <div className="w-64 h-64 bg-white border rounded-lg mb-4 flex items-center justify-center">
+          <div className="flex flex-col h-full p-6">
+            <div className="mb-auto">
+              <p className="text-left font-medium text-lg mb-2">{selectedCouponData?.title}</p>
+              <p className="text-left text-sm text-gray-600">{selectedCouponData?.description}</p>
+              <p className="text-left text-xs text-gray-400 mt-1">{selectedCouponData?.validUntil}</p>
+            </div>
+            <div className="w-full aspect-square max-w-[300px] mx-auto border rounded-lg flex items-center justify-center">
               {/* QR 코드 이미지가 들어갈 자리 */}
               <div className="text-center">QR 코드</div>
             </div>
-            <p className="text-center font-medium">{selectedCouponData?.title}</p>
-            <p className="text-center text-sm text-gray-600 mt-2">{selectedCouponData?.description}</p>
-            <p className="text-center text-xs text-gray-400 mt-1">{selectedCouponData?.validUntil}</p>
           </div>
         </SheetContent>
       </Sheet>

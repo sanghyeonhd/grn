@@ -37,7 +37,7 @@ const GiftCheckout = () => {
       </div>
 
       <div className="p-4 space-y-6">
-        {/* 선물 메시지 섹션 - 유지 */}
+        {/* 선물 메시지 섹션 */}
         <section>
           <div className="bg-white border rounded-lg p-4 mb-4">
             <img 
@@ -51,62 +51,6 @@ const GiftCheckout = () => {
               <li>• 카카오톡으로 전달</li>
             </ul>
           </div>
-        </section>
-
-        {/* 배송정보 */}
-        <section>
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-sm">배송정보</h2>
-            <button className="text-sm text-blue-500">배송지 목록</button>
-          </div>
-          <button 
-            onClick={() => navigate('/address/list')} 
-            className="w-full mb-4 py-3 border border-gray-200 rounded-sm text-sm"
-          >
-            새 배송지 추가
-          </button>
-          <div className="mb-4 bg-[#322A24]/[0.03] p-4 rounded text-[10px] text-gray-500 space-y-1">
-            <p>정확한 배송을 위해 도로명 주소만 사용합니다.</p>
-            <p>배송지 불분명으로 반송되지 않도록 한 번 더 확인해 주세요.</p>
-          </div>
-          <div className="space-y-2">
-            <div className="border rounded p-4 flex items-start">
-              <input type="checkbox" className="mt-1 mr-3" />
-              <div>
-                <p className="font-medium">김 명</p>
-                <p className="text-sm">010-1234-5678</p>
-                <p className="text-sm text-gray-600">부산광역시 부전동 서면로 범내골 비자파크</p>
-              </div>
-            </div>
-            <div className="border rounded p-4 flex items-start">
-              <input type="checkbox" className="mt-1 mr-3" />
-              <div>
-                <p className="font-medium">홍 길동</p>
-                <p className="text-sm">010-9876-5432</p>
-                <p className="text-sm text-gray-600">서울특별시 강남구 테헤란로 123</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 배송 요청사항 */}
-        <section>
-          <h2 className="text-sm mb-2">배송 요청사항</h2>
-          <Select>
-            <SelectTrigger className="w-full">
-              <SelectValue placeholder="직접 입력" />
-            </SelectTrigger>
-            <SelectContent className="bg-white">
-              <SelectItem value="direct">직접 입력</SelectItem>
-              <SelectItem value="door">문 앞에 놓아주세요</SelectItem>
-              <SelectItem value="security">경비실에 맡겨주세요</SelectItem>
-            </SelectContent>
-          </Select>
-          <input
-            type="text"
-            placeholder="(필수) 입력해 주세요"
-            className="w-full mt-2 p-3 border rounded-sm text-sm"
-          />
         </section>
 
         {/* 주문 상품 정보 */}

@@ -30,6 +30,12 @@ const GuideResult = () => {
         description: "수지살몬 핸드크림 160ml",
         price: "25,000 KRW",
         image: "/public/lovable-uploads/27f9f5a7-09d9-4903-a3d9-014614aaff1e.png"
+      },
+      {
+        name: "SUSIE SALMON Hand Cream",
+        description: "수지살몬 핸드크림 160ml",
+        price: "25,000 KRW",
+        image: "/public/lovable-uploads/27f9f5a7-09d9-4903-a3d9-014614aaff1e.png"
       }
     ]
   };
@@ -69,20 +75,24 @@ const GuideResult = () => {
         <p className="text-sm leading-6 mb-8">{sampleResult.review}</p>
 
         <h3 className="text-lg font-bold mb-4">RECOMMENDED</h3>
-        <div className="grid grid-cols-2 gap-4">
-          {sampleResult.recommendedProducts.map((product, index) => (
-            <div key={index} className="space-y-2">
-              <div className="relative bg-gray-100" style={{ width: '163px', height: '200px' }}>
-                <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
-                <button className="absolute top-2 right-2">
-                  <Heart className="text-white" size={24} />
-                </button>
+        <div className="overflow-x-auto">
+          <div className="flex gap-4 pb-4" style={{ minWidth: 'min-content' }}>
+            {sampleResult.recommendedProducts.map((product, index) => (
+              <div key={index} className="flex-none">
+                <div className="relative bg-gray-100" style={{ width: '163px', height: '200px' }}>
+                  <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+                  <button className="absolute top-2 right-2">
+                    <Heart className="text-white" size={24} />
+                  </button>
+                </div>
+                <div className="mt-2">
+                  <h4 className="font-medium text-sm">{product.name}</h4>
+                  <p className="text-sm text-gray-600">{product.description}</p>
+                  <p className="text-sm">{product.price}</p>
+                </div>
               </div>
-              <h4 className="font-medium text-sm">{product.name}</h4>
-              <p className="text-sm text-gray-600">{product.description}</p>
-              <p className="text-sm">{product.price}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>

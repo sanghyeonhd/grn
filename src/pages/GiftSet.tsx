@@ -121,11 +121,11 @@ const GiftSet = () => {
 
       {/* 탭 메뉴 */}
       <div className="flex border-b border-gray-200 px-4">
-        <button className="px-4 py-3 text-sm text-gray-600">전체</button>
-        <button className="px-4 py-3 text-sm font-bold border-b-2 border-black">기프트 세트</button>
-        <button className="px-4 py-3 text-sm text-gray-600">퍼퓸</button>
-        <button className="px-4 py-3 text-sm text-gray-600">공간</button>
-        <button className="px-4 py-3 text-sm text-gray-600">바디</button>
+        <button className="px-3 py-3 text-xs text-gray-600">전체</button>
+        <button className="px-3 py-3 text-xs font-bold border-b-2 border-black">기프트 세트</button>
+        <button className="px-3 py-3 text-xs text-gray-600">퍼퓸</button>
+        <button className="px-3 py-3 text-xs text-gray-600">공간</button>
+        <button className="px-3 py-3 text-xs text-gray-600">바디</button>
       </div>
 
       {/* 필터 */}

@@ -1,27 +1,13 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
+import Main from "./pages/Main";
 import NotFound from "./pages/NotFound";
-import AppPermission from "./pages/AppPermission";
-import InternetError from "./pages/InternetError";
-import ErrorPage from "./pages/ErrorPage";
-import Loading from "./pages/Loading";
-import AttendanceCheck from "./pages/AttendanceCheck";
-import FindId from "./pages/FindId";
-import FindIdPhone from "./pages/FindIdPhone";
-import FindIdResult from "./pages/FindIdResult";
-import FindPassword from "./pages/FindPassword";
-import FindPasswordVerify from "./pages/FindPasswordVerify";
-import FindPasswordReset from "./pages/FindPasswordReset";
-import SignupTerms from "./pages/SignupTerms";
-import TermDetail from "./pages/TermDetail";
-import Signup from "./pages/Signup";
-import SignupVerify from "./pages/SignupVerify";
-import SignupComplete from "./pages/SignupComplete";
+import JournalDetail from "./pages/JournalDetail";
+import EventDetail from "./pages/EventDetail";
 
 const queryClient = new QueryClient();
 
@@ -33,22 +19,13 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/permission" element={<AppPermission />} />
-          <Route path="/internet-error" element={<InternetError />} />
-          <Route path="/error" element={<ErrorPage />} />
-          <Route path="/loading" element={<Loading />} />
-          <Route path="/attendance" element={<AttendanceCheck />} />
-          <Route path="/find-id" element={<FindId />} />
-          <Route path="/find-id/phone" element={<FindIdPhone />} />
-          <Route path="/find-id/result" element={<FindIdResult />} />
-          <Route path="/find-password" element={<FindPassword />} />
-          <Route path="/find-password/verify" element={<FindPasswordVerify />} />
-          <Route path="/find-password/reset" element={<FindPasswordReset />} />
-          <Route path="/signup/terms" element={<SignupTerms />} />
-          <Route path="/terms/:type" element={<TermDetail />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/signup/verify" element={<SignupVerify />} />
-          <Route path="/signup/complete" element={<SignupComplete />} />
+          <Route path="/main" element={<Main />} />
+          <Route path="/journal" element={<Navigate to="/main" />} />
+          <Route path="/event" element={<Navigate to="/main" />} />
+          <Route path="/awards" element={<Navigate to="/main" />} />
+          <Route path="/stores" element={<Navigate to="/main" />} />
+          <Route path="/journal/:id" element={<JournalDetail />} />
+          <Route path="/event/:id" element={<EventDetail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

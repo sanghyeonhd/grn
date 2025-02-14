@@ -50,6 +50,7 @@ import Withdraw from "./pages/Withdraw";
 import CustomerService from "./pages/CustomerService";
 import FAQ from "./pages/FAQ";
 import ChatSupport from "./pages/ChatSupport";
+import Partnership from "./pages/Partnership";
 
 const queryClient = new QueryClient();
 
@@ -109,6 +110,7 @@ const App = () => (
             <Route path="/customer-service" element={<CustomerService />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/chat-support" element={<ChatSupport />} />
+            <Route path="/partnership" element={<Partnership />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </TooltipProvider>

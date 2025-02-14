@@ -122,7 +122,12 @@ const MyPage = () => {
           >
             회원정보(일반)
           </button>
-          <button className="w-full py-3 text-left border-t">회원정보(간편)</button>
+          <button 
+            className="w-full py-3 text-left border-t"
+            onClick={() => navigate('/member-social-info')}
+          >
+            회원정보(간편)
+          </button>
           <button className="w-full py-3 text-left border-t">고객센터</button>
           <button className="w-full py-3 text-left border-t">설정</button>
         </div>

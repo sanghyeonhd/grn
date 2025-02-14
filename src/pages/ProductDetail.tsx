@@ -18,8 +18,8 @@ const ProductDetail = () => {
 
   const handleProductSelect = (option: string) => {
     const newProduct = {
-      name: "Trio Gift Set",
-      price: 35500,
+      name: "Roland Multi Perfume",
+      price: 35000,
       quantity: 1,
       option: option
     };
@@ -51,8 +51,8 @@ const ProductDetail = () => {
       <div className="pt-[56px] pb-[100px]">
         <div className="aspect-square">
           <img 
-            src="/lovable-uploads/6ae09e1a-c53d-4a4c-9396-e2e9edd6e93f.png"
-            alt="Trio Gift Set" 
+            src="/lovable-uploads/a66b55f3-2b6b-41f7-9e15-737e9f5491fd.png"
+            alt="Roland Multi Perfume" 
             className="w-full h-full object-cover"
           />
         </div>

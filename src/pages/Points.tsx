@@ -9,7 +9,8 @@ const Points = () => {
   const pointHistory = [
     {
       id: 1,
-      date: '2024.01.01 PM 04:00',
+      date: '2024.01.01',
+      time: 'PM 04:00',
       type: '그랑핸드',
       title: '구매확정 적립',
       points: '+700',
@@ -17,7 +18,8 @@ const Points = () => {
     },
     {
       id: 2,
-      date: '2024.01.01 PM 04:00',
+      date: '2024.01.01',
+      time: 'PM 04:00',
       type: '그랑핸드',
       title: '출석 체크',
       points: '+100',
@@ -25,7 +27,8 @@ const Points = () => {
     },
     {
       id: 3,
-      date: '2024.01.01 PM 04:00',
+      date: '2024.01.01',
+      time: 'PM 04:00',
       type: '그랑핸드',
       title: '행운 뽑기',
       points: '+5,000',
@@ -60,8 +63,10 @@ const Points = () => {
           <div className="mt-4 space-y-4">
             {pointHistory.map((item) => (
               <div key={item.id} className="border rounded-lg p-4">
-                <div className="flex items-center justify-between text-xs text-gray-500 mb-2">
+                <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
                   <span>{item.date}</span>
+                  <span>{item.time}</span>
+                  <span>·</span>
                   <span>{item.type}</span>
                 </div>
                 <div className="flex items-center justify-between">

@@ -4,7 +4,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { StrictMode } from "react";
-import Index from "./pages/Index";
+import AddressList from "./pages/AddressList";
+import AddressForm from "./pages/AddressForm";
+import Checkout from "./pages/Checkout";
 import Main from "./pages/Main";
 import NotFound from "./pages/NotFound";
 import JournalDetail from "./pages/JournalDetail";
@@ -56,7 +58,6 @@ import LanguageSettings from "./pages/LanguageSettings";
 import NotificationSettings from "./pages/NotificationSettings";
 import Search from "./pages/Search";
 import Cart from "./pages/Cart";
-import Checkout from "./pages/Checkout";
 
 const queryClient = new QueryClient();
 
@@ -68,8 +69,10 @@ const App = () => (
           <Toaster />
           <Sonner />
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/main" element={<Main />} />
+            <Route path="/" element={<Main />} />
+            <Route path="/address/list" element={<AddressList />} />
+            <Route path="/address/new" element={<AddressForm />} />
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="/journal" element={<Navigate to="/main" />} />
             <Route path="/event" element={<Navigate to="/main" />} />
             <Route path="/awards" element={<Awards />} />
@@ -123,7 +126,6 @@ const App = () => (
             <Route path="/terms" element={<Terms />} />
             <Route path="/search" element={<Search />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout" element={<Checkout />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </TooltipProvider>

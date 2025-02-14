@@ -1,0 +1,131 @@
+
+import React from 'react';
+import { Plus, Minus } from 'lucide-react';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
+
+interface ProductOptionSheetProps {
+  isOpen: boolean;
+  onOpenChange: (open: boolean) => void;
+  type: 'gift' | 'purchase';
+  selectedProducts: Array<{
+    name: string;
+    price: number;
+    quantity: number;
+    option?: string;
+  }>;
+  onProductSelect: (option: string) => void;
+  onQuantityChange: (index: number, increment: boolean) => void;
+  getTotalPrice: () => number;
+}
+
+const ProductOptionSheet = ({
+  isOpen,
+  onOpenChange,
+  type,
+  selectedProducts,
+  onProductSelect,
+  onQuantityChange,
+  getTotalPrice,
+}: ProductOptionSheetProps) => {
+  return (
+    <Sheet open={isOpen} onOpenChange={onOpenChange}>
+      <SheetContent side="bottom" className="h-[80vh] bg-white">
+        <div className="h-full flex flex-col">
+          <div className="flex-1 overflow-auto">
+            <h2 className="text-lg font-medium mb-4">
+              {type === 'gift' ? '쇼핑백' : '향 종류'}
+            </h2>
+            
+            <Select onValueChange={onProductSelect}>
+              <SelectTrigger className="w-full mb-4">
+                <SelectValue placeholder={type === 'gift' ? '선택해 주세요' : '옵션을 선택해 주세요'} />
+              </SelectTrigger>
+              <SelectContent>
+                {type === 'gift' ? (
+                  <>
+                    <SelectItem value="구매 안함">구매 안함</SelectItem>
+                    <SelectItem value="추가 구매(+500원)">추가 구매(+500원)</SelectItem>
+                  </>
+                ) : (
+                  <>
+                    <SelectItem value="마린우드">마린우드</SelectItem>
+                    <SelectItem value="수자삼">수자삼</SelectItem>
+                    <SelectItem value="규장">규장</SelectItem>
+                    <SelectItem value="월리 오멜">월리 오멜</SelectItem>
+                    <SelectItem value="트와버드">트와버드</SelectItem>
+                    <SelectItem value="비올레또">비올레또</SelectItem>
+                  </>
+                )}
+              </SelectContent>
+            </Select>
+
+            {selectedProducts.map((product, index) => (
+              <div key={index} className="border-t py-4">
+                <div className="flex justify-between items-start mb-2">
+                  <div>
+                    <h3 className="font-medium">{product.name}</h3>
+                    <p className="text-sm text-gray-600">
+                      {type === 'gift' ? `쇼핑백: ${product.option}` : product.option}
+                    </p>
+                  </div>
+                  <button className="text-gray-400">삭제</button>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="font-medium">{product.price.toLocaleString()}원</div>
+                  <div className="flex items-center gap-3">
+                    <button onClick={() => onQuantityChange(index, false)}>
+                      <Minus className="w-4 h-4" />
+                    </button>
+                    <span>{product.quantity}</span>
+                    <button onClick={() => onQuantityChange(index, true)}>
+                      <Plus className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="border-t pt-4">
+            <div className="flex justify-between items-center mb-4">
+              <span>합계</span>
+              <span className="font-medium">{getTotalPrice().toLocaleString()}원</span>
+            </div>
+            {type === 'gift' ? (
+              <button 
+                className="w-full py-3 bg-[#2C2C2C] text-white"
+                onClick={() => onOpenChange(false)}
+              >
+                선물하기
+              </button>
+            ) : (
+              <div className="grid grid-cols-2 gap-3">
+                <button 
+                  className="py-3 border border-black text-black"
+                  onClick={() => onOpenChange(false)}
+                >
+                  장바구니 담기
+                </button>
+                <button 
+                  className="py-3 bg-[#2C2C2C] text-white"
+                  onClick={() => onOpenChange(false)}
+                >
+                  구매하기
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      </SheetContent>
+    </Sheet>
+  );
+};
+
+export default ProductOptionSheet;

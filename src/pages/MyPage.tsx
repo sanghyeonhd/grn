@@ -22,26 +22,28 @@ const MyPage = () => {
       </div>
 
       <div className="p-4">
-        <div className="flex items-center gap-4">
-          <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
-            <span className="text-xl">B</span>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
+              <span className="text-xl">B</span>
+            </div>
+            <div>
+              <h2 className="font-bold">홍길동님</h2>
+            </div>
           </div>
-          <div>
-            <h2 className="font-medium">홍길동님</h2>
-          </div>
+          <button 
+            className="px-3 py-1 border border-gray-300 rounded text-sm"
+            onClick={() => navigate('/grade-guide')}
+          >
+            등급 안내
+          </button>
         </div>
 
-        <div className="mt-6 flex justify-between">
+        <div className="mt-6">
           <div>
             <p className="text-[13px]"><span className="font-bold">68,000원</span> 추가 구매 시 Bronze 달성</p>
             <p className="text-sm text-gray-500">다음달 예상 등급 Basic</p>
           </div>
-          <button 
-            className="text-sm text-gray-600"
-            onClick={() => navigate('/grade-guide')}
-          >
-            등급 안내 {'>'}
-          </button>
         </div>
 
         <div className="mt-6">

@@ -9,6 +9,8 @@ const Signup = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
+    name: '',
+    birthdate: '',
     email: '',
     password: '',
     confirmPassword: ''
@@ -23,7 +25,8 @@ const Signup = () => {
   };
 
   const handleSubmit = () => {
-    if (!formData.email || !formData.password || !formData.confirmPassword) {
+    // 모든 필드 검증
+    if (!formData.name || !formData.birthdate || !formData.email || !formData.password || !formData.confirmPassword) {
       toast({
         title: "입력 오류",
         description: "모든 필드를 입력해주세요.",
@@ -32,6 +35,7 @@ const Signup = () => {
       return;
     }
 
+    // 비밀번호 일치 검증
     if (formData.password !== formData.confirmPassword) {
       toast({
         title: "비밀번호 오류",
@@ -56,7 +60,31 @@ const Signup = () => {
 
         <div className="space-y-4">
           <div className="space-y-2">
-            <label className="text-sm">아이디</label>
+            <label className="text-sm">성명<span className="text-red-500">*</span></label>
+            <Input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="성명을 입력해 주세요."
+              className="w-full"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-sm">생년월일<span className="text-red-500">*</span></label>
+            <Input
+              type="text"
+              name="birthdate"
+              value={formData.birthdate}
+              onChange={handleChange}
+              placeholder="YY/DD/MM"
+              className="w-full"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-sm">아이디<span className="text-red-500">*</span></label>
             <Input
               type="email"
               name="email"
@@ -68,13 +96,13 @@ const Signup = () => {
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm">비밀번호</label>
+            <label className="text-sm">비밀번호<span className="text-red-500">*</span></label>
             <Input
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
-              placeholder="비밀번호 입력(영문, 숫자, 특수문자 포함 8~20 이내)"
+              placeholder="비밀번호 입력(8자 이상 영문,숫자,특수문자 포함)"
               className="w-full"
             />
             <Input
@@ -82,7 +110,7 @@ const Signup = () => {
               name="confirmPassword"
               value={formData.confirmPassword}
               onChange={handleChange}
-              placeholder="비밀번호 확인"
+              placeholder="비밀번호 재입력"
               className="w-full"
             />
           </div>
@@ -92,7 +120,7 @@ const Signup = () => {
           onClick={handleSubmit}
           className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white rounded-none h-12"
         >
-          다음
+          휴대폰 인증하고 가입하기
         </Button>
       </div>
     </div>

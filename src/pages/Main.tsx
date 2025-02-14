@@ -25,9 +25,9 @@ const Main = () => {
   ];
   const journalItems = [{
     id: 1,
-    image: "/public/lovable-uploads/2c8101d5-73d5-41b7-acc5-1dd784aa0ecd.png",
+    image: "/public/lovable-uploads/dc101e40-6344-4c65-a61d-504f1e769c1b.png",
     category: "브랜드",
-    title: "2025 Calender",
+    title: "NOLL 놀에 대한 모든 것.",
     description: "1월 뉴스레터에서 신청하세요",
     date: "2023-07-08",
     views: 412
@@ -57,14 +57,14 @@ const Main = () => {
   return <div className="min-h-screen bg-[#FDFBF5]">
       {/* 헤더 이미지 섹션 */}
       <div className="relative h-[482px]">
-        <img src={journalItems[0].image} alt="2025 Calendar" className="w-full h-full object-cover" />
+        <img src={journalItems[0].image} alt={journalItems[0].title} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute bottom-8 left-[7.69%] right-[4.62%]">
           <h1 className="text-[32px] font-bold leading-[42px] text-[#FDFBF5] font-pretendard mb-4">
-            2025<br />Calender
+            NOLL<br />놀에 대한 모든 것.
           </h1>
           <p className="text-[18px] leading-[26px] text-[#FDFBF5] font-pretendard font-normal">
-            1월 뉴스레터에서 신청하세요
+            {journalItems[0].description}
           </p>
         </div>
       </div>

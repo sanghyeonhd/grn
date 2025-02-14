@@ -14,7 +14,15 @@ interface Address {
 
 const AddressList = () => {
   const navigate = useNavigate();
-  const [addresses, setAddresses] = useState<Address[]>([]);
+  const [addresses, setAddresses] = useState<Address[]>([
+    {
+      id: 1,
+      name: '홍길동',
+      phone: '010-1234-5678',
+      address: '부산광역시 부전동 서전로 8번길 럭키하트',
+      isDefault: true
+    }
+  ]);
   const [selectedAddress, setSelectedAddress] = useState<number | null>(null);
   const [deleteDialog, setDeleteDialog] = useState(false);
   const [addressToDelete, setAddressToDelete] = useState<number | null>(null);
@@ -39,7 +47,7 @@ const AddressList = () => {
           <button onClick={() => navigate(-1)} className="mr-4">
             <ChevronLeft className="w-6 h-6" />
           </button>
-          <h1 className="text-lg">배송지 목록</h1>
+          <h1 className="text-lg font-medium">배송지 목록</h1>
         </div>
       </div>
 
@@ -55,7 +63,7 @@ const AddressList = () => {
           {addresses.map((address) => (
             <div 
               key={address.id}
-              className={`border rounded p-4 ${selectedAddress === address.id ? 'border-black' : ''}`}
+              className={`border rounded-sm p-4 ${selectedAddress === address.id ? 'border-black' : 'border-gray-200'}`}
             >
               <div className="flex items-start">
                 <input
@@ -67,12 +75,19 @@ const AddressList = () => {
                 <div className="flex-1">
                   <div className="flex justify-between items-start">
                     <div>
+                      {address.isDefault && (
+                        <div className="text-xs text-gray-500 mb-1">기본 배송지</div>
+                      )}
                       <p className="font-medium">{address.name}</p>
-                      <p className="text-sm">{address.phone}</p>
-                      <p className="text-sm text-gray-600">{address.address}</p>
+                      <p className="text-sm mt-1">{address.phone}</p>
+                      <p className="text-sm text-gray-600 mt-1">{address.address}</p>
                     </div>
-                    <div className="flex gap-2">
-                      <button onClick={() => handleDelete(address.id)} className="text-sm text-gray-500">
+                    <div className="flex gap-4">
+                      <button className="text-sm text-gray-500">수정</button>
+                      <button 
+                        onClick={() => handleDelete(address.id)} 
+                        className="text-sm text-gray-500"
+                      >
                         삭제
                       </button>
                     </div>

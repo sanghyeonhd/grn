@@ -177,7 +177,10 @@ const OrderHistory = () => {
       <div className="space-y-4 p-4">
         {orderItems.map((item) => (
           <div key={item.id} className="space-y-4">
-            <div className="flex justify-between items-center">
+            <div 
+              className="flex justify-between items-center cursor-pointer"
+              onClick={() => navigate(`/order-history/${item.id}`)}
+            >
               <div className="text-lg">{item.date}</div>
               <ChevronRight className="w-5 h-5" />
             </div>

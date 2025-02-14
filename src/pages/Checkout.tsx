@@ -60,6 +60,13 @@ const Checkout = () => {
               </div>
             </div>
           </div>
+          <button className="w-full mt-4 py-3 border border-gray-200 rounded-sm text-sm">
+            새 배송지 추가
+          </button>
+          <div className="mt-2 bg-[#322A24]/[0.03] p-4 rounded text-[10px] text-gray-500 space-y-1">
+            <p>정확한 배송을 위해 도로명 주소만 사용합니다.</p>
+            <p>배송지 불분명으로 반송되지 않도록 한 번 더 확인해 주세요.</p>
+          </div>
         </section>
 
         {/* 배송 요청사항 */}

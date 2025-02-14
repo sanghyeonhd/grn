@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronLeft, Settings2 } from 'lucide-react';
+import { ChevronLeft, Cog } from 'lucide-react';
 
 const Notifications = () => {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const Notifications = () => {
         <h1 className="text-lg">알림</h1>
         <div className="flex-1" />
         <button onClick={() => navigate('/settings')}>
-          <Settings2 className="w-6 h-6" />
+          <Cog className="w-6 h-6" />
         </button>
       </div>
       

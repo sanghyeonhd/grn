@@ -3,6 +3,11 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
   Tabs,
   TabsContent,
   TabsList,
@@ -24,6 +29,7 @@ interface GiftItem {
 const GiftBox = () => {
   const navigate = useNavigate();
   const [selectedTab, setSelectedTab] = useState("받은 선물");
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
 
   const giftItems: GiftItem[] = [
     {
@@ -60,6 +66,9 @@ const GiftBox = () => {
       }
     }
   ];
+
+  const [openDialog, setOpenDialog] = useState(false);
+  const [openConfirmDialog, setOpenConfirmDialog] = useState(false);
 
   return (
     <div className="min-h-screen bg-white">
@@ -106,16 +115,68 @@ const GiftBox = () => {
                     <div className="font-medium mt-1">{item.product.price.toLocaleString()}원</div>
                   </div>
                 </div>
-                {item.id === "1" ? (
+                {item.id === "1" && (
                   <div className="grid grid-cols-2 gap-2">
-                    <button className="py-3 border text-sm">
-                      선물 받기
-                    </button>
+                    <Dialog open={openDialog} onOpenChange={setOpenDialog}>
+                      <DialogTrigger asChild>
+                        <button className="py-3 border text-sm">
+                          선물 받기
+                        </button>
+                      </DialogTrigger>
+                      <DialogContent className="bg-white p-6 max-w-xs w-full">
+                        <div className="text-center">
+                          <h2 className="text-lg font-medium mb-4">선물 받기</h2>
+                          <p className="text-sm text-gray-500 mb-6">선물 받으신 주소지 확인가능해요.</p>
+                          <div className="grid grid-cols-2 gap-2">
+                            <button
+                              className="py-3 border text-sm"
+                              onClick={() => {
+                                setOpenDialog(false);
+                                setOpenConfirmDialog(true);
+                              }}
+                            >
+                              담기
+                            </button>
+                            <button
+                              className="py-3 border text-sm"
+                              onClick={() => setOpenDialog(false)}
+                            >
+                              받기
+                            </button>
+                          </div>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+
+                    <Dialog open={openConfirmDialog} onOpenChange={setOpenConfirmDialog}>
+                      <DialogContent className="bg-white p-6 max-w-xs w-full">
+                        <div className="text-center">
+                          <h2 className="text-lg font-medium mb-4">선물 받기 완료</h2>
+                          <p className="text-sm text-gray-500 mb-6">선물 받기를 완료하시겠어요?</p>
+                          <div className="grid grid-cols-2 gap-2">
+                            <button
+                              className="py-3 border text-sm"
+                              onClick={() => setOpenConfirmDialog(false)}
+                            >
+                              나중에 하기
+                            </button>
+                            <button
+                              className="py-3 border text-sm"
+                              onClick={() => setOpenConfirmDialog(false)}
+                            >
+                              배송지 입력
+                            </button>
+                          </div>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+
                     <button className="py-3 border text-sm">
                       선물 거절
                     </button>
                   </div>
-                ) : (
+                )}
+                {item.id !== "1" && (
                   <button className="w-full py-3 border text-sm">
                     구매 확정
                   </button>

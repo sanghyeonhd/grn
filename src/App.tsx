@@ -61,6 +61,7 @@ import Cart from "./pages/Cart";
 import Challenge from "./pages/Challenge";
 import ChallengeSeasons from "./pages/ChallengeSeasons";
 import ProductDetail from "./pages/ProductDetail";
+import CategoryProductDetail from "./pages/CategoryProductDetail";
 
 const queryClient = new QueryClient();
 
@@ -86,7 +87,9 @@ const App = () => (
             <Route path="/event/:id" element={<EventDetail />} />
             <Route path="/granshop" element={<GranShop />} />
             <Route path="/granshop/giftset" element={<GranShop />} />
-            <Route path="/granshop/perfume" element={<GranShop />} />
+            <Route path="/granshop/perfume/:id" element={<CategoryProductDetail />} />
+            <Route path="/granshop/space/:id" element={<CategoryProductDetail />} />
+            <Route path="/granshop/body/:id" element={<CategoryProductDetail />} />
             <Route path="/mypage" element={<MyPage />} />
             <Route path="/grade-guide" element={<GradeGuide />} />
             <Route path="/notifications" element={<Notifications />} />

@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Check } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { toast } from "sonner";
@@ -11,11 +11,13 @@ const AttendanceCheck = () => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [attendanceCount, setAttendanceCount] = useState(0);
   const [totalPoints, setTotalPoints] = useState(0);
+  const [checkDate, setCheckDate] = useState<number | null>(null);
   const { toast: shadowToast } = useToast();
 
   const handleAttendanceCheck = () => {
     setAttendanceCount(prev => prev + 1);
     setTotalPoints(prev => prev + 100);
+    setCheckDate(1); // 1일에 체크 표시
     shadowToast({
       title: "출석체크 완료! 100포인트가 지급되었습니다.",
       className: "bg-red-500 text-white border-none",
@@ -41,11 +43,6 @@ const AttendanceCheck = () => {
       </header>
 
       <div className="space-y-6">
-        <div className="flex space-x-4 border-b border-gray-200">
-          <button className="pb-2 border-b-2 border-black font-medium">출석 체크</button>
-          <button className="pb-2 text-gray-500">행운 뽑기</button>
-        </div>
-
         <div className="space-y-4">
           <div className="flex justify-between items-center">
             <button>
@@ -59,46 +56,49 @@ const AttendanceCheck = () => {
 
           <div className="grid grid-cols-7 gap-2">
             {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, i) => (
-              <div key={i} className="text-center py-2 text-sm">{day}</div>
+              <div key={i} className="text-center py-2 text-sm text-gray-500">{day}</div>
             ))}
             
             {Array(31).fill(null).map((_, i) => (
-              <div key={i} className="text-center py-2 text-sm">
+              <div key={i} className="text-center py-2 text-sm relative">
                 {i + 1}
+                {checkDate === i + 1 && (
+                  <div className="absolute bottom-0 right-1">
+                    <Check className="w-4 h-4 text-red-500" />
+                  </div>
+                )}
               </div>
             ))}
           </div>
 
-          <div className="space-y-4 mt-8">
-            <div className="flex justify-between">
-              <div>
-                <p className="text-sm text-gray-500">누적 참여 횟수</p>
-                <p className="font-medium">{attendanceCount} 일</p>
-              </div>
-              <div>
-                <p className="text-sm text-gray-500">누적 획득 포인트</p>
-                <p className="font-medium">{totalPoints}</p>
-              </div>
+          <div className="flex justify-center gap-20 mt-12">
+            <div className="text-center">
+              <p className="text-sm text-gray-500">누적 참여 횟수</p>
+              <p className="font-medium text-xl mt-1">{attendanceCount} 일</p>
             </div>
-
-            <p className="text-center text-sm text-[#D25B68]">
-              1주 연속 시 500 포인트 추가 지급
-            </p>
-
-            <Button 
-              onClick={handleAttendanceCheck}
-              className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white rounded-none h-12"
-            >
-              출석 체크하기
-            </Button>
-
-            <Button
-              onClick={handleLuckyDraw}
-              className="w-full bg-white hover:bg-gray-50 text-black border border-gray-300 rounded-none h-12"
-            >
-              행운 뽑기
-            </Button>
+            <div className="text-center">
+              <p className="text-sm text-gray-500">누적 획득 포인트</p>
+              <p className="font-medium text-xl mt-1">{totalPoints}</p>
+            </div>
           </div>
+
+          <p className="text-center text-sm text-[#D25B68] mt-8">
+            1주 연속 시 500 포인트 추가 지급
+          </p>
+
+          <Button 
+            onClick={handleAttendanceCheck}
+            className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white rounded-none h-12 mt-4"
+          >
+            출석 체크하기
+          </Button>
+
+          <Button
+            onClick={handleLuckyDraw}
+            className="w-full bg-white hover:bg-gray-50 text-black border border-gray-300 rounded-none h-12"
+          >
+            행운 뽑기
+          </Button>
         </div>
       </div>
     </div>

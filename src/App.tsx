@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { StrictMode } from "react";
 import Index from "./pages/Index";
 import Main from "./pages/Main";
 import NotFound from "./pages/NotFound";
@@ -30,42 +31,44 @@ import GiftRefuse from "./pages/GiftRefuse";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <BrowserRouter>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <Routes>
-          <Route path="/" element={<Navigate to="/main" replace />} />
-          <Route path="/main" element={<Main />} />
-          <Route path="/journal" element={<Navigate to="/main" />} />
-          <Route path="/event" element={<Navigate to="/main" />} />
-          <Route path="/awards" element={<Awards />} />
-          <Route path="/stores" element={<Stores />} />
-          <Route path="/guide" element={<Guide />} />
-          <Route path="/guide/result" element={<GuideResult />} />
-          <Route path="/journal/:id" element={<JournalDetail />} />
-          <Route path="/event/:id" element={<EventDetail />} />
-          <Route path="/granshop" element={<GranShop />} />
-          <Route path="/granshop/giftset" element={<GranShop />} />
-          <Route path="/granshop/perfume" element={<GranShop />} />
-          <Route path="/mypage" element={<MyPage />} />
-          <Route path="/grade-guide" element={<GradeGuide />} />
-          <Route path="/notifications" element={<Notifications />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/my-coupon" element={<MyCoupon />} />
-          <Route path="/coupon-register" element={<CouponRegister />} />
-          <Route path="/points" element={<Points />} />
-          <Route path="/attendance" element={<AttendanceCheck />} />
-          <Route path="/order-history" element={<OrderHistory />} />
-          <Route path="/order-history/:id" element={<OrderDetail />} />
-          <Route path="/gift-box" element={<GiftBox />} />
-          <Route path="/order/refuse" element={<GiftRefuse />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </TooltipProvider>
-    </BrowserRouter>
-  </QueryClientProvider>
+  <StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <Routes>
+            <Route path="/" element={<Navigate to="/main" replace />} />
+            <Route path="/main" element={<Main />} />
+            <Route path="/journal" element={<Navigate to="/main" />} />
+            <Route path="/event" element={<Navigate to="/main" />} />
+            <Route path="/awards" element={<Awards />} />
+            <Route path="/stores" element={<Stores />} />
+            <Route path="/guide" element={<Guide />} />
+            <Route path="/guide/result" element={<GuideResult />} />
+            <Route path="/journal/:id" element={<JournalDetail />} />
+            <Route path="/event/:id" element={<EventDetail />} />
+            <Route path="/granshop" element={<GranShop />} />
+            <Route path="/granshop/giftset" element={<GranShop />} />
+            <Route path="/granshop/perfume" element={<GranShop />} />
+            <Route path="/mypage" element={<MyPage />} />
+            <Route path="/grade-guide" element={<GradeGuide />} />
+            <Route path="/notifications" element={<Notifications />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/my-coupon" element={<MyCoupon />} />
+            <Route path="/coupon-register" element={<CouponRegister />} />
+            <Route path="/points" element={<Points />} />
+            <Route path="/attendance" element={<AttendanceCheck />} />
+            <Route path="/order-history" element={<OrderHistory />} />
+            <Route path="/order-history/:id" element={<OrderDetail />} />
+            <Route path="/gift-box" element={<GiftBox />} />
+            <Route path="/order/refuse" element={<GiftRefuse />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </TooltipProvider>
+      </BrowserRouter>
+    </QueryClientProvider>
+  </StrictMode>
 );
 
 export default App;

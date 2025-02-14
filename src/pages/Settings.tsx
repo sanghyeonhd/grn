@@ -22,7 +22,7 @@ const Settings = () => {
             <h2 className="font-medium">서비스 알림</h2>
             <Switch className="data-[state=checked]:bg-blue-500 data-[state=checked]:hover:bg-blue-600" />
           </div>
-          <p className="text-sm text-gray-600">푸시 알림은 기기의 '설정 &gt; 그랑핸드 &gt; 알림'에서 설정 가능합니다.</p>
+          <p className="text-sm text-gray-600">기기의 '설정 &gt; 그랑핸드 &gt; 알림'에서 설정</p>
         </div>
 
         <div className="space-y-3">
@@ -30,10 +30,7 @@ const Settings = () => {
             <h2 className="font-medium">혜택 알림</h2>
             <Switch className="data-[state=checked]:bg-blue-500 data-[state=checked]:hover:bg-blue-600" />
           </div>
-          <p className="text-sm text-gray-600">
-            그랜드의 혜택 및 홍보 알림입니다.<br/>
-            필수 안내는 설정과 관계없이 발송됩니다.
-          </p>
+          <p className="text-sm text-gray-600">혜택 및 홍보 알림 (필수 안내는 설정과 관계없이 발송)</p>
         </div>
 
         <div className="space-y-4">

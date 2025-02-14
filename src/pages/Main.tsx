@@ -48,9 +48,9 @@ const Main = () => {
       <section className="px-6 pt-[37px]">
         <h3 className="text-[14px] font-bold leading-[22px] text-[#6F6963] font-pretendard mb-6">브랜드 숍</h3>
         <div className="flex gap-2">
-          <button className="h-[50px] bg-[#322A24] rounded-[50px] px-4 flex items-center justify-center">
+          <button className="h-[50px] bg-white rounded-[50px] px-4 flex items-center justify-center">
             <img 
-              src="/public/lovable-uploads/183e831a-0ce5-4fe8-a07d-3a1388afd6c3.png" 
+              src="/public/lovable-uploads/b8ea3ae1-bc76-40dc-9a17-44f3e64553af.png" 
               alt="GRANHAND" 
               className="h-5 object-contain"
             />

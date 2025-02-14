@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
@@ -207,18 +208,21 @@ const Checkout = () => {
         </section>
 
         {/* 최종 결제 금액 */}
-        <section className="space-y-2">
-          <div className="flex justify-between text-sm">
-            <span>상품금액</span>
-            <span>35,500원</span>
-          </div>
-          <div className="flex justify-between text-sm">
-            <span>포인트</span>
-            <span className="text-blue-500">-5,000원</span>
-          </div>
-          <div className="flex justify-between font-medium pt-2 border-t">
-            <span>최종 결제</span>
-            <span>25,500원</span>
+        <section>
+          <h2 className="text-sm mb-4">최종 결제 금액</h2>
+          <div className="space-y-2">
+            <div className="flex justify-between text-sm">
+              <span>상품금액</span>
+              <span>35,500원</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span>포인트</span>
+              <span className="text-blue-500">-5,000원</span>
+            </div>
+            <div className="flex justify-between font-medium pt-2 border-t">
+              <span>최종 결제</span>
+              <span>25,500원</span>
+            </div>
           </div>
         </section>
 

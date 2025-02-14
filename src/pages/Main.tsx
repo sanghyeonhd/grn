@@ -53,16 +53,16 @@ const Main = () => {
       {/* 브랜드샵 섹션 */}
       <section className="px-6 pt-[37px]">
         <h3 className="text-[14px] font-bold leading-[22px] text-[#6F6963] font-pretendard mb-6">
-          BRAND SHOP
+          브랜드샵
         </h3>
         <div className="flex gap-2">
-          <button className="h-[50px] bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap px-[10px]">
+          <button className="h-[50px] px-4 bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap">
             GRANHAND
           </button>
-          <button className="h-[50px] bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap px-[10px]">
+          <button className="h-[50px] px-4 bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap">
             heiion
           </button>
-          <button className="h-[50px] bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap px-[10px]">
+          <button className="h-[50px] px-4 bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap">
             Komfortabel coffee
           </button>
         </div>

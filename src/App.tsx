@@ -1,9 +1,10 @@
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AddressList from "./pages/AddressList";
 import AddressForm from "./pages/AddressForm";
 import Checkout from "./pages/Checkout";
 import Main from "./pages/Main";
-import ErrorPage from "./pages/Error";
+import ErrorPage from "./pages/ErrorPage";
 import { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter([

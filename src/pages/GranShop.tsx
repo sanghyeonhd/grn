@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Heart, Search, ShoppingCart } from "lucide-react";
+import { Heart, Search, ShoppingCart, Home, BookOpen, Scan, User } from "lucide-react";
 
 const products = {
   perfumes: [
@@ -91,7 +90,6 @@ const GranShop = () => {
     }
   };
 
-  // 현재 경로에 따라 표시할 상품 결정
   const displayProducts = location.pathname.includes('perfume') ? products.perfumes : products.giftsets;
 
   return (
@@ -197,21 +195,40 @@ const GranShop = () => {
 
       {/* Bottom Navigation */}
       <nav className="fixed bottom-0 left-0 right-0 bg-white border-t">
-        <div className="flex justify-around items-center p-4">
-          {[
-            { name: '홈', active: true },
-            { name: '가이드', active: false },
-            { name: '스토어', active: false },
-            { name: '관심상품', active: false },
-            { name: 'My', active: false }
-          ].map((item) => (
-            <button 
-              key={item.name} 
-              className={`flex flex-col items-center gap-1 ${item.active ? 'text-black' : 'text-gray-400'}`}
-            >
-              <span className="text-xs">{item.name}</span>
-            </button>
-          ))}
+        <div className="flex justify-around items-center h-[60px]">
+          <button 
+            className="flex flex-col items-center justify-center gap-1"
+            onClick={() => navigate('/')}
+          >
+            <Home className="w-5 h-5" />
+            <span className="text-xs">홈</span>
+          </button>
+          <button 
+            className="flex flex-col items-center justify-center gap-1"
+            onClick={() => navigate('/guide')}
+          >
+            <BookOpen className="w-5 h-5" />
+            <span className="text-xs">향 가이드</span>
+          </button>
+          <button 
+            className="flex flex-col items-center justify-center gap-1"
+          >
+            <Scan className="w-5 h-5" />
+            <span className="text-xs">스캔</span>
+          </button>
+          <button 
+            className="flex flex-col items-center justify-center gap-1"
+          >
+            <Heart className="w-5 h-5" />
+            <span className="text-xs">관심상품</span>
+          </button>
+          <button 
+            className="flex flex-col items-center justify-center gap-1"
+            onClick={() => navigate('/mypage')}
+          >
+            <User className="w-5 h-5" />
+            <span className="text-xs">MY</span>
+          </button>
         </div>
       </nav>
     </div>

@@ -10,8 +10,8 @@ const CustomerService = () => {
     { title: "자주 묻는 질문", path: "/faq" },
     { title: "채팅 문의", path: "/chat-support" },
     { title: "제휴 문의", path: "/partnership" },
-    { title: "공지사항", path: "#" },
-    { title: "약관 및 정책", path: "#" }
+    { title: "공지사항", path: "/notice" },
+    { title: "약관 및 정책", path: "/terms" }
   ];
 
   return (

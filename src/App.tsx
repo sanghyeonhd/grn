@@ -33,6 +33,17 @@ import OrderStatusHistory from "./pages/OrderStatusHistory";
 import OrderCancelDetail from "./pages/OrderCancelDetail";
 import OrderExchangeDetail from "./pages/OrderExchangeDetail";
 import OrderReturnDetail from "./pages/OrderReturnDetail";
+import FindId from "./pages/FindId";
+import FindIdPhone from "./pages/FindIdPhone";
+import FindIdResult from "./pages/FindIdResult";
+import FindPassword from "./pages/FindPassword";
+import FindPasswordVerify from "./pages/FindPasswordVerify";
+import FindPasswordReset from "./pages/FindPasswordReset";
+import Signup from "./pages/Signup";
+import SignupTerms from "./pages/SignupTerms";
+import SignupVerify from "./pages/SignupVerify";
+import SignupComplete from "./pages/SignupComplete";
+import TermDetail from "./pages/TermDetail";
 
 const queryClient = new QueryClient();
 
@@ -75,6 +86,17 @@ const App = () => (
             <Route path="/order-cancel-detail" element={<OrderCancelDetail />} />
             <Route path="/order-exchange-detail" element={<OrderExchangeDetail />} />
             <Route path="/order-return-detail" element={<OrderReturnDetail />} />
+            <Route path="/find-id" element={<FindId />} />
+            <Route path="/find-id/phone" element={<FindIdPhone />} />
+            <Route path="/find-id/result" element={<FindIdResult />} />
+            <Route path="/find-password" element={<FindPassword />} />
+            <Route path="/find-password/verify" element={<FindPasswordVerify />} />
+            <Route path="/find-password/reset" element={<FindPasswordReset />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/signup/terms" element={<SignupTerms />} />
+            <Route path="/signup/verify" element={<SignupVerify />} />
+            <Route path="/signup/complete" element={<SignupComplete />} />
+            <Route path="/term-detail" element={<TermDetail />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </TooltipProvider>

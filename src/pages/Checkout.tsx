@@ -40,17 +40,9 @@ const Checkout = () => {
         <section>
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-sm">배송정보</h2>
-            <button 
-              onClick={() => navigate('/address/list')}
-              className="text-sm text-blue-500"
-            >
-              배송지 목록
-            </button>
+            <button className="text-sm text-blue-500">배송지 목록</button>
           </div>
-          <button 
-            onClick={() => navigate('/address/new')}
-            className="w-full mb-4 py-3 border border-gray-200 rounded-sm text-sm"
-          >
+          <button className="w-full mb-4 py-3 border border-gray-200 rounded-sm text-sm">
             새 배송지 추가
           </button>
           <div className="mb-4 bg-[#322A24]/[0.03] p-4 rounded text-[10px] text-gray-500 space-y-1">
@@ -97,7 +89,7 @@ const Checkout = () => {
           />
         </section>
 
-        {/* 주문 상�� 정보 */}
+        {/* 주문 상품 정보 */}
         <section>
           <h2 className="text-sm mb-4">주문 상품 정보</h2>
           <div className="flex gap-4 p-4 bg-gray-50">
@@ -238,7 +230,7 @@ const Checkout = () => {
               <span>-5,000원</span>
             </div>
             <div className="flex justify-between text-sm">
-              <span className="text-gray-600">��인트 사용</span>
+              <span className="text-gray-600">포인트 사용</span>
               <span>-5,000</span>
             </div>
             <div className="flex justify-between font-medium pt-3 border-t">

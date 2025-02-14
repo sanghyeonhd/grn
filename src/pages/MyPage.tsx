@@ -6,7 +6,7 @@ const MyPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pb-[60px] relative">
       <div className="p-4 flex items-center justify-between">
         <h1 className="text-lg">마이페이지</h1>
         <div className="flex items-center gap-4">
@@ -98,6 +98,25 @@ const MyPage = () => {
           <button className="w-full py-3 text-left border-t">고객센터</button>
           <button className="w-full py-3 text-left border-t">설정</button>
         </div>
+      </div>
+
+      {/* 하단 네비게이션 바 */}
+      <div className="fixed bottom-0 left-0 right-0 h-[60px] bg-white border-t border-gray-200 grid grid-cols-5">
+        <button className="flex flex-col items-center justify-center">
+          <span className="text-xs">홈</span>
+        </button>
+        <button className="flex flex-col items-center justify-center">
+          <span className="text-xs">카테고리</span>
+        </button>
+        <button className="flex flex-col items-center justify-center">
+          <span className="text-xs">좋아요</span>
+        </button>
+        <button className="flex flex-col items-center justify-center">
+          <span className="text-xs">검색</span>
+        </button>
+        <button className="flex flex-col items-center justify-center">
+          <span className="text-xs text-black font-bold">마이</span>
+        </button>
       </div>
     </div>
   );

@@ -61,6 +61,8 @@ const GiftSet = () => {
   const handleCategoryClick = (category: string) => {
     if (category === '기프트 세트') {
       navigate('/granshop/giftset');
+    } else if (category === '퍼퓸') {
+      navigate('/granshop/perfume');
     }
   };
 
@@ -108,7 +110,12 @@ const GiftSet = () => {
           >
             기프트 세트
           </button>
-          <button className="whitespace-nowrap text-gray-600" onClick={() => handleCategoryClick('퍼퓸')}>퍼퓸</button>
+          <button 
+            className="whitespace-nowrap text-gray-600" 
+            onClick={() => handleCategoryClick('퍼퓸')}
+          >
+            퍼퓸
+          </button>
           <button className="whitespace-nowrap text-gray-600" onClick={() => handleCategoryClick('공간')}>공간</button>
           <button className="whitespace-nowrap text-gray-600" onClick={() => handleCategoryClick('바디')}>바디</button>
         </div>

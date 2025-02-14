@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Heart, Search, ShoppingCart, Home, BookOpen, Scan, User } from "lucide-react";
@@ -91,11 +92,12 @@ const GranShop = () => {
   };
 
   const displayProducts = location.pathname.includes('perfume') ? products.perfumes : products.giftsets;
+  const isGiftsetPath = location.pathname.includes('giftset');
 
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 bg-white z-50">
+      <div className="fixed top-0 left-0 right-0 bg-white z-50">
         <div className="flex items-center justify-between p-4">
           <h1 className="text-xl font-bold">GRANHAND.</h1>
           <div className="flex items-center gap-4">
@@ -108,7 +110,7 @@ const GranShop = () => {
             </button>
           </div>
         </div>
-      </header>
+      </div>
 
       {/* Banner */}
       <div className="pt-[72px] relative">
@@ -164,14 +166,16 @@ const GranShop = () => {
         </div>
       </div>
 
-      {/* Sub Categories */}
-      <div className="px-4 border-b">
-        <div className="flex items-center gap-4 py-3 text-[0.688rem] overflow-x-auto scrollbar-hide">
-          <button className="whitespace-nowrap text-gray-600">시그니처</button>
-          <button className="whitespace-nowrap text-gray-600">퍼퓸</button>
-          <button className="whitespace-nowrap text-gray-600">멀티 퍼퓸</button>
+      {/* Sub Categories - Only show if not on giftset path */}
+      {!isGiftsetPath && (
+        <div className="px-4 border-b">
+          <div className="flex items-center gap-4 py-3 text-[0.688rem] overflow-x-auto scrollbar-hide">
+            <button className="whitespace-nowrap text-gray-600">시그니처</button>
+            <button className="whitespace-nowrap text-gray-600">퍼퓸</button>
+            <button className="whitespace-nowrap text-gray-600">멀티 퍼퓸</button>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Filter Section */}
       <div className="px-4 py-3 flex items-center justify-between border-b">

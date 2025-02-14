@@ -9,7 +9,14 @@ const GiftSetDetail = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [isGiftSheetOpen, setIsGiftSheetOpen] = useState(false);
+  const [isPurchaseSheetOpen, setIsPurchaseSheetOpen] = useState(false);
   const [selectedProducts, setSelectedProducts] = useState<Array<{
+    name: string;
+    price: number;
+    quantity: number;
+    option?: string;
+  }>>([]);
+  const [selectedPurchaseProducts, setSelectedPurchaseProducts] = useState<Array<{
     name: string;
     price: number;
     quantity: number;
@@ -36,6 +43,15 @@ const GiftSetDetail = () => {
     }]);
   };
 
+  const handlePurchaseProductSelect = (option: string) => {
+    setSelectedPurchaseProducts([{
+      name: product.name,
+      price: product.price,
+      quantity: 1,
+      option,
+    }]);
+  };
+
   const handleQuantityChange = (index: number, increment: boolean) => {
     setSelectedProducts(prev => prev.map((item, i) => {
       if (i === index) {
@@ -46,8 +62,22 @@ const GiftSetDetail = () => {
     }));
   };
 
+  const handlePurchaseQuantityChange = (index: number, increment: boolean) => {
+    setSelectedPurchaseProducts(prev => prev.map((item, i) => {
+      if (i === index) {
+        const newQuantity = increment ? item.quantity + 1 : Math.max(1, item.quantity - 1);
+        return { ...item, quantity: newQuantity };
+      }
+      return item;
+    }));
+  };
+
   const getTotalPrice = () => {
     return selectedProducts.reduce((total, item) => total + (item.price * item.quantity), 0);
+  };
+
+  const getPurchaseTotalPrice = () => {
+    return selectedPurchaseProducts.reduce((total, item) => total + (item.price * item.quantity), 0);
   };
 
   return (
@@ -105,7 +135,10 @@ const GiftSetDetail = () => {
           >
             선물하기
           </button>
-          <button className="py-3 bg-[#2C2C2C] text-white">
+          <button 
+            className="py-3 bg-[#2C2C2C] text-white"
+            onClick={() => setIsPurchaseSheetOpen(true)}
+          >
             구매하기
           </button>
         </div>
@@ -119,6 +152,16 @@ const GiftSetDetail = () => {
         onProductSelect={handleProductSelect}
         onQuantityChange={handleQuantityChange}
         getTotalPrice={getTotalPrice}
+      />
+
+      <ProductOptionSheet 
+        isOpen={isPurchaseSheetOpen}
+        onOpenChange={setIsPurchaseSheetOpen}
+        type="purchase"
+        selectedProducts={selectedPurchaseProducts}
+        onProductSelect={handlePurchaseProductSelect}
+        onQuantityChange={handlePurchaseQuantityChange}
+        getTotalPrice={getPurchaseTotalPrice}
       />
     </div>
   );

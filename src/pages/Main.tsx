@@ -1,8 +1,6 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card } from "@/components/ui/card";
-
 const Main = () => {
   const navigate = useNavigate();
   const journalItems = [{
@@ -21,7 +19,6 @@ const Main = () => {
     date: "2023-07-08",
     views: 412
   }];
-
   return <div className="min-h-screen bg-[#FDFBF5]">
       {/* 헤더 이미지 섹션 */}
       <div className="relative h-[482px]">
@@ -48,26 +45,14 @@ const Main = () => {
       <section className="px-6 pt-[37px]">
         <h3 className="text-[14px] font-bold leading-[22px] text-[#6F6963] font-pretendard mb-6">브랜드 숍</h3>
         <div className="flex gap-2">
-          <button className="h-[50px] bg-[#322A24] rounded-[50px] px-4 flex items-center justify-center">
-            <img 
-              src="/public/lovable-uploads/183e831a-0ce5-4fe8-a07d-3a1388afd6c3.png" 
-              alt="GRANHAND" 
-              className="h-5 object-contain"
-            />
+          <button className="h-[50px] bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap px-[10px]">
+            GRANHAND
           </button>
-          <button className="h-[50px] bg-[#322A24] rounded-[50px] px-4 flex items-center justify-center">
-            <img 
-              src="/public/lovable-uploads/236cc52b-886b-440d-a738-4c442393f3f4.png" 
-              alt="heiion" 
-              className="h-5 object-contain"
-            />
+          <button className="h-[50px] bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap px-[10px]">
+            heiion
           </button>
-          <button className="h-[50px] bg-[#322A24] rounded-[50px] px-4 flex items-center justify-center">
-            <img 
-              src="/public/lovable-uploads/ad6ff026-1dc4-453b-8e88-0913eb046a87.png" 
-              alt="Komfortabel coffee" 
-              className="h-5 object-contain"
-            />
+          <button className="h-[50px] bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap px-[10px]">
+            Komfortabel coffee
           </button>
         </div>
       </section>
@@ -99,5 +84,4 @@ const Main = () => {
       </section>
     </div>;
 };
-
 export default Main;

@@ -81,7 +81,7 @@ const CategoryProductDetail = () => {
         <div className="p-5 space-y-6">
           <div className="space-y-2">
             <div className="text-sm text-gray-500">
-              퍼퓸 > 시그니처
+              퍼퓸 {'>'} 시그니처
             </div>
             <h1 className="text-xl font-medium">{product.name}</h1>
             <p className="text-sm text-gray-600">{product.description}</p>

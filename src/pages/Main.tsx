@@ -57,6 +57,8 @@ const Main = () => {
   const handleNavigation = (path: string) => {
     if (path === 'JOURNAL') {
       navigate(`/journal/${journalItems[0].id}`);
+    } else if (path === 'EVENT') {
+      navigate('/event/detail');
     } else {
       navigate(`/${path.toLowerCase()}`);
     }

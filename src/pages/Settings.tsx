@@ -19,7 +19,7 @@ const Settings = () => {
       <div className="p-4 space-y-6">
         <div className="space-y-4">
           <h2 className="font-medium">서비스 알림</h2>
-          <p className="text-sm text-gray-500">푸시 설정된 기기와 설정 > 그랜드 > 알림에서 설정 가능합니다.</p>
+          <p className="text-sm text-gray-500">푸시 설정된 기기와 설정 &gt; 그랜드 &gt; 알림에서 설정 가능합니다.</p>
         </div>
 
         <div className="space-y-4">

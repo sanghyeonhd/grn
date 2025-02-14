@@ -128,7 +128,12 @@ const MyPage = () => {
           >
             회원정보(간편)
           </button>
-          <button className="w-full py-3 text-left border-t">고객센터</button>
+          <button 
+            className="w-full py-3 text-left border-t"
+            onClick={() => navigate('/customer-service')}
+          >
+            고객센터
+          </button>
           <button className="w-full py-3 text-left border-t">설정</button>
         </div>
       </div>

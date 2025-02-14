@@ -22,7 +22,7 @@ const Settings = () => {
             <h2 className="font-medium">서비스 알림</h2>
             <Switch className="data-[state=checked]:bg-blue-500 data-[state=checked]:hover:bg-blue-600" />
           </div>
-          <p className="text-sm text-gray-600">기기 설정 &gt; 그랜드 &gt; 알림에서 변경 가능</p>
+          <p className="text-sm text-gray-600">푸시 알림은 기기의 '설정 &gt; 그랑핸드 &gt; 알림'에서 설정 가능합니다.</p>
         </div>
 
         <div className="space-y-3">

@@ -106,8 +106,8 @@ const GiftItem = ({ item }: GiftItemProps) => {
             </DialogTrigger>
             <DialogContent className="bg-white p-6 max-w-xs w-full">
               <div className="text-center">
-                <h2 className="text-lg font-medium mb-4">선물 거절</h2>
-                <p className="text-sm text-gray-500 mb-6">선물 거절 완료시 취소가 불가능해요.</p>
+                <h2 className="text-lg font-medium mb-4">선물 거절 완료</h2>
+                <p className="text-sm text-gray-500 mb-6">선물을 거절하시겠어요?</p>
                 <div className="grid grid-cols-2 gap-2">
                   <button
                     className="py-3 border text-sm"
@@ -133,7 +133,7 @@ const GiftItem = ({ item }: GiftItemProps) => {
             <DialogContent className="bg-white p-6 max-w-xs w-full">
               <div className="text-center">
                 <h2 className="text-lg font-medium mb-4">선물 거절 완료</h2>
-                <p className="text-sm text-gray-500 mb-6">선물을 거절하시겠어요?</p>
+                <p className="text-sm text-gray-500 mb-6">선물 거절하시면 취소가 불가능해요.</p>
                 <div className="grid grid-cols-2 gap-2">
                   <button
                     className="py-3 border text-sm"

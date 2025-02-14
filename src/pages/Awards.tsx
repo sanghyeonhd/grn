@@ -7,7 +7,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Share } from 'lucide-react';
 
 const Awards = () => {
   const navigate = useNavigate();
@@ -54,7 +53,11 @@ const Awards = () => {
         </button>
         <h1 className="text-[18px] font-bold leading-[28px] text-[#1A1A1A]">AWARDS</h1>
         <button className="ml-auto" onClick={() => setShowShareDialog(true)}>
-          <Share className="w-5 h-5 text-[#1A1A1A]" />
+          <img 
+            src="/public/lovable-uploads/f640fedb-0ab0-4890-8253-529a0922016d.png" 
+            alt="share"
+            className="w-5 h-5"
+          />
         </button>
       </div>
 

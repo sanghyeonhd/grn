@@ -27,29 +27,32 @@ const Main = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#FDFBF5]">
       {/* 헤더 이미지 섹션 */}
-      <div className="relative h-[50vh]">
+      <div className="relative h-[482px]">
         <img 
           src={journalItems[0].image}
           alt="2025 Calendar"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/20" />
-        <div className="absolute bottom-8 left-6 text-white">
-          <h1 className="text-3xl font-bold">2025</h1>
-          <h2 className="text-2xl mb-2">Calender</h2>
-          <p className="text-sm">1월 뉴스레터에서 신청하세요</p>
+        <div className="absolute bottom-8 left-[7.69%] right-[4.62%]">
+          <h1 className="text-[32px] font-bold leading-[42px] text-[#FDFBF5] font-pretendard mb-4">
+            2025<br />Calender
+          </h1>
+          <p className="text-[18px] leading-[26px] text-[#FDFBF5] font-pretendard font-normal">
+            1월 뉴스레터에서 신청하세요
+          </p>
         </div>
       </div>
 
       {/* 네비게이션 메뉴 */}
-      <nav className="flex justify-around py-4 border-b">
+      <nav className="flex px-6 py-4 bg-[#FDFBF5] shadow-[0px_4px_10px_rgba(0,0,0,0.03)]">
         {['JOURNAL', 'EVENT', 'AWARDS', 'STORES'].map((item) => (
           <button 
             key={item}
             onClick={() => navigate(`/${item.toLowerCase()}`)}
-            className="text-sm font-medium text-gray-600 hover:text-black transition-colors"
+            className="text-[14px] font-bold text-[#6F6963] leading-[22px] font-pretendard mr-6"
           >
             {item}
           </button>
@@ -57,43 +60,57 @@ const Main = () => {
       </nav>
 
       {/* 브랜드샵 섹션 */}
-      <section className="px-6 py-8">
-        <h3 className="text-sm font-medium mb-4">BRAND SHOP</h3>
-        <div className="flex flex-wrap gap-2">
-          <button className="px-6 py-2.5 bg-black text-white rounded-full text-sm">
+      <section className="px-6 pt-[37px]">
+        <h3 className="text-[14px] font-bold leading-[22px] text-[#6F6963] font-pretendard mb-6">
+          BRAND SHOP
+        </h3>
+        <div className="flex gap-4">
+          <button className="h-[50px] px-8 bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard">
             GRANHAND
           </button>
-          <button className="px-6 py-2.5 border border-gray-300 rounded-full text-sm">
+          <button className="h-[50px] px-8 bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard">
             heiion
           </button>
-          <button className="px-6 py-2.5 border border-gray-300 rounded-full text-sm">
+          <button className="h-[50px] px-8 bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard">
             Komfortabel coffee
           </button>
         </div>
       </section>
 
-      {/* 저널 목록 */}
-      <section className="px-6 space-y-6">
-        {journalItems.map((item, index) => (
-          <Card 
-            key={item.id}
-            className="p-0 overflow-hidden cursor-pointer border-none shadow-none"
-            onClick={() => navigate(`/journal/${item.id}`)}
-          >
-            <img 
-              src={item.image}
-              alt={item.title}
-              className="w-full aspect-[4/3] object-cover rounded-lg mb-4"
-            />
-            <div className="space-y-2">
-              <p className="text-sm text-gray-500">{item.category}</p>
-              <h3 className="text-lg font-medium">{item.title}</h3>
-              <p className="text-xs text-gray-500">
-                {item.date} {item.views && `조회 ${item.views}`}
-              </p>
-            </div>
-          </Card>
-        ))}
+      {/* 저널 섹션 */}
+      <section className="px-6 pt-8">
+        <h3 className="text-[14px] font-bold leading-[22px] text-[#6F6963] font-pretendard mb-4">
+          저널
+        </h3>
+        <div className="space-y-4">
+          {journalItems.map((item) => (
+            <Card 
+              key={item.id}
+              className="p-0 overflow-hidden cursor-pointer border-none shadow-none"
+              onClick={() => navigate(`/journal/${item.id}`)}
+            >
+              <div className="relative h-[460px]">
+                <img 
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/20" />
+                <div className="absolute bottom-16 left-4">
+                  <p className="text-[12px] font-bold leading-[20px] text-[#FDFBF5] font-pretendard mb-1">
+                    #{item.category}
+                  </p>
+                  <h3 className="text-[16px] font-bold leading-[24px] text-[#FDFBF5] font-pretendard mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-[12px] font-medium leading-[20px] text-[#E9E6E0] font-pretendard">
+                    {item.date} {item.views && `조회 ${item.views}`}
+                  </p>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
       </section>
     </div>
   );

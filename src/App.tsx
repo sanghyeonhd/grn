@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -5,6 +6,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import AppPermission from "./pages/AppPermission";
+import InternetError from "./pages/InternetError";
+import ErrorPage from "./pages/ErrorPage";
+import Loading from "./pages/Loading";
+import AttendanceCheck from "./pages/AttendanceCheck";
 
 const queryClient = new QueryClient();
 
@@ -16,7 +22,11 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/permission" element={<AppPermission />} />
+          <Route path="/internet-error" element={<InternetError />} />
+          <Route path="/error" element={<ErrorPage />} />
+          <Route path="/loading" element={<Loading />} />
+          <Route path="/attendance" element={<AttendanceCheck />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

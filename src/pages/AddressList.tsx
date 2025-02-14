@@ -9,6 +9,7 @@ interface Address {
   name: string;
   phone: string;
   address: string;
+  label: string;
   isDefault?: boolean;
 }
 
@@ -20,6 +21,7 @@ const AddressList = () => {
       name: '홍길동',
       phone: '010-1234-5678',
       address: '부산광역시 부전동 서전로 8번길 럭키하트',
+      label: '집',
       isDefault: true
     }
   ]);
@@ -38,6 +40,10 @@ const AddressList = () => {
       setDeleteDialog(false);
       setAddressToDelete(null);
     }
+  };
+
+  const handleCheckboxChange = (addressId: number) => {
+    setSelectedAddress(selectedAddress === addressId ? null : addressId);
   };
 
   return (
@@ -66,13 +72,16 @@ const AddressList = () => {
               className={`border rounded-sm p-4 ${selectedAddress === address.id ? 'border-black' : 'border-gray-200'}`}
             >
               <div className="flex items-start">
-                <input
-                  type="checkbox"
-                  checked={selectedAddress === address.id}
-                  onChange={() => setSelectedAddress(address.id)}
-                  className="mt-1 mr-3"
-                />
-                <div className="flex-1">
+                <div className="flex items-center gap-2 mt-1">
+                  <input
+                    type="checkbox"
+                    checked={selectedAddress === address.id}
+                    onChange={() => handleCheckboxChange(address.id)}
+                    className="mr-1"
+                  />
+                  <span className="text-sm">{address.label}</span>
+                </div>
+                <div className="flex-1 ml-3">
                   <div className="flex justify-between items-start">
                     <div>
                       {address.isDefault && (
@@ -82,7 +91,7 @@ const AddressList = () => {
                       <p className="text-sm mt-1">{address.phone}</p>
                       <p className="text-sm text-gray-600 mt-1">{address.address}</p>
                     </div>
-                    <div className="flex gap-4">
+                    <div className="flex items-center gap-4 whitespace-nowrap">
                       <button className="text-sm text-gray-500">수정</button>
                       <button 
                         onClick={() => handleDelete(address.id)} 

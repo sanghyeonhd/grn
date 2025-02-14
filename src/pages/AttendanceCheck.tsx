@@ -27,7 +27,7 @@ const AttendanceCheck = () => {
     setTotalPoints(prev => prev + points);
     toast.message("행운뽑기 완료!", {
       description: `${points}포인트가 지급되었어요.`,
-      position: 'bottom',
+      position: "bottom-center",
     });
   };
 

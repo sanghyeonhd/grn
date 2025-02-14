@@ -197,7 +197,7 @@ const Checkout = () => {
                     <p className="text-sm font-medium">무통장 입금</p>
                   </button>
                 </div>
-                <div className="text-[10px] text-gray-500 space-y-1">
+                <div className="bg-[#322A24]/[0.03] p-4 rounded text-[10px] text-gray-500 space-y-1">
                   <p>무통장 입금은 영업일 기준 24시간 이내 확인됩니다.</p>
                   <p>주문 후 72시간 이내에 미입금 시 자동 취소됩니다.</p>
                 </div>
@@ -239,9 +239,11 @@ const Checkout = () => {
               <span className="text-gray-600">적립 예정 포인트</span>
               <span className="font-medium text-blue-500">+700</span>
             </div>
-            <div className="flex items-start gap-1 text-xs text-gray-500">
-              <Info className="w-3 h-3 mt-0.5 flex-shrink-0" />
-              <span>구매 확정 시 회원 등급별 혜택에 따라 포인트가 지급됩니다.</span>
+            <div className="bg-[#322A24]/[0.03] p-2 rounded">
+              <div className="flex items-center gap-1 text-[10px] text-gray-500 whitespace-nowrap">
+                <Info className="w-3 h-3 flex-shrink-0" />
+                <span>구매 확정 시 회원 등급별 혜택에 따라 포인트가 지급됩니다.</span>
+              </div>
             </div>
           </div>
         </section>

@@ -91,7 +91,7 @@ const GiftSet = () => {
 
       {/* Categories */}
       <div className="px-4 border-b">
-        <div className="flex items-center gap-6 py-4 text-sm overflow-x-auto scrollbar-hide">
+        <div className="flex items-center gap-4 py-3 text-[0.688rem] overflow-x-auto scrollbar-hide">
           <button className="whitespace-nowrap font-medium">전체</button>
           <button className="whitespace-nowrap text-gray-600">기프트 세트</button>
           <button className="whitespace-nowrap text-gray-600">퍼퓸</button>

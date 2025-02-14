@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, X } from 'lucide-react';
@@ -67,7 +66,12 @@ const MyCoupon = () => {
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <span className="font-medium text-[14px]">보유 쿠폰(5)</span>
-            <span className="text-gray-400 text-[14px]">쿠폰 등록</span>
+            <button 
+              onClick={() => navigate('/coupon-register')}
+              className="text-gray-400 text-[14px]"
+            >
+              쿠폰 등록
+            </button>
           </div>
         </div>
 

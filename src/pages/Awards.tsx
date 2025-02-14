@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -108,8 +109,76 @@ const Awards = () => {
       )}
 
       {submenuTab === '참가접수' && (
-        <div className="flex items-center justify-center h-[400px] text-[#999999]">
-          현재 접수기간이 아닙니다.
+        <div className="p-4">
+          <div className="mb-8">
+            <h3 className="text-lg font-bold mb-2">제4회 그랜핸드 {activeTab}</h3>
+            <p className="text-sm text-[#666666]">접수기간: 2024.04.01 - 2024.05.31</p>
+          </div>
+          
+          <form className="space-y-6">
+            <div>
+              <label className="block text-sm font-medium mb-2">이름</label>
+              <input 
+                type="text" 
+                className="w-full p-3 text-sm border border-[#EAEAEA] rounded-lg focus:outline-none focus:border-[#1A1A1A]"
+                placeholder="이름을 입력해주세요"
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium mb-2">연락처</label>
+              <input 
+                type="tel" 
+                className="w-full p-3 text-sm border border-[#EAEAEA] rounded-lg focus:outline-none focus:border-[#1A1A1A]"
+                placeholder="연락처를 입력해주세요"
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium mb-2">이메일</label>
+              <input 
+                type="email" 
+                className="w-full p-3 text-sm border border-[#EAEAEA] rounded-lg focus:outline-none focus:border-[#1A1A1A]"
+                placeholder="이메일을 입력해주세요"
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium mb-2">참가부문</label>
+              <select className="w-full p-3 text-sm border border-[#EAEAEA] rounded-lg focus:outline-none focus:border-[#1A1A1A] bg-white">
+                <option value="">부문을 선택해주세요</option>
+                <option value="nature">Nature 자연</option>
+                <option value="people">People 사람</option>
+                <option value="daily">Daily Life 일상</option>
+                <option value="still">Still Life 정물</option>
+              </select>
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium mb-2">작품설명</label>
+              <textarea 
+                className="w-full p-3 text-sm border border-[#EAEAEA] rounded-lg focus:outline-none focus:border-[#1A1A1A] h-32"
+                placeholder="작품에 대한 설명을 입력해주세요"
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium mb-2">작품 첨부</label>
+              <div className="border-2 border-dashed border-[#EAEAEA] rounded-lg p-8 text-center">
+                <p className="text-sm text-[#666666] mb-2">JPG, PNG 파일 업로드 (최대 5MB)</p>
+                <button type="button" className="text-sm text-[#1A1A1A] font-medium underline">
+                  파일 선택하기
+                </button>
+              </div>
+            </div>
+            
+            <button 
+              type="submit" 
+              className="w-full bg-[#1A1A1A] text-white py-4 rounded-lg text-sm font-medium"
+            >
+              접수하기
+            </button>
+          </form>
         </div>
       )}
 

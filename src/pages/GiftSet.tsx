@@ -9,39 +9,42 @@ interface GiftSetProduct {
   description: string;
   price: string;
   image: string;
+  soldOut?: boolean;
 }
 
 const GiftSet = () => {
   const [selectedBrand, setSelectedBrand] = useState('GRANHAND.');
+  const [selectedTab, setSelectedTab] = useState('퍼퓸');
   
   const products: GiftSetProduct[] = [
     {
       id: 1,
-      name: "Trio Gift Set",
-      description: "샤워 & 핸드크림 & 핸드워시 세트 | 40g & 60g & 450ml",
-      price: "68,000 KRW",
-      image: "/public/lovable-uploads/aa82fdf9-9d4c-4eec-a133-84419ab1802c.png"
+      name: "Roland Multi Perfume",
+      description: "롤랑 머스크퓸 100ml / 200ml",
+      price: "35,000 KRW",
+      image: "/public/lovable-uploads/95b72031-442a-4f1b-b4ca-4cd004cdfbc6.png"
     },
     {
       id: 2,
-      name: "Trio Gift Set",
-      description: "샤워 & 핸드크림 & 핸드워시 세트 | 40g & 60g & 450ml",
-      price: "68,000 KRW",
-      image: "/public/lovable-uploads/aa82fdf9-9d4c-4eec-a133-84419ab1802c.png"
+      name: "Roland Multi Perfume",
+      description: "롤랑 머스크퓸 100ml / 200ml",
+      price: "35,000 KRW",
+      image: "/public/lovable-uploads/95b72031-442a-4f1b-b4ca-4cd004cdfbc6.png",
+      soldOut: true
     },
     {
       id: 3,
-      name: "Trio Gift Set",
-      description: "샤워 & 핸드크림 & 핸드워시 세트 | 40g & 60g & 450ml",
-      price: "68,000 KRW",
-      image: "/public/lovable-uploads/aa82fdf9-9d4c-4eec-a133-84419ab1802c.png"
+      name: "Roland Multi Perfume",
+      description: "롤랑 머스크퓸 100ml / 200ml",
+      price: "35,000 KRW",
+      image: "/public/lovable-uploads/95b72031-442a-4f1b-b4ca-4cd004cdfbc6.png"
     },
     {
       id: 4,
-      name: "Trio Gift Set",
-      description: "샤워 & 핸드크림 & 핸드워시 세트 | 40g & 60g & 450ml",
-      price: "68,000 KRW",
-      image: "/public/lovable-uploads/aa82fdf9-9d4c-4eec-a133-84419ab1802c.png"
+      name: "Roland Multi Perfume",
+      description: "롤랑 머스크퓸 100ml / 200ml",
+      price: "35,000 KRW",
+      image: "/public/lovable-uploads/95b72031-442a-4f1b-b4ca-4cd004cdfbc6.png"
     }
   ];
 
@@ -73,9 +76,7 @@ const GiftSet = () => {
                     <button
                       key={brand.id}
                       className="block w-full text-left px-4 py-2 hover:bg-gray-100"
-                      onClick={() => {
-                        setSelectedBrand(brand.name);
-                      }}
+                      onClick={() => setSelectedBrand(brand.name)}
                     >
                       {brand.name}
                     </button>
@@ -123,8 +124,8 @@ const GiftSet = () => {
       {/* 탭 메뉴 */}
       <div className="flex border-b border-gray-200 px-4">
         <button className="px-3 py-3 text-xs text-gray-600">전체</button>
-        <button className="px-3 py-3 text-xs font-bold border-b-2 border-black">기프트 세트</button>
-        <button className="px-3 py-3 text-xs text-gray-600">퍼퓸</button>
+        <button className="px-3 py-3 text-xs text-gray-600">기프트 세트</button>
+        <button className="px-3 py-3 text-xs font-bold border-b-2 border-black">퍼퓸</button>
         <button className="px-3 py-3 text-xs text-gray-600">공간</button>
         <button className="px-3 py-3 text-xs text-gray-600">바디</button>
       </div>
@@ -145,9 +146,15 @@ const GiftSet = () => {
                 alt={product.name} 
                 className="w-full h-full object-cover"
               />
-              <button className="absolute top-2 right-2">
-                <Heart className="text-white" size={24} />
-              </button>
+              {product.soldOut ? (
+                <div className="absolute inset-0 bg-gray-500/50 flex items-center justify-center">
+                  <span className="text-white font-semibold text-xl">Sold out</span>
+                </div>
+              ) : (
+                <button className="absolute top-2 right-2">
+                  <Heart className="text-white" size={24} />
+                </button>
+              )}
             </div>
             <div className="space-y-1">
               <h3 className="text-sm font-medium">{product.name}</h3>

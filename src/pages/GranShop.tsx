@@ -72,12 +72,21 @@ const GiftSet = () => {
       </header>
 
       {/* Banner */}
-      <div className="pt-[72px] pb-6 px-4 bg-[#F5F5F5] text-center">
-        <p className="text-sm text-gray-600 leading-relaxed">
-          그랑핸드는 감각 소비되고 있다고 우리가 아닌,<br />
-          보이지 않는 곳에서 무수한 존재들로 부른 사람들에게<br />
-          우리의 마음을 온기를 전하고 싶습니다.
-        </p>
+      <div className="pt-[72px] relative">
+        <div className="h-[130px] relative">
+          <img 
+            src="/lovable-uploads/a0f05104-c55e-484b-aa9e-2f0428d66925.png" 
+            alt="banner" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute bottom-4 left-4 text-left">
+            <p className="text-xs text-white leading-relaxed">
+              그랑핸드는 감각 소비되고 있다고 우리가 아닌,<br />
+              보이지 않는 곳에서 무수한 존재들로 부른 사람들에게<br />
+              우리의 마음을 온기를 전하고 싶습니다.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Categories */}

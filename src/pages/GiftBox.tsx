@@ -130,16 +130,16 @@ const GiftBox = () => {
                           <div className="grid grid-cols-2 gap-2">
                             <button
                               className="py-3 border text-sm"
-                              onClick={() => {
-                                setOpenDialog(false);
-                                setOpenConfirmDialog(true);
-                              }}
+                              onClick={() => setOpenDialog(false)}
                             >
                               담기
                             </button>
                             <button
                               className="py-3 border text-sm"
-                              onClick={() => setOpenDialog(false)}
+                              onClick={() => {
+                                setOpenDialog(false);
+                                setOpenConfirmDialog(true);
+                              }}
                             >
                               받기
                             </button>

@@ -144,6 +144,15 @@ const GiftItem = ({ item }: GiftItemProps) => {
             </DialogContent>
           </Dialog>
         </div>
+      ) : item.id === "2" ? (
+        <div className="grid grid-cols-2 gap-2">
+          <button className="py-3 border text-sm">
+            주문 취소
+          </button>
+          <button className="py-3 border text-sm">
+            다른 사람에게 선물하기
+          </button>
+        </div>
       ) : (
         <button className="w-full py-3 border text-sm">
           구매 확정

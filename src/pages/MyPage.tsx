@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Bell, ShoppingBag, Wallet, CalendarCheck, Gift, ScrollText, Home, BookOpen, Scan, Heart, User } from 'lucide-react';
@@ -116,7 +117,8 @@ const MyPage = () => {
           >
             취소/교환/반품 내역
           </button>
-          <button className="w-full py-3 text-left border-t">회원정보</button>
+          <button className="w-full py-3 text-left border-t">회원정보(일반)</button>
+          <button className="w-full py-3 text-left border-t">회원정보(간편)</button>
           <button className="w-full py-3 text-left border-t">고객센터</button>
           <button className="w-full py-3 text-left border-t">설정</button>
         </div>

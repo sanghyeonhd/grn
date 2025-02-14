@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Heart } from "lucide-react";
+import { useNavigate } from 'react-router-dom';
 
 interface GiftSetProduct {
   id: number;
@@ -12,6 +13,7 @@ interface GiftSetProduct {
 }
 
 const GiftSet = () => {
+  const navigate = useNavigate();
   const [selectedBrand, setSelectedBrand] = useState('GRANHAND.');
   const [selectedTab, setSelectedTab] = useState('퍼퓸');
   
@@ -53,9 +55,16 @@ const GiftSet = () => {
     { id: 3, name: 'Komfortabel COFFEE' }
   ];
 
+  const handleTabClick = (tab: string) => {
+    if (tab === '기프트 세트') {
+      navigate('/granshop/gift-set');
+    } else if (tab === '퍼퓸') {
+      navigate('/granshop/perfume');
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
-      {/* 헤더 */}
       <div className="flex items-center justify-between px-4 h-[44px]">
         <div className="flex items-center">
           <Sheet>
@@ -104,7 +113,6 @@ const GiftSet = () => {
         </div>
       </div>
 
-      {/* 배너 이미지 */}
       <div className="relative h-[130px] bg-[#F5F5F5]">
         <img 
           src="/public/lovable-uploads/6636d39a-ad0a-41a2-9827-05059fd77488.png" 
@@ -120,22 +128,44 @@ const GiftSet = () => {
         </div>
       </div>
 
-      {/* 탭 메뉴 */}
       <div className="flex border-b border-gray-200 px-4">
-        <button className="px-3 py-3 text-xs text-gray-600">전체</button>
-        <button className="px-3 py-3 text-xs text-gray-600">기프트 세트</button>
-        <button className="px-3 py-3 text-xs font-bold border-b-2 border-black">퍼퓸</button>
-        <button className="px-3 py-3 text-xs text-gray-600">공간</button>
-        <button className="px-3 py-3 text-xs text-gray-600">바디</button>
+        <button 
+          onClick={() => handleTabClick('전체')}
+          className="px-3 py-3 text-xs text-gray-600"
+        >
+          전체
+        </button>
+        <button 
+          onClick={() => handleTabClick('기프트 세트')}
+          className="px-3 py-3 text-xs text-gray-600"
+        >
+          기프트 세트
+        </button>
+        <button 
+          onClick={() => handleTabClick('퍼퓸')}
+          className="px-3 py-3 text-xs font-bold border-b-2 border-black"
+        >
+          퍼퓸
+        </button>
+        <button 
+          onClick={() => handleTabClick('공간')}
+          className="px-3 py-3 text-xs text-gray-600"
+        >
+          공간
+        </button>
+        <button 
+          onClick={() => handleTabClick('바디')}
+          className="px-3 py-3 text-xs text-gray-600"
+        >
+          바디
+        </button>
       </div>
 
-      {/* 필터 */}
       <div className="flex justify-between items-center px-4 py-3">
         <p className="text-xs">전체</p>
         <button className="text-xs text-gray-600">추천순 ▼</button>
       </div>
 
-      {/* 상품 그리드 */}
       <div className="grid grid-cols-2 gap-x-4 gap-y-6 px-4">
         {products.map((product) => (
           <div key={product.id} className="space-y-2">
@@ -164,7 +194,6 @@ const GiftSet = () => {
         ))}
       </div>
 
-      {/* 하단 네비게이션 */}
       <div className="fixed bottom-0 left-0 right-0 h-[60px] bg-white border-t border-gray-200">
         <div className="flex justify-around items-center h-full">
           <button className="flex flex-col items-center justify-center space-y-1">

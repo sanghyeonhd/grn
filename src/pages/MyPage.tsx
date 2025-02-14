@@ -53,6 +53,15 @@ const MyPage = () => {
               </div>
             </div>
           </div>
+
+          {/* 이미지 추가 */}
+          <div className="mt-4">
+            <img 
+              src="/lovable-uploads/7a38547d-6152-4ebb-a55b-86c27fd71d22.png" 
+              alt="Sometimes you win" 
+              className="w-[342px] h-[100px] object-cover rounded-xl"
+            />
+          </div>
         </div>
 
         <div className="mt-6">

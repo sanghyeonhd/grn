@@ -1,9 +1,9 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronLeft, Settings2 } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 
-const Notifications = () => {
+const Settings = () => {
   const navigate = useNavigate();
 
   return (
@@ -12,20 +12,18 @@ const Notifications = () => {
         <button onClick={() => navigate(-1)}>
           <ChevronLeft className="w-6 h-6" />
         </button>
-        <h1 className="text-lg">알림</h1>
-        <div className="flex-1" />
-        <button onClick={() => navigate('/settings')}>
-          <Settings2 className="w-6 h-6" />
-        </button>
+        <h1 className="text-lg">설정</h1>
       </div>
       
       <div className="p-4">
-        <div className="text-center text-gray-500 mt-8">
-          새로운 알림이 없습니다.
+        <div className="space-y-4">
+          <button className="w-full py-3 text-left border-b">푸시 알림 설정</button>
+          <button className="w-full py-3 text-left border-b">앱 버전</button>
+          <button className="w-full py-3 text-left border-b">로그아웃</button>
         </div>
       </div>
     </div>
   );
 };
 
-export default Notifications;
+export default Settings;

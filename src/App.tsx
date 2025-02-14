@@ -13,7 +13,7 @@ import Awards from "./pages/Awards";
 import Stores from "./pages/Stores";
 import Guide from "./pages/Guide";
 import GuideResult from "./pages/GuideResult";
-import GiftSet from "./pages/GiftSet";
+import GranShop from "./pages/GranShop";
 
 const queryClient = new QueryClient();
 
@@ -34,7 +34,7 @@ const App = () => (
           <Route path="/guide/result" element={<GuideResult />} />
           <Route path="/journal/:id" element={<JournalDetail />} />
           <Route path="/event/:id" element={<EventDetail />} />
-          <Route path="/granshop/*" element={<GiftSet />} />
+          <Route path="/granshop/*" element={<GranShop />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -18,6 +18,31 @@ const Awards = () => {
   const mainTabs = ['필름사진상', '사생대회', '문예공모전'];
   const subTabs = ['행사안내', '참가접수', '당선작'];
 
+  const getTitle = (tab: string) => {
+    switch(tab) {
+      case '필름사진상':
+        return {
+          en: 'GRANHAND, Film Photography Award',
+          ko: '2025 그랜핸드 필름사진상'
+        };
+      case '사생대회':
+        return {
+          en: 'GRANHAND, Drawing Contest',
+          ko: '2025 그랜핸드 사생대회'
+        };
+      case '문예공모전':
+        return {
+          en: 'GRANHAND, Literature Contest',
+          ko: '2025 그랜핸드 문예공모전'
+        };
+      default:
+        return {
+          en: '',
+          ko: ''
+        };
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* 헤더 */}
@@ -117,8 +142,8 @@ const Awards = () => {
               className="w-full h-full object-contain bg-[#F5F5F5]"
             />
           </div>
-          <h3 className="text-base font-medium mb-1">GRANHAND, Film Photography Award</h3>
-          <p className="text-base mb-6">2025 그랜핸드 필름사진상</p>
+          <h3 className="text-base font-medium mb-1">{getTitle(activeTab).en}</h3>
+          <p className="text-base mb-6">{getTitle(activeTab).ko}</p>
           <ul className="space-y-2 mb-8">
             <li className="flex items-start">
               <span className="text-sm">접수 : </span>

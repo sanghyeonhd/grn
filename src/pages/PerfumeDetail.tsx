@@ -18,7 +18,7 @@ const PerfumeDetail = () => {
     description: '롤랑 멀티퍼퓸 100ml / 200ml',
     price: 35000,
     image: '/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png',
-    story: '마음의 향, 손 끝을 거쳐 세상을 향해 전달되다. 세월이 흘러도 변치 않는 마음을 향기로 담아 전합니다.',
+    story: '롤랑의 멀티 퍼퓸은 일상 생활 속 다양한 곳에서 품격있게 사용할 수 있습니다.',
     isOutOfStock: true,
   };
 

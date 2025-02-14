@@ -227,11 +227,11 @@ const Checkout = () => {
               <span>-5,000</span>
             </div>
             <div className="flex justify-between font-medium pt-3 border-t">
-              <span>결제 금액</span>
+              <div>
+                <span>결제 금액</span>
+                <div className="text-sm text-gray-600">←신용카드 결제</div>
+              </div>
               <span>25,500원</span>
-            </div>
-            <div className="text-right">
-              <span className="text-sm text-gray-600">←신용카드 결제</span>
             </div>
           </div>
         </section>
@@ -242,8 +242,14 @@ const Checkout = () => {
             <span className="text-gray-600">적립 예정 포인트</span>
             <span className="font-medium text-blue-500">+700</span>
           </div>
-          <p className="text-xs text-gray-500">구매 시 0.1% 적립되어 적용됩니다.</p>
+          <p className="text-xs text-gray-500">구매 확정 시 회원 등급별 혜택에 따라 포인트가 지급됩니다.</p>
         </section>
+
+        {/* 합계 */}
+        <div className="flex items-center justify-between text-sm">
+          <span className="text-gray-600">합계</span>
+          <span className="font-bold text-lg">25,500원</span>
+        </div>
 
         {/* 약관 동의 */}
         <section className="space-y-2">
@@ -264,12 +270,6 @@ const Checkout = () => {
             <ChevronLeft className="w-4 h-4 rotate-180" />
           </button>
         </section>
-
-        {/* 합계 */}
-        <div className="flex items-center justify-between text-sm pt-4">
-          <span className="text-gray-600">합계</span>
-          <span className="font-bold text-lg">25,500원</span>
-        </div>
       </div>
 
       {/* 결제하기 버튼 */}

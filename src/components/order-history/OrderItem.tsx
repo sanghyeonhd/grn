@@ -67,7 +67,12 @@ const OrderItem = ({ item, onCancelClick }: OrderItemProps) => {
         <div className="space-y-2">
           <div className="grid grid-cols-2 gap-2">
             <button className="py-3 border text-sm">배송 조회</button>
-            <button className="py-3 border text-sm">교환/반품 신청</button>
+            <button 
+              className="py-3 border text-sm"
+              onClick={() => navigate('/order/return')}
+            >
+              교환/반품 신청
+            </button>
           </div>
           <button 
             className="w-full py-3 border text-sm"

@@ -38,7 +38,22 @@ const Main = () => {
     image: "/public/lovable-uploads/5543f85b-0d24-4ab3-a996-08c599742a75.png",
     date: "2023-07-08",
     views: 412
+  }, {
+    id: 3,
+    category: "브랜드",
+    title: "2025 신규 브랜드",
+    image: "/public/lovable-uploads/2c8101d5-73d5-41b7-acc5-1dd784aa0ecd.png",
+    date: "2023-07-08",
+    views: 325
+  }, {
+    id: 4,
+    category: "하남",
+    title: "새로운 매장 오픈",
+    image: "/public/lovable-uploads/5543f85b-0d24-4ab3-a996-08c599742a75.png",
+    date: "2023-07-08",
+    views: 287
   }];
+
   return <div className="min-h-screen bg-[#FDFBF5]">
       {/* 헤더 이미지 섹션 */}
       <div className="relative h-[482px]">

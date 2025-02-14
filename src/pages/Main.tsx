@@ -50,7 +50,7 @@ const Main = () => {
           <button className="h-[50px] px-4 bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap">
             GRANHAND
           </button>
-          <button className="h-[50px] px-4 bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap">
+          <button className="h-[50px] bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap px-[10px]">
             heiion
           </button>
           <button className="h-[50px] bg-[#322A24] text-white rounded-[50px] text-sm font-pretendard whitespace-nowrap px-[10px]">

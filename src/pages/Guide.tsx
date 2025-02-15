@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Check, Search, ShoppingBag } from 'lucide-react';
@@ -64,14 +65,24 @@ const Guide = () => {
     }
   };
 
+  // 검색 페이지로 이동
+  const handleSearchClick = () => {
+    navigate('/search');
+  };
+
+  // 장바구니 페이지로 이동
+  const handleCartClick = () => {
+    navigate('/cart');
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="sticky top-0 z-10 bg-white border-b">
         <div className="px-4 py-3 flex justify-between items-center">
           <h1 className="text-lg font-bold">GUIDE</h1>
           <div className="flex items-center gap-4">
-            <Search className="w-6 h-6" />
-            <div className="relative">
+            <Search className="w-6 h-6 cursor-pointer" onClick={handleSearchClick} />
+            <div className="relative cursor-pointer" onClick={handleCartClick}>
               <ShoppingBag className="w-6 h-6" />
               <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-[10px] text-white flex items-center justify-center">
                 {cartItemCount}
@@ -140,32 +151,47 @@ const Guide = () => {
 
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t">
         <div className="flex justify-around py-3">
-          <button className="flex flex-col items-center">
+          <button 
+            className="flex flex-col items-center" 
+            onClick={() => navigate('/')}
+          >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M3 9.5L12 3L21 9.5V20H3V9.5Z" stroke="black" strokeWidth="2"/>
             </svg>
             <span className="text-xs mt-1">홈</span>
           </button>
-          <button className="flex flex-col items-center text-black">
+          <button 
+            className="flex flex-col items-center text-black"
+            onClick={() => navigate('/guide')}
+          >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M16 2H8V4H16V2Z" fill="black"/>
               <path d="M3 7V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V7H3Z" fill="black"/>
             </svg>
             <span className="text-xs mt-1">향가이드</span>
           </button>
-          <button className="flex flex-col items-center">
+          <button 
+            className="flex flex-col items-center"
+            onClick={() => navigate('/granshop')}
+          >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M21 8.25H3V18.75C3 19.1478 3.15804 19.5294 3.43934 19.8107C3.72064 20.092 4.10218 20.25 4.5 20.25H19.5C19.8978 20.25 20.2794 20.092 20.5607 19.8107C20.842 19.5294 21 19.1478 21 18.75V8.25Z" stroke="black" strokeWidth="1.5" strokeLinejoin="round"/>
             </svg>
             <span className="text-xs mt-1">스토어</span>
           </button>
-          <button className="flex flex-col items-center">
+          <button 
+            className="flex flex-col items-center"
+            onClick={() => navigate('/wishlist')}
+          >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M4.45067 13.9082L11.4033 20.4395C11.6428 20.6644 11.7625 20.7769 11.9037 20.8046C11.9673 20.8171 12.0327 20.8171 12.0963 20.8046C12.2375 20.7769 12.3572 20.6644 12.5967 20.4395L19.5493 13.9082C21.5055 12.0706 21.743 9.0466 20.0978 6.92607L19.7885 6.52734C17.8203 3.99058 13.8696 4.41601 12.4867 7.31365C12.2913 7.72296 11.7087 7.72296 11.5133 7.31365C10.1304 4.41601 6.17972 3.99058 4.21154 6.52735L3.90219 6.92607C2.25695 9.0466 2.4945 12.0706 4.45067 13.9082Z" stroke="black" strokeWidth="2"/>
             </svg>
             <span className="text-xs mt-1">관심상품</span>
           </button>
-          <button className="flex flex-col items-center">
+          <button 
+            className="flex flex-col items-center"
+            onClick={() => navigate('/mypage')}
+          >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <circle cx="12" cy="7" r="4" stroke="black" strokeWidth="2"/>
               <path d="M4 21C4 17.134 7.58172 14 12 14C16.4183 14 20 17.134 20 21" stroke="black" strokeWidth="2"/>

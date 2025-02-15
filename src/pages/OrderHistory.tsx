@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -34,6 +34,7 @@ const OrderHistory = () => {
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
   const [isCancelModalOpen, setIsCancelModalOpen] = useState(false);
   const [selectedTab, setSelectedTab] = useState("전체");
+  const [selectedStatus, setSelectedStatus] = useState<string | null>(null);
 
   const orderItems: OrderItem[] = [
     {
@@ -115,6 +116,27 @@ const OrderHistory = () => {
     }
   ];
 
+  const filteredOrders = useMemo(() => {
+    if (!selectedStatus) return orderItems;
+
+    switch (selectedStatus) {
+      case 'payment':
+        return orderItems.filter(item => 
+          item.status === "입금 대기" || item.status === "결제 완료"
+        );
+      case 'preparing':
+        return orderItems.filter(item => item.status === "배송 준비");
+      case 'shipping':
+        return orderItems.filter(item => item.status === "배송중");
+      case 'delivered':
+        return orderItems.filter(item => item.status === "배송 완료");
+      case 'confirmed':
+        return orderItems.filter(item => item.status === "구매 확정");
+      default:
+        return orderItems;
+    }
+  }, [selectedStatus]);
+
   return (
     <div className="min-h-screen bg-[#F5F5F5]">
       <OrderHeader 
@@ -131,10 +153,10 @@ const OrderHistory = () => {
         onTabChange={setSelectedTab}
       />
 
-      <OrderStatus />
+      <OrderStatus onStatusSelect={setSelectedStatus} />
 
       <div className="space-y-4 p-4">
-        {orderItems.map((item) => (
+        {filteredOrders.map((item) => (
           <OrderItem 
             key={item.id}
             item={item}

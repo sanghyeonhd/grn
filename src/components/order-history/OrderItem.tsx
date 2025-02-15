@@ -53,6 +53,18 @@ const OrderItem = ({ item, onCancelClick }: OrderItemProps) => {
       );
     }
 
+    // 배송 준비 상태이고 id가 3인 네 번째 주문 카드
+    if (item.id === '3' && item.status === '배송 준비') {
+      return (
+        <button 
+          className="w-full py-3 border text-sm"
+          onClick={onCancelClick}
+        >
+          주문 취소
+        </button>
+      );
+    }
+
     // 구매 확정 버튼이 있는 주문 카드
     if (item.id === "2") {
       return (

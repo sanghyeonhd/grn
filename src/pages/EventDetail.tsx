@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useToast } from "@/hooks/use-toast";
@@ -67,11 +68,11 @@ const EventDetail = () => {
 
   if (!id) {
     return (
-      <div className="min-h-screen bg-white">
-        <header className="flex items-center justify-between px-4 py-3 border-b">
+      <div className="min-h-screen bg-[#FDFBF4]">
+        <header className="flex items-center justify-between px-4 py-3 border-b bg-[#FDFBF4]">
           <div className="flex items-center">
             <button onClick={() => navigate(-1)} className="text-2xl mr-4">←</button>
-            <h1 className="text-lg font-medium">EVNET</h1>
+            <h1 className="text-lg font-medium">EVENT</h1>
           </div>
           <button className="p-2">
             <img 
@@ -111,10 +112,10 @@ const EventDetail = () => {
 
   return (
     <div className="min-h-screen bg-[#FDFBF4]">
-      <header className="flex items-center justify-between px-4 py-3 border-b">
+      <header className="flex items-center justify-between px-4 py-3 border-b bg-[#FDFBF4]">
         <div className="flex items-center">
           <button onClick={() => navigate(-1)} className="text-2xl mr-4">←</button>
-          <h1 className="text-lg font-medium">EVNET</h1>
+          <h1 className="text-lg font-medium">EVENT</h1>
         </div>
         <button className="p-2" onClick={handleShare}>
           <img 
@@ -140,7 +141,7 @@ const EventDetail = () => {
       </div>
 
       {showShareLink && (
-        <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-4">
+        <div className="fixed bottom-0 left-0 right-0 bg-[#FDFBF4] border-t p-4">
           <div className="text-sm font-medium mb-3">공유하기</div>
           <div className="flex items-center border rounded-md overflow-hidden">
             <input

@@ -242,7 +242,7 @@ const GranShop = () => {
                       <img 
                         src="/lovable-uploads/66df05bf-51f9-4241-8db3-1d9289f9bd21.png" 
                         alt="GRANHAND." 
-                        className="w-[109px] h-[14px] object-contain mb-2"
+                        className="w-[109px] mb-2"
                       />
                     </DropdownMenuItem>
                     <DropdownMenuItem 
@@ -253,7 +253,7 @@ const GranShop = () => {
                       <img 
                         src="/lovable-uploads/e2d45399-1ffd-41f7-b123-c8856c1408d4.png" 
                         alt="heiion" 
-                        className="h-8 w-auto mb-2"
+                        className="w-auto mb-2"
                       />
                     </DropdownMenuItem>
                     <DropdownMenuItem 
@@ -264,7 +264,7 @@ const GranShop = () => {
                       <img 
                         src="/lovable-uploads/64dfd9b8-2894-4518-803c-3b7324c4147a.png" 
                         alt="Komfortabel coffee" 
-                        className="h-8 w-auto mb-2"
+                        className="w-auto mb-2"
                       />
                     </DropdownMenuItem>
                   </div>

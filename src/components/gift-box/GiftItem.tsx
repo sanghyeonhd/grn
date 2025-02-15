@@ -60,13 +60,13 @@ const GiftItem = ({ item }: GiftItemProps) => {
             <DialogContent className="bg-white p-6 max-w-xs w-full">
               <div className="text-center">
                 <h2 className="text-lg font-medium mb-4">선물 받기</h2>
-                <p className="text-sm text-gray-500 mb-6">선물 받으신 주소지 확인가능해요.</p>
+                <p className="text-sm text-gray-500 mb-6">선물 받은 후에는 취소가 불가능해요.</p>
                 <div className="grid grid-cols-2 gap-2">
                   <button
                     className="py-3 border text-sm"
                     onClick={() => setOpenDialog(false)}
                   >
-                    담기
+                    닫기
                   </button>
                   <button
                     className="py-3 border text-sm"
@@ -86,7 +86,7 @@ const GiftItem = ({ item }: GiftItemProps) => {
             <DialogContent className="bg-white p-6 max-w-xs w-full">
               <div className="text-center">
                 <h2 className="text-lg font-medium mb-4">선물 받기 완료</h2>
-                <p className="text-sm text-gray-500 mb-6">선물 받기를 완료하시겠어요?</p>
+                <p className="text-sm text-gray-500 mb-6">선물 받기를 완료했어요. 배송지를 입력하시겠어요?</p>
                 <div className="grid grid-cols-2 gap-2">
                   <button
                     className="py-3 border text-sm"
@@ -125,13 +125,13 @@ const GiftItem = ({ item }: GiftItemProps) => {
             <DialogContent className="bg-white p-6 max-w-xs w-full">
               <div className="text-center">
                 <h2 className="text-lg font-medium mb-4">선물 거절 완료</h2>
-                <p className="text-sm text-gray-500 mb-6">선물을 거절하시겠어요?</p>
+                <p className="text-sm text-gray-500 mb-6">선물 거절 후에는 취소가 불가능해요.</p>
                 <div className="grid grid-cols-2 gap-2">
                   <button
                     className="py-3 border text-sm"
                     onClick={() => setOpenRejectDialog(false)}
                   >
-                    담기
+                    닫기
                   </button>
                   <button
                     className="py-3 border text-sm"
@@ -151,7 +151,7 @@ const GiftItem = ({ item }: GiftItemProps) => {
             <DialogContent className="bg-white p-6 max-w-xs w-full">
               <div className="text-center">
                 <h2 className="text-lg font-medium mb-4">선물 거절 완료</h2>
-                <p className="text-sm text-gray-500 mb-6">선물 거절하시면 취소가 불가능해요.</p>
+                <p className="text-sm text-gray-500 mb-6">선물 거절 후에는 취소가 불가능해요.</p>
                 <button
                   className="w-32 py-3 border text-sm mx-auto"
                   onClick={() => setOpenRejectConfirmDialog(false)}
@@ -182,4 +182,3 @@ const GiftItem = ({ item }: GiftItemProps) => {
 };
 
 export default GiftItem;
-

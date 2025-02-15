@@ -1,55 +1,50 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, ShoppingCart, Heart, Home, BookOpen, Scan, User } from "lucide-react";
+import { addToWishlist, removeFromWishlist, isInWishlist, getWishlist, WishlistItem } from '../utils/wishlist';
+import { useToast } from "@/hooks/use-toast";
 
 const WishList = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
+  const [products, setProducts] = useState<WishlistItem[]>([]);
 
-  const products = [
-    {
-      id: 1,
-      name: "Roland Multi Perfume",
-      description: "롤랑 멀티퍼퓸 100ml / 200ml",
-      price: "35,000 KRW",
-      image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png",
-    },
-    {
-      id: 2,
-      name: "Roland Multi Perfume",
-      description: "롤랑 멀티퍼퓸 100ml / 200ml",
-      price: "35,000 KRW",
-      image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png",
-    },
-    {
-      id: 3,
-      name: "Roland Multi Perfume",
-      description: "롤랑 멀티퍼퓸 100ml / 200ml",
-      price: "35,000 KRW",
-      image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png",
-    },
-    {
-      id: 4,
-      name: "Roland Multi Perfume",
-      description: "롤랑 멀티퍼퓸 100ml / 200ml",
-      price: "35,000 KRW",
-      image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png",
-    },
-  ];
+  useEffect(() => {
+    setProducts(getWishlist());
+  }, []);
 
-  const ProductCard = ({ product }: { product: any }) => (
+  const handleWishlistToggle = (e: React.MouseEvent, product: WishlistItem) => {
+    e.stopPropagation();
+    
+    removeFromWishlist(product.id);
+    setProducts(prev => prev.filter(item => item.id !== product.id));
+    
+    toast({
+      description: "관심상품에서 제거되었습니다.",
+    });
+  };
+
+  const ProductCard = ({ product }: { product: WishlistItem }) => (
     <div className="space-y-2">
       <div className="relative">
         <img 
           src={product.image} 
           alt={product.name}
-          className="w-full aspect-square object-cover"
+          className="w-full aspect-square object-cover cursor-pointer"
+          onClick={() => navigate(`/granshop/perfume/${product.id}`)}
         />
-        <button className="absolute top-2 right-2">
+        <button 
+          className="absolute top-2 right-2"
+          onClick={(e) => handleWishlistToggle(e, product)}
+        >
           <Heart className="w-6 h-6 text-white fill-white" />
         </button>
       </div>
-      <div className="space-y-1">
+      <div 
+        className="space-y-1 cursor-pointer" 
+        onClick={() => navigate(`/granshop/perfume/${product.id}`)}
+      >
         <h3 className="text-base font-medium">{product.name}</h3>
         <p className="text-sm text-gray-600">{product.description}</p>
         <p className="font-medium">{product.price}</p>
@@ -80,6 +75,12 @@ const WishList = () => {
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
+        
+        {products.length === 0 && (
+          <div className="flex flex-col items-center justify-center h-[50vh] text-gray-500">
+            <p>관심상품이 없습니다.</p>
+          </div>
+        )}
       </div>
 
       <nav className="fixed bottom-0 left-0 right-0 bg-white border-t">

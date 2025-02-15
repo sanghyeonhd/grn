@@ -1,5 +1,5 @@
 
-import { Camera, CameraResultType } from '@capacitor/camera';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 
 export const openCamera = async () => {
   try {
@@ -7,7 +7,7 @@ export const openCamera = async () => {
       quality: 90,
       allowEditing: false,
       resultType: CameraResultType.Uri,
-      source: 'CAMERA'
+      source: CameraSource.Camera
     });
 
     // 여기서 이미지 처리 로직을 추가할 수 있습니다

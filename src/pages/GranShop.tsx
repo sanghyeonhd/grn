@@ -1,7 +1,8 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Heart, Search, ShoppingCart, Home, BookOpen, Scan, User } from "lucide-react";
+import { addToWishlist, removeFromWishlist, isInWishlist, WishlistItem } from '../utils/wishlist';
+import { useToast } from "@/components/ui/use-toast";
 
 const products = {
   perfumes: [
@@ -73,7 +74,38 @@ const products = {
 const ProductCard = ({ product }: { product: any }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { toast } = useToast();
+  const [isWishlisted, setIsWishlisted] = useState(false);
   
+  useEffect(() => {
+    setIsWishlisted(isInWishlist(product.id.toString()));
+  }, [product.id]);
+
+  const handleWishlistToggle = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const item: WishlistItem = {
+      id: product.id.toString(),
+      name: product.name,
+      description: product.description,
+      price: product.price,
+      image: product.image
+    };
+
+    if (isWishlisted) {
+      removeFromWishlist(product.id.toString());
+      toast({
+        description: "관심상품에서 제거되었습니다.",
+      });
+    } else {
+      addToWishlist(item);
+      toast({
+        description: "관심상품에 추가되었습니다.",
+      });
+    }
+
+    setIsWishlisted(!isWishlisted);
+  };
+
   const handleClick = () => {
     const category = location.pathname.split('/')[2] || 'giftset';
     navigate(`/granshop/${category}/${product.id}`);
@@ -87,8 +119,14 @@ const ProductCard = ({ product }: { product: any }) => {
           alt={product.name}
           className="w-full aspect-square object-cover rounded-none"
         />
-        <button className="absolute top-4 right-4" onClick={(e) => e.stopPropagation()}>
-          <Heart className="w-6 h-6 text-white" />
+        <button 
+          className="absolute top-4 right-4" 
+          onClick={handleWishlistToggle}
+        >
+          <Heart 
+            className="w-6 h-6 text-white" 
+            fill={isWishlisted ? "white" : "none"}
+          />
         </button>
         {product.soldOut && (
           <div className="absolute inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center">

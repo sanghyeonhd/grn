@@ -63,7 +63,7 @@ const Stores = () => {
       {/* 지역 탭 */}
       <div className="px-6 overflow-x-auto">
         <div className="flex space-x-4 whitespace-nowrap">
-          {locationTabs[selectedBrand].map(location => (
+          {locationTabs[selectedBrand]?.map(location => (
             <button
               key={location}
               onClick={() => setSelectedTab(location)}

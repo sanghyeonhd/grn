@@ -1,4 +1,3 @@
-
 import { useNavigate } from 'react-router-dom';
 
 const OrderStatus = () => {
@@ -91,12 +90,7 @@ const OrderStatus = () => {
         </div>
       </div>
 
-      {confirmedOrder && (
-        <>
-          {renderOrderCard(confirmedOrder, true)}
-          {renderOrderCard(confirmedOrder)}
-        </>
-      )}
+      {confirmedOrder && renderOrderCard(confirmedOrder, true)}
     </>
   );
 };

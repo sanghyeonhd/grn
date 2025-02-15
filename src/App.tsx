@@ -1,10 +1,10 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { StrictMode } from "react";
+import { StrictMode, useState } from "react";
+import Splash from "./components/Splash";
 import Index from "./pages/Index";
 import AddressList from "./pages/AddressList";
 import AddressForm from "./pages/AddressForm";
@@ -68,85 +68,93 @@ import WishList from "./pages/WishList";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/wishlist" element={<WishList />} />
-            <Route path="/address/list" element={<AddressList />} />
-            <Route path="/address/new" element={<AddressForm />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/gift-checkout" element={<GiftCheckout />} />
-            <Route path="/journal" element={<JournalDetail />} />
-            <Route path="/event" element={<EventDetail />} />
-            <Route path="/awards" element={<Awards />} />
-            <Route path="/stores" element={<Stores />} />
-            <Route path="/guide" element={<Guide />} />
-            <Route path="/guide/result" element={<GuideResult />} />
-            <Route path="/journal/:id" element={<JournalDetail />} />
-            <Route path="/event/:id" element={<EventDetail />} />
-            <Route path="/granshop" element={<GranShop />} />
-            <Route path="/granshop/giftset" element={<GranShop />} />
-            <Route path="/granshop/giftset/:id" element={<GiftSetDetail />} />
-            <Route path="/granshop/perfume" element={<GranShop />} />
-            <Route path="/granshop/perfume/:id" element={<PerfumeDetail />} />
-            <Route path="/granshop/space" element={<GranShop />} />
-            <Route path="/granshop/body" element={<GranShop />} />
-            <Route path="/mypage" element={<MyPage />} />
-            <Route path="/grade-guide" element={<GradeGuide />} />
-            <Route path="/notifications" element={<Notifications />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/settings/language" element={<LanguageSettings />} />
-            <Route path="/settings/notification" element={<NotificationSettings />} />
-            <Route path="/my-coupon" element={<MyCoupon />} />
-            <Route path="/coupon-register" element={<CouponRegister />} />
-            <Route path="/points" element={<Points />} />
-            <Route path="/attendance" element={<AttendanceCheck />} />
-            <Route path="/order-history" element={<OrderHistory />} />
-            <Route path="/order-history/:id" element={<OrderDetail />} />
-            <Route path="/gift-box" element={<GiftBox />} />
-            <Route path="/order/refuse" element={<GiftRefuse />} />
-            <Route path="/order/return" element={<OrderReturn />} />
-            <Route path="/recent-products" element={<RecentProducts />} />
-            <Route path="/order-status-history" element={<OrderStatusHistory />} />
-            <Route path="/order-cancel-detail" element={<OrderCancelDetail />} />
-            <Route path="/order-exchange-detail" element={<OrderExchangeDetail />} />
-            <Route path="/order-return-detail" element={<OrderReturnDetail />} />
-            <Route path="/find-id" element={<FindId />} />
-            <Route path="/find-id/phone" element={<FindIdPhone />} />
-            <Route path="/find-id/result" element={<FindIdResult />} />
-            <Route path="/find-password" element={<FindPassword />} />
-            <Route path="/find-password/verify" element={<FindPasswordVerify />} />
-            <Route path="/find-password/reset" element={<FindPasswordReset />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/signup/terms" element={<SignupTerms />} />
-            <Route path="/signup/verify" element={<SignupVerify />} />
-            <Route path="/signup/complete" element={<SignupComplete />} />
-            <Route path="/term-detail" element={<TermDetail />} />
-            <Route path="/member-general-info" element={<MemberGeneralInfo />} />
-            <Route path="/member-social-info" element={<MemberSocialInfo />} />
-            <Route path="/withdraw" element={<Withdraw />} />
-            <Route path="/customer-service" element={<CustomerService />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/chat-support" element={<ChatSupport />} />
-            <Route path="/partnership" element={<Partnership />} />
-            <Route path="/notice" element={<Notice />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/challenge" element={<Challenge />} />
-            <Route path="/challenge/seasons" element={<ChallengeSeasons />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </TooltipProvider>
-      </BrowserRouter>
-    </QueryClientProvider>
-  </StrictMode>
-);
+const App = () => {
+  const [showSplash, setShowSplash] = useState(true);
+
+  if (showSplash) {
+    return <Splash onComplete={() => setShowSplash(false)} />;
+  }
+
+  return (
+    <StrictMode>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/wishlist" element={<WishList />} />
+              <Route path="/address/list" element={<AddressList />} />
+              <Route path="/address/new" element={<AddressForm />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/gift-checkout" element={<GiftCheckout />} />
+              <Route path="/journal" element={<JournalDetail />} />
+              <Route path="/event" element={<EventDetail />} />
+              <Route path="/awards" element={<Awards />} />
+              <Route path="/stores" element={<Stores />} />
+              <Route path="/guide" element={<Guide />} />
+              <Route path="/guide/result" element={<GuideResult />} />
+              <Route path="/journal/:id" element={<JournalDetail />} />
+              <Route path="/event/:id" element={<EventDetail />} />
+              <Route path="/granshop" element={<GranShop />} />
+              <Route path="/granshop/giftset" element={<GranShop />} />
+              <Route path="/granshop/giftset/:id" element={<GiftSetDetail />} />
+              <Route path="/granshop/perfume" element={<GranShop />} />
+              <Route path="/granshop/perfume/:id" element={<PerfumeDetail />} />
+              <Route path="/granshop/space" element={<GranShop />} />
+              <Route path="/granshop/body" element={<GranShop />} />
+              <Route path="/mypage" element={<MyPage />} />
+              <Route path="/grade-guide" element={<GradeGuide />} />
+              <Route path="/notifications" element={<Notifications />} />
+              <Route path="/settings" element={<Settings />} />
+              <Route path="/settings/language" element={<LanguageSettings />} />
+              <Route path="/settings/notification" element={<NotificationSettings />} />
+              <Route path="/my-coupon" element={<MyCoupon />} />
+              <Route path="/coupon-register" element={<CouponRegister />} />
+              <Route path="/points" element={<Points />} />
+              <Route path="/attendance" element={<AttendanceCheck />} />
+              <Route path="/order-history" element={<OrderHistory />} />
+              <Route path="/order-history/:id" element={<OrderDetail />} />
+              <Route path="/gift-box" element={<GiftBox />} />
+              <Route path="/order/refuse" element={<GiftRefuse />} />
+              <Route path="/order/return" element={<OrderReturn />} />
+              <Route path="/recent-products" element={<RecentProducts />} />
+              <Route path="/order-status-history" element={<OrderStatusHistory />} />
+              <Route path="/order-cancel-detail" element={<OrderCancelDetail />} />
+              <Route path="/order-exchange-detail" element={<OrderExchangeDetail />} />
+              <Route path="/order-return-detail" element={<OrderReturnDetail />} />
+              <Route path="/find-id" element={<FindId />} />
+              <Route path="/find-id/phone" element={<FindIdPhone />} />
+              <Route path="/find-id/result" element={<FindIdResult />} />
+              <Route path="/find-password" element={<FindPassword />} />
+              <Route path="/find-password/verify" element={<FindPasswordVerify />} />
+              <Route path="/find-password/reset" element={<FindPasswordReset />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/signup/terms" element={<SignupTerms />} />
+              <Route path="/signup/verify" element={<SignupVerify />} />
+              <Route path="/signup/complete" element={<SignupComplete />} />
+              <Route path="/term-detail" element={<TermDetail />} />
+              <Route path="/member-general-info" element={<MemberGeneralInfo />} />
+              <Route path="/member-social-info" element={<MemberSocialInfo />} />
+              <Route path="/withdraw" element={<Withdraw />} />
+              <Route path="/customer-service" element={<CustomerService />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/chat-support" element={<ChatSupport />} />
+              <Route path="/partnership" element={<Partnership />} />
+              <Route path="/notice" element={<Notice />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/search" element={<Search />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/challenge" element={<Challenge />} />
+              <Route path="/challenge/seasons" element={<ChallengeSeasons />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </TooltipProvider>
+        </BrowserRouter>
+      </QueryClientProvider>
+    </StrictMode>
+  );
+};
 
 export default App;

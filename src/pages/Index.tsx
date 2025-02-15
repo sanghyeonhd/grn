@@ -80,15 +80,7 @@ const Index = () => {
       </section>
 
       {/* 바텀 배너 */}
-      <div className="relative mb-8">
-        
-        <div className="absolute bottom-6 left-6 text-white">
-          <h2 className="text-2xl font-medium">Sometimes You win<br />Sometimes you learn.</h2>
-        </div>
-        <div className="absolute bottom-4 right-4 text-white text-sm">
-          1/3
-        </div>
-      </div>
+      
 
       {/* 저널 리스트 */}
       

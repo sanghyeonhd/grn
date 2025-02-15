@@ -36,6 +36,44 @@ const OrderStatus = () => {
   // Find a confirmed order for the bottom card
   const confirmedOrder = orderItems.find(item => item.status === "구매 확정");
 
+  const renderOrderCard = (order: typeof orderItems[0], showButtons = false) => (
+    <div className="bg-white rounded-lg mx-4 mt-4 p-4">
+      <div className="space-y-4">
+        <div className="flex items-center justify-between">
+          <div className="text-xs text-gray-500">{order.date}</div>
+          <div className="text-sm font-medium">{order.status}</div>
+        </div>
+        <div className="flex gap-4">
+          <img 
+            src={order.product.image} 
+            alt={order.product.name} 
+            className="w-20 h-20 object-cover"
+          />
+          <div className="flex-1">
+            <div className="text-sm font-medium">{order.product.name}</div>
+            <div className="text-xs text-gray-500 mt-1">{order.product.option}</div>
+            <div className="text-sm font-medium mt-2">
+              {order.product.price.toLocaleString()}원
+            </div>
+          </div>
+        </div>
+        {showButtons && (
+          <div className="grid grid-cols-2 gap-2">
+            <button className="py-3 border text-sm">
+              배송 조회
+            </button>
+            <button 
+              className="py-3 border text-sm"
+              onClick={() => navigate('/order/return')}
+            >
+              교환/반품 신청
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+
   return (
     <>
       <div className="bg-white rounded-lg mx-4 mt-4 p-4">
@@ -54,26 +92,10 @@ const OrderStatus = () => {
       </div>
 
       {confirmedOrder && (
-        <div className="bg-white rounded-lg mx-4 mt-4 p-4">
-          <div className="space-y-2">
-            <div className="text-xs text-gray-500">{confirmedOrder.date}</div>
-            <div className="text-sm font-medium">{confirmedOrder.status}</div>
-            <div className="flex gap-4">
-              <img 
-                src={confirmedOrder.product.image} 
-                alt={confirmedOrder.product.name} 
-                className="w-20 h-20 object-cover"
-              />
-              <div className="flex-1">
-                <div className="text-sm font-medium">{confirmedOrder.product.name}</div>
-                <div className="text-xs text-gray-500 mt-1">{confirmedOrder.product.option}</div>
-                <div className="text-sm font-medium mt-2">
-                  {confirmedOrder.product.price.toLocaleString()}원
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <>
+          {renderOrderCard(confirmedOrder, true)}
+          {renderOrderCard(confirmedOrder)}
+        </>
       )}
     </>
   );

@@ -20,7 +20,7 @@ const RecentProducts = () => {
       option: "롤랑 멀티퍼퓸 100ml / 200ml",
       shoppingBag: "구매 안함",
       stampingType: "N",
-      image: "/lovable-uploads/21fa37c7-fef3-4a02-9062-c9825bb7638e.png"
+      image: "/lovable-uploads/55a68fca-eb33-480d-bb5a-e14c8a947254.png"
     },
     {
       id: "2",
@@ -30,7 +30,7 @@ const RecentProducts = () => {
       option: "롤랑 멀티퍼퓸 100ml / 200ml",
       shoppingBag: "구매 안함",
       stampingType: "N",
-      image: "/lovable-uploads/21fa37c7-fef3-4a02-9062-c9825bb7638e.png"
+      image: "/lovable-uploads/55a68fca-eb33-480d-bb5a-e14c8a947254.png"
     },
     {
       id: "3",
@@ -40,7 +40,7 @@ const RecentProducts = () => {
       option: "롤랑 멀티퍼퓸 100ml / 200ml",
       shoppingBag: "구매 안함",
       stampingType: "N",
-      image: "/lovable-uploads/21fa37c7-fef3-4a02-9062-c9825bb7638e.png"
+      image: "/lovable-uploads/55a68fca-eb33-480d-bb5a-e14c8a947254.png"
     },
     {
       id: "4",
@@ -50,7 +50,7 @@ const RecentProducts = () => {
       option: "롤랑 멀티퍼퓸 100ml / 200ml",
       shoppingBag: "구매 안함",
       stampingType: "N",
-      image: "/lovable-uploads/21fa37c7-fef3-4a02-9062-c9825bb7638e.png"
+      image: "/lovable-uploads/55a68fca-eb33-480d-bb5a-e14c8a947254.png"
     }
   ];
 

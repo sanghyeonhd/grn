@@ -2,6 +2,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+
 const Index = () => {
   return <div className="min-h-screen bg-white">
       {/* 메인 배너 */}
@@ -39,7 +45,37 @@ const Index = () => {
           </Link>
         </div>
         <div className="mt-8">
-          <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full aspect-[4/3] object-cover" />
+          <Carousel opts={{ loop: true, align: "start" }} className="w-full">
+            <CarouselContent>
+              <CarouselItem>
+                <div className="relative">
+                  <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full aspect-[4/3] object-cover" />
+                  <div className="absolute bottom-6 left-6 text-white">
+                    <h2 className="text-2xl font-medium">Sometimes You win<br />Sometimes you learn.</h2>
+                  </div>
+                  <div className="absolute bottom-4 right-4 text-white text-sm">1/3</div>
+                </div>
+              </CarouselItem>
+              <CarouselItem>
+                <div className="relative">
+                  <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full aspect-[4/3] object-cover" />
+                  <div className="absolute bottom-6 left-6 text-white">
+                    <h2 className="text-2xl font-medium">Another slide text<br />Goes here.</h2>
+                  </div>
+                  <div className="absolute bottom-4 right-4 text-white text-sm">2/3</div>
+                </div>
+              </CarouselItem>
+              <CarouselItem>
+                <div className="relative">
+                  <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full aspect-[4/3] object-cover" />
+                  <div className="absolute bottom-6 left-6 text-white">
+                    <h2 className="text-2xl font-medium">Final slide text<br />Goes here.</h2>
+                  </div>
+                  <div className="absolute bottom-4 right-4 text-white text-sm">3/3</div>
+                </div>
+              </CarouselItem>
+            </CarouselContent>
+          </Carousel>
         </div>
       </section>
 

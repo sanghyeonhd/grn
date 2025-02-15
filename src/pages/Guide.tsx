@@ -13,7 +13,7 @@ interface Question {
 
 const Guide = () => {
   const navigate = useNavigate();
-  const [cartItemCount, setCartItemCount] = useState(2); // 장바구니 상품 개수
+  const [cartItemCount, setCartItemCount] = useState(2);
   const [questions, setQuestions] = useState<Question[]>([
     {
       id: 1,
@@ -94,40 +94,38 @@ const Guide = () => {
         <div className="mt-6 space-y-6">
           {questions.map((question, index) => (
             <div key={question.id} className="relative border-b pb-6">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="relative">
-                  {question.isCompleted && (
-                    <>
-                      <Check className="w-4 h-4 text-green-500" />
-                      {index < questions.length - 1 && (
-                        <div className="absolute top-6 left-2 flex flex-col items-center gap-1">
-                          <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
-                          <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
-                          <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
-                        </div>
-                      )}
-                    </>
-                  )}
+              <div className="flex items-start gap-2 mb-4">
+                <div className="relative mt-1">
+                  {question.isCompleted && <Check className="w-4 h-4 text-green-500" />}
                 </div>
-                <h3 className="text-sm">
-                  {question.id} {question.text}
-                </h3>
+                <div className="flex-1">
+                  <h3 className="text-sm mb-3">
+                    {question.id}. {question.text}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {question.options.map((option) => (
+                      <button
+                        key={option}
+                        onClick={() => handleOptionSelect(question.id, option)}
+                        className={`px-4 py-2 text-sm border ${
+                          question.selected === option 
+                            ? 'bg-black text-white' 
+                            : 'bg-white text-black'
+                        }`}
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {question.options.map((option) => (
-                  <button
-                    key={option}
-                    onClick={() => handleOptionSelect(question.id, option)}
-                    className={`px-4 py-2 text-sm border ${
-                      question.selected === option 
-                        ? 'bg-black text-white' 
-                        : 'bg-white text-black'
-                    }`}
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
+              {index < questions.length - 1 && question.isCompleted && (
+                <div className="absolute left-[10px] top-8 flex flex-col items-center gap-1">
+                  <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
+                  <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
+                  <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
+                </div>
+              )}
             </div>
           ))}
         </div>

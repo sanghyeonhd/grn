@@ -5,6 +5,12 @@ import { ChevronLeft, ChevronRight, Check } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { toast } from "sonner";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const AttendanceCheck = () => {
   const navigate = useNavigate();
@@ -12,12 +18,13 @@ const AttendanceCheck = () => {
   const [attendanceCount, setAttendanceCount] = useState(0);
   const [totalPoints, setTotalPoints] = useState(0);
   const [checkedDates, setCheckedDates] = useState<number[]>([]);
+  const [showLuckyDrawDialog, setShowLuckyDrawDialog] = useState(false);
+  const [luckyPoints, setLuckyPoints] = useState(0);
   const { toast: shadowToast } = useToast();
 
   const today = new Date().getDate();
 
   const handleAttendanceCheck = () => {
-    // 오늘 날짜에만 출석체크 가능
     if (checkedDates.includes(today)) {
       toast.message("이미 출석체크를 완료했습니다.", {
         position: "bottom-center",
@@ -37,11 +44,9 @@ const AttendanceCheck = () => {
 
   const handleLuckyDraw = () => {
     const points = 100;
+    setLuckyPoints(points);
     setTotalPoints(prev => prev + points);
-    toast.message("행운뽑기 완료!", {
-      description: `${points}포인트가 지급되었어요.`,
-      position: "bottom-center",
-    });
+    setShowLuckyDrawDialog(true);
   };
 
   return (
@@ -53,8 +58,8 @@ const AttendanceCheck = () => {
         <h1 className="text-xl font-medium">출석 체크</h1>
       </header>
 
-      <div className="space-y-6">
-        <div className="bg-white p-6 rounded-lg shadow-sm space-y-4">
+      <div className="space-y-8">
+        <div className="bg-white p-6 rounded-lg shadow-sm space-y-8">
           <div className="flex justify-between items-center">
             <button>
               <ChevronLeft className="w-5 h-5" />
@@ -94,18 +99,20 @@ const AttendanceCheck = () => {
             })}
           </div>
 
-          <div className="grid grid-cols-2 divide-x divide-gray-200 mt-12">
-            <div className="text-center px-4">
-              <p className="text-sm text-gray-500">누적 참여 횟수</p>
-              <p className="font-medium text-xl mt-1">{attendanceCount} 일</p>
-            </div>
-            <div className="text-center px-4">
-              <p className="text-sm text-gray-500">누적 획득 포인트</p>
-              <p className="font-medium text-xl mt-1">{totalPoints}</p>
+          <div className="bg-gray-50 p-6 rounded-lg">
+            <div className="grid grid-cols-2 divide-x divide-gray-200">
+              <div className="text-center px-4">
+                <p className="text-sm text-gray-500">누적 참여 횟수</p>
+                <p className="font-medium text-xl mt-1">{attendanceCount} 일</p>
+              </div>
+              <div className="text-center px-4">
+                <p className="text-sm text-gray-500">누적 획득 포인트</p>
+                <p className="font-medium text-xl mt-1">{totalPoints}</p>
+              </div>
             </div>
           </div>
 
-          <div className="relative mt-8 mb-4">
+          <div className="relative mt-8">
             <div className="absolute left-1/2 -top-3 transform -translate-x-1/2">
               <div className="bg-red-500 text-white text-xs px-3 py-1 rounded-full whitespace-nowrap">
                 1주 연속 시 500 포인트 추가 지급
@@ -119,7 +126,7 @@ const AttendanceCheck = () => {
               checkedDates.includes(today)
                 ? 'bg-gray-400 hover:bg-gray-400 cursor-not-allowed'
                 : 'bg-[#2C2C2C] hover:bg-[#1a1a1a]'
-            } text-white rounded-none h-12 mt-4`}
+            } text-white rounded-none h-12`}
             disabled={checkedDates.includes(today)}
           >
             {checkedDates.includes(today) ? '오늘은 이미 출석완료' : '출석 체크하기'}
@@ -133,6 +140,23 @@ const AttendanceCheck = () => {
           </Button>
         </div>
       </div>
+
+      <Dialog open={showLuckyDrawDialog} onOpenChange={setShowLuckyDrawDialog}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-center text-lg font-medium">행운뽑기 완료!</DialogTitle>
+          </DialogHeader>
+          <div className="text-center space-y-4 py-4">
+            <p>{luckyPoints}포인트가 지급되었어요.</p>
+            <Button 
+              onClick={() => setShowLuckyDrawDialog(false)}
+              className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white rounded-none h-12"
+            >
+              포인트 확인
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

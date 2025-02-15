@@ -49,10 +49,10 @@ const products = {
   giftsets: [
     {
       id: 1,
-      name: "Gift Set Example",
-      description: "선물 세트 예시",
-      price: "50,000 KRW",
-      image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png",
+      name: "Trio Gift Set",
+      description: "사쉐 & 핸드크림 & 핸드워시 세트 / 40g & 60G & 450ml",
+      price: "68,000 KRW",
+      image: "/lovable-uploads/2c3d03e4-6ab8-47b5-9d62-04e0ca951715.png",
       soldOut: false
     }
   ],

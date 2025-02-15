@@ -26,12 +26,23 @@ const JournalDetail = () => {
     if (id === '1') {
       return (
         <div className="space-y-4">
-          <img 
-            src="/lovable-uploads/cce81abf-8c93-4001-89c7-940c7e5a84d8.png"
-            alt="NOLL Store Interior"
-            className="w-full h-[calc(100vh-56px)] object-cover"
-          />
-          <div className="px-4">
+          <div className="relative">
+            <img 
+              src="/lovable-uploads/cce81abf-8c93-4001-89c7-940c7e5a84d8.png"
+              alt="NOLL Store Interior"
+              className="w-full h-screen object-cover"
+            />
+            <header className="absolute top-0 left-0 right-0 flex items-center justify-between px-4 py-3 h-14 bg-gradient-to-b from-black/50 to-transparent">
+              <div className="flex items-center">
+                <button onClick={() => navigate(-1)} className="text-2xl mr-4 text-white">←</button>
+                <h1 className="text-lg font-medium text-white">JOURNAL</h1>
+              </div>
+              <button className="p-2">
+                <Share className="w-5 h-5 text-white" />
+              </button>
+            </header>
+          </div>
+          <div className="px-4 -mt-4">
             <p className="text-sm text-gray-500">#Team</p>
             <h2 className="text-xl font-medium mb-1">NOLL 놀에 대한 모든 것.</h2>
             <p className="text-sm text-gray-500">2023-07-08 조회 412</p>
@@ -111,16 +122,6 @@ const JournalDetail = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <header className="flex items-center justify-between px-4 py-3 border-b h-14">
-        <div className="flex items-center">
-          <button onClick={() => navigate(-1)} className="text-2xl mr-4">←</button>
-          <h1 className="text-lg font-medium">JOURNAL</h1>
-        </div>
-        <button className="p-2">
-          <Share className="w-5 h-5" />
-        </button>
-      </header>
-
       {renderContent()}
     </div>
   );

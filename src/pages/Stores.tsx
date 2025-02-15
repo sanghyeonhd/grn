@@ -7,10 +7,10 @@ const Stores = () => {
   const [selectedBrand, setSelectedBrand] = useState('그랑핸드');
   const [selectedTab, setSelectedTab] = useState('광화문');
 
-  const brandTabs = ['그랑핸드', '콤포터블'];
+  const brandTabs = ['그랑핸드', '콤포타블'];
   const locationTabs = {
     '그랑핸드': ['광화문', '도산', '남산', '망포', '서초', '소옥', '북촌', '시고'],
-    '콤포터블': ['시청', '연구소', '한남']
+    '콤포타블': ['남산', '안국', '시청']
   };
 
   const storeImages = {

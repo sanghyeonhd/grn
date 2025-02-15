@@ -5,11 +5,11 @@ import { useNavigate } from 'react-router-dom';
 const Stores = () => {
   const navigate = useNavigate();
   const [selectedBrand, setSelectedBrand] = useState('그랑핸드');
-  const [selectedTab, setSelectedTab] = useState('도산');
+  const [selectedTab, setSelectedTab] = useState('광화문');
 
   const brandTabs = ['그랑핸드', '콤포터블'];
   const locationTabs = {
-    '그랑핸드': ['도산', '남산', '망포', '서초', '소옥', '북촌', '시고', '광화문'],
+    '그랑핸드': ['광화문', '도산', '남산', '망포', '서초', '소옥', '북촌', '시고'],
     '콤포터블': ['시청', '연구소', '한남']
   };
 

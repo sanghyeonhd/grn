@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Heart, Search, ShoppingCart, Home, BookOpen, Scan, User, CircleChevronDown } from "lucide-react";
@@ -184,6 +183,33 @@ const GranShop = () => {
   const isGiftsetPath = location.pathname.includes('giftset');
   const displayProducts = getDisplayProducts();
 
+  const getBrandLogo = (brand: string) => {
+    switch (brand) {
+      case 'GRANHAND.':
+        return {
+          src: "/lovable-uploads/66df05bf-51f9-4241-8db3-1d9289f9bd21.png",
+          className: "h-5"
+        };
+      case 'heiion':
+        return {
+          src: "/lovable-uploads/e2d45399-1ffd-41f7-b123-c8856c1408d4.png",
+          className: "h-5"
+        };
+      case 'Komfortabel':
+        return {
+          src: "/lovable-uploads/64dfd9b8-2894-4518-803c-3b7324c4147a.png",
+          className: "h-5"
+        };
+      default:
+        return {
+          src: "/lovable-uploads/66df05bf-51f9-4241-8db3-1d9289f9bd21.png",
+          className: "h-5"
+        };
+    }
+  };
+
+  const currentBrandLogo = getBrandLogo(selectedBrand);
+
   return (
     <div className="min-h-screen bg-white">
       <div className="fixed top-0 left-0 right-0 bg-white z-10">
@@ -191,7 +217,11 @@ const GranShop = () => {
           <div className="flex items-center gap-2">
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center gap-1">
-                <h1 className="text-xl font-bold">{selectedBrand}</h1>
+                <img 
+                  src={currentBrandLogo.src} 
+                  alt={selectedBrand}
+                  className={currentBrandLogo.className}
+                />
                 <CircleChevronDown className="w-5 h-5" />
               </DropdownMenuTrigger>
               <DropdownMenuContent 

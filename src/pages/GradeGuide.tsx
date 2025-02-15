@@ -36,7 +36,7 @@ const GradeGuide = () => {
         <div className="bg-gray-50 p-6 rounded-lg">
           <div className="flex flex-col items-center text-center">
             <div className="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center mb-4">
-              <span className="text-3xl">B</span>
+              <span className="text-3xl text-[#222222]">B</span>
             </div>
             <h2 className="text-lg font-medium mb-2">홍길동님</h2>
             <p className="text-gray-600 mb-6">현재 등급은 Basic 입니다.</p>
@@ -60,37 +60,42 @@ const GradeGuide = () => {
               name: 'Basic', 
               benefits: '기준: 최근 6개월 구매금액 10만 원 미만 및 미구매\n혜택: 신규 가입 10,000원 쿠폰\n콤보타임 음료 교환권 1장 (유효기간 매달 1일 ~ 말일)', 
               icon: 'B',
-              pointRate: '포인트 적립 1%'
+              pointRate: '포인트 적립 1%',
+              iconColor: '#222222'
             },
             { 
               name: 'Bronze', 
               benefits: '기준: 최근 6개월 구매금액 10만 원 이상, 20만 원 미만\n혜택: 월 5,000원 등급 혜택 쿠폰 1장 지급\n[APP 전용] 생일 10,000원 쿠폰\n(유효기간 매달 1일 ~ 말일)', 
               icon: 'B',
-              pointRate: '포인트 적립 2%'
+              pointRate: '포인트 적립 2%',
+              iconColor: '#222222'
             },
             { 
               name: 'Silver', 
               benefits: '기준: 최근 6개월 구매금액 20만 원 이상, 50만 원 미만\n혜택: 월 10,000원 등급 혜택 쿠폰 1장 지급\n[APP 전용] 생일 10,000원 쿠폰\n(유효기간 매달 1일 ~ 말일)', 
               icon: 'S',
-              pointRate: '포인트 적립 3%'
+              pointRate: '포인트 적립 3%',
+              iconColor: '#9F9EA1'
             },
             { 
               name: 'Gold', 
               benefits: '기준: 최근 6개월 구매금액 50만 원 이상, 100만 원 미만\n혜택: 월 15,000원 등급 혜택 쿠폰 1장 지급\n[APP 전용] 생일 10,000원 쿠폰\n(유효기간 매달 1일 ~ 말일)\n콤보타임 음료 교환권 2장 (유효기간 매달 1일 ~ 말일)', 
               icon: 'G',
-              pointRate: '포인트 적립 4%'
+              pointRate: '포인트 적립 4%',
+              iconColor: '#F97316'
             },
             { 
               name: 'VIP', 
               benefits: '기준: 최근 6개월 구매금액 100만 원 이상\n혜택: 월 20,000원 등급 혜택 쿠폰 1장 지급\n[APP 전용] 생일 10,000원 쿠폰\n(유효기간 매달 1일 ~ 말일)\n콤보타임 음료 교환권 4장 (유효기간 매달 1일 ~ 말일)', 
               icon: 'V',
-              pointRate: '포인트 적립 5%'
+              pointRate: '포인트 적립 5%',
+              iconColor: '#000000'
             }
           ].map((grade) => (
             <div key={grade.name} className="py-6 border-b">
               <div className="flex items-start gap-4">
                 <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-sm">{grade.icon}</span>
+                  <span className="text-sm" style={{ color: grade.iconColor }}>{grade.icon}</span>
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-2">

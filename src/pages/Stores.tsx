@@ -4,12 +4,12 @@ import { useNavigate } from 'react-router-dom';
 
 const Stores = () => {
   const navigate = useNavigate();
-  const [selectedBrand, setSelectedBrand] = useState('그랜핸드');
+  const [selectedBrand, setSelectedBrand] = useState('그랑핸드');
   const [selectedTab, setSelectedTab] = useState('도산');
 
-  const brandTabs = ['그랜핸드', '콤포터블'];
+  const brandTabs = ['그랑핸드', '콤포터블'];
   const locationTabs = {
-    '그랜핸드': ['도산', '남산', '망포', '서초', '소옥', '북촌', '시고'],
+    '그랑핸드': ['도산', '남산', '망포', '서초', '소옥', '북촌', '시고', '광화문'],
     '콤포터블': ['시청', '연구소', '한남']
   };
 
@@ -31,13 +31,15 @@ const Stores = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* 헤더 */}
-      <div className="flex items-center px-4 h-[44px] border-b border-[#EAEAEA]">
-        <button onClick={() => navigate(-1)} className="mr-4">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M15 19L8 12L15 5" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-        <h1 className="text-[18px] font-bold leading-[28px] text-[#1A1A1A]">STORES</h1>
+      <div className="sticky top-0 bg-white border-b">
+        <div className="p-4 flex items-center">
+          <button onClick={() => navigate(-1)} className="mr-4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M15 19L8 12L15 5" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+          <h1 className="text-lg font-medium">STORES</h1>
+        </div>
       </div>
 
       {/* 브랜드 선택 */}

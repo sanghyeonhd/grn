@@ -29,7 +29,7 @@ const JournalDetail = () => {
           <img 
             src="/lovable-uploads/cce81abf-8c93-4001-89c7-940c7e5a84d8.png"
             alt="NOLL Store Interior"
-            className="w-full"
+            className="w-full h-[calc(100vh-56px)] object-cover"
           />
           <div className="px-4">
             <p className="text-sm text-gray-500">#Team</p>
@@ -111,7 +111,7 @@ const JournalDetail = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <header className="flex items-center justify-between px-4 py-3 border-b">
+      <header className="flex items-center justify-between px-4 py-3 border-b h-14">
         <div className="flex items-center">
           <button onClick={() => navigate(-1)} className="text-2xl mr-4">←</button>
           <h1 className="text-lg font-medium">JOURNAL</h1>
@@ -120,22 +120,6 @@ const JournalDetail = () => {
           <Share className="w-5 h-5" />
         </button>
       </header>
-
-      <nav className="flex space-x-4 px-4 py-3 overflow-x-auto whitespace-nowrap border-b">
-        {categories.map((category) => (
-          <button 
-            key={category.id}
-            onClick={() => handleCategoryClick(category.slug)}
-            className={`text-sm transition-colors ${
-              activeCategory === category.slug 
-                ? 'text-black font-medium' 
-                : 'text-gray-500 hover:text-gray-900'
-            }`}
-          >
-            {category.name}
-          </button>
-        ))}
-      </nav>
 
       {renderContent()}
     </div>

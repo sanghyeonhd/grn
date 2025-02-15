@@ -1,6 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Heart, Search, ShoppingCart, Home, BookOpen, Scan, User, ChevronDown } from "lucide-react";
+import { Heart, Search, ShoppingCart, Home, BookOpen, Scan, User, ChevronCircleDown } from "lucide-react";
 import { addToWishlist, removeFromWishlist, isInWishlist, WishlistItem } from '../utils/wishlist';
 import { useToast } from "@/components/ui/use-toast";
 import {
@@ -191,39 +192,48 @@ const GranShop = () => {
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center gap-1">
                 <h1 className="text-xl font-bold">{selectedBrand}</h1>
-                <ChevronDown className="w-4 h-4" />
+                <ChevronCircleDown className="w-5 h-5" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-[200px] bg-white">
-                <DropdownMenuItem 
-                  className="flex items-center justify-center py-3"
-                  onClick={() => setSelectedBrand('GRANHAND.')}
-                >
-                  <img 
-                    src="/lovable-uploads/66df05bf-51f9-4241-8db3-1d9289f9bd21.png" 
-                    alt="GRANHAND." 
-                    className="h-3"
-                  />
-                </DropdownMenuItem>
-                <DropdownMenuItem 
-                  className="flex items-center justify-center py-3"
-                  onClick={() => setSelectedBrand('heiion')}
-                >
-                  <img 
-                    src="/lovable-uploads/e2d45399-1ffd-41f7-b123-c8856c1408d4.png" 
-                    alt="heiion" 
-                    className="h-6"
-                  />
-                </DropdownMenuItem>
-                <DropdownMenuItem 
-                  className="flex items-center justify-center py-3"
-                  onClick={() => setSelectedBrand('Komfortabel')}
-                >
-                  <img 
-                    src="/lovable-uploads/64dfd9b8-2894-4518-803c-3b7324c4147a.png" 
-                    alt="Komfortabel coffee" 
-                    className="h-6"
-                  />
-                </DropdownMenuItem>
+              <DropdownMenuContent 
+                className="w-screen bg-white rounded-none border-x-0" 
+                align="start"
+                sideOffset={20}
+              >
+                <div className="p-4">
+                  <p className="text-sm text-gray-500 mb-4">다양한 BRAND를 만나보세요.</p>
+                  <div className="flex justify-between items-center gap-4">
+                    <DropdownMenuItem 
+                      className="flex-1 flex flex-col items-center justify-center p-4 hover:bg-gray-50 rounded-lg"
+                      onClick={() => setSelectedBrand('GRANHAND.')}
+                    >
+                      <img 
+                        src="/lovable-uploads/66df05bf-51f9-4241-8db3-1d9289f9bd21.png" 
+                        alt="GRANHAND." 
+                        className="h-3 mb-2"
+                      />
+                    </DropdownMenuItem>
+                    <DropdownMenuItem 
+                      className="flex-1 flex flex-col items-center justify-center p-4 hover:bg-gray-50 rounded-lg"
+                      onClick={() => setSelectedBrand('heiion')}
+                    >
+                      <img 
+                        src="/lovable-uploads/e2d45399-1ffd-41f7-b123-c8856c1408d4.png" 
+                        alt="heiion" 
+                        className="h-6 mb-2"
+                      />
+                    </DropdownMenuItem>
+                    <DropdownMenuItem 
+                      className="flex-1 flex flex-col items-center justify-center p-4 hover:bg-gray-50 rounded-lg"
+                      onClick={() => setSelectedBrand('Komfortabel')}
+                    >
+                      <img 
+                        src="/lovable-uploads/64dfd9b8-2894-4518-803c-3b7324c4147a.png" 
+                        alt="Komfortabel coffee" 
+                        className="h-6 mb-2"
+                      />
+                    </DropdownMenuItem>
+                  </div>
+                </div>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>

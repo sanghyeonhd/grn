@@ -50,28 +50,28 @@ const Index = () => {
               <CarouselItem>
                 <div className="relative w-[342px] h-[100px]">
                   <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full h-full object-cover" />
-                  <div className="absolute bottom-3 left-4 text-white">
+                  <div className="absolute top-3 left-4 text-white">
                     <h2 className="text-sm font-medium leading-tight">Sometimes You win<br />Sometimes you learn.</h2>
                   </div>
-                  <div className="absolute bottom-2 right-6 text-white text-xs bg-black/30 px-1.5 py-0.5 rounded">1/3</div>
+                  <div className="absolute bottom-2 right-8 text-white text-xs bg-black/30 px-1.5 py-0.5 rounded">1/3</div>
                 </div>
               </CarouselItem>
               <CarouselItem>
                 <div className="relative w-[342px] h-[100px]">
                   <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full h-full object-cover" />
-                  <div className="absolute bottom-3 left-4 text-white">
+                  <div className="absolute top-3 left-4 text-white">
                     <h2 className="text-sm font-medium leading-tight">Another slide text<br />Goes here.</h2>
                   </div>
-                  <div className="absolute bottom-2 right-6 text-white text-xs bg-black/30 px-1.5 py-0.5 rounded">2/3</div>
+                  <div className="absolute bottom-2 right-8 text-white text-xs bg-black/30 px-1.5 py-0.5 rounded">2/3</div>
                 </div>
               </CarouselItem>
               <CarouselItem>
                 <div className="relative w-[342px] h-[100px]">
                   <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full h-full object-cover" />
-                  <div className="absolute bottom-3 left-4 text-white">
+                  <div className="absolute top-3 left-4 text-white">
                     <h2 className="text-sm font-medium leading-tight">Final slide text<br />Goes here.</h2>
                   </div>
-                  <div className="absolute bottom-2 right-6 text-white text-xs bg-black/30 px-1.5 py-0.5 rounded">3/3</div>
+                  <div className="absolute bottom-2 right-8 text-white text-xs bg-black/30 px-1.5 py-0.5 rounded">3/3</div>
                 </div>
               </CarouselItem>
             </CarouselContent>

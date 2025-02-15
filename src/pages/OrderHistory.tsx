@@ -47,6 +47,17 @@ const OrderHistory = () => {
       }
     },
     {
+      id: "5",
+      date: "2023.10.16",
+      status: "결제 완료",
+      product: {
+        name: "Roland Multi Perfume",
+        option: "롤랑 멀티퍼퓸 200ml / 1개",
+        price: 55000,
+        image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png"
+      }
+    },
+    {
       id: "3",
       date: "2023.10.16",
       status: "배송 준비",
@@ -69,17 +80,6 @@ const OrderHistory = () => {
       }
     },
     {
-      id: "5",
-      date: "2023.10.16",
-      status: "결제 완료",
-      product: {
-        name: "Roland Multi Perfume",
-        option: "롤랑 멀티퍼퓸 200ml / 1개",
-        price: 55000,
-        image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png"
-      }
-    },
-    {
       id: "2",
       date: "2023.10.16",
       status: "배송 완료",
@@ -91,9 +91,9 @@ const OrderHistory = () => {
       }
     },
     {
-      id: "7",
+      id: "6",
       date: "2023.10.16",
-      status: "배송 지연",
+      status: "구매 확정",
       product: {
         name: "Roland Multi Perfume",
         option: "롤랑 멀티퍼퓸 100ml / 1개",
@@ -102,9 +102,9 @@ const OrderHistory = () => {
       }
     },
     {
-      id: "6",
+      id: "7",
       date: "2023.10.16",
-      status: "구매 확정",
+      status: "배송 지연",
       product: {
         name: "Roland Multi Perfume",
         option: "롤랑 멀티퍼퓸 100ml / 1개",

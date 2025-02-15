@@ -122,7 +122,7 @@ const Guide = () => {
                 </div>
               </div>
               {index < questions.length - 1 && question.isCompleted && (
-                <div className="absolute left-[10px] -bottom-3 flex flex-col items-center gap-1">
+                <div className="absolute left-[10px] bottom-[24px] flex flex-col items-center gap-1">
                   <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
                   <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
                   <div className="w-1 h-1 bg-gray-300 rounded-full"></div>

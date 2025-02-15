@@ -119,37 +119,45 @@ const JournalDetail = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <header className="flex items-center justify-between px-4 py-3 border-b">
-        <div className="flex items-center">
-          <button onClick={() => navigate(-1)} className="text-2xl mr-4">←</button>
-          <h1 className="text-lg font-medium">JOURNAL</h1>
-        </div>
-        {id && (
-          <button className="p-2">
-            <Share className="w-5 h-5" />
-          </button>
-        )}
-      </header>
-
-      {!id && (
-        <nav className="flex space-x-4 px-4 py-3 overflow-x-auto whitespace-nowrap border-b">
-          {categories.map((category) => (
-            <button 
-              key={category.id}
-              onClick={() => handleCategoryClick(category.slug)}
-              className={`text-sm transition-colors ${
-                activeCategory === category.slug 
-                  ? 'text-black font-medium' 
-                  : 'text-gray-500 hover:text-gray-900'
-              }`}
-            >
-              {category.name}
+      {id === '1' ? (
+        <div className="relative">
+          <header className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-4 py-3">
+            <div className="flex items-center">
+              <button onClick={() => navigate(-1)} className="text-2xl mr-4 text-white">←</button>
+              <h1 className="text-lg font-medium text-white">JOURNAL</h1>
+            </div>
+            <button className="p-2">
+              <Share className="w-5 h-5 text-white" />
             </button>
-          ))}
-        </nav>
+          </header>
+          {renderContent()}
+        </div>
+      ) : (
+        <>
+          <header className="flex items-center justify-between px-4 py-3 border-b">
+            <div className="flex items-center">
+              <button onClick={() => navigate(-1)} className="text-2xl mr-4">←</button>
+              <h1 className="text-lg font-medium">JOURNAL</h1>
+            </div>
+          </header>
+          <nav className="flex space-x-4 px-4 py-3 overflow-x-auto whitespace-nowrap border-b">
+            {categories.map((category) => (
+              <button 
+                key={category.id}
+                onClick={() => handleCategoryClick(category.slug)}
+                className={`text-sm transition-colors ${
+                  activeCategory === category.slug 
+                    ? 'text-black font-medium' 
+                    : 'text-gray-500 hover:text-gray-900'
+                }`}
+              >
+                {category.name}
+              </button>
+            ))}
+          </nav>
+          {renderContent()}
+        </>
       )}
-
-      {renderContent()}
     </div>
   );
 };

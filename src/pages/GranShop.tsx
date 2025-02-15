@@ -253,12 +253,14 @@ const GranShop = () => {
           </button>
           <button 
             className="flex flex-col items-center justify-center gap-1"
+            onClick={() => navigate('/granshop')}
           >
             <Scan className="w-5 h-5" />
-            <span className="text-xs">스캔</span>
+            <span className="text-xs text-black font-bold">스캔</span>
           </button>
           <button 
             className="flex flex-col items-center justify-center gap-1"
+            onClick={() => navigate('/wishlist')}
           >
             <Heart className="w-5 h-5" />
             <span className="text-xs">관심상품</span>

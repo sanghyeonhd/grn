@@ -1,14 +1,15 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { StrictMode } from "react";
+import Index from "./pages/Index";
 import AddressList from "./pages/AddressList";
 import AddressForm from "./pages/AddressForm";
 import Checkout from "./pages/Checkout";
 import GiftCheckout from "./pages/GiftCheckout";
-import Main from "./pages/Main";
 import NotFound from "./pages/NotFound";
 import JournalDetail from "./pages/JournalDetail";
 import EventDetail from "./pages/EventDetail";
@@ -75,14 +76,14 @@ const App = () => (
           <Toaster />
           <Sonner />
           <Routes>
-            <Route path="/" element={<Main />} />
+            <Route path="/" element={<Index />} />
             <Route path="/wishlist" element={<WishList />} />
             <Route path="/address/list" element={<AddressList />} />
             <Route path="/address/new" element={<AddressForm />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/gift-checkout" element={<GiftCheckout />} />
-            <Route path="/journal" element={<Navigate to="/main" />} />
-            <Route path="/event" element={<Navigate to="/main" />} />
+            <Route path="/journal" element={<JournalDetail />} />
+            <Route path="/event" element={<EventDetail />} />
             <Route path="/awards" element={<Awards />} />
             <Route path="/stores" element={<Stores />} />
             <Route path="/guide" element={<Guide />} />

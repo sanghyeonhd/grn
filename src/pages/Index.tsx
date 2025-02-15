@@ -1,8 +1,14 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 import { Separator } from "@/components/ui/separator";
+
 const Index = () => {
   return <div className="min-h-screen bg-white">
       {/* 메인 배너 */}
@@ -83,7 +89,70 @@ const Index = () => {
       
 
       {/* 저널 리스트 */}
-      
+      <section className="px-6 py-8">
+        <h2 className="text-sm font-medium mb-6">저널</h2>
+        <div className="space-y-6">
+          <Link to="/journal/1" className="block">
+            <div className="relative aspect-square mb-4">
+              <img 
+                src="/lovable-uploads/29b0770e-1ae6-4e2c-b680-aa6a22207749.png" 
+                alt="NOLL Store" 
+                className="w-full h-full object-cover rounded-sm"
+              />
+            </div>
+            <div className="space-y-2">
+              <span className="text-xs text-gray-600">#Team</span>
+              <h3 className="text-base font-medium">NOLL 놀에 대한 모든 것.</h3>
+              <p className="text-xs text-gray-500">2023-07-08 조회 412</p>
+            </div>
+          </Link>
+
+          <Link to="/journal/2" className="block">
+            <div className="relative aspect-square mb-4">
+              <img 
+                src="/lovable-uploads/961faff7-e422-4ec5-94d0-a3811072e752.png" 
+                alt="GRANHAND Horror Movies" 
+                className="w-full h-full object-cover rounded-sm"
+              />
+            </div>
+            <div className="space-y-2">
+              <span className="text-xs text-gray-600">#Team</span>
+              <h3 className="text-base font-medium">여름의 끝에서 틸 그랑핸드가 꼽은 최고의 공포영화 Top 10</h3>
+              <p className="text-xs text-gray-500">2023-07-08 조회 412</p>
+            </div>
+          </Link>
+
+          <Link to="/journal/3" className="block">
+            <div className="relative aspect-square mb-4">
+              <img 
+                src="/lovable-uploads/1c54ad66-eeb0-40ee-aed3-bddf3c223463.png" 
+                alt="Green Circle" 
+                className="w-full h-full object-cover rounded-sm"
+              />
+            </div>
+            <div className="space-y-2">
+              <span className="text-xs text-gray-600">#Essay</span>
+              <h3 className="text-base font-medium">초록의 고리 속에서</h3>
+              <p className="text-xs text-gray-500">2023-07-08 조회 412</p>
+            </div>
+          </Link>
+
+          <Link to="/journal/4" className="block">
+            <div className="relative aspect-square mb-4">
+              <img 
+                src="/lovable-uploads/09d701c7-ea2c-4c9c-81be-90a5040af573.png" 
+                alt="One Second Every Day" 
+                className="w-full h-full object-cover rounded-sm"
+              />
+            </div>
+            <div className="space-y-2">
+              <span className="text-xs text-gray-600">#Film</span>
+              <h3 className="text-base font-medium">One Second Every Day Off, 2023 Summer</h3>
+              <p className="text-xs text-gray-500">2023-07-08 조회 412</p>
+            </div>
+          </Link>
+        </div>
+      </section>
     </div>;
 };
 export default Index;

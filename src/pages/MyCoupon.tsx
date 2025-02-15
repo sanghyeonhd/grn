@@ -33,24 +33,32 @@ const MyCoupon = () => {
           </SheetTrigger>
           <SheetContent side="bottom" className="h-[80vh]">
             <SheetHeader>
-              <SheetTitle>쿠폰 사용안내</SheetTitle>
+              <SheetTitle>쿠폰 사용 안내</SheetTitle>
             </SheetHeader>
-            <div className="mt-6 space-y-4">
+            <div className="mt-6 space-y-6">
               <div>
-                <h3 className="font-medium mb-2">쿠폰 사용방법</h3>
+                <h3 className="font-medium mb-2">1. 사용 조건</h3>
                 <ul className="space-y-2 text-sm text-gray-600">
-                  <li>• 상품 구매 시 보유하신 쿠폰을 선택하여 할인 혜택을 받으실 수 있습니다.</li>
-                  <li>• 쿠폰은 주문서 작성 시 선택하여 사용 가능합니다.</li>
-                  <li>• 일부 쿠폰의 경우 특정 상품이나 카테고리에서만 사용이 가능할 수 있습니다.</li>
+                  <li>• 부문의 종류 사용은 불가하며, 각 부문은 구매 시 1회 적용 가능합니다.</li>
+                  <li>• 할인 적용금액에 따라(각 상품의 판매가 또는 총 주문 금액)을 초과할 경우 사용 불가능 합니다.</li>
+                  <li>• 최소 구매 금액이 있는 쿠폰의 경우 금액이 충족되어야 사용 가능합니다.</li>
                 </ul>
               </div>
               <div>
-                <h3 className="font-medium mb-2">쿠폰 유의사항</h3>
+                <h3 className="font-medium mb-2">2. 유효기간</h3>
                 <ul className="space-y-2 text-sm text-gray-600">
-                  <li>• 쿠폰은 발급일로부터 지정된 유효기간 내에서만 사용이 가능합니다.</li>
-                  <li>• 쿠폰은 타인에게 양도할 수 없습니다.</li>
-                  <li>• 주문 취소 시, 사용한 쿠폰은 자동으로 복구됩니다.</li>
-                  <li>• 일부 쿠폰은 중복 사용이 불가능할 수 있습니다.</li>
+                  <li>• 사용기간이 자난 쿠폰은 자동으로 소멸되며, 재발행 되지 않습니다.</li>
+                  <li>• 부문의 유효기간은 별도 명시된 기간을 따릅니다.</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-medium mb-2">3. 부문의 취소 및 제한</h3>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li>• 부문 사용기간 동안 푸 취소쿠폰 시 부문은 재발급되지 않습니다.</li>
+                  <li>• 주문 부분 취소 및 부분 반품시 사용 할인이 적용된 상품의 실가 있을 경우 부문은 재 발급되지 않습니다.</li>
+                  <li>• 주문 부분 취소 및 부분 반품으로 인해 최소 주문 금액 조건 미달일 시, 부문 할인 금액을 차액을 결제 후 결제신 완료됩니다.</li>
+                  <li>• 발행 사용은 구매 시 부문 적용이 재한될 수 있습니다.</li>
+                  <li>• 주문 취소 및 반품(취부 구입)으로 인한 등급 부문의 재발급은 최대 3회까지 기준의 며, 계정당 취대 적/순 초과의 경우 부문이 재발급 되지 않습니다.</li>
                 </ul>
               </div>
             </div>

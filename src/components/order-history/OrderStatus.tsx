@@ -20,19 +20,7 @@ const OrderStatus = () => {
 
   return (
     <div className="bg-white rounded-lg mx-4 mt-4 p-4">
-      <div className="grid grid-cols-5 gap-2 text-center text-xs">
-        {statuses.map((status) => (
-          <button
-            key={status.label}
-            onClick={() => navigate(status.path)}
-            className="space-y-1"
-          >
-            <div className="font-medium text-sm">{status.count}</div>
-            <div className="text-gray-500">{status.label}</div>
-          </button>
-        ))}
-      </div>
-      <div className="flex justify-end mt-4 pt-4 border-t">
+      <div className="flex justify-end mb-4">
         <Sheet>
           <SheetTrigger asChild>
             <button className="text-sm">
@@ -83,6 +71,18 @@ const OrderStatus = () => {
             </div>
           </SheetContent>
         </Sheet>
+      </div>
+      <div className="grid grid-cols-5 gap-2 text-center text-xs">
+        {statuses.map((status) => (
+          <button
+            key={status.label}
+            onClick={() => navigate(status.path)}
+            className="space-y-1"
+          >
+            <div className="font-medium text-sm">{status.count}</div>
+            <div className="text-gray-500 text-[10px]">{status.label}</div>
+          </button>
+        ))}
       </div>
     </div>
   );

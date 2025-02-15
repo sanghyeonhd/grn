@@ -121,9 +121,11 @@ const JournalDetail = () => {
           <button onClick={() => navigate(-1)} className="text-2xl mr-4">←</button>
           <h1 className="text-lg font-medium">JOURNAL</h1>
         </div>
-        <button className="p-2">
-          <Share className="w-5 h-5" />
-        </button>
+        {id && (
+          <button className="p-2">
+            <Share className="w-5 h-5" />
+          </button>
+        )}
       </header>
 
       <nav className="flex space-x-4 px-4 py-3 overflow-x-auto whitespace-nowrap border-b">

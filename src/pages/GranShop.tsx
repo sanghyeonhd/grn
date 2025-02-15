@@ -186,7 +186,7 @@ const GranShop = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="fixed top-0 left-0 right-0 bg-white z-50">
+      <div className="fixed top-0 left-0 right-0 bg-white z-10">
         <div className="flex items-center justify-between p-4">
           <div className="flex items-center gap-2">
             <DropdownMenu>
@@ -195,7 +195,7 @@ const GranShop = () => {
                 <CircleChevronDown className="w-5 h-5" />
               </DropdownMenuTrigger>
               <DropdownMenuContent 
-                className="w-screen bg-white rounded-none border-x-0" 
+                className="w-screen bg-white rounded-none border-x-0 z-50" 
                 align="start"
                 sideOffset={20}
               >
@@ -209,7 +209,7 @@ const GranShop = () => {
                       <img 
                         src="/lovable-uploads/66df05bf-51f9-4241-8db3-1d9289f9bd21.png" 
                         alt="GRANHAND." 
-                        className="h-3 mb-2"
+                        className="w-24 h-auto mb-2"
                       />
                     </DropdownMenuItem>
                     <DropdownMenuItem 

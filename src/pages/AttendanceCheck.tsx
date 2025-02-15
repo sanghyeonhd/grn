@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Check } from 'lucide-react';
@@ -15,10 +16,11 @@ const AttendanceCheck = () => {
 
   const handleAttendanceCheck = () => {
     setAttendanceCount(prev => prev + 1);
-    setTotalPoints(prev => prev + 100);
+    setTotalPoints(prev => prev + 500);
     setCheckDate(1); // 1일에 체크 표시
     shadowToast({
-      title: "출석체크 완료! 100포인트가 지급되었습니다.",
+      title: "출석체크 완료!",
+      description: "500포인트가 지급되었습니다.",
       className: "bg-red-500 text-white border-none",
     });
   };
@@ -42,7 +44,7 @@ const AttendanceCheck = () => {
       </header>
 
       <div className="space-y-6">
-        <div className="space-y-4">
+        <div className="bg-white p-6 rounded-lg shadow-sm space-y-4">
           <div className="flex justify-between items-center">
             <button>
               <ChevronLeft className="w-5 h-5" />
@@ -62,8 +64,10 @@ const AttendanceCheck = () => {
               <div key={i} className="text-center py-2 text-sm relative">
                 {i + 1}
                 {checkDate === i + 1 && (
-                  <div className="absolute bottom-0 right-1">
-                    <Check className="w-4 h-4 text-red-500" />
+                  <div className="absolute -bottom-1 right-1">
+                    <div className="w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
+                      <Check className="w-3 h-3 text-white" />
+                    </div>
                   </div>
                 )}
               </div>

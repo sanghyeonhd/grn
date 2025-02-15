@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { ChevronLeft, Heart, Share2, ShoppingCart } from 'lucide-react';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { addToWishlist, removeFromWishlist, isInWishlist, WishlistItem } from '../utils/wishlist';
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import ProductOptionSheet from '@/components/product/ProductOptionSheet';
 import { cn } from '@/lib/utils';
 
@@ -30,11 +30,11 @@ const PerfumeDetail = () => {
   }>>([]);
 
   const product = {
-    id: '1',
+    id: '2',
     name: 'Roland Multi Perfume',
     description: '롤랑 멀티퍼퓸 100ml / 200ml',
     price: 35000,
-    image: '/lovable-uploads/ee2ccacc-90e9-49e5-83f2-1034ffeedc97.png',
+    image: '/lovable-uploads/08efa1b0-ba21-48e2-bec5-bf00fd09e49e.png',
     story: '롤랑의 멀티 퍼퓸은 일상 생활 속 다양한 곳에서 품격있게 사용할 수 있습니다.',
     isOutOfStock: true,
   };
@@ -92,7 +92,7 @@ const PerfumeDetail = () => {
 
   const handleWishlistToggle = () => {
     const item: WishlistItem = {
-      id: id || '1',
+      id: id || '2',
       name: product.name,
       description: product.description,
       price: `${product.price.toLocaleString()} KRW`,
@@ -100,7 +100,7 @@ const PerfumeDetail = () => {
     };
 
     if (isWishlisted) {
-      removeFromWishlist(id || '1');
+      removeFromWishlist(id || '2');
       toast({
         description: "관심상품에서 제거되었습니다.",
       });
@@ -119,11 +119,21 @@ const PerfumeDetail = () => {
       setIsStockNotifyRequested(false);
       toast({
         description: "재입고 알림이 취소되었어요.",
+        className: "fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/90 text-center",
       });
     } else {
       setIsStockNotifyRequested(true);
       toast({
-        description: "재입고 알림이 신청되었어요.",
+        description: (
+          <div className="space-y-2">
+            <p>재입고 알림이 신청되었어요.</p>
+            <p className="text-xs text-gray-600">
+              상품이 재입고되면 앱 푸시로 알려드립니다.<br />
+              [알림 설정] &gt; [재입고 알림]이 켜져 있는지 확인해 보세요.
+            </p>
+          </div>
+        ),
+        className: "fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/90 text-center",
       });
     }
   };

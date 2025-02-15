@@ -20,12 +20,16 @@ const Stores = () => {
     ],
     '시청': [
       "/lovable-uploads/8281c082-a0c5-4f00-be7b-d23871ccf7b0.png"
+    ],
+    '광화문': [
+      "/lovable-uploads/31857c3b-f823-4593-a0df-3ae8d4f651ed.png"
     ]
   };
 
   const storeAddresses = {
     '도산': '강남구 압구정로164길 17 3층',
-    '시청': '중구 서소문로 115 1층'
+    '시청': '중구 서소문로 115 1층',
+    '광화문': '강남구 언주로164길 17 3층'
   };
 
   return (
@@ -78,8 +82,10 @@ const Stores = () => {
       {/* 매장 정보 */}
       <div className="mt-6">
         <div className="px-6">
-          <p className="text-sm text-gray-600 mb-2">{selectedBrand} {selectedTab}</p>
-          <p className="text-sm text-gray-800 mb-4">{storeAddresses[selectedTab]}</p>
+          <div className="flex items-center gap-2">
+            <p className="text-sm text-gray-600 mb-2">{selectedBrand} {selectedTab}</p>
+            <p className="text-sm text-gray-400 mb-2">{storeAddresses[selectedTab]}</p>
+          </div>
         </div>
         
         {/* 매장 이미지 */}

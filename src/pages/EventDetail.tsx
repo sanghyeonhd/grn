@@ -49,7 +49,7 @@ const EventDetail = () => {
           </div>
           <button className="p-2">
             <img 
-              src="/lovable-uploads/isbne.png" 
+              src="/lovable-uploads/86242de2-5c97-465b-8736-9e7f545d6a7e.png" 
               alt="Share" 
               className="w-5 h-5 brightness-0" 
             />
@@ -92,7 +92,7 @@ const EventDetail = () => {
         </div>
         <button className="p-2">
           <img 
-            src="/lovable-uploads/isbne.png" 
+            src="/lovable-uploads/86242de2-5c97-465b-8736-9e7f545d6a7e.png" 
             alt="Share" 
             className="w-5 h-5 brightness-0" 
           />

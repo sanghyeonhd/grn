@@ -128,7 +128,7 @@ const PerfumeDetail = () => {
           <div className="space-y-2">
             <p>재입고 알림이 신청되었어요.</p>
             <p className="text-xs text-gray-600">
-              상품이 재입고되면 앱 푸시로 알려드립니다.<br />
+              상품이 재입고되면 앱 푸시로 ���려드립니다.<br />
               [알림 설정] &gt; [재입고 알림]이 켜져 있는지 확인해 보세요.
             </p>
           </div>
@@ -163,7 +163,7 @@ const PerfumeDetail = () => {
 
   return (
     <div className="min-h-screen bg-[#FDFBF4]">
-      <div className="fixed top-0 left-0 right-0 bg-white z-50">
+      <div className="fixed top-0 left-0 right-0 bg-[#FDFBF4] z-50">
         <div className="flex items-center justify-between p-4">
           <button onClick={() => navigate(-1)}>
             <ChevronLeft className="w-6 h-6" />

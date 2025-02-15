@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Bell, ShoppingBag, Wallet, CalendarCheck, Gift, ScrollText, Home, BookOpen, Scan, Heart, User } from 'lucide-react';
@@ -7,19 +6,21 @@ const MyPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-white pb-[60px] relative">
-      <div className="p-4 flex items-center justify-between">
-        <h1 className="text-lg">마이페이지</h1>
-        <div className="flex items-center gap-4">
-          <button onClick={() => navigate('/notifications')}>
-            <Bell className="w-6 h-6" />
-          </button>
-          <div className="relative">
-            <ShoppingBag className="w-6 h-6" />
-            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">2</span>
+    <div className="min-h-screen bg-[#FDFBF4]">
+      <header className="sticky top-0 bg-[#FDFBF4] border-b">
+        <div className="p-4 flex items-center justify-between">
+          <h1 className="text-lg">마이페이지</h1>
+          <div className="flex items-center gap-4">
+            <button onClick={() => navigate('/notifications')}>
+              <Bell className="w-6 h-6" />
+            </button>
+            <div className="relative">
+              <ShoppingBag className="w-6 h-6" />
+              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">2</span>
+            </div>
           </div>
         </div>
-      </div>
+      </header>
 
       <div className="p-4">
         <div className="flex items-center justify-between">

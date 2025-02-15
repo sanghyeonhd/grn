@@ -21,8 +21,8 @@ const CouponRegister = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="p-4 flex items-center gap-4">
+    <div className="min-h-screen bg-[#FDFBF4]">
+      <div className="p-4 flex items-center gap-4 bg-[#FDFBF4] border-b">
         <button onClick={() => navigate(-1)}>
           <ChevronLeft className="w-6 h-6" />
         </button>
@@ -32,7 +32,7 @@ const CouponRegister = () => {
       <div className="border-b">
         <div className="px-4">
           <Tabs defaultValue="register" className="w-full">
-            <TabsList className="w-full bg-transparent border-b">
+            <TabsList className="w-full bg-[#FDFBF4] border-b">
               <TabsTrigger 
                 value="mycoupon" 
                 className="flex-1 data-[state=inactive]:bg-transparent data-[state=inactive]:text-gray-400"
@@ -51,7 +51,7 @@ const CouponRegister = () => {
         </div>
       </div>
 
-      <div className="p-4">
+      <div className="p-4 bg-[#FDFBF4]">
         <div className="space-y-4">
           <div>
             <label htmlFor="couponNumber" className="block text-sm font-medium text-gray-700 mb-1">
@@ -69,7 +69,7 @@ const CouponRegister = () => {
         </div>
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 p-4">
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-[#FDFBF4] border-t">
         <button 
           onClick={handleRegister}
           className="w-full bg-[#2D2D2D] text-white py-4 rounded-md"

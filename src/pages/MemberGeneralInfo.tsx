@@ -117,8 +117,8 @@ const MemberGeneralInfo = () => {
   );
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="sticky top-0 bg-white border-b">
+    <div className="min-h-screen bg-[#FDFBF4]">
+      <div className="sticky top-0 bg-[#FDFBF4] border-b">
         <div className="p-4 flex items-center">
           <button onClick={() => navigate(-1)} className="mr-4">
             <ArrowLeft className="w-6 h-6" />

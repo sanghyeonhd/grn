@@ -91,8 +91,8 @@ const RecentProducts = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <header className="sticky top-0 bg-white border-b">
+    <div className="min-h-screen bg-[#FDFBF4]">
+      <header className="sticky top-0 bg-[#FDFBF4] border-b">
         <div className="flex items-center h-12">
           <button onClick={() => navigate(-1)} className="px-4">
             <ChevronLeft className="w-6 h-6" />

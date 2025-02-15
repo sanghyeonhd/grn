@@ -178,7 +178,7 @@ const ProductOptionSheet = ({
       </Sheet>
 
       <Dialog open={showCartDialog} onOpenChange={() => setShowCartDialog(false)}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-md bg-white/90 backdrop-blur-sm">
           <DialogDescription className="text-center py-4">
             상품을 장바구니에 담았어요.
           </DialogDescription>

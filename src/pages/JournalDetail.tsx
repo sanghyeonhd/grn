@@ -28,7 +28,7 @@ const JournalDetail = () => {
         <div className="space-y-4">
           <div className="relative">
             <img 
-              src="/lovable-uploads/cce81abf-8c93-4001-89c7-940c7e5a84d8.png"
+              src="/lovable-uploads/fa008e5ad15fb.png"
               alt="NOLL Store Interior"
               className="w-full"
             />

@@ -188,7 +188,7 @@ const GranShop = () => {
       case 'GRANHAND.':
         return {
           src: "/lovable-uploads/66df05bf-51f9-4241-8db3-1d9289f9bd21.png",
-          className: "h-6"
+          className: "w-[109px] h-[14px] object-contain"
         };
       case 'heiion':
         return {
@@ -203,7 +203,7 @@ const GranShop = () => {
       default:
         return {
           src: "/lovable-uploads/66df05bf-51f9-4241-8db3-1d9289f9bd21.png",
-          className: "h-6"
+          className: "w-[109px] h-[14px] object-contain"
         };
     }
   };
@@ -239,7 +239,7 @@ const GranShop = () => {
                       <img 
                         src="/lovable-uploads/66df05bf-51f9-4241-8db3-1d9289f9bd21.png" 
                         alt="GRANHAND." 
-                        className="h-8 w-auto mb-2"
+                        className="w-[109px] h-[14px] object-contain mb-2"
                       />
                     </DropdownMenuItem>
                     <DropdownMenuItem 

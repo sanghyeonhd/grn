@@ -36,7 +36,7 @@ const Guide = () => {
     {
       id: 4,
       text: "원하시는 분위기를 선택해 주세요.",
-      options: ["#청순함", "#병비", "#비강강", "#코론", "#동차", "#우아"],
+      options: ["#청순함", "#바캉스", "#비강강", "#코튼", "#홍차", "#우아"],
       isCompleted: false
     }
   ]);
@@ -96,7 +96,7 @@ const Guide = () => {
             <div key={question.id} className="relative pl-6 pb-6">
               <div className="border-b ml-4">
                 <div className="flex items-start gap-2 mb-4">
-                  <div className="relative mt-1 ml-[-1.5rem]">
+                  <div className="relative mt-1 ml-[-1.75rem]">
                     {question.isCompleted && <Check className="w-4 h-4 text-green-500" />}
                   </div>
                   <div className="flex-1">

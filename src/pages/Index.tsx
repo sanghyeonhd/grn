@@ -9,6 +9,13 @@ import {
 import { Separator } from "@/components/ui/separator";
 
 const Index = () => {
+  const navigate = useNavigate();
+
+  const handleCategoryClick = (e: React.MouseEvent, category: string) => {
+    e.preventDefault();
+    navigate(`/journal?category=${category.toLowerCase()}`);
+  };
+
   return <div className="min-h-screen bg-white">
       {/* 메인 배너 */}
       <div className="relative">
@@ -116,9 +123,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* 바텀 배너 */}
-      
-
       {/* 저널 리스트 */}
       <section className="px-6 py-8">
         <h2 className="text-sm font-medium mb-6">저널</h2>
@@ -131,7 +135,10 @@ const Index = () => {
                 className="w-full h-full object-cover rounded-sm"
               />
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
-                <span className="text-xs">#Team</span>
+                <span 
+                  className="text-xs cursor-pointer hover:underline"
+                  onClick={(e) => handleCategoryClick(e, 'Team')}
+                >#Team</span>
                 <h3 className="text-base font-medium mt-1">NOLL 놀에 대한 모든 것.</h3>
                 <p className="text-xs mt-1 text-gray-200">2023-07-08 조회 412</p>
               </div>
@@ -146,7 +153,10 @@ const Index = () => {
                 className="w-full h-full object-cover rounded-sm"
               />
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
-                <span className="text-xs">#Team</span>
+                <span 
+                  className="text-xs cursor-pointer hover:underline"
+                  onClick={(e) => handleCategoryClick(e, 'Team')}
+                >#Team</span>
                 <h3 className="text-base font-medium mt-1">여름의 끝에서 팀 그랑핸드가 꼽은 최고의 공포영화 Top 10</h3>
                 <p className="text-xs mt-1 text-gray-200">2023-07-08 조회 412</p>
               </div>
@@ -161,7 +171,10 @@ const Index = () => {
                 className="w-full h-full object-cover rounded-sm"
               />
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
-                <span className="text-xs">#Essay</span>
+                <span 
+                  className="text-xs cursor-pointer hover:underline"
+                  onClick={(e) => handleCategoryClick(e, 'Essay')}
+                >#Essay</span>
                 <h3 className="text-base font-medium mt-1">초록의 고립 속에서</h3>
                 <p className="text-xs mt-1 text-gray-200">2023-07-08 조회 412</p>
               </div>
@@ -176,7 +189,10 @@ const Index = () => {
                 className="w-full h-full object-cover rounded-sm"
               />
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
-                <span className="text-xs">#Film</span>
+                <span 
+                  className="text-xs cursor-pointer hover:underline"
+                  onClick={(e) => handleCategoryClick(e, 'Film')}
+                >#Film</span>
                 <h3 className="text-base font-medium mt-1">One Second Every Day Off, 2023 Summer</h3>
                 <p className="text-xs mt-1 text-gray-200">2023-07-08 조회 412</p>
               </div>

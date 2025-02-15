@@ -1,13 +1,27 @@
 
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { openCamera } from './CameraScanner';
+import { useToast } from "@/components/ui/use-toast";
 
 const BottomNavigation = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { toast } = useToast();
 
   const isActive = (path: string) => {
     return location.pathname === path;
+  };
+
+  const handleScanClick = async () => {
+    try {
+      await openCamera();
+    } catch (error) {
+      toast({
+        description: "카메라를 실행할 수 없습니다. 카메라 권한을 확인해주세요.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -38,7 +52,7 @@ const BottomNavigation = () => {
         </button>
         
         <button 
-          onClick={() => navigate('/granshop')}
+          onClick={handleScanClick}
           className="flex flex-col items-center justify-center gap-1"
         >
           <img 

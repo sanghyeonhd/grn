@@ -14,6 +14,13 @@ const config: CapacitorConfig = {
   },
   android: {
     backgroundColor: "#FFFFFF"
+  },
+  plugins: {
+    Camera: {
+      ios: {
+        publicPhotosAccessLevel: "add"
+      }
+    }
   }
 };
 

@@ -15,13 +15,14 @@ const PerfumeDetail = () => {
   const [selectedVolume, setSelectedVolume] = useState<'100ml' | '200ml'>('100ml');
   const [isGiftSheetOpen, setIsGiftSheetOpen] = useState(false);
   const [isPurchaseSheetOpen, setIsPurchaseSheetOpen] = useState(false);
+  const [isStockNotifyRequested, setIsStockNotifyRequested] = useState(false);
   const [selectedProducts, setSelectedProducts] = useState<Array<{
     name: string;
     price: number;
     quantity: number;
     option?: string;
   }>>([]);
-  const [selectedPurchaseProducts, setSelectedPurchaseProducts] = useState<Array<{
+  const [selectedPurchaseProducts] = useState<Array<{
     name: string;
     price: number;
     quantity: number;
@@ -33,7 +34,7 @@ const PerfumeDetail = () => {
     name: 'Roland Multi Perfume',
     description: '롤랑 멀티퍼퓸 100ml / 200ml',
     price: 35000,
-    image: '/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png',
+    image: '/lovable-uploads/ee2ccacc-90e9-49e5-83f2-1034ffeedc97.png',
     story: '롤랑의 멀티 퍼퓸은 일상 생활 속 다양한 곳에서 품격있게 사용할 수 있습니다.',
     isOutOfStock: true,
   };
@@ -113,21 +114,24 @@ const PerfumeDetail = () => {
     setIsWishlisted(!isWishlisted);
   };
 
+  const handleStockNotify = () => {
+    if (isStockNotifyRequested) {
+      setIsStockNotifyRequested(false);
+      toast({
+        description: "재입고 알림이 취소되었어요.",
+      });
+    } else {
+      setIsStockNotifyRequested(true);
+      toast({
+        description: "재입고 알림이 신청되었어요.",
+      });
+    }
+  };
+
   const handleProductSelect = (option: string) => {
-    if (option === '구매 안함') return;
-    
     setSelectedProducts([{
       name: product.name,
       price: product.price + (option.includes('500') ? 500 : 0),
-      quantity: 1,
-      option,
-    }]);
-  };
-
-  const handlePurchaseProductSelect = (option: string) => {
-    setSelectedPurchaseProducts([{
-      name: product.name,
-      price: product.price,
       quantity: 1,
       option,
     }]);
@@ -143,29 +147,8 @@ const PerfumeDetail = () => {
     }));
   };
 
-  const handlePurchaseQuantityChange = (index: number, increment: boolean) => {
-    setSelectedPurchaseProducts(prev => prev.map((item, i) => {
-      if (i === index) {
-        const newQuantity = increment ? item.quantity + 1 : Math.max(1, item.quantity - 1);
-        return { ...item, quantity: newQuantity };
-      }
-      return item;
-    }));
-  };
-
   const getTotalPrice = () => {
     return selectedProducts.reduce((total, item) => total + (item.price * item.quantity), 0);
-  };
-
-  const getPurchaseTotalPrice = () => {
-    return selectedPurchaseProducts.reduce((total, item) => total + (item.price * item.quantity), 0);
-  };
-
-  const handleNotify = () => {
-    toast({
-      title: "재입고 알림 신청 완료",
-      description: "상품이 입고되면 알림으로 알려드리겠습니다.",
-    });
   };
 
   return (
@@ -271,27 +254,36 @@ const PerfumeDetail = () => {
       </div>
 
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t space-y-3">
-        <div className="grid grid-cols-2 gap-3">
-          <button 
-            className="py-3 border border-black text-black"
-            onClick={() => setIsGiftSheetOpen(true)}
-          >
-            선물하기
-          </button>
-          <button 
-            className="py-3 bg-[#2C2C2C] text-white"
-            onClick={() => setIsPurchaseSheetOpen(true)}
-          >
-            구매하기
-          </button>
-        </div>
-        {product.isOutOfStock && (
-          <button 
-            onClick={handleNotify}
-            className="w-full py-3 bg-gray-900 text-white"
-          >
-            재입고 알림 신청
-          </button>
+        {product.isOutOfStock ? (
+          <div className="grid grid-cols-2 gap-3">
+            <button 
+              onClick={handleStockNotify}
+              className="py-3 border border-black text-black"
+            >
+              {isStockNotifyRequested ? "재입고 알림 취소" : "재입고 알림"}
+            </button>
+            <button 
+              className="py-3 bg-gray-300 text-white cursor-not-allowed"
+              disabled
+            >
+              품절
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 gap-3">
+            <button 
+              className="py-3 border border-black text-black"
+              onClick={() => setIsGiftSheetOpen(true)}
+            >
+              선물하기
+            </button>
+            <button 
+              className="py-3 bg-[#2C2C2C] text-white"
+              onClick={() => setIsPurchaseSheetOpen(true)}
+            >
+              구매하기
+            </button>
+          </div>
         )}
       </div>
 
@@ -310,9 +302,9 @@ const PerfumeDetail = () => {
         onOpenChange={setIsPurchaseSheetOpen}
         type="purchase"
         selectedProducts={selectedPurchaseProducts}
-        onProductSelect={handlePurchaseProductSelect}
-        onQuantityChange={handlePurchaseQuantityChange}
-        getTotalPrice={getPurchaseTotalPrice}
+        onProductSelect={() => {}}
+        onQuantityChange={() => {}}
+        getTotalPrice={() => 0}
       />
     </div>
   );

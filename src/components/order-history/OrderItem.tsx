@@ -1,5 +1,5 @@
 
-import { ChevronRight, Gift } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import PurchaseConfirmation from './PurchaseConfirmation';
@@ -60,6 +60,24 @@ const OrderItem = ({ item, onCancelClick }: OrderItemProps) => {
         >
           주문 취소
         </button>
+      ) : item.id === "2" ? (
+        <div className="space-y-2">
+          <div className="grid grid-cols-2 gap-2">
+            <button className="py-3 border text-sm">배송 조회</button>
+            <button 
+              className="py-3 border text-sm"
+              onClick={() => navigate('/order/return')}
+            >
+              교환/반품 신청
+            </button>
+          </div>
+          <button 
+            className="w-full py-3 border text-sm"
+            onClick={() => setIsPurchaseConfirmOpen(true)}
+          >
+            구매 확정
+          </button>
+        </div>
       ) : item.id === "3" ? (
         <button
           className="w-full py-3 border text-sm"
@@ -79,6 +97,13 @@ const OrderItem = ({ item, onCancelClick }: OrderItemProps) => {
             </button>
           </div>
         </div>
+      ) : item.id === "5" ? (
+        <button
+          className="w-full py-3 border text-sm"
+          onClick={onCancelClick}
+        >
+          주문 취소
+        </button>
       ) : item.id === "6" ? (
         <div className="space-y-2">
           <div className="grid grid-cols-2 gap-2">

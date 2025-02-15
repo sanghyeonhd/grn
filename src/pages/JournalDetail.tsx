@@ -1,17 +1,11 @@
+
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Copy, Check } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-
-const categories = [
-  { id: 1, name: 'All', slug: 'all' },
-  { id: 2, name: 'News', slug: 'news' },
-  { id: 3, name: 'Culture', slug: 'culture' },
-  { id: 4, name: 'Life', slug: 'life' },
-  { id: 5, name: 'Team', slug: 'team' },
-  { id: 6, name: 'Essay', slug: 'essay' },
-  { id: 7, name: 'Film', slug: 'film' },
-];
+import JournalCategories from '@/components/journal/JournalCategories';
+import ShareLinkPanel from '@/components/journal/ShareLinkPanel';
+import JournalListItem from '@/components/journal/JournalListItem';
+import JournalDetailHeader from '@/components/journal/JournalDetailHeader';
 
 const JournalDetail = () => {
   const navigate = useNavigate();
@@ -63,20 +57,7 @@ const JournalDetail = () => {
               className="w-full"
             />
             <div className="absolute top-0 left-0 right-0 h-full flex flex-col justify-between">
-              <header className="z-10 flex items-center justify-between px-4 py-3">
-                <div className="flex items-center">
-                  <button 
-                    onClick={handleBack} 
-                    className="text-2xl mr-4 text-white p-2 hover:opacity-75 transition-opacity"
-                  >
-                    ←
-                  </button>
-                  <h1 className="text-lg font-medium text-white">JOURNAL</h1>
-                </div>
-                <button className="p-2" onClick={handleShare}>
-                  <img src="/lovable-uploads/86242de2-5c97-465b-8736-9e7f545d6a7e.png" alt="Share" className="w-5 h-5 brightness-0 invert" />
-                </button>
-              </header>
+              <JournalDetailHeader onBack={handleBack} onShare={handleShare} />
               <div className="p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
                 <p className="text-sm">#Team</p>
                 <h2 className="text-xl font-medium mb-1">NOLL 놀에 대한 모든 것.</h2>
@@ -91,27 +72,11 @@ const JournalDetail = () => {
             </div>
           </div>
           {showShareLink && (
-            <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-4">
-              <div className="text-sm font-medium mb-3">공유하기</div>
-              <div className="flex items-center border rounded-md overflow-hidden">
-                <input
-                  type="text"
-                  value={`https://grangand.com/journal/${id}`}
-                  readOnly
-                  className="flex-1 px-3 py-2 text-sm bg-gray-50"
-                />
-                <button 
-                  onClick={handleCopyLink}
-                  className="px-3 py-2 border-l hover:bg-gray-50"
-                >
-                  {linkCopied ? (
-                    <Check className="w-5 h-5 text-gray-600" />
-                  ) : (
-                    <Copy className="w-5 h-5 text-gray-600" />
-                  )}
-                </button>
-              </div>
-            </div>
+            <ShareLinkPanel 
+              id={id} 
+              linkCopied={linkCopied} 
+              onCopyLink={handleCopyLink} 
+            />
           )}
         </div>
       );
@@ -119,69 +84,38 @@ const JournalDetail = () => {
 
     return (
       <div className="space-y-6 px-4 mt-4">
-        <div 
-          className="relative aspect-square cursor-pointer" 
-          onClick={() => navigate('/journal/1')}
-        >
-          <img 
-            src="/lovable-uploads/e599283a-a3a2-4e3a-88b8-9a782e14152f.png" 
-            alt="NOLL Store" 
-            className="w-full h-full object-cover rounded-sm"
-          />
-          <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
-            <span className="text-xs">#Team</span>
-            <h3 className="text-base font-medium mt-1">NOLL 놀에 대한 모든 것.</h3>
-            <p className="text-xs mt-1 text-gray-200">2023-07-08 조회 412</p>
-          </div>
-        </div>
-
-        <div 
-          className="relative aspect-square cursor-pointer"
-          onClick={() => navigate('/journal/2')}
-        >
-          <img 
-            src="/lovable-uploads/26818efa-30ea-4335-9455-38183496a890.png" 
-            alt="Sometimes you win Sometimes you learn" 
-            className="w-full h-full object-cover rounded-sm"
-          />
-          <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
-            <span className="text-xs">#Team</span>
-            <h3 className="text-base font-medium mt-1">여름의 끝에서 팀 그랑핸드가 꼽은 최고의 공포영화 Top 10</h3>
-            <p className="text-xs mt-1 text-gray-200">2023-07-08 조회 412</p>
-          </div>
-        </div>
-
-        <div 
-          className="relative aspect-square cursor-pointer"
-          onClick={() => navigate('/journal/3')}
-        >
-          <img 
-            src="/lovable-uploads/a773021d-65d3-4dde-bb9b-a24d88982a50.png" 
-            alt="Green Circle" 
-            className="w-full h-full object-cover rounded-sm"
-          />
-          <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
-            <span className="text-xs">#Essay</span>
-            <h3 className="text-base font-medium mt-1">초록의 고립 속에서</h3>
-            <p className="text-xs mt-1 text-gray-200">2023-07-08 조회 412</p>
-          </div>
-        </div>
-
-        <div 
-          className="relative aspect-square cursor-pointer"
-          onClick={() => navigate('/journal/4')}
-        >
-          <img 
-            src="/lovable-uploads/2a0cabfd-61ab-4dbf-be41-3b8c9d808e8f.png" 
-            alt="One Second Every Day" 
-            className="w-full h-full object-cover rounded-sm"
-          />
-          <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
-            <span className="text-xs">#Film</span>
-            <h3 className="text-base font-medium mt-1">One Second Every Day Off, 2023 Summer</h3>
-            <p className="text-xs mt-1 text-gray-200">2023-07-08 조회 412</p>
-          </div>
-        </div>
+        <JournalListItem
+          id="1"
+          image="/lovable-uploads/e599283a-a3a2-4e3a-88b8-9a782e14152f.png"
+          category="Team"
+          title="NOLL 놀에 대한 모든 것."
+          date="2023-07-08"
+          views={412}
+        />
+        <JournalListItem
+          id="2"
+          image="/lovable-uploads/26818efa-30ea-4335-9455-38183496a890.png"
+          category="Team"
+          title="여름의 끝에서 팀 그랑핸드가 꼽은 최고의 공포영화 Top 10"
+          date="2023-07-08"
+          views={412}
+        />
+        <JournalListItem
+          id="3"
+          image="/lovable-uploads/a773021d-65d3-4dde-bb9b-a24d88982a50.png"
+          category="Essay"
+          title="초록의 고립 속에서"
+          date="2023-07-08"
+          views={412}
+        />
+        <JournalListItem
+          id="4"
+          image="/lovable-uploads/2a0cabfd-61ab-4dbf-be41-3b8c9d808e8f.png"
+          category="Film"
+          title="One Second Every Day Off, 2023 Summer"
+          date="2023-07-08"
+          views={412}
+        />
       </div>
     );
   };
@@ -205,21 +139,10 @@ const JournalDetail = () => {
               <h1 className="text-lg font-medium">JOURNAL</h1>
             </div>
           </header>
-          <nav className="flex space-x-4 px-4 py-3 overflow-x-auto whitespace-nowrap border-b">
-            {categories.map((category) => (
-              <button 
-                key={category.id}
-                onClick={() => handleCategoryClick(category.slug)}
-                className={`text-sm transition-colors ${
-                  activeCategory === category.slug 
-                    ? 'text-black font-medium' 
-                    : 'text-gray-500 hover:text-gray-900'
-                }`}
-              >
-                {category.name}
-              </button>
-            ))}
-          </nav>
+          <JournalCategories 
+            activeCategory={activeCategory} 
+            onCategoryClick={handleCategoryClick} 
+          />
           {renderContent()}
         </>
       )}

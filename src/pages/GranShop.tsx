@@ -17,7 +17,7 @@ const products = {
       name: "Roland Multi Perfume",
       description: "롤랑 멀티퍼퓸 100ml / 200ml",
       price: "35,000 KRW",
-      image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png",
+      image: "/lovable-uploads/75467d13-7ba3-4eb0-b062-1aa53c949465.png",
       soldOut: false
     },
     {
@@ -25,7 +25,7 @@ const products = {
       name: "Roland Multi Perfume",
       description: "롤랑 멀티퍼퓸 100ml / 200ml",
       price: "35,000 KRW",
-      image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png",
+      image: "/lovable-uploads/75467d13-7ba3-4eb0-b062-1aa53c949465.png",
       soldOut: true
     },
     {
@@ -33,7 +33,7 @@ const products = {
       name: "Roland Multi Perfume",
       description: "롤랑 멀티퍼퓸 100ml / 200ml",
       price: "35,000 KRW",
-      image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png",
+      image: "/lovable-uploads/75467d13-7ba3-4eb0-b062-1aa53c949465.png",
       soldOut: false
     },
     {
@@ -41,7 +41,7 @@ const products = {
       name: "Roland Multi Perfume",
       description: "롤랑 멀티퍼퓸 100ml / 200ml",
       price: "35,000 KRW",
-      image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png",
+      image: "/lovable-uploads/75467d13-7ba3-4eb0-b062-1aa53c949465.png",
       soldOut: false
     }
   ],

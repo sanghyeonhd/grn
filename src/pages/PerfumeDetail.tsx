@@ -1,16 +1,17 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ChevronLeft, Heart, Share2 } from 'lucide-react';
+import { ChevronLeft, Heart, Share2, ShoppingCart } from 'lucide-react';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import { cn } from '@/lib/utils';
+import { addToWishlist, removeFromWishlist, isInWishlist, WishlistItem } from '../utils/wishlist';
 import { useToast } from "@/components/ui/use-toast";
 import ProductOptionSheet from '@/components/product/ProductOptionSheet';
+import { cn } from '@/lib/utils';
 
 const PerfumeDetail = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { toast } = useToast();
+  const [isWishlisted, setIsWishlisted] = useState(false);
   const [selectedVolume, setSelectedVolume] = useState<'100ml' | '200ml'>('100ml');
   const [isGiftSheetOpen, setIsGiftSheetOpen] = useState(false);
   const [isPurchaseSheetOpen, setIsPurchaseSheetOpen] = useState(false);
@@ -67,6 +68,50 @@ const PerfumeDetail = () => {
       image: '/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png',
     },
   ];
+
+  useEffect(() => {
+    if (id) {
+      setIsWishlisted(isInWishlist(id));
+    }
+  }, [id]);
+
+  const handleShare = async () => {
+    try {
+      await navigator.share({
+        title: product.name,
+        text: product.description,
+        url: window.location.href,
+      });
+    } catch (error) {
+      toast({
+        description: "공유하기가 지원되지 않는 환경입니다.",
+      });
+    }
+  };
+
+  const handleWishlistToggle = () => {
+    const item: WishlistItem = {
+      id: id || '1',
+      name: product.name,
+      description: product.description,
+      price: `${product.price.toLocaleString()} KRW`,
+      image: product.image
+    };
+
+    if (isWishlisted) {
+      removeFromWishlist(id || '1');
+      toast({
+        description: "관심상품에서 제거되었습니다.",
+      });
+    } else {
+      addToWishlist(item);
+      toast({
+        description: "관심상품에 추가되었습니다.",
+      });
+    }
+
+    setIsWishlisted(!isWishlisted);
+  };
 
   const handleProductSelect = (option: string) => {
     if (option === '구매 안함') return;
@@ -131,8 +176,16 @@ const PerfumeDetail = () => {
             <ChevronLeft className="w-6 h-6" />
           </button>
           <div className="flex items-center gap-4">
-            <Share2 className="w-5 h-5" />
-            <Heart className="w-5 h-5" />
+            <button onClick={handleShare}>
+              <Share2 className="w-5 h-5" />
+            </button>
+            <button onClick={handleWishlistToggle}>
+              <Heart className="w-5 h-5" fill={isWishlisted ? "black" : "none"} />
+            </button>
+            <button onClick={() => navigate('/cart')} className="relative">
+              <ShoppingCart className="w-5 h-5" />
+              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">2</span>
+            </button>
           </div>
         </div>
       </div>

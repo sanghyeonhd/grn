@@ -27,6 +27,19 @@ const JournalDetail = () => {
         <div className="space-y-6 px-4 mt-4">
           <div className="relative aspect-square">
             <img 
+              src="/lovable-uploads/e599283a-a3a2-4e3a-88b8-9a782e14152f.png" 
+              alt="NOLL Store" 
+              className="w-full h-full object-cover rounded-sm"
+            />
+            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
+              <span className="text-xs">#Team</span>
+              <h3 className="text-base font-medium mt-1">NOLL 놀에 대한 모든 것.</h3>
+              <p className="text-xs mt-1 text-gray-200">2023-07-08 조회 412</p>
+            </div>
+          </div>
+
+          <div className="relative aspect-square">
+            <img 
               src="/lovable-uploads/26818efa-30ea-4335-9455-38183496a890.png" 
               alt="Sometimes you win Sometimes you learn" 
               className="w-full h-full object-cover rounded-sm"

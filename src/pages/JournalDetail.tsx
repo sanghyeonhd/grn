@@ -1,6 +1,8 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { Copy, Check } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const categories = [
   { id: 1, name: 'All', slug: 'all' },
@@ -14,8 +16,11 @@ const categories = [
 
 const JournalDetail = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const { id } = useParams();
   const [activeCategory, setActiveCategory] = React.useState('team');
+  const [showShareLink, setShowShareLink] = useState(false);
+  const [linkCopied, setLinkCopied] = useState(false);
 
   const handleCategoryClick = (slug: string) => {
     setActiveCategory(slug);
@@ -24,6 +29,28 @@ const JournalDetail = () => {
   const handleBack = () => {
     console.log('Back button clicked');
     navigate(-1);
+  };
+
+  const handleShare = () => {
+    setShowShareLink(true);
+    setLinkCopied(false);
+  };
+
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(`https://grangand.com/journal/${id}`);
+      setLinkCopied(true);
+      toast({
+        description: "링크가 복사되었습니다.",
+        className: "fixed bottom-4 right-4",
+      });
+    } catch (err) {
+      toast({
+        description: "링크 복사에 실패했습니다.",
+        variant: "destructive",
+        className: "fixed bottom-4 right-4",
+      });
+    }
   };
 
   const renderContent = () => {
@@ -47,7 +74,7 @@ const JournalDetail = () => {
                   </button>
                   <h1 className="text-lg font-medium text-white">JOURNAL</h1>
                 </div>
-                <button className="p-2">
+                <button className="p-2" onClick={handleShare}>
                   <img src="/lovable-uploads/86242de2-5c97-465b-8736-9e7f545d6a7e.png" alt="Share" className="w-5 h-5 brightness-0 invert" />
                 </button>
               </header>
@@ -64,6 +91,29 @@ const JournalDetail = () => {
               <p>잣곡에 버들숲을 노랗게로 진해지는 석을 알아니 바라보다 버린 새벽이 난 두 구름으로 들리던다. 낮정고에 거는 체론을 가네 있에 램이 뒤귀 뒤에 잣곡에 물담했다.</p>
             </div>
           </div>
+          {showShareLink && (
+            <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-4">
+              <div className="text-sm font-medium mb-3">공유하기</div>
+              <div className="flex items-center border rounded-md overflow-hidden">
+                <input
+                  type="text"
+                  value={`https://grangand.com/journal/${id}`}
+                  readOnly
+                  className="flex-1 px-3 py-2 text-sm bg-gray-50"
+                />
+                <button 
+                  onClick={handleCopyLink}
+                  className="px-3 py-2 border-l hover:bg-gray-50"
+                >
+                  {linkCopied ? (
+                    <Check className="w-5 h-5 text-gray-600" />
+                  ) : (
+                    <Copy className="w-5 h-5 text-gray-600" />
+                  )}
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       );
     }

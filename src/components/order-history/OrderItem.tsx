@@ -52,19 +52,17 @@ const OrderItem = ({ item, onCancelClick }: OrderItemProps) => {
           <div className="font-medium mt-2">{item.product.price.toLocaleString()}원</div>
         </div>
       </div>
-      {item.id !== "4" && (
-        <div className="grid grid-cols-2 gap-2">
-          <button className="py-3 border text-sm">
-            배송 조회
-          </button>
-          <button 
-            className="py-3 border text-sm"
-            onClick={() => navigate('/order/return')}
-          >
-            교환/반품 신청
-          </button>
-        </div>
-      )}
+      <div className="grid grid-cols-2 gap-2">
+        <button className="py-3 border text-sm">
+          배송 조회
+        </button>
+        <button 
+          className="py-3 border text-sm"
+          onClick={() => navigate('/order/return')}
+        >
+          교환/반품 신청
+        </button>
+      </div>
       {item.id === "2" && (
         <button 
           className="w-full py-3 border text-sm"

@@ -97,9 +97,9 @@ const OrderHistory = () => {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <div className="flex w-full gap-2">
+            <div className="flex w-full gap-2 sm:flex-row">
               <AlertDialogCancel
-                className="flex-1 rounded-none bg-white hover:bg-gray-50 text-black border border-gray-300"
+                className="mt-0 flex-1 rounded-none bg-white hover:bg-gray-50 text-black border border-gray-300"
                 onClick={() => setIsCancelModalOpen(false)}
               >
                 닫기

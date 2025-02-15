@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useToast } from "@/hooks/use-toast";
 
 interface EventDetail {
   id: string;
@@ -29,8 +30,11 @@ const mockEvents: EventDetail[] = [
 
 const EventDetail = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const { id } = useParams();
   const [selectedEvent, setSelectedEvent] = useState<EventDetail | null>(null);
+  const [showShareLink, setShowShareLink] = useState(false);
+  const [linkCopied, setLinkCopied] = useState(false);
 
   useEffect(() => {
     const event = mockEvents.find(event => event.id === id);
@@ -38,6 +42,26 @@ const EventDetail = () => {
       setSelectedEvent(event);
     }
   }, [id]);
+
+  const handleShare = () => {
+    setShowShareLink(true);
+    setLinkCopied(false);
+  };
+
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(`https://grangand.com/evnet/${id}`);
+      setLinkCopied(true);
+      toast({
+        description: "링크가 복사되었습니다.",
+      });
+    } catch (err) {
+      toast({
+        description: "링크 복사에 실패했습니다.",
+        variant: "destructive",
+      });
+    }
+  };
 
   if (!id) {
     return (
@@ -90,7 +114,7 @@ const EventDetail = () => {
           <button onClick={() => navigate(-1)} className="text-2xl mr-4">←</button>
           <h1 className="text-lg font-medium">EVNET</h1>
         </div>
-        <button className="p-2">
+        <button className="p-2" onClick={handleShare}>
           <img 
             src="/lovable-uploads/86242de2-5c97-465b-8736-9e7f545d6a7e.png" 
             alt="Share" 
@@ -112,6 +136,38 @@ const EventDetail = () => {
           {selectedEvent.content}
         </div>
       </div>
+
+      {showShareLink && (
+        <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-4">
+          <div className="text-sm font-medium mb-3">공유하기</div>
+          <div className="flex items-center border rounded-md overflow-hidden">
+            <input
+              type="text"
+              value={`https://grangand.com/evnet/${id}`}
+              readOnly
+              className="flex-1 px-3 py-2 text-sm bg-gray-50"
+            />
+            <button 
+              onClick={handleCopyLink}
+              className="px-3 py-2 border-l"
+            >
+              {linkCopied ? (
+                <img 
+                  src="/lovable-uploads/c88ccaa5-f220-4b67-abfa-12569abb4f73.png" 
+                  alt="Copied" 
+                  className="w-5 h-5" 
+                />
+              ) : (
+                <img 
+                  src="/lovable-uploads/c146ce12-2756-4129-8551-d7e011b861b4.png" 
+                  alt="Copy" 
+                  className="w-5 h-5" 
+                />
+              )}
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

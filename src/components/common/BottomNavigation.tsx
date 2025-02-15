@@ -26,10 +26,10 @@ const BottomNavigation = () => {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-[#FDFBF4] border-t">
-      <div className="flex justify-around items-center h-[60px]">
+      <div className="flex justify-around items-center h-[60px] px-4">
         <button 
           onClick={() => navigate('/')}
-          className="flex flex-col items-center justify-center gap-1"
+          className="flex flex-col items-center justify-center gap-1 w-16"
         >
           <img 
             src="/lovable-uploads/e178991f-6cc6-4587-9caa-4c0cd4eeeca6.png" 
@@ -41,7 +41,7 @@ const BottomNavigation = () => {
         
         <button 
           onClick={() => navigate('/guide')}
-          className="flex flex-col items-center justify-center gap-1"
+          className="flex flex-col items-center justify-center gap-1 w-16"
         >
           <img 
             src="/lovable-uploads/f45e1a71-c707-4c33-a554-758b0cd6d941.png" 
@@ -53,7 +53,7 @@ const BottomNavigation = () => {
         
         <button 
           onClick={handleScanClick}
-          className="flex flex-col items-center justify-center gap-1"
+          className="flex flex-col items-center justify-center gap-1 w-16"
         >
           <img 
             src="/lovable-uploads/112f148b-91f0-4624-bafd-8f3104bdaf7f.png" 
@@ -65,7 +65,7 @@ const BottomNavigation = () => {
         
         <button 
           onClick={() => navigate('/wishlist')}
-          className="flex flex-col items-center justify-center gap-1"
+          className="flex flex-col items-center justify-center gap-1 w-16"
         >
           <img 
             src="/lovable-uploads/67b9ce1b-3980-4a7d-b4e3-ab972160348b.png" 
@@ -77,7 +77,7 @@ const BottomNavigation = () => {
         
         <button 
           onClick={() => navigate('/mypage')}
-          className="flex flex-col items-center justify-center gap-1"
+          className="flex flex-col items-center justify-center gap-1 w-16"
         >
           <img 
             src="/lovable-uploads/cbf25e6c-3fbf-4916-b528-9ef04eaa17a0.png" 

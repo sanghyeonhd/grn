@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Share } from 'lucide-react';
 
 const categories = [
   { id: 1, name: 'All', slug: 'all' },
@@ -49,7 +48,7 @@ const JournalDetail = () => {
                   <h1 className="text-lg font-medium text-white">JOURNAL</h1>
                 </div>
                 <button className="p-2">
-                  <Share className="w-5 h-5 text-white" />
+                  <img src="/lovable-uploads/86242de2-5c97-465b-8736-9e7f545d6a7e.png" alt="Share" className="w-5 h-5 brightness-0 invert" />
                 </button>
               </header>
               <div className="p-4 bg-gradient-to-t from-black/70 to-transparent text-white">

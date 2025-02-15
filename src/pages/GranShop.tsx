@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Heart, Search, ShoppingCart, Home, BookOpen, Scan, User, CircleChevronDown } from "lucide-react";
@@ -155,6 +154,17 @@ const GranShop = () => {
   const location = useLocation();
   const [selectedBrand, setSelectedBrand] = useState('GRANHAND.');
 
+  const dropdownStyles = {
+    backgroundColor: '#FFFFFF',
+    '--tw-bg-opacity': '1',
+  } as React.CSSProperties;
+
+  const menuItemStyles = {
+    backgroundColor: '#FFFFFF',
+    '--tw-bg-opacity': '1',
+    width: '100%',
+  } as React.CSSProperties;
+
   const isCurrentPath = (path: string) => {
     return location.pathname.includes(path);
   };
@@ -226,17 +236,18 @@ const GranShop = () => {
                 <CircleChevronDown className="w-5 h-5" />
               </DropdownMenuTrigger>
               <DropdownMenuContent 
-                className="w-screen rounded-none border-x-0 z-50" 
-                style={{ backgroundColor: '#FFFFFF' }}
+                className="w-screen rounded-none border-x-0 z-50 !bg-white" 
+                style={dropdownStyles}
                 align="start"
                 sideOffset={20}
+                forceMount
               >
-                <div className="p-4" style={{ backgroundColor: '#FFFFFF' }}>
+                <div className="p-4 !bg-white" style={dropdownStyles}>
                   <p className="text-sm text-gray-500 mb-4">다양한 BRAND를 만나보세요.</p>
                   <div className="flex justify-between items-center gap-4">
                     <DropdownMenuItem 
-                      className="flex-1 flex flex-col items-center justify-center p-4 hover:bg-gray-50 rounded-lg"
-                      style={{ backgroundColor: '#FFFFFF' }}
+                      className="flex-1 flex flex-col items-center justify-center p-4 hover:bg-gray-50 rounded-lg !bg-white"
+                      style={menuItemStyles}
                       onClick={() => setSelectedBrand('GRANHAND.')}
                     >
                       <img 
@@ -246,8 +257,8 @@ const GranShop = () => {
                       />
                     </DropdownMenuItem>
                     <DropdownMenuItem 
-                      className="flex-1 flex flex-col items-center justify-center p-4 hover:bg-gray-50 rounded-lg"
-                      style={{ backgroundColor: '#FFFFFF' }}
+                      className="flex-1 flex flex-col items-center justify-center p-4 hover:bg-gray-50 rounded-lg !bg-white"
+                      style={menuItemStyles}
                       onClick={() => setSelectedBrand('heiion')}
                     >
                       <img 
@@ -257,8 +268,8 @@ const GranShop = () => {
                       />
                     </DropdownMenuItem>
                     <DropdownMenuItem 
-                      className="flex-1 flex flex-col items-center justify-center p-4 hover:bg-gray-50 rounded-lg"
-                      style={{ backgroundColor: '#FFFFFF' }}
+                      className="flex-1 flex flex-col items-center justify-center p-4 hover:bg-gray-50 rounded-lg !bg-white"
+                      style={menuItemStyles}
                       onClick={() => setSelectedBrand('Komfortabel')}
                     >
                       <img 

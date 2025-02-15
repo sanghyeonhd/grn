@@ -1,8 +1,16 @@
+
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Heart } from 'lucide-react';
 import { addToWishlist, removeFromWishlist, isInWishlist, WishlistItem } from '../utils/wishlist';
 import { useToast } from "@/components/ui/use-toast";
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselNext, 
+  CarouselPrevious 
+} from "@/components/ui/carousel";
 
 const GuideResult = () => {
   const location = useLocation();
@@ -120,35 +128,50 @@ const GuideResult = () => {
         <p className="text-sm leading-6 mb-8">{sampleResult.review}</p>
 
         <h3 className="text-lg font-bold mb-4">RECOMMENDED</h3>
-        <div className="overflow-x-auto scrollbar-hide">
-          <div className="flex gap-4 pb-4" style={{ minWidth: 'min-content' }}>
-            {sampleResult.recommendedProducts.map((product) => (
-              <div 
-                key={product.id} 
-                className="flex-none cursor-pointer"
-                onClick={() => handleProductClick(product.id)}
-              >
-                <div className="relative bg-gray-100" style={{ width: '163px', height: '200px' }}>
-                  <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
-                  <button 
-                    className="absolute top-2 right-2"
-                    onClick={(e) => handleWishlistToggle(e, product)}
+        <div className="relative">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {sampleResult.recommendedProducts.map((product) => (
+                <CarouselItem key={product.id} className="basis-[163px]">
+                  <div 
+                    className="cursor-pointer"
+                    onClick={() => handleProductClick(product.id)}
                   >
-                    <Heart 
-                      className="text-white" 
-                      size={24}
-                      fill={wishlistItems[product.id] ? "white" : "none"}
-                    />
-                  </button>
-                </div>
-                <div className="mt-2">
-                  <h4 className="font-medium text-sm">{product.name}</h4>
-                  <p className="text-sm text-gray-600">{product.description}</p>
-                  <p className="text-sm">{product.price}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+                    <div className="relative bg-gray-100" style={{ height: '200px' }}>
+                      <img 
+                        src={product.image} 
+                        alt={product.name} 
+                        className="w-full h-full object-cover"
+                      />
+                      <button 
+                        className="absolute top-2 right-2"
+                        onClick={(e) => handleWishlistToggle(e, product)}
+                      >
+                        <Heart 
+                          className="text-white" 
+                          size={24}
+                          fill={wishlistItems[product.id] ? "white" : "none"}
+                        />
+                      </button>
+                    </div>
+                    <div className="mt-2">
+                      <h4 className="font-medium text-sm">{product.name}</h4>
+                      <p className="text-sm text-gray-600">{product.description}</p>
+                      <p className="text-sm">{product.price}</p>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-0" />
+            <CarouselNext className="right-0" />
+          </Carousel>
         </div>
       </div>
     </div>

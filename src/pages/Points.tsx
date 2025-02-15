@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, Info } from 'lucide-react';
@@ -8,6 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Separator } from "@/components/ui/separator";
 
 const Points = () => {
   const navigate = useNavigate();
@@ -144,11 +146,15 @@ const Points = () => {
       <div className="p-5 bg-background">
         <div className="rounded-xl bg-white p-5 shadow-sm mb-6">
           <div className="mb-4">
-            <h2 className="text-sm text-gray-900 mb-1">포인트</h2>
-            <p className="text-[32px] font-bold">0</p>
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-sm text-gray-900">포인트</h2>
+              <p className="text-[32px] font-bold">0</p>
+            </div>
+            <Separator className="bg-gray-100" />
           </div>
-          <div className="text-sm text-gray-500">
-            이번 달 소멸 예정 포인트 <span className="text-gray-900">0</span>
+          <div className="flex justify-between items-center text-sm">
+            <span className="text-gray-500">이번 달 소멸 예정 포인트</span>
+            <span className="text-gray-900">0</span>
           </div>
         </div>
 

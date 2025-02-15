@@ -112,6 +112,23 @@ const OrderItem = ({ item, onCancelClick }: OrderItemProps) => {
       );
     }
 
+    // 구매 확정 상태인 경우
+    if (item.status === '구매 확정') {
+      return (
+        <div className="grid grid-cols-2 gap-2">
+          <button className="py-3 border text-sm">
+            배송 조회
+          </button>
+          <button 
+            className="py-3 border text-sm"
+            onClick={() => setIsAlertOpen(true)}
+          >
+            교환/반품 신청
+          </button>
+        </div>
+      );
+    }
+
     // 기본 버튼 (나머지 주문 카드)
     return (
       <div className="grid grid-cols-2 gap-2">
@@ -181,7 +198,7 @@ const OrderItem = ({ item, onCancelClick }: OrderItemProps) => {
           <AlertDialogHeader>
             <AlertDialogTitle>교환/반품 불가 안내</AlertDialogTitle>
             <AlertDialogDescription>
-              구매 확정된 상품은 교환/반품이 불가능합니다.
+              배송 완료 후 7일이 지나거나 구매를 확정한 경우에는 교환반품 접수가 불가능해요.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>

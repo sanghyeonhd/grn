@@ -87,8 +87,8 @@ const OrderItem = ({ item, onCancelClick }: OrderItemProps) => {
       );
     }
 
-    // 구매 확정 버튼이 있는 주문 카드
-    if (item.id === "2") {
+    // 구매 확정 버튼이 있는 주문 카드 (배송 완료 상태)
+    if (item.status === '배송 완료') {
       return (
         <>
           <div className="grid grid-cols-2 gap-2">
@@ -97,7 +97,7 @@ const OrderItem = ({ item, onCancelClick }: OrderItemProps) => {
             </button>
             <button 
               className="py-3 border text-sm"
-              onClick={() => setIsAlertOpen(true)}
+              onClick={() => navigate('/order/return')}
             >
               교환/반품 신청
             </button>

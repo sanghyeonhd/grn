@@ -1,77 +1,134 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Check, Search, ShoppingBag } from 'lucide-react';
+
+interface Question {
+  id: number;
+  text: string;
+  options: string[];
+  selected?: string;
+  isCompleted: boolean;
+}
 
 const Guide = () => {
   const navigate = useNavigate();
+  const [questions, setQuestions] = useState<Question[]>([
+    {
+      id: 1,
+      text: "어떤 용도로 사용하시나요?",
+      options: ["선물할 거예요", "제가 쓸 거예요"],
+      isCompleted: false
+    },
+    {
+      id: 2,
+      text: "어떤 계절에 맞는 향을 찾으세요?",
+      options: ["봄&여름", "가을&겨울", "계절 상관없어요"],
+      isCompleted: false
+    },
+    {
+      id: 3,
+      text: "원하시는 제질을 선택해 주세요.",
+      options: ["플로럴", "프루티", "시트러스", "우디", "그린", "워터리"],
+      isCompleted: false
+    },
+    {
+      id: 4,
+      text: "원하시는 분위기를 선택해 주세요.",
+      options: ["#청순함", "#병비", "#비강강", "#코론", "#동차", "#우아"],
+      isCompleted: false
+    }
+  ]);
+
+  const handleOptionSelect = (questionId: number, option: string) => {
+    setQuestions(questions.map(q => {
+      if (q.id === questionId) {
+        return { ...q, selected: option, isCompleted: true };
+      }
+      return q;
+    }));
+  };
+
+  const isAllCompleted = questions.every(q => q.isCompleted);
+
+  const handleSubmit = () => {
+    if (isAllCompleted) {
+      navigate('/guide/result', { 
+        state: { 
+          answers: questions.map(q => ({ 
+            question: q.text, 
+            answer: q.selected 
+          })) 
+        } 
+      });
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50">
       {/* 헤더 */}
       <div className="sticky top-0 z-10 bg-white border-b">
         <div className="px-4 py-3 flex justify-between items-center">
           <h1 className="text-lg font-bold">GUIDE</h1>
-          <button className="relative">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M21 8.25H3V18.75C3 19.1478 3.15804 19.5294 3.43934 19.8107C3.72064 20.092 4.10218 20.25 4.5 20.25H19.5C19.8978 20.25 20.2794 20.092 20.5607 19.8107C20.842 19.5294 21 19.1478 21 18.75V8.25Z" stroke="black" strokeWidth="1.5" strokeLinejoin="round"/>
-              <path d="M3 8.25L12 3L21 8.25" stroke="black" strokeWidth="1.5" strokeLinejoin="round"/>
-            </svg>
-            <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-[10px] text-white flex items-center justify-center">
-              new
+          <div className="flex items-center gap-4">
+            <Search className="w-6 h-6" />
+            <div className="relative">
+              <ShoppingBag className="w-6 h-6" />
+              <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-[10px] text-white flex items-center justify-center">
+                new
+              </div>
             </div>
-          </button>
+          </div>
         </div>
       </div>
 
       {/* 안내 문구 */}
       <div className="p-4">
-        <div className="flex items-center gap-2 text-sm text-gray-500 mb-8">
-          <span className="text-amber-400">✦</span>
-          <p>원하시는 항목 주제에 들어나서, 아래 항목을 모두 선택해 주세요.</p>
+        <div className="flex items-center gap-2 bg-gray-100 p-3 rounded-lg">
+          <span className="text-amber-400 text-lg">✨</span>
+          <p className="text-sm text-gray-600">원하시는 항목 주제에 들어나서, 아래 항목을 모두 선택해 주세요.</p>
         </div>
 
         {/* 질문 목록 */}
-        <div className="space-y-6">
-          <div className="border-b pb-6">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-sm">1. 어떤 용도로 사용하시나요?</h3>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M6 9L12 15L18 9" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+        <div className="mt-6 space-y-6">
+          {questions.map((question, index) => (
+            <div key={question.id} className="border-b pb-6">
+              <div className="flex items-center gap-2 mb-4">
+                {question.isCompleted && <Check className="w-4 h-4 text-green-500" />}
+                <h3 className="text-sm flex items-center gap-2">
+                  {question.id}
+                  {index < questions.length - 1 && <span className="text-gray-400">:</span>}
+                  {question.text}
+                </h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {question.options.map((option) => (
+                  <button
+                    key={option}
+                    onClick={() => handleOptionSelect(question.id, option)}
+                    className={`px-4 py-2 text-sm border ${
+                      question.selected === option 
+                        ? 'bg-black text-white' 
+                        : 'bg-white text-black'
+                    }`}
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
             </div>
-            <div className="flex gap-2">
-              <button className="px-4 py-2 text-sm border rounded-full">선물할 거예요</button>
-              <button className="px-4 py-2 text-sm border rounded-full">제가 쓸 거예요</button>
-            </div>
-          </div>
-
-          <div className="border-b pb-6">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-sm">2. 어떤 계절에 맞는 향을 찾으세요?</h3>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M6 9L12 15L18 9" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-          </div>
-
-          <div className="border-b pb-6">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-sm">3. 원하시는 제질을 선택해 주세요.</h3>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M6 9L12 15L18 9" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-          </div>
-
-          <div className="border-b pb-6">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-sm">4. 원하시는 분위기를 선택해 주세요.</h3>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M6 9L12 15L18 9" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-          </div>
+          ))}
         </div>
+
+        {/* 결과보기 버튼 */}
+        {isAllCompleted && (
+          <button
+            onClick={handleSubmit}
+            className="w-full py-3 mt-6 bg-black text-white"
+          >
+            결과보기
+          </button>
+        )}
       </div>
 
       {/* 하단 네비게이션 */}

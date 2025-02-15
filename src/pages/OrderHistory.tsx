@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import {
   AlertDialog,
@@ -147,7 +148,7 @@ const OrderHistory = () => {
           <AlertDialogHeader>
             <AlertDialogTitle>취소 유의사항 안내</AlertDialogTitle>
             <AlertDialogDescription>
-              주문 취소 신청은 취소 신청이 이뤄질 수 있어요.
+              출고 중인 상품은 취소 신청이 어려울 수 있어요.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>

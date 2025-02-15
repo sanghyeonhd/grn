@@ -387,10 +387,10 @@ const GranShop = () => {
       )}
 
       <div className="px-4 py-3 flex items-center justify-between border-b">
-        {isAllCategory && <span className="text-sm">전체</span>}
+        {isAllCategory && <span className="text-[0.688rem]">전체</span>}
         {!isAllCategory && <div />} {/* 빈 div로 레이아웃 유지 */}
         <DropdownMenu>
-          <DropdownMenuTrigger className="text-sm flex items-center gap-1">
+          <DropdownMenuTrigger className="text-[0.688rem] flex items-center gap-1">
             {sortOption}
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
               <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2"/>
@@ -401,7 +401,7 @@ const GranShop = () => {
               <DropdownMenuItem 
                 key={option} 
                 onClick={() => setSortOption(option)}
-                className="cursor-pointer"
+                className="cursor-pointer text-[0.688rem]"
               >
                 {option}
               </DropdownMenuItem>

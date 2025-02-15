@@ -33,9 +33,9 @@ const Stores = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pb-6">
       {/* 헤더 */}
-      <div className="sticky top-0 bg-white border-b">
+      <div className="sticky top-0 z-10 bg-white border-b">
         <div className="p-4 flex items-center">
           <button onClick={() => navigate(-1)} className="mr-4">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -81,18 +81,23 @@ const Stores = () => {
 
       {/* 매장 정보 */}
       <div className="mt-6">
-        <div className="px-6">
+        <div className="px-6 mb-4">
           <div className="flex items-center gap-2">
-            <p className="text-sm text-gray-600 mb-2">{selectedBrand} {selectedTab}</p>
-            <p className="text-sm text-gray-400 mb-2">{storeAddresses[selectedTab]}</p>
+            <p className="text-sm text-gray-600">{selectedBrand} {selectedTab}</p>
+            <p className="text-sm text-gray-400">{storeAddresses[selectedTab]}</p>
           </div>
         </div>
         
         {/* 매장 이미지 */}
-        <div className="space-y-4">
+        <div className="px-6">
           {storeImages[selectedTab]?.map((image, index) => (
-            <div key={index} className="w-full aspect-[3/2]">
-              <img src={image} alt={`Store ${index + 1}`} className="w-full h-full object-cover" />
+            <div key={index} className="w-full mb-4 last:mb-0">
+              <img 
+                src={image} 
+                alt={`Store ${index + 1}`} 
+                className="w-full rounded-lg"
+                style={{ maxHeight: 'calc(100vh - 250px)', objectFit: 'contain' }}
+              />
             </div>
           ))}
         </div>

@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -148,7 +147,7 @@ const Index = () => {
               />
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
                 <span className="text-xs">#Team</span>
-                <h3 className="text-base font-medium mt-1">여름의 끝에서 틸 그랑핸드가 꼽은 최고의 공포영화 Top 10</h3>
+                <h3 className="text-base font-medium mt-1">여름의 끝에서 팀 그랑핸드가 꼽은 최고의 공포영화 Top 10</h3>
                 <p className="text-xs mt-1 text-gray-200">2023-07-08 조회 412</p>
               </div>
             </div>
@@ -163,7 +162,7 @@ const Index = () => {
               />
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
                 <span className="text-xs">#Essay</span>
-                <h3 className="text-base font-medium mt-1">초록의 고리 속에서</h3>
+                <h3 className="text-base font-medium mt-1">초록의 고립 속에서</h3>
                 <p className="text-xs mt-1 text-gray-200">2023-07-08 조회 412</p>
               </div>
             </div>

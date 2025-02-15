@@ -124,7 +124,7 @@ const Index = () => {
       <section className="px-6 py-8">
         <h2 className="text-sm font-medium mb-6">저널</h2>
         <div className="space-y-6">
-          <Link to="/journal/1" className="block">
+          <Link to="/journal/1" className="block w-full">
             <div className="relative w-full aspect-[4/3] mb-4">
               <img 
                 src="/lovable-uploads/e599283a-a3a2-4e3a-88b8-9a782e14152f.png" 
@@ -139,7 +139,7 @@ const Index = () => {
             </div>
           </Link>
 
-          <Link to="/journal/2" className="block">
+          <Link to="/journal/2" className="block w-full">
             <div className="relative w-full aspect-[4/3] mb-4">
               <img 
                 src="/lovable-uploads/26818efa-30ea-4335-9455-38183496a890.png" 
@@ -154,7 +154,7 @@ const Index = () => {
             </div>
           </Link>
 
-          <Link to="/journal/3" className="block">
+          <Link to="/journal/3" className="block w-full">
             <div className="relative w-full aspect-[4/3] mb-4">
               <img 
                 src="/lovable-uploads/a773021d-65d3-4dde-bb9b-a24d88982a50.png" 
@@ -169,7 +169,7 @@ const Index = () => {
             </div>
           </Link>
 
-          <Link to="/journal/4" className="block">
+          <Link to="/journal/4" className="block w-full">
             <div className="relative w-full aspect-[4/3] mb-4">
               <img 
                 src="/lovable-uploads/2a0cabfd-61ab-4dbf-be41-3b8c9d808e8f.png" 

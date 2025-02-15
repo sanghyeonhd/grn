@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Check } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -14,18 +14,25 @@ const AttendanceCheck = () => {
   const [checkedDates, setCheckedDates] = useState<number[]>([]);
   const { toast: shadowToast } = useToast();
 
+  const today = new Date().getDate();
+
   const handleAttendanceCheck = () => {
-    const today = new Date().getDate();
-    if (!checkedDates.includes(today)) {
-      setCheckedDates(prev => [...prev, today]);
-      setAttendanceCount(prev => prev + 1);
-      setTotalPoints(prev => prev + 500);
-      shadowToast({
-        title: "출석체크 완료!",
-        description: "500포인트가 지급되었습니다.",
-        className: "bg-red-500 text-white border-none",
+    // 오늘 날짜에만 출석체크 가능
+    if (checkedDates.includes(today)) {
+      toast.message("이미 출석체크를 완료했습니다.", {
+        position: "bottom-center",
       });
+      return;
     }
+
+    setCheckedDates(prev => [...prev, today]);
+    setAttendanceCount(prev => prev + 1);
+    setTotalPoints(prev => prev + 500);
+    shadowToast({
+      title: "출석체크 완료!",
+      description: "500포인트가 지급되었습니다.",
+      className: "bg-red-500 text-white border-none",
+    });
   };
 
   const handleLuckyDraw = () => {
@@ -40,7 +47,7 @@ const AttendanceCheck = () => {
   return (
     <div className="min-h-screen bg-[#FDFBF4] px-4 py-6">
       <header className="flex items-center gap-4 mb-8">
-        <button onClick={() => navigate(-1)}>
+        <button onClick={() => navigate('/granshop')}>
           <ChevronLeft className="w-6 h-6" />
         </button>
         <h1 className="text-xl font-medium">출석 체크</h1>
@@ -63,18 +70,28 @@ const AttendanceCheck = () => {
               <div key={i} className="text-center py-2 text-sm text-gray-500">{day}</div>
             ))}
             
-            {Array(31).fill(null).map((_, i) => (
-              <div key={i} className="text-center py-2 text-sm relative">
-                {i + 1}
-                {checkedDates.includes(i + 1) && (
-                  <div className="absolute -bottom-1 right-1">
-                    <div className="w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
-                      <Check className="w-3 h-3 text-white" />
+            {Array(31).fill(null).map((_, i) => {
+              const isChecked = checkedDates.includes(i + 1);
+              const isToday = i + 1 === today;
+              
+              return (
+                <div 
+                  key={i} 
+                  className={`text-center py-2 text-sm relative ${
+                    isChecked ? 'text-red-500 font-medium' : ''
+                  } ${isToday ? 'font-bold' : ''}`}
+                >
+                  {i + 1}
+                  {isChecked && (
+                    <div className="absolute -bottom-1 right-1">
+                      <div className="w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
+                        <Check className="w-3 h-3 text-white" />
+                      </div>
                     </div>
-                  </div>
-                )}
-              </div>
-            ))}
+                  )}
+                </div>
+              );
+            })}
           </div>
 
           <div className="grid grid-cols-2 divide-x divide-gray-200 mt-12">
@@ -98,9 +115,14 @@ const AttendanceCheck = () => {
 
           <Button 
             onClick={handleAttendanceCheck}
-            className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white rounded-none h-12 mt-4"
+            className={`w-full ${
+              checkedDates.includes(today)
+                ? 'bg-gray-400 hover:bg-gray-400 cursor-not-allowed'
+                : 'bg-[#2C2C2C] hover:bg-[#1a1a1a]'
+            } text-white rounded-none h-12 mt-4`}
+            disabled={checkedDates.includes(today)}
           >
-            출석 체크하기
+            {checkedDates.includes(today) ? '오늘은 이미 출석완료' : '출석 체크하기'}
           </Button>
 
           <Button

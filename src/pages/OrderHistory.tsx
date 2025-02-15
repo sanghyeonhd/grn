@@ -96,22 +96,24 @@ const OrderHistory = () => {
               주문 취소 신청은 취소 신청이 이뤄질 수 있어요.
             </AlertDialogDescription>
           </AlertDialogHeader>
-          <AlertDialogFooter className="flex-row gap-2">
-            <AlertDialogCancel
-              className="flex-1 rounded-none bg-white hover:bg-gray-50 text-black border border-gray-300"
-              onClick={() => setIsCancelModalOpen(false)}
-            >
-              닫기
-            </AlertDialogCancel>
-            <AlertDialogAction
-              className="flex-1 rounded-none bg-white hover:bg-gray-50 text-black border border-gray-300"
-              onClick={() => {
-                setIsCancelModalOpen(false);
-                setIsConfirmOpen(true);
-              }}
-            >
-              주문 취소
-            </AlertDialogAction>
+          <AlertDialogFooter>
+            <div className="flex w-full gap-2">
+              <AlertDialogCancel
+                className="flex-1 rounded-none bg-white hover:bg-gray-50 text-black border border-gray-300"
+                onClick={() => setIsCancelModalOpen(false)}
+              >
+                닫기
+              </AlertDialogCancel>
+              <AlertDialogAction
+                className="flex-1 rounded-none bg-white hover:bg-gray-50 text-black border border-gray-300"
+                onClick={() => {
+                  setIsCancelModalOpen(false);
+                  setIsConfirmOpen(true);
+                }}
+              >
+                주문 취소
+              </AlertDialogAction>
+            </div>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

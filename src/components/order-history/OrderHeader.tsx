@@ -61,12 +61,12 @@ const OrderHeader = ({
                 </div>
               </div>
               <div className="space-y-2">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center justify-center gap-2">
                   <input
                     type="text"
                     value={startDate}
                     onChange={(e) => onStartDateChange(e.target.value)}
-                    className="flex-1 h-10 border border-gray-300 px-4 rounded-sm text-sm text-center"
+                    className="w-[110px] h-10 border border-gray-300 px-2 rounded-sm text-sm text-center"
                     placeholder="YYYY.MM.DD"
                   />
                   <span className="text-gray-400">-</span>
@@ -74,7 +74,7 @@ const OrderHeader = ({
                     type="text"
                     value={endDate}
                     onChange={(e) => onEndDateChange(e.target.value)}
-                    className="flex-1 h-10 border border-gray-300 px-4 rounded-sm text-sm text-center"
+                    className="w-[110px] h-10 border border-gray-300 px-2 rounded-sm text-sm text-center"
                     placeholder="YYYY.MM.DD"
                   />
                 </div>

@@ -1,8 +1,6 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
 const Index = () => {
   return <div className="min-h-screen bg-white">
       {/* 메인 배너 */}
@@ -29,23 +27,14 @@ const Index = () => {
       <section className="px-6 py-8">
         <h2 className="text-sm font-medium mb-6">브랜드 숍</h2>
         <div className="grid grid-cols-3 gap-4">
-          <Link to="/granshop" className="text-center space-y-4">
+          <Link to="/granshop" className="text-center">
             <img src="/lovable-uploads/66df05bf-51f9-4241-8db3-1d9289f9bd21.png" alt="GRANHAND." className="h-3 w-auto mx-auto" />
-            <div className="aspect-[4/3] overflow-hidden">
-              <img src="/lovable-uploads/2b3e035c-9fba-4d2f-8347-7066a2a2ba9e.png" alt="GRANHAND. product" className="w-full h-full object-cover" />
-            </div>
           </Link>
-          <Link to="/heliotrope" className="text-center space-y-4">
+          <Link to="/heliotrope" className="text-center">
             <img src="/lovable-uploads/e2d45399-1ffd-41f7-b123-c8856c1408d4.png" alt="heiion" className="h-6 w-auto mx-auto" />
-            <div className="aspect-[4/3] overflow-hidden">
-              <img src="/lovable-uploads/569b0ab8-dafd-4552-b7c1-a7996f402d41.png" alt="heiion product" className="w-full h-full object-cover" />
-            </div>
           </Link>
-          <Link to="/komfortabel" className="text-center space-y-4">
+          <Link to="/komfortabel" className="text-center">
             <img src="/lovable-uploads/64dfd9b8-2894-4518-803c-3b7324c4147a.png" alt="Komfortabel coffee" className="h-6 w-auto mx-auto" />
-            <div className="aspect-[4/3] overflow-hidden">
-              <img src="/lovable-uploads/983770e1-f9fd-4581-bec2-3b910c2630fc.png" alt="Komfortabel coffee product" className="w-full h-full object-cover" />
-            </div>
           </Link>
         </div>
       </section>
@@ -109,5 +98,4 @@ const Index = () => {
       </div>
     </div>;
 };
-
 export default Index;

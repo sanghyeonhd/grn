@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Heart, Search, ShoppingCart, Home, BookOpen, Scan, User, ChevronCircleDown } from "lucide-react";
+import { Heart, Search, ShoppingCart, Home, BookOpen, Scan, User, CircleChevronDown } from "lucide-react";
 import { addToWishlist, removeFromWishlist, isInWishlist, WishlistItem } from '../utils/wishlist';
 import { useToast } from "@/components/ui/use-toast";
 import {
@@ -192,7 +192,7 @@ const GranShop = () => {
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center gap-1">
                 <h1 className="text-xl font-bold">{selectedBrand}</h1>
-                <ChevronCircleDown className="w-5 h-5" />
+                <CircleChevronDown className="w-5 h-5" />
               </DropdownMenuTrigger>
               <DropdownMenuContent 
                 className="w-screen bg-white rounded-none border-x-0" 

@@ -198,9 +198,9 @@ const OrderHistory = () => {
       <AlertDialog open={isConfirmOpen} onOpenChange={setIsConfirmOpen}>
         <AlertDialogContent className="w-[320px] rounded-none">
           <AlertDialogHeader>
-            <AlertDialogTitle>취소 성공</AlertDialogTitle>
+            <AlertDialogTitle>취소 불가 안내</AlertDialogTitle>
             <AlertDialogDescription>
-              주문취소 이후 환불 진행은 시간이 소요될 수 있습니다.
+              선택하신 상품은 주문매체 취소가 불가능해요.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>

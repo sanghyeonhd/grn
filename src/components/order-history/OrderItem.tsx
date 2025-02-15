@@ -28,6 +28,60 @@ const OrderItem = ({ item, onCancelClick }: OrderItemProps) => {
     setIsPurchaseConfirmOpen(false);
   };
 
+  const renderButtons = () => {
+    // 입금 대기 상태이고 id가 1인 두 번째 주문 카드
+    if (item.id === '1' && item.status === '입금 대기') {
+      return (
+        <button 
+          className="w-full py-3 border text-sm"
+          onClick={onCancelClick}
+        >
+          주문 취소
+        </button>
+      );
+    }
+
+    // 구매 확정 버튼이 있는 주문 카드
+    if (item.id === "2") {
+      return (
+        <>
+          <div className="grid grid-cols-2 gap-2">
+            <button className="py-3 border text-sm">
+              배송 조회
+            </button>
+            <button 
+              className="py-3 border text-sm"
+              onClick={() => navigate('/order/return')}
+            >
+              교환/반품 신청
+            </button>
+          </div>
+          <button 
+            className="w-full py-3 border text-sm"
+            onClick={() => setIsPurchaseConfirmOpen(true)}
+          >
+            구매 확정
+          </button>
+        </>
+      );
+    }
+
+    // 기본 버튼 (나머지 주문 카드)
+    return (
+      <div className="grid grid-cols-2 gap-2">
+        <button className="py-3 border text-sm">
+          배송 조회
+        </button>
+        <button 
+          className="py-3 border text-sm"
+          onClick={() => navigate('/order/return')}
+        >
+          교환/반품 신청
+        </button>
+      </div>
+    );
+  };
+
   return (
     <div className="bg-white rounded-lg p-4 space-y-4">
       <div className="flex items-center justify-between">
@@ -52,25 +106,8 @@ const OrderItem = ({ item, onCancelClick }: OrderItemProps) => {
           <div className="font-medium mt-2">{item.product.price.toLocaleString()}원</div>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-2">
-        <button className="py-3 border text-sm">
-          배송 조회
-        </button>
-        <button 
-          className="py-3 border text-sm"
-          onClick={() => navigate('/order/return')}
-        >
-          교환/반품 신청
-        </button>
-      </div>
-      {item.id === "2" && (
-        <button 
-          className="w-full py-3 border text-sm"
-          onClick={() => setIsPurchaseConfirmOpen(true)}
-        >
-          구매 확정
-        </button>
-      )}
+      
+      {renderButtons()}
 
       <PurchaseConfirmation
         isOpen={isPurchaseConfirmOpen}

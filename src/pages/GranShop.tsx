@@ -226,15 +226,17 @@ const GranShop = () => {
                 <CircleChevronDown className="w-5 h-5" />
               </DropdownMenuTrigger>
               <DropdownMenuContent 
-                className="w-screen bg-[#FFFFFF] rounded-none border-x-0 z-50" 
+                className="w-screen rounded-none border-x-0 z-50" 
+                style={{ backgroundColor: '#FFFFFF' }}
                 align="start"
                 sideOffset={20}
               >
-                <div className="p-4 bg-[#FFFFFF]">
+                <div className="p-4" style={{ backgroundColor: '#FFFFFF' }}>
                   <p className="text-sm text-gray-500 mb-4">다양한 BRAND를 만나보세요.</p>
                   <div className="flex justify-between items-center gap-4">
                     <DropdownMenuItem 
-                      className="flex-1 flex flex-col items-center justify-center p-4 hover:bg-gray-50 rounded-lg bg-[#FFFFFF]"
+                      className="flex-1 flex flex-col items-center justify-center p-4 hover:bg-gray-50 rounded-lg"
+                      style={{ backgroundColor: '#FFFFFF' }}
                       onClick={() => setSelectedBrand('GRANHAND.')}
                     >
                       <img 
@@ -244,7 +246,8 @@ const GranShop = () => {
                       />
                     </DropdownMenuItem>
                     <DropdownMenuItem 
-                      className="flex-1 flex flex-col items-center justify-center p-4 hover:bg-gray-50 rounded-lg bg-[#FFFFFF]"
+                      className="flex-1 flex flex-col items-center justify-center p-4 hover:bg-gray-50 rounded-lg"
+                      style={{ backgroundColor: '#FFFFFF' }}
                       onClick={() => setSelectedBrand('heiion')}
                     >
                       <img 
@@ -254,7 +257,8 @@ const GranShop = () => {
                       />
                     </DropdownMenuItem>
                     <DropdownMenuItem 
-                      className="flex-1 flex flex-col items-center justify-center p-4 hover:bg-gray-50 rounded-lg bg-[#FFFFFF]"
+                      className="flex-1 flex flex-col items-center justify-center p-4 hover:bg-gray-50 rounded-lg"
+                      style={{ backgroundColor: '#FFFFFF' }}
                       onClick={() => setSelectedBrand('Komfortabel')}
                     >
                       <img 

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, ShoppingCart, Heart, Home, BookOpen, Scan, User } from "lucide-react";
+import { Search, ShoppingCart, Heart } from "lucide-react";
 import { addToWishlist, removeFromWishlist, isInWishlist, getWishlist, WishlistItem } from '../utils/wishlist';
 import { useToast } from "@/hooks/use-toast";
+import BottomNavigation from '@/components/common/BottomNavigation';
 
 const WishList = () => {
   const navigate = useNavigate();
@@ -82,39 +83,7 @@ const WishList = () => {
         )}
       </div>
 
-      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t">
-        <div className="flex justify-around items-center h-[60px]">
-          <button 
-            className="flex flex-col items-center justify-center gap-1"
-            onClick={() => navigate('/')}
-          >
-            <Home className="w-5 h-5" />
-            <span className="text-xs">홈</span>
-          </button>
-          <button 
-            className="flex flex-col items-center justify-center gap-1"
-            onClick={() => navigate('/guide')}
-          >
-            <BookOpen className="w-5 h-5" />
-            <span className="text-xs">향 가이드</span>
-          </button>
-          <button className="flex flex-col items-center justify-center gap-1">
-            <Scan className="w-5 h-5" />
-            <span className="text-xs">스캔</span>
-          </button>
-          <button className="flex flex-col items-center justify-center gap-1">
-            <Heart className="w-5 h-5 fill-black" />
-            <span className="text-xs font-medium">관심상품</span>
-          </button>
-          <button 
-            className="flex flex-col items-center justify-center gap-1"
-            onClick={() => navigate('/mypage')}
-          >
-            <User className="w-5 h-5" />
-            <span className="text-xs">MY</span>
-          </button>
-        </div>
-      </nav>
+      <BottomNavigation />
     </div>
   );
 };

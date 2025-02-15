@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Bell, ShoppingBag, Wallet, CalendarCheck, Gift, ScrollText, Home, BookOpen, Scan, Heart, User } from 'lucide-react';
+import BottomNavigation from '@/components/common/BottomNavigation';
 
 const MyPage = () => {
   const navigate = useNavigate();
@@ -151,43 +151,7 @@ const MyPage = () => {
         </div>
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 h-[60px] bg-white border-t border-gray-200 grid grid-cols-5">
-        <button 
-          className="flex flex-col items-center justify-center gap-1"
-          onClick={() => navigate('/')}
-        >
-          <Home className="w-5 h-5" />
-          <span className="text-xs">홈</span>
-        </button>
-        <button 
-          className="flex flex-col items-center justify-center gap-1"
-          onClick={() => navigate('/guide')}
-        >
-          <BookOpen className="w-5 h-5" />
-          <span className="text-xs">향가이드</span>
-        </button>
-        <button 
-          className="flex flex-col items-center justify-center gap-1"
-          onClick={() => navigate('/granshop')}
-        >
-          <Scan className="w-5 h-5" />
-          <span className="text-xs">스캔</span>
-        </button>
-        <button 
-          className="flex flex-col items-center justify-center gap-1"
-          onClick={() => navigate('/wishlist')}
-        >
-          <Heart className="w-5 h-5" />
-          <span className="text-xs">관심상품</span>
-        </button>
-        <button 
-          className="flex flex-col items-center justify-center gap-1"
-          onClick={() => navigate('/mypage')}
-        >
-          <User className="w-5 h-5" />
-          <span className="text-xs text-black font-bold">MY</span>
-        </button>
-      </div>
+      <BottomNavigation />
     </div>
   );
 };

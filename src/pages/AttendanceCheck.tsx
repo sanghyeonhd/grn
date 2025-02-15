@@ -60,14 +60,17 @@ const AttendanceCheck = () => {
 
       <div className="space-y-8">
         <div className="bg-white p-6 rounded-lg shadow-sm space-y-8">
-          <div className="flex justify-between items-center">
-            <button>
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <h2 className="font-medium">2023.08</h2>
-            <button>
-              <ChevronRight className="w-5 h-5" />
-            </button>
+          <div>
+            <div className="flex justify-between items-center">
+              <button>
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <h2 className="font-medium">2023.08</h2>
+              <button>
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="h-px bg-[#8B4513] w-full mt-4"></div>
           </div>
 
           <div className="grid grid-cols-7 gap-2">
@@ -114,7 +117,7 @@ const AttendanceCheck = () => {
 
           <div className="relative mt-8">
             <div className="absolute left-1/2 -top-3 transform -translate-x-1/2">
-              <div className="bg-red-500 text-white text-xs px-3 py-1 rounded-full whitespace-nowrap">
+              <div className="bg-red-500 text-white text-xs px-3 py-1 rounded-full whitespace-nowrap before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-4 before:border-transparent before:border-t-red-500">
                 1주 연속 시 500 포인트 추가 지급
               </div>
             </div>

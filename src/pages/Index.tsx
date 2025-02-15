@@ -131,11 +131,11 @@ const Index = () => {
                 alt="NOLL Store" 
                 className="w-full h-full object-cover rounded-sm"
               />
-            </div>
-            <div className="space-y-2">
-              <span className="text-xs text-gray-600">#Team</span>
-              <h3 className="text-base font-medium">NOLL 놀에 대한 모든 것.</h3>
-              <p className="text-xs text-gray-500">2023-07-08 조회 412</p>
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
+                <span className="text-xs">#Team</span>
+                <h3 className="text-base font-medium mt-1">NOLL 놀에 대한 모든 것.</h3>
+                <p className="text-xs mt-1 text-gray-200">2023-07-08 조회 412</p>
+              </div>
             </div>
           </Link>
 

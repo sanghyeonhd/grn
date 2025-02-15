@@ -23,7 +23,7 @@ const JournalDetail = () => {
   };
 
   const renderContent = () => {
-    if (id === '1') {
+    if (id) {
       return (
         <div className="space-y-4">
           <div className="relative">
@@ -119,7 +119,7 @@ const JournalDetail = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {id === '1' ? (
+      {id ? (
         <div className="relative">
           <header className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-4 py-3">
             <div className="flex items-center">

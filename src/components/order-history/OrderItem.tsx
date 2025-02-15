@@ -65,6 +65,18 @@ const OrderItem = ({ item, onCancelClick }: OrderItemProps) => {
       );
     }
 
+    // 배송 지연 상태이고 id가 7인 주문 카드
+    if (item.id === '7' && item.status === '배송 지연') {
+      return (
+        <button 
+          className="w-full py-3 border text-sm"
+          onClick={onCancelClick}
+        >
+          주문 취소
+        </button>
+      );
+    }
+
     // 구매 확정 버튼이 있는 주문 카드
     if (item.id === "2") {
       return (

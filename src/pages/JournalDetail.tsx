@@ -1,128 +1,38 @@
 import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { Share2 } from 'lucide-react';
-
-const categories = [
-  { id: 1, name: 'All', slug: 'all' },
-  { id: 2, name: 'News', slug: 'news' },
-  { id: 3, name: 'Culture', slug: 'culture' },
-  { id: 4, name: 'Life', slug: 'life' },
-  { id: 5, name: 'Team', slug: 'team' },
-  { id: 6, name: 'Essay', slug: 'essay' },
-  { id: 7, name: 'Film', slug: 'film' },
-];
-
+import { useNavigate } from 'react-router-dom';
+import { Share } from 'lucide-react';
 const JournalDetail = () => {
   const navigate = useNavigate();
-  const { id } = useParams();
-  const [activeCategory, setActiveCategory] = React.useState('team');
+  return <div className="min-h-screen bg-white">
+      <header className="flex items-center justify-between px-4 py-3 border-b">
+        <div className="flex items-center">
+          <button onClick={() => navigate(-1)} className="text-2xl mr-4">←</button>
+          <h1 className="text-lg font-medium">JOURNAL</h1>
+        </div>
+        <button className="p-2">
+          <Share className="w-5 h-5" />
+        </button>
+      </header>
 
-  const handleCategoryClick = (slug: string) => {
-    setActiveCategory(slug);
-  };
+      <nav className="flex space-x-4 px-4 py-3 overflow-x-auto whitespace-nowrap">
+        {['All', 'News', 'Culture', 'Life', 'Team', 'Essay', 'Film'].map(tab => <button key={tab} className="text-sm text-gray-600 hover:text-black">
+            {tab}
+          </button>)}
+      </nav>
 
-  const renderContent = () => {
-    if (id === '1') {
-      return (
-        <div className="space-y-4">
-          <div className="relative">
-            <img 
-              src="/lovable-uploads/cce81abf-8c93-4001-89c7-940c7e5a84d8.png"
-              alt="NOLL Store Interior"
-              className="w-full h-screen object-cover"
-            />
-            <header className="absolute top-0 left-0 right-0 flex items-center justify-between px-4 py-3 h-14 bg-gradient-to-b from-black/50 to-transparent">
-              <div className="flex items-center">
-                <button onClick={() => navigate(-1)} className="text-2xl mr-4 text-white">←</button>
-                <h1 className="text-lg font-medium text-white">JOURNAL</h1>
-              </div>
-              <button className="p-2">
-                <Share2 className="w-5 h-5 text-white" />
-              </button>
-            </header>
-          </div>
-          <div className="px-4 -mt-4">
-            <p className="text-sm text-gray-500">#Team</p>
-            <h2 className="text-xl font-medium mb-1">NOLL 놀에 대한 모든 것.</h2>
-            <p className="text-sm text-gray-500">2023-07-08 조회 412</p>
+      <div className="space-y-4">
+        <img src="/public/lovable-uploads/5543f85b-0d24-4ab3-a996-08c599742a75.png" alt="Journal detail" className="w-full h-64 object-cover" />
+        <div className="px-4">
+          <p className="text-sm text-gray-500">#Team</p>
+          <h2 className="text-xl font-medium mb-1">NOLL 놀에 대한 모든 것.</h2>
+          <p className="text-sm text-gray-500">2023-07-08 조회 412</p>
+          
+          <div className="mt-6 space-y-4 text-gray-800">
+            <p>'놀'은 작년 크리스마스에 출시된 그랜핸드의 새로운 라인인 '피험 라인'의 새끼집 향 중 하나입니다. 가장 최근에 보낸다 따끈한 향이에요.</p>
             
-            <div className="mt-6 space-y-4 text-gray-800">
-              <p>'놀'은 작년 크리스마스에 출시된 그랜핸드의 새로운 라인인 '피험 라인'의 새끼집 향 중 하나입니다. 가장 최근에 선보인 따끈한 향이에요.</p>
-            </div>
           </div>
         </div>
-      );
-    }
-
-    if (activeCategory === 'news') {
-      return (
-        <div className="space-y-6 px-4 mt-4">
-          <div 
-            className="relative aspect-square cursor-pointer" 
-            onClick={() => navigate('/journal/1')}
-          >
-            <img 
-              src="/lovable-uploads/e599283a-a3a2-4e3a-88b8-9a782e14152f.png" 
-              alt="NOLL Store" 
-              className="w-full h-full object-cover rounded-sm"
-            />
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
-              <span className="text-xs">#Team</span>
-              <h3 className="text-base font-medium mt-1">NOLL 놀에 대한 모든 것.</h3>
-              <p className="text-xs mt-1 text-gray-200">2023-07-08 조회 412</p>
-            </div>
-          </div>
-
-          <div className="relative aspect-square">
-            <img 
-              src="/lovable-uploads/26818efa-30ea-4335-9455-38183496a890.png" 
-              alt="Sometimes you win Sometimes you learn" 
-              className="w-full h-full object-cover rounded-sm"
-            />
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
-              <span className="text-xs">#Team</span>
-              <h3 className="text-base font-medium mt-1">여름의 끝에서 팀 그랑핸드가 꼽은 최고의 공포영화 Top 10</h3>
-              <p className="text-xs mt-1 text-gray-200">2023-07-08 조회 412</p>
-            </div>
-          </div>
-
-          <div className="relative aspect-square">
-            <img 
-              src="/lovable-uploads/a773021d-65d3-4dde-bb9b-a24d88982a50.png" 
-              alt="Green Circle" 
-              className="w-full h-full object-cover rounded-sm"
-            />
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
-              <span className="text-xs">#Essay</span>
-              <h3 className="text-base font-medium mt-1">초록의 고립 속에서</h3>
-              <p className="text-xs mt-1 text-gray-200">2023-07-08 조회 412</p>
-            </div>
-          </div>
-
-          <div className="relative aspect-square">
-            <img 
-              src="/lovable-uploads/2a0cabfd-61ab-4dbf-be41-3b8c9d808e8f.png" 
-              alt="One Second Every Day" 
-              className="w-full h-full object-cover rounded-sm"
-            />
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
-              <span className="text-xs">#Film</span>
-              <h3 className="text-base font-medium mt-1">One Second Every Day Off, 2023 Summer</h3>
-              <p className="text-xs mt-1 text-gray-200">2023-07-08 조회 412</p>
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    return null;
-  };
-
-  return (
-    <div className="min-h-screen bg-white">
-      {renderContent()}
-    </div>
-  );
+      </div>
+    </div>;
 };
-
 export default JournalDetail;

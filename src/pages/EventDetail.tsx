@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useToast } from "@/hooks/use-toast";
@@ -17,7 +16,7 @@ const mockEvents: EventDetail[] = [
     id: "1",
     title: "2024 Calender | 10월 뉴스레터에서 신청하세요",
     date: "2023-07-08",
-    image: "/lovable-uploads/183e831a-0ce5-4fe8-a07d-3a1388afd6c3.png",
+    image: "/lovable-uploads/c463d28a-53ca-4f19-920b-bb86c30d9d7a.png",
     content: "늘을 한마디로 표현하자면 '시트러스의 재해석'이라 생각해요. 일반적으로 '상큼함', '발랄', '가벼움'을 시트러스 계열의 향의 특징으로 떠올리는데, 늘은 레몬과 베르가못, 자몽의 상큼함을 없지 않으면서도 자스민과 프리지아 우아함과 자몽잎을 유지하고, 티트리와 유칼립투스의 싱싱함은 그러니러하되 갖추면서 시간이 지날수록 앰버와 머스크로 포근하게 마무리되기 때문입니다. 조금은 성숙하면서도 차분한, '편안한 자존감'이라 부디 게재된 부담스러운 불들게 주선된답니다. 싱글향을 먹던은 엣설골로 느낌이 디귀는는 날씨에 가장 잘 어울립니다."
   },
   {

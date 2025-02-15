@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -50,28 +49,28 @@ const Index = () => {
               <CarouselItem>
                 <div className="relative w-[342px] h-[100px]">
                   <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full h-full object-cover" />
-                  <div className="absolute bottom-6 left-6 text-white">
-                    <h2 className="text-2xl font-medium">Sometimes You win<br />Sometimes you learn.</h2>
+                  <div className="absolute bottom-3 left-4 text-white">
+                    <h2 className="text-sm font-medium leading-tight">Sometimes You win<br />Sometimes you learn.</h2>
                   </div>
-                  <div className="absolute bottom-4 right-4 text-white text-sm">1/3</div>
+                  <div className="absolute bottom-2 right-2 text-white text-xs">1/3</div>
                 </div>
               </CarouselItem>
               <CarouselItem>
                 <div className="relative w-[342px] h-[100px]">
                   <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full h-full object-cover" />
-                  <div className="absolute bottom-6 left-6 text-white">
-                    <h2 className="text-2xl font-medium">Another slide text<br />Goes here.</h2>
+                  <div className="absolute bottom-3 left-4 text-white">
+                    <h2 className="text-sm font-medium leading-tight">Another slide text<br />Goes here.</h2>
                   </div>
-                  <div className="absolute bottom-4 right-4 text-white text-sm">2/3</div>
+                  <div className="absolute bottom-2 right-2 text-white text-xs">2/3</div>
                 </div>
               </CarouselItem>
               <CarouselItem>
                 <div className="relative w-[342px] h-[100px]">
                   <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full h-full object-cover" />
-                  <div className="absolute bottom-6 left-6 text-white">
-                    <h2 className="text-2xl font-medium">Final slide text<br />Goes here.</h2>
+                  <div className="absolute bottom-3 left-4 text-white">
+                    <h2 className="text-sm font-medium leading-tight">Final slide text<br />Goes here.</h2>
                   </div>
-                  <div className="absolute bottom-4 right-4 text-white text-sm">3/3</div>
+                  <div className="absolute bottom-2 right-2 text-white text-xs">2/3</div>
                 </div>
               </CarouselItem>
             </CarouselContent>
@@ -90,7 +89,7 @@ const Index = () => {
         </div>
       </div>
 
-      {/* 저널 리스트 (기존 코드 유지) */}
+      {/* 저널 리스트 */}
       <div className="px-4 space-y-4">
         <Link to="/article/1" className="block">
           <div className="aspect-[4/3] bg-gray-100 mb-2">

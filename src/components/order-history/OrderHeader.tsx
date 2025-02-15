@@ -28,12 +28,15 @@ const OrderHeader = ({
   const navigate = useNavigate();
 
   return (
-    <header className="flex items-center gap-4 p-4 border-b">
-      <button onClick={() => navigate(-1)}>
-        <ChevronLeft className="w-6 h-6" />
-      </button>
-      <h1 className="text-lg font-medium">주문 내역</h1>
-      <div className="flex-1 flex justify-end">
+    <header className="flex flex-col p-4 border-b">
+      <div className="flex items-center gap-4 mb-4">
+        <button onClick={() => navigate(-1)}>
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+        <h1 className="text-lg font-medium">주문 내역</h1>
+      </div>
+      <div className="flex justify-between items-center">
+        <div className="font-medium">최근 1년</div>
         <Sheet>
           <SheetTrigger asChild>
             <button className="text-sm">

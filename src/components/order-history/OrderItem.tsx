@@ -1,5 +1,5 @@
 
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Gift } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import PurchaseConfirmation from './PurchaseConfirmation';
@@ -26,11 +26,10 @@ const OrderItem = ({ item, onCancelClick }: OrderItemProps) => {
   const handlePurchaseConfirm = (selectedProducts: string[]) => {
     console.log('Selected products for purchase confirmation:', selectedProducts);
     setIsPurchaseConfirmOpen(false);
-    // Here you would typically make an API call to confirm the purchase
   };
 
   return (
-    <div className="space-y-4 pb-6 border-b last:border-b-0">
+    <div className="bg-white rounded-lg p-4 space-y-4">
       <div 
         className="flex justify-between items-center cursor-pointer"
         onClick={() => navigate(`/order-history/${item.id}`)}
@@ -45,11 +44,9 @@ const OrderItem = ({ item, onCancelClick }: OrderItemProps) => {
           className="w-20 h-20 object-cover"
         />
         <div className="flex-1">
-          <div className="text-gray-500 flex items-center gap-2">
-            {item.status}
-            {item.status === "입금 대기" && (
-              <button className="text-sm underline">문의하기</button>
-            )}
+          <div className="flex items-center justify-between">
+            <div className="text-gray-500">{item.status}</div>
+            <button className="text-sm underline">문의하기</button>
           </div>
           <div className="font-medium">{item.product.name}</div>
           <div className="text-sm text-gray-500">{item.product.option}</div>
@@ -81,6 +78,14 @@ const OrderItem = ({ item, onCancelClick }: OrderItemProps) => {
             구매 확정
           </button>
         </div>
+      ) : item.id === "3" ? (
+        <button
+          className="w-full py-3 border text-sm flex items-center justify-center gap-2"
+          onClick={() => navigate('/gift')}
+        >
+          <Gift className="w-4 h-4" />
+          다른 사람에게 선물하기
+        </button>
       ) : null}
 
       <PurchaseConfirmation
@@ -97,17 +102,6 @@ const OrderItem = ({ item, onCancelClick }: OrderItemProps) => {
             option: "롤랑 멀티퍼퓸 200ml / 1개",
             stampingLabel: "Y",
             stampingType: "GRANHAND ❤️",
-            points: 500
-          },
-          {
-            id: "2",
-            brand: "GRANHAND",
-            name: "Cask Signature Perfume",
-            price: 110000,
-            image: "/lovable-uploads/49950af0-c308-4706-9628-6fc190caba7f.png",
-            option: "캐스크 시그니처퍼퓸 100ml / 1개",
-            stampingLabel: "",
-            stampingType: "",
             points: 500
           }
         ]}

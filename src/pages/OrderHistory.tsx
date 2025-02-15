@@ -72,7 +72,7 @@ const OrderHistory = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FDFBF4]">
+    <div className="min-h-screen bg-[#F5F5F5]">
       <OrderHeader 
         selectedPeriod={selectedPeriod}
         startDate={startDate}

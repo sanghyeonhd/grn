@@ -70,8 +70,8 @@ const JournalDetail = () => {
     return (
       <div className="space-y-4">
         <img 
-          src="/lovable-uploads/e599283a-a3a2-4e3a-88b8-9a782e14152f.png" 
-          alt="NOLL Store" 
+          src="/lovable-uploads/5543f85b-0d24-4ab3-a996-08c599742a75.png"
+          alt="Journal detail"
           className="w-full h-64 object-cover"
         />
         <div className="px-4">

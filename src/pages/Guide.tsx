@@ -13,7 +13,6 @@ interface Question {
 
 const Guide = () => {
   const navigate = useNavigate();
-  const [cartItemCount, setCartItemCount] = useState(2); // 장바구니 상품 개수 예시
   const [questions, setQuestions] = useState<Question[]>([
     {
       id: 1,
@@ -75,11 +74,9 @@ const Guide = () => {
             <Search className="w-6 h-6" />
             <div className="relative">
               <ShoppingBag className="w-6 h-6" />
-              {cartItemCount > 0 && (
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-[10px] text-white flex items-center justify-center">
-                  {cartItemCount}
-                </div>
-              )}
+              <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-[10px] text-white flex items-center justify-center">
+                new
+              </div>
             </div>
           </div>
         </div>
@@ -95,11 +92,13 @@ const Guide = () => {
         {/* 질문 목록 */}
         <div className="mt-6 space-y-6">
           {questions.map((question, index) => (
-            <div key={question.id}>
+            <div key={question.id} className="border-b pb-6">
               <div className="flex items-center gap-2 mb-4">
                 {question.isCompleted && <Check className="w-4 h-4 text-green-500" />}
-                <h3 className="text-sm">
-                  {question.id} {question.text}
+                <h3 className="text-sm flex items-center gap-2">
+                  {question.id}
+                  {index < questions.length - 1 && <span className="text-gray-400">:</span>}
+                  {question.text}
                 </h3>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -117,12 +116,6 @@ const Guide = () => {
                   </button>
                 ))}
               </div>
-              {index < questions.length - 1 && (
-                <div className="py-6 flex items-center gap-2">
-                  <span className="text-gray-400">:</span>
-                  <div className="flex-1 border-b"></div>
-                </div>
-              )}
             </div>
           ))}
         </div>

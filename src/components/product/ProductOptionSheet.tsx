@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Plus, Minus } from 'lucide-react';
 import {
@@ -9,6 +10,7 @@ import {
 } from "@/components/ui/select";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { useNavigate } from 'react-router-dom';
+import { useToast } from "@/components/ui/use-toast";
 
 interface ProductOptionSheetProps {
   isOpen: boolean;
@@ -35,6 +37,38 @@ const ProductOptionSheet = ({
   getTotalPrice,
 }: ProductOptionSheetProps) => {
   const navigate = useNavigate();
+  const { toast } = useToast();
+
+  const handleAddToCart = () => {
+    if (selectedProducts.length === 0) {
+      toast({
+        description: "옵션을 선택해주세요.",
+      });
+      return;
+    }
+    
+    toast({
+      description: "장바구니에 상품이 담겼습니다.",
+    });
+    onOpenChange(false);
+    navigate('/cart');
+  };
+
+  const handlePurchase = () => {
+    if (selectedProducts.length === 0) {
+      toast({
+        description: "옵션을 선택해주세요.",
+      });
+      return;
+    }
+    
+    if (type === 'gift') {
+      navigate('/gift-checkout');
+    } else {
+      navigate('/checkout');
+    }
+    onOpenChange(false);
+  };
 
   return (
     <Sheet open={isOpen} onOpenChange={onOpenChange}>
@@ -102,25 +136,25 @@ const ProductOptionSheet = ({
             </div>
             {type === 'gift' ? (
               <button 
-                className="w-full py-3 bg-[#2C2C2C] text-white"
-                onClick={() => {
-                  onOpenChange(false);
-                  navigate('/gift-checkout');
-                }}
+                className="w-full py-3 bg-[#2C2C2C] text-white disabled:bg-gray-300"
+                onClick={handlePurchase}
+                disabled={selectedProducts.length === 0}
               >
                 선물하기
               </button>
             ) : (
               <div className="grid grid-cols-2 gap-3">
                 <button 
-                  className="py-3 border border-black text-black"
-                  onClick={() => onOpenChange(false)}
+                  className="py-3 border border-black text-black disabled:border-gray-300 disabled:text-gray-300"
+                  onClick={handleAddToCart}
+                  disabled={selectedProducts.length === 0}
                 >
                   장바구니 담기
                 </button>
                 <button 
-                  className="py-3 bg-[#2C2C2C] text-white"
-                  onClick={() => onOpenChange(false)}
+                  className="py-3 bg-[#2C2C2C] text-white disabled:bg-gray-300"
+                  onClick={handlePurchase}
+                  disabled={selectedProducts.length === 0}
                 >
                   구매하기
                 </button>

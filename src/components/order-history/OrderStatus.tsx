@@ -1,7 +1,11 @@
 
 import { useNavigate } from 'react-router-dom';
 
-const OrderStatus = () => {
+interface OrderStatusProps {
+  onStatusSelect: (status: string) => void;
+}
+
+const OrderStatus = ({ onStatusSelect }: OrderStatusProps) => {
   const navigate = useNavigate();
   
   // Filter counts based on specific status
@@ -26,11 +30,11 @@ const OrderStatus = () => {
   ).length;
 
   const statuses = [
-    { label: '입금/결제', count: paymentCount, path: '/orders/payment' },
-    { label: '배송준비', count: preparingCount, path: '/orders/preparing' },
-    { label: '배송중', count: shippingCount, path: '/orders/shipping' },
-    { label: '배송완료', count: deliveredCount, path: '/orders/delivered' },
-    { label: '구매확정', count: confirmedCount, path: '/orders/confirmed' },
+    { label: '입금/결제', count: paymentCount, value: 'payment' },
+    { label: '배송준비', count: preparingCount, value: 'preparing' },
+    { label: '배송중', count: shippingCount, value: 'shipping' },
+    { label: '배송완료', count: deliveredCount, value: 'delivered' },
+    { label: '구매확정', count: confirmedCount, value: 'confirmed' },
   ];
 
   // Find a confirmed order for the bottom card
@@ -81,7 +85,7 @@ const OrderStatus = () => {
           {statuses.map((status) => (
             <button
               key={status.label}
-              onClick={() => navigate(status.path)}
+              onClick={() => onStatusSelect(status.value)}
               className="space-y-1"
             >
               <div className="font-medium text-sm">{status.count}</div>

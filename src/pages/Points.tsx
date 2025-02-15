@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, Info } from 'lucide-react';
@@ -91,12 +90,12 @@ const Points = () => {
     if (activeTab === 'all') return true;
     if (activeTab === 'earn') return item.points.startsWith('+');
     if (activeTab === 'use') return item.points.startsWith('-');
-    if (activeTab === 'expire') return false; // 소멸 데이터 없음
+    if (activeTab === 'expire') return false;
     return true;
   });
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <div className="p-4 flex items-center justify-between border-b">
         <div className="flex items-center gap-4">
           <button onClick={() => navigate(-1)}>
@@ -108,7 +107,7 @@ const Points = () => {
           <SheetTrigger>
             <Info className="w-5 h-5 text-gray-500" />
           </SheetTrigger>
-          <SheetContent side="bottom" className="h-[80vh]">
+          <SheetContent side="bottom" className="h-[80vh] sheet-custom">
             <SheetHeader>
               <SheetTitle className="text-left text-lg font-bold mb-6">포인트 사용 안내</SheetTitle>
             </SheetHeader>
@@ -142,14 +141,19 @@ const Points = () => {
         </Sheet>
       </div>
 
-      <div className="p-4 bg-gray-50">
-        <div className="mb-8">
-          <p className="text-sm font-medium mb-1">포인트</p>
-          <p className="text-[32px] font-bold">13,900</p>
-          <p className="text-sm text-gray-600">이번 달 소멸 예정 포인트 <span className="text-black">0</span></p>
+      <div className="p-5 bg-background">
+        <div className="rounded-xl bg-white p-5 shadow-sm mb-6">
+          <div className="mb-4">
+            <h2 className="text-sm text-gray-900 mb-1">포인트</h2>
+            <p className="text-[32px] font-bold">0</p>
+          </div>
+          <div className="text-sm text-gray-500">
+            이번 달 소멸 예정 포인트 <span className="text-gray-900">0</span>
+          </div>
         </div>
 
-        <div>
+        <div className="mt-4">
+          <h3 className="text-base font-medium mb-4">포인트 상세 내역</h3>
           <div className="flex border-b bg-white">
             <button 
               className={`flex-1 py-3 text-sm ${activeTab === 'all' ? 'border-b-2 border-black font-medium' : 'text-gray-400'}`}

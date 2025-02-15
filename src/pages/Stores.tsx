@@ -20,7 +20,8 @@ const Stores = () => {
     ],
     '시청': [
       "/lovable-uploads/8281c082-a0c5-4f00-be7b-d23871ccf7b0.png",
-      "/lovable-uploads/d787b2b8-abaa-47ab-a192-dfa4adafd4cc.png"
+      "/lovable-uploads/d787b2b8-abaa-47ab-a192-dfa4adafd4cc.png",
+      "/lovable-uploads/5cc24d62-62a5-411c-b26f-3dfab302a6a5.png"
     ],
     '광화문': [
       "/lovable-uploads/31857c3b-f823-4593-a0df-3ae8d4f651ed.png"
@@ -105,7 +106,7 @@ const Stores = () => {
                 src={image} 
                 alt={`Store ${index + 1}`} 
                 className="w-full rounded-lg"
-                style={{ maxHeight: 'calc(100vh - 250px)', objectFit: 'contain' }}
+                style={{ maxHeight: 'calc(100vh - 250px)', objectFit: 'cover' }}
               />
             </div>
           ))}

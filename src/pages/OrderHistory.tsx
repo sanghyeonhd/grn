@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import {
   AlertDialog,
@@ -97,13 +98,13 @@ const OrderHistory = () => {
           </AlertDialogHeader>
           <AlertDialogFooter className="flex-row gap-2">
             <AlertDialogCancel
-              className="flex-1 rounded-none border-gray-300"
+              className="flex-1 rounded-none bg-white hover:bg-gray-50 text-black border border-gray-300"
               onClick={() => setIsCancelModalOpen(false)}
             >
               닫기
             </AlertDialogCancel>
             <AlertDialogAction
-              className="flex-1 rounded-none bg-black hover:bg-black/90"
+              className="flex-1 rounded-none bg-white hover:bg-gray-50 text-black border border-gray-300"
               onClick={() => {
                 setIsCancelModalOpen(false);
                 setIsConfirmOpen(true);
@@ -125,7 +126,7 @@ const OrderHistory = () => {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogAction
-              className="w-full rounded-none bg-black hover:bg-black/90"
+              className="w-full rounded-none bg-white hover:bg-gray-50 text-black border border-gray-300"
               onClick={() => setIsConfirmOpen(false)}
             >
               확인

@@ -41,7 +41,7 @@ const Stores = () => {
 
   return (
     <div className="min-h-screen bg-[#FDFBF4] pb-6">
-      <div className="sticky top-0 z-10 bg-white border-b">
+      <div className="sticky top-0 z-10 bg-[#FDFBF4] border-b">
         <div className="p-4 flex items-center">
           <button onClick={() => navigate(-1)} className="mr-4">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">

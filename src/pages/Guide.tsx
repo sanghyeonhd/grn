@@ -74,7 +74,7 @@ const Guide = () => {
 
   return (
     <div className="min-h-screen bg-[#FDFBF4]">
-      <div className="sticky top-0 z-10 bg-white border-b">
+      <div className="sticky top-0 z-10 bg-[#FDFBF4] border-b">
         <div className="px-4 py-3 flex justify-between items-center">
           <h1 className="text-lg font-bold">GUIDE</h1>
           <div className="flex items-center gap-4">

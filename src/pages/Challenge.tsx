@@ -33,50 +33,52 @@ const Challenge = () => {
 
   return (
     <div className="min-h-screen bg-[#FDFBF4]">
-      <div className="sticky top-0 bg-white border-b">
-        <div className="flex items-center h-12">
-          <button onClick={() => navigate(-1)} className="px-4">
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <h1 className="flex-1 text-center pr-10">챌린지</h1>
+      <div className="sticky top-0 bg-[#FDFBF4] border-b">
+        <div className="p-4 flex items-center justify-between">
+          <h1 className="text-lg font-medium">챌린지</h1>
+          <div className="flex items-center gap-4">
+            <button onClick={() => navigate(-1)} className="px-4">
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+          </div>
         </div>
-
-        <Tabs defaultValue="unowned" className="w-full">
-          <TabsList className="w-full grid grid-cols-3 h-auto p-0">
-            <TabsTrigger 
-              value="all" 
-              className="data-[state=active]:border-b-2 border-black py-3 rounded-none"
-              onClick={() => setTab("all")}
-            >
-              전체
-            </TabsTrigger>
-            <TabsTrigger 
-              value="unowned" 
-              className="data-[state=active]:border-b-2 border-black py-3 rounded-none"
-              onClick={() => setTab("unowned")}
-            >
-              미보유
-            </TabsTrigger>
-            <TabsTrigger 
-              value="owned" 
-              className="data-[state=active]:border-b-2 border-black py-3 rounded-none"
-              onClick={() => setTab("owned")}
-            >
-              보유
-            </TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="all">
-            <ChallengeGrid challenges={[...unownedChallenges, ...ownedChallenges]} />
-          </TabsContent>
-          <TabsContent value="unowned">
-            <ChallengeGrid challenges={unownedChallenges} />
-          </TabsContent>
-          <TabsContent value="owned">
-            <ChallengeGrid challenges={ownedChallenges} />
-          </TabsContent>
-        </Tabs>
       </div>
+
+      <Tabs defaultValue="unowned" className="w-full">
+        <TabsList className="w-full grid grid-cols-3 h-auto p-0">
+          <TabsTrigger 
+            value="all" 
+            className="data-[state=active]:border-b-2 border-black py-3 rounded-none"
+            onClick={() => setTab("all")}
+          >
+            전체
+          </TabsTrigger>
+          <TabsTrigger 
+            value="unowned" 
+            className="data-[state=active]:border-b-2 border-black py-3 rounded-none"
+            onClick={() => setTab("unowned")}
+          >
+            미보유
+          </TabsTrigger>
+          <TabsTrigger 
+            value="owned" 
+            className="data-[state=active]:border-b-2 border-black py-3 rounded-none"
+            onClick={() => setTab("owned")}
+          >
+            보유
+          </TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="all">
+          <ChallengeGrid challenges={[...unownedChallenges, ...ownedChallenges]} />
+        </TabsContent>
+        <TabsContent value="unowned">
+          <ChallengeGrid challenges={unownedChallenges} />
+        </TabsContent>
+        <TabsContent value="owned">
+          <ChallengeGrid challenges={ownedChallenges} />
+        </TabsContent>
+      </Tabs>
 
       <Sheet>
         <SheetTrigger asChild>

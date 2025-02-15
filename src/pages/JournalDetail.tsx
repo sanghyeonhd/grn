@@ -21,6 +21,11 @@ const JournalDetail = () => {
     setActiveCategory(slug);
   };
 
+  const handleBack = () => {
+    console.log('Back button clicked');
+    navigate(-1);
+  };
+
   const renderContent = () => {
     if (id) {
       return (
@@ -34,7 +39,12 @@ const JournalDetail = () => {
             <div className="absolute top-0 left-0 right-0 h-full flex flex-col justify-between">
               <header className="z-10 flex items-center justify-between px-4 py-3">
                 <div className="flex items-center">
-                  <button onClick={() => navigate(-1)} className="text-2xl mr-4 text-white">←</button>
+                  <button 
+                    onClick={handleBack} 
+                    className="text-2xl mr-4 text-white p-2 hover:opacity-75 transition-opacity"
+                  >
+                    ←
+                  </button>
                   <h1 className="text-lg font-medium text-white">JOURNAL</h1>
                 </div>
                 <button className="p-2">
@@ -137,7 +147,12 @@ const JournalDetail = () => {
         <>
           <header className="flex items-center justify-between px-4 py-3 border-b">
             <div className="flex items-center">
-              <button onClick={() => navigate(-1)} className="text-2xl mr-4">←</button>
+              <button 
+                onClick={handleBack}
+                className="text-2xl mr-4 p-2 hover:opacity-75 transition-opacity"
+              >
+                ←
+              </button>
               <h1 className="text-lg font-medium">JOURNAL</h1>
             </div>
           </header>

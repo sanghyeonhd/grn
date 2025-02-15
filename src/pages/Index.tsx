@@ -94,48 +94,56 @@ const Index = () => {
       </div>
 
       {/* 저널 리스트 */}
-      <div className="px-4 space-y-4">
+      <div className="px-4 space-y-6 mb-20">
         <Link to="/article/1" className="block">
-          <div className="aspect-[4/3] bg-gray-100 mb-2">
-            <img src="/lovable-uploads/29b0770e-1ae6-4e2c-b680-aa6a22207749.png" alt="Article 1" className="w-full h-full object-cover" />
+          <div className="aspect-[4/3] bg-gray-100 mb-4">
+            <img src="/lovable-uploads/29b0770e-1ae6-4e2c-b680-aa6a22207749.png" alt="Article 1" className="w-full h-full object-cover rounded-sm" />
           </div>
-          <div className="space-y-1">
-            <div className="text-xs text-gray-500">취향</div>
-            <h3 className="text-sm font-medium">NCLE 제작 대한 모든 것.</h3>
-            <div className="text-xs text-gray-500">2023-07-06 5분 읽기</div>
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-gray-600">#Team</span>
+            </div>
+            <h3 className="text-base font-medium leading-snug">NOLL 놀에 대한 모든 것.</h3>
+            <div className="text-xs text-gray-500">2023-07-08 조회 412</div>
           </div>
         </Link>
 
         <Link to="/article/2" className="block">
-          <div className="aspect-[4/3] bg-gray-100 mb-2">
-            <img src="/lovable-uploads/418cc4fd-255d-435e-bc05-32c7e4a05ea7.png" alt="Article 2" className="w-full h-full object-cover" />
+          <div className="aspect-[4/3] bg-gray-100 mb-4">
+            <img src="/lovable-uploads/418cc4fd-255d-435e-bc05-32c7e4a05ea7.png" alt="Article 2" className="w-full h-full object-cover rounded-sm" />
           </div>
-          <div className="space-y-1">
-            <div className="text-xs text-gray-500">브랜드</div>
-            <h3 className="text-sm font-medium">아로마틱 블렌딩 & 그라모그라프의 포트폴리오 향 Top 10</h3>
-            <div className="text-xs text-gray-500">2023-07-08 3분 읽기</div>
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-gray-600">#Team</span>
+            </div>
+            <h3 className="text-base font-medium leading-snug">여름의 끝에서 틸 그랑핸드가 꼽은 최고의 공포영화 Top 10</h3>
+            <div className="text-xs text-gray-500">2023-07-08 조회 412</div>
           </div>
         </Link>
 
         <Link to="/article/3" className="block">
-          <div className="aspect-[4/3] bg-gray-100 mb-2">
-            <img src="/lovable-uploads/0a13436b-8b26-4568-94f5-73f1f0edf708.png" alt="Article 3" className="w-full h-full object-cover" />
+          <div className="aspect-[4/3] bg-gray-100 mb-4">
+            <img src="/lovable-uploads/0a13436b-8b26-4568-94f5-73f1f0edf708.png" alt="Article 3" className="w-full h-full object-cover rounded-sm" />
           </div>
-          <div className="space-y-1">
-            <div className="text-xs text-gray-500">소식</div>
-            <h3 className="text-sm font-medium">포롱테라피 소식지</h3>
-            <div className="text-xs text-gray-500">2023-07-08 3분 읽기</div>
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-gray-600">#Essay</span>
+            </div>
+            <h3 className="text-base font-medium leading-snug">초록의 고리 속에서</h3>
+            <div className="text-xs text-gray-500">2023-07-08 조회 412</div>
           </div>
         </Link>
 
-        <Link to="/article/4" className="block mb-8">
-          <div className="aspect-[4/3] bg-gray-100 mb-2">
-            <img src="/lovable-uploads/49950af0-c308-4706-9628-6fc190caba7f.png" alt="Article 4" className="w-full h-full object-cover" />
+        <Link to="/article/4" className="block">
+          <div className="aspect-[4/3] bg-gray-100 mb-4">
+            <img src="/lovable-uploads/49950af0-c308-4706-9628-6fc190caba7f.png" alt="Article 4" className="w-full h-full object-cover rounded-sm" />
           </div>
-          <div className="space-y-1">
-            <div className="text-xs text-gray-500">이벤트</div>
-            <h3 className="text-sm font-medium">One Solution Every Day Off. 2023</h3>
-            <div className="text-xs text-gray-500">2023-07-08 4분 읽기</div>
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-gray-600">#Film</span>
+            </div>
+            <h3 className="text-base font-medium leading-snug">One Second Every Day Off, 2023 Summer</h3>
+            <div className="text-xs text-gray-500">2023-07-08 조회 412</div>
           </div>
         </Link>
       </div>

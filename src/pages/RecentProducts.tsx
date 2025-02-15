@@ -1,10 +1,15 @@
 
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, Heart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Product } from "@/types/order";
+import { useState, useEffect } from "react";
+import { addToWishlist, removeFromWishlist, isInWishlist, WishlistItem } from '../utils/wishlist';
+import { useToast } from "@/hooks/use-toast";
 
 const RecentProducts = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
+  const [wishlistState, setWishlistState] = useState<{ [key: string]: boolean }>({});
 
   const recentProducts: Product[] = [
     {
@@ -15,7 +20,7 @@ const RecentProducts = () => {
       option: "롤랑 멀티퍼퓸 100ml / 200ml",
       shoppingBag: "구매 안함",
       stampingType: "N",
-      image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png"
+      image: "/lovable-uploads/21fa37c7-fef3-4a02-9062-c9825bb7638e.png"
     },
     {
       id: "2",
@@ -25,7 +30,7 @@ const RecentProducts = () => {
       option: "롤랑 멀티퍼퓸 100ml / 200ml",
       shoppingBag: "구매 안함",
       stampingType: "N",
-      image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png"
+      image: "/lovable-uploads/21fa37c7-fef3-4a02-9062-c9825bb7638e.png"
     },
     {
       id: "3",
@@ -35,7 +40,7 @@ const RecentProducts = () => {
       option: "롤랑 멀티퍼퓸 100ml / 200ml",
       shoppingBag: "구매 안함",
       stampingType: "N",
-      image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png"
+      image: "/lovable-uploads/21fa37c7-fef3-4a02-9062-c9825bb7638e.png"
     },
     {
       id: "4",
@@ -45,9 +50,45 @@ const RecentProducts = () => {
       option: "롤랑 멀티퍼퓸 100ml / 200ml",
       shoppingBag: "구매 안함",
       stampingType: "N",
-      image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png"
+      image: "/lovable-uploads/21fa37c7-fef3-4a02-9062-c9825bb7638e.png"
     }
   ];
+
+  useEffect(() => {
+    const initialWishlistState = recentProducts.reduce((acc, product) => {
+      acc[product.id] = isInWishlist(product.id);
+      return acc;
+    }, {} as { [key: string]: boolean });
+    setWishlistState(initialWishlistState);
+  }, []);
+
+  const handleWishlistToggle = (e: React.MouseEvent, product: Product) => {
+    e.stopPropagation();
+    const item: WishlistItem = {
+      id: product.id,
+      name: product.name,
+      description: product.option,
+      price: `${product.price.toLocaleString()} KRW`,
+      image: product.image
+    };
+
+    if (wishlistState[product.id]) {
+      removeFromWishlist(product.id);
+      toast({
+        description: "관심상품에서 제거되었습니다.",
+      });
+    } else {
+      addToWishlist(item);
+      toast({
+        description: "관심상품에 추가되었습니다.",
+      });
+    }
+
+    setWishlistState(prev => ({
+      ...prev,
+      [product.id]: !prev[product.id]
+    }));
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -64,12 +105,24 @@ const RecentProducts = () => {
         <div className="grid grid-cols-2 gap-x-4 gap-y-8">
           {recentProducts.map((product) => (
             <div key={product.id} className="space-y-2">
-              <img 
-                src={product.image} 
-                alt={product.name}
-                className="w-full aspect-square object-cover"
-              />
-              <div>
+              <div className="relative">
+                <img 
+                  src={product.image} 
+                  alt={product.name}
+                  className="w-full aspect-square object-cover cursor-pointer"
+                  onClick={() => navigate(`/granshop/perfume/${product.id}`)}
+                />
+                <button
+                  onClick={(e) => handleWishlistToggle(e, product)}
+                  className="absolute top-2 right-2"
+                >
+                  <Heart 
+                    className="w-6 h-6 text-black" 
+                    fill={wishlistState[product.id] ? "black" : "none"}
+                  />
+                </button>
+              </div>
+              <div className="cursor-pointer" onClick={() => navigate(`/granshop/perfume/${product.id}`)}>
                 <div className="text-sm text-gray-500">{product.brand}</div>
                 <div className="font-medium">{product.name}</div>
                 <div className="text-sm text-gray-500">{product.option}</div>

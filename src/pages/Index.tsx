@@ -19,7 +19,7 @@ const Index = () => {
               <div className="relative">
                 <img alt="2025 Calendar" className="w-full aspect-[3/4] object-cover" src="/lovable-uploads/0453065a-b312-4957-bacd-f79cfd8999bf.png" />
                 <div className="absolute bottom-12 left-6 text-white">
-                  <h1 className="text-4xl font-bold mb-2">2025<br />Calender</h1>
+                  <h1 className="text-4xl font-bold mb-4">2025<br />Calender</h1>
                   <p className="text-base">1월 뉴스레터에서 신청하세요</p>
                 </div>
                 <div className="absolute bottom-4 right-4 text-white text-sm">

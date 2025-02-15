@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Check, Search, ShoppingBag } from 'lucide-react';
@@ -65,18 +64,16 @@ const Guide = () => {
     }
   };
 
-  // 검색 페이지로 이동
   const handleSearchClick = () => {
     navigate('/search');
   };
 
-  // 장바구니 페이지로 이동
   const handleCartClick = () => {
     navigate('/cart');
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#FDFBF4]">
       <div className="sticky top-0 z-10 bg-white border-b">
         <div className="px-4 py-3 flex justify-between items-center">
           <h1 className="text-lg font-bold">GUIDE</h1>

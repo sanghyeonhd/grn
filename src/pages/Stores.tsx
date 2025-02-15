@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -41,8 +40,7 @@ const Stores = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white pb-6">
-      {/* 헤더 */}
+    <div className="min-h-screen bg-[#FDFBF4] pb-6">
       <div className="sticky top-0 z-10 bg-white border-b">
         <div className="p-4 flex items-center">
           <button onClick={() => navigate(-1)} className="mr-4">
@@ -54,7 +52,6 @@ const Stores = () => {
         </div>
       </div>
 
-      {/* 브랜드 선택 */}
       <div className="px-6 py-4">
         <div className="flex space-x-4">
           {brandTabs.map(brand => (
@@ -72,7 +69,6 @@ const Stores = () => {
         </div>
       </div>
 
-      {/* 지역 탭 */}
       <div className="px-6 overflow-x-auto">
         <div className="flex space-x-4 whitespace-nowrap">
           {locationTabs[selectedBrand]?.map(location => (
@@ -87,7 +83,6 @@ const Stores = () => {
         </div>
       </div>
 
-      {/* 매장 정보 */}
       <div className="mt-6">
         <div className="px-6 mb-4">
           <div className="flex items-center gap-2">
@@ -96,7 +91,6 @@ const Stores = () => {
           </div>
         </div>
         
-        {/* 매장 이미지 */}
         <div className="px-6">
           {storeImages[selectedTab]?.map((image, index) => (
             <div key={index} className="w-full mb-4 last:mb-0">

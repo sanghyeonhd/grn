@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useToast } from "@/hooks/use-toast";
@@ -104,7 +103,7 @@ const JournalDetail = () => {
           id="3"
           image="/lovable-uploads/a773021d-65d3-4dde-bb9b-a24d88982a50.png"
           category="Essay"
-          title="초록의 고립 속에서"
+          title="초록�� 고립 속에서"
           date="2023-07-08"
           views={412}
         />
@@ -121,7 +120,7 @@ const JournalDetail = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#FDFBF4]">
       {id ? (
         <div className="relative">
           {renderContent()}

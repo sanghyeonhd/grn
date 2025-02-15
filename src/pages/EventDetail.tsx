@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useToast } from "@/hooks/use-toast";
@@ -111,7 +110,7 @@ const EventDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#FDFBF4]">
       <header className="flex items-center justify-between px-4 py-3 border-b">
         <div className="flex items-center">
           <button onClick={() => navigate(-1)} className="text-2xl mr-4">←</button>

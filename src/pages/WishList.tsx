@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, ShoppingCart, Heart, Home, BookOpen, Scan, User } from "lucide-react";
@@ -53,7 +52,7 @@ const WishList = () => {
   );
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#FDFBF4]">
       <div className="fixed top-0 left-0 right-0 bg-white z-50">
         <div className="flex items-center justify-between p-4">
           <h1 className="text-lg font-medium">관심상품</h1>

@@ -16,7 +16,7 @@ const Index = () => {
     navigate(`/journal?category=${category.toLowerCase()}`);
   };
 
-  return <div className="min-h-screen bg-white">
+  return <div className="min-h-screen bg-[#FDFBF4]">
       {/* 메인 배너 */}
       <div className="relative">
         <Carousel opts={{ loop: true, align: "start" }} className="w-full">
@@ -202,4 +202,5 @@ const Index = () => {
       </section>
     </div>;
 };
+
 export default Index;

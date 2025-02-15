@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from "@/hooks/use-toast";
@@ -72,8 +71,7 @@ const Awards = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* 헤더 */}
+    <div className="min-h-screen bg-[#FDFBF4]">
       <div className="flex items-center px-4 h-[44px] border-b border-[#EAEAEA]">
         <button onClick={() => navigate(-1)} className="mr-4">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -90,7 +88,6 @@ const Awards = () => {
         </button>
       </div>
 
-      {/* 메인 탭 */}
       <div className="flex border-b border-[#EAEAEA] px-4">
         {mainTabs.map((tab) => (
           <button
@@ -107,7 +104,6 @@ const Awards = () => {
         ))}
       </div>
 
-      {/* 서브 탭 */}
       <div className="flex border-b border-[#EAEAEA] px-4">
         {subTabs.map((tab) => (
           <button
@@ -124,7 +120,6 @@ const Awards = () => {
         ))}
       </div>
 
-      {/* 콘텐츠 영역 */}
       {submenuTab === '행사안내' && (
         <div className="px-4 py-8">
           <div className="mb-8">

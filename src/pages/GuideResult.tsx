@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ProductCarousel from '@/components/product/ProductCarousel';
@@ -44,7 +43,7 @@ const GuideResult = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#FDFBF4]">
       <div className="flex items-center px-4 h-[44px] border-b border-[#EAEAEA]">
         <button onClick={() => navigate(-1)} className="mr-4">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">

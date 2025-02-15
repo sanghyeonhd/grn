@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Share2 } from 'lucide-react';
@@ -49,7 +48,6 @@ const JournalDetail = () => {
             
             <div className="mt-6 space-y-4 text-gray-800">
               <p>'놀'은 작년 크리스마스에 출시된 그랜핸드의 새로운 라인인 '피험 라인'의 새끼집 향 중 하나입니다. 가장 최근에 선보인 따끈한 향이에요.</p>
-              <p>잣곡에 버들숲을 노랗게로 진해지는 석을 알아니 바라보다 버린 새벽이 난 두 구름으로 들리던다. 낮정고에 거는 체론을 가네 있에 램이 뒤귀 뒤에 잣곡에 물담했다.</p>
             </div>
           </div>
         </div>

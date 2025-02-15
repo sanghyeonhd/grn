@@ -45,7 +45,7 @@ const GiftBox = () => {
     {
       id: "3",
       date: "2023.09.18",
-      status: "배송 완료 (선물 수락)",
+      status: "배송 완료 (선물 거절)",
       product: {
         name: "Roland Multi Perfume",
         option: "롤랑 멀티퍼퓸 100ml / 1개",

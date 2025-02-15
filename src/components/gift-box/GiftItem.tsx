@@ -173,8 +173,8 @@ const GiftItem = ({ item }: GiftItemProps) => {
           </button>
         </div>
       ) : (
-        <button className="w-full py-3 border text-sm">
-          구매 확정
+        <button className="w-full py-3 border text-sm bg-[#F6F6F7]">
+          선물 거절
         </button>
       )}
     </div>

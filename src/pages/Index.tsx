@@ -1,8 +1,6 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
 const Index = () => {
   return <div className="min-h-screen bg-white">
       {/* 메인 배너 */}
@@ -30,7 +28,7 @@ const Index = () => {
         <h2 className="text-sm font-medium mb-6">브랜드 숍</h2>
         <div className="grid grid-cols-3 gap-4">
           <Link to="/granshop" className="text-center">
-            <img src="/lovable-uploads/66df05bf-51f9-4241-8db3-1d9289f9bd21.png" alt="GRANHAND." className="h-6 w-auto mx-auto" />
+            <img src="/lovable-uploads/66df05bf-51f9-4241-8db3-1d9289f9bd21.png" alt="GRANHAND." className="h-3 w-auto mx-auto" />
           </Link>
           <Link to="/heliotrope" className="text-center">
             <img src="/lovable-uploads/e2d45399-1ffd-41f7-b123-c8856c1408d4.png" alt="heiion" className="h-6 w-auto mx-auto" />
@@ -100,5 +98,4 @@ const Index = () => {
       </div>
     </div>;
 };
-
 export default Index;

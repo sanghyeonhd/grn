@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Share } from 'lucide-react';
+import { Share2 } from 'lucide-react';
 
 const categories = [
   { id: 1, name: 'All', slug: 'all' },
@@ -38,7 +38,7 @@ const JournalDetail = () => {
                 <h1 className="text-lg font-medium text-white">JOURNAL</h1>
               </div>
               <button className="p-2">
-                <Share className="w-5 h-5 text-white" />
+                <Share2 className="w-5 h-5 text-white" />
               </button>
             </header>
           </div>

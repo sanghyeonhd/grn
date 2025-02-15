@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Heart, Search, ShoppingCart, Home, BookOpen, Scan, User, CircleChevronDown } from "lucide-react";
+import { Heart, Search, ShoppingCart } from "lucide-react";
 import { addToWishlist, removeFromWishlist, isInWishlist, WishlistItem } from '../utils/wishlist';
 import { useToast } from "@/components/ui/use-toast";
+import BottomNavigation from '@/components/common/BottomNavigation';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -224,7 +225,6 @@ const GranShop = () => {
   const sortProducts = (products: any[]) => {
     switch (sortOption) {
       case '인기순':
-        // 실제로는 조회수나 판매량 등의 데이터를 기반으로 정렬해야 합니다
         return [...products];
       case '낮은 가격순':
         return [...products].sort((a, b) => 
@@ -251,7 +251,7 @@ const GranShop = () => {
                        !location.pathname.includes('body');
 
   return (
-    <div className="min-h-screen bg-[#FDFBF4]">
+    <div className="min-h-screen bg-[#FDFBF4] pb-[60px]">
       <div className="fixed top-0 left-0 right-0 bg-[#FDFBF4] z-10">
         <div className="flex items-center justify-between p-4">
           <div className="flex items-center gap-2">
@@ -418,45 +418,7 @@ const GranShop = () => {
         </div>
       </div>
 
-      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t">
-        <div className="flex justify-around items-center h-[60px]">
-          <button 
-            className="flex flex-col items-center justify-center gap-1"
-            onClick={() => navigate('/')}
-          >
-            <Home className="w-5 h-5" />
-            <span className="text-xs">홈</span>
-          </button>
-          <button 
-            className="flex flex-col items-center justify-center gap-1"
-            onClick={() => navigate('/guide')}
-          >
-            <BookOpen className="w-5 h-5" />
-            <span className="text-xs">향 가이드</span>
-          </button>
-          <button 
-            className="flex flex-col items-center justify-center gap-1"
-            onClick={() => navigate('/granshop')}
-          >
-            <Scan className="w-5 h-5" />
-            <span className="text-xs text-black font-bold">스캔</span>
-          </button>
-          <button 
-            className="flex flex-col items-center justify-center gap-1"
-            onClick={() => navigate('/wishlist')}
-          >
-            <Heart className="w-5 h-5" />
-            <span className="text-xs">관심상품</span>
-          </button>
-          <button 
-            className="flex flex-col items-center justify-center gap-1"
-            onClick={() => navigate('/mypage')}
-          >
-            <User className="w-5 h-5" />
-            <span className="text-xs">MY</span>
-          </button>
-        </div>
-      </nav>
+      <BottomNavigation />
     </div>
   );
 };

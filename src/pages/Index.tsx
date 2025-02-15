@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -43,40 +44,51 @@ const Index = () => {
             <img src="/lovable-uploads/64dfd9b8-2894-4518-803c-3b7324c4147a.png" alt="Komfortabel coffee" className="h-6 w-auto mx-auto" />
           </Link>
         </div>
-        <div className="mt-8 px-4">
+        <div className="mt-8">
           <Carousel opts={{ loop: true, align: "start" }} className="w-full">
             <CarouselContent>
               <CarouselItem>
-                <div className="relative w-[342px] h-[100px]">
-                  <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full h-full object-cover" />
+                <div className="relative">
+                  <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full aspect-[4/3] object-cover" />
                   <div className="absolute bottom-6 left-6 text-white">
-                    <h2 className="text-[10px]">Sometimes You win<br />Sometimes you learn.</h2>
+                    <h2 className="text-2xl font-medium">Sometimes You win<br />Sometimes you learn.</h2>
                   </div>
-                  <div className="absolute bottom-4 right-4 text-white text-[10px]">1/3</div>
+                  <div className="absolute bottom-4 right-4 text-white text-sm">1/3</div>
                 </div>
               </CarouselItem>
               <CarouselItem>
-                <div className="relative w-[342px] h-[100px]">
-                  <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full h-full object-cover" />
+                <div className="relative">
+                  <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full aspect-[4/3] object-cover" />
                   <div className="absolute bottom-6 left-6 text-white">
-                    <h2 className="text-[10px]">Another slide text<br />Goes here.</h2>
+                    <h2 className="text-2xl font-medium">Another slide text<br />Goes here.</h2>
                   </div>
-                  <div className="absolute bottom-4 right-4 text-white text-[10px]">2/3</div>
+                  <div className="absolute bottom-4 right-4 text-white text-sm">2/3</div>
                 </div>
               </CarouselItem>
               <CarouselItem>
-                <div className="relative w-[342px] h-[100px]">
-                  <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full h-full object-cover" />
+                <div className="relative">
+                  <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full aspect-[4/3] object-cover" />
                   <div className="absolute bottom-6 left-6 text-white">
-                    <h2 className="text-[10px]">Final slide text<br />Goes here.</h2>
+                    <h2 className="text-2xl font-medium">Final slide text<br />Goes here.</h2>
                   </div>
-                  <div className="absolute bottom-4 right-4 text-white text-[10px]">3/3</div>
+                  <div className="absolute bottom-4 right-4 text-white text-sm">3/3</div>
                 </div>
               </CarouselItem>
             </CarouselContent>
           </Carousel>
         </div>
       </section>
+
+      {/* 바텀 배너 */}
+      <div className="relative mb-8">
+        <img src="/lovable-uploads/2c24b0e5-3019-42e4-a3fa-ec7ac94dc6c9.png" alt="Sometimes You win Sometimes you learn" className="w-full aspect-[4/3] object-cover" />
+        <div className="absolute bottom-6 left-6 text-white">
+          <h2 className="text-2xl font-medium">Sometimes You win<br />Sometimes you learn.</h2>
+        </div>
+        <div className="absolute bottom-4 right-4 text-white text-sm">
+          1/3
+        </div>
+      </div>
 
       {/* 저널 리스트 (기존 코드 유지) */}
       <div className="px-4 space-y-4">

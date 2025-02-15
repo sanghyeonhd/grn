@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, Info } from 'lucide-react';
@@ -97,7 +96,7 @@ const Points = () => {
   });
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#FDFBF4]">
       <div className="p-4 flex items-center justify-between border-b">
         <div className="flex items-center gap-4">
           <button onClick={() => navigate(-1)}>

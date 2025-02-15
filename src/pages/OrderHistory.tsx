@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import {
   AlertDialog,
@@ -61,7 +60,7 @@ const OrderHistory = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#FDFBF4]">
       <OrderHeader 
         selectedPeriod={selectedPeriod}
         startDate={startDate}

@@ -1,4 +1,3 @@
-
 import { X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -6,7 +5,7 @@ const OrderDetail = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#FDFBF4]">
       <header className="flex items-center gap-4 p-4 border-b">
         <button onClick={() => navigate(-1)}>
           <X className="w-6 h-6" />

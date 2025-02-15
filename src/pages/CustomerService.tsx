@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, ChevronRight } from 'lucide-react';
@@ -15,7 +14,7 @@ const CustomerService = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#FDFBF4]">
       <div className="sticky top-0 bg-white border-b">
         <div className="p-4 flex items-center">
           <button onClick={() => navigate(-1)} className="mr-4">

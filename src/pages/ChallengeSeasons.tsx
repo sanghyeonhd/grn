@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
@@ -7,7 +6,7 @@ const ChallengeSeasons = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#FDFBF4]">
       <div className="sticky top-0 bg-white border-b">
         <div className="flex items-center h-12">
           <button onClick={() => navigate(-1)} className="px-4">

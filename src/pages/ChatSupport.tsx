@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { X } from 'lucide-react';
@@ -7,7 +6,7 @@ const ChatSupport = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#FDFBF4]">
       <div className="sticky top-0 bg-white border-b rounded-t-2xl">
         <div className="px-6 py-4 flex items-center justify-between">
           <div className="flex items-center">

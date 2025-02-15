@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Check } from 'lucide-react';
@@ -34,7 +33,7 @@ const AttendanceCheck = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white px-4 py-6">
+    <div className="min-h-screen bg-[#FDFBF4] px-4 py-6">
       <header className="flex items-center gap-4 mb-8">
         <button onClick={() => navigate(-1)}>
           <ChevronLeft className="w-6 h-6" />

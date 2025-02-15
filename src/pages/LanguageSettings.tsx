@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { X } from 'lucide-react';
@@ -10,7 +9,7 @@ const LanguageSettings = () => {
   const [language, setLanguage] = React.useState("ko");
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#FDFBF4]">
       <div className="p-4 flex items-center justify-between border-b">
         <h1 className="text-lg">언어 설정</h1>
         <button onClick={() => navigate(-1)}>

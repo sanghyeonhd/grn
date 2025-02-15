@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button"
@@ -11,7 +10,7 @@ const FindId = () => {
   };
   
   return (
-    <div className="min-h-screen bg-white px-4 py-6">
+    <div className="min-h-screen bg-[#FDFBF4] px-4 py-6">
       <header className="flex items-center mb-8">
         <button onClick={() => navigate(-1)} className="text-2xl mr-4">←</button>
         <h1 className="text-xl font-medium">아이디 찾기</h1>

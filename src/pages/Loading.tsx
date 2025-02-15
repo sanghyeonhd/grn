@@ -1,9 +1,8 @@
-
 import React from 'react';
 
 const Loading = () => {
   return (
-    <div className="min-h-screen bg-white px-4 py-6 flex flex-col">
+    <div className="min-h-screen bg-[#FDFBF4] px-4 py-6 flex flex-col">
       <header className="text-2xl font-bold mb-12">
         GRANHAND.
       </header>

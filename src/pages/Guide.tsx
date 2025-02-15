@@ -102,7 +102,7 @@ const Guide = () => {
                   <h3 className="text-sm mb-3">
                     {question.id}. {question.text}
                   </h3>
-                  <div className="ml-[-1.5rem] flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2">
                     {question.options.map((option) => (
                       <button
                         key={option}
@@ -120,7 +120,7 @@ const Guide = () => {
                 </div>
               </div>
               {index < questions.length - 1 && question.isCompleted && (
-                <div className="absolute left-[10px] -bottom-3 h-[120%] flex flex-col items-center gap-1">
+                <div className="absolute left-[10px] -bottom-3 flex flex-col items-center gap-1">
                   <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
                   <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
                   <div className="w-1 h-1 bg-gray-300 rounded-full"></div>

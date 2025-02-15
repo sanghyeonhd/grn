@@ -3,8 +3,23 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Share } from 'lucide-react';
 
+const categories = [
+  { id: 1, name: 'All', slug: 'all' },
+  { id: 2, name: 'News', slug: 'news' },
+  { id: 3, name: 'Culture', slug: 'culture' },
+  { id: 4, name: 'Life', slug: 'life' },
+  { id: 5, name: 'Team', slug: 'team' },
+  { id: 6, name: 'Essay', slug: 'essay' },
+  { id: 7, name: 'Film', slug: 'film' },
+];
+
 const JournalDetail = () => {
   const navigate = useNavigate();
+  const [activeCategory, setActiveCategory] = React.useState('team');
+
+  const handleCategoryClick = (slug: string) => {
+    setActiveCategory(slug);
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -18,20 +33,25 @@ const JournalDetail = () => {
         </button>
       </header>
 
-      <nav className="flex space-x-4 px-4 py-3 overflow-x-auto whitespace-nowrap">
-        {['All', 'News', 'Culture', 'Life', 'Team', 'Essay', 'Film'].map((tab) => (
+      <nav className="flex space-x-4 px-4 py-3 overflow-x-auto whitespace-nowrap border-b">
+        {categories.map((category) => (
           <button 
-            key={tab}
-            className="text-sm text-gray-600 hover:text-black"
+            key={category.id}
+            onClick={() => handleCategoryClick(category.slug)}
+            className={`text-sm transition-colors ${
+              activeCategory === category.slug 
+                ? 'text-black font-medium' 
+                : 'text-gray-500 hover:text-gray-900'
+            }`}
           >
-            {tab}
+            {category.name}
           </button>
         ))}
       </nav>
 
       <div className="space-y-4">
         <img 
-          src="/public/lovable-uploads/5543f85b-0d24-4ab3-a996-08c599742a75.png"
+          src="/lovable-uploads/5543f85b-0d24-4ab3-a996-08c599742a75.png"
           alt="Journal detail"
           className="w-full h-64 object-cover"
         />

@@ -54,11 +54,13 @@ const EventDetail = () => {
       setLinkCopied(true);
       toast({
         description: "링크가 복사되었습니다.",
+        className: "fixed bottom-4 right-4",
       });
     } catch (err) {
       toast({
         description: "링크 복사에 실패했습니다.",
         variant: "destructive",
+        className: "fixed bottom-4 right-4",
       });
     }
   };
@@ -155,13 +157,13 @@ const EventDetail = () => {
                 <img 
                   src="/lovable-uploads/c88ccaa5-f220-4b67-abfa-12569abb4f73.png" 
                   alt="Copied" 
-                  className="w-5 h-5" 
+                  className="w-5 h-5 object-contain" 
                 />
               ) : (
                 <img 
                   src="/lovable-uploads/c146ce12-2756-4129-8551-d7e011b861b4.png" 
                   alt="Copy" 
-                  className="w-5 h-5" 
+                  className="w-5 h-5 object-contain" 
                 />
               )}
             </button>

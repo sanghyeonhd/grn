@@ -245,6 +245,11 @@ const GranShop = () => {
 
   const displayProducts = sortProducts(getDisplayProducts());
 
+  const isAllCategory = !location.pathname.includes('giftset') && 
+                       !location.pathname.includes('perfume') && 
+                       !location.pathname.includes('space') && 
+                       !location.pathname.includes('body');
+
   return (
     <div className="min-h-screen bg-white">
       <div className="fixed top-0 left-0 right-0 bg-white z-10">
@@ -382,7 +387,8 @@ const GranShop = () => {
       )}
 
       <div className="px-4 py-3 flex items-center justify-between border-b">
-        <span className="text-sm">전체</span>
+        {isAllCategory && <span className="text-sm">전체</span>}
+        {!isAllCategory && <div />} {/* 빈 div로 레이아웃 유지 */}
         <DropdownMenu>
           <DropdownMenuTrigger className="text-sm flex items-center gap-1">
             {sortOption}

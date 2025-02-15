@@ -127,7 +127,7 @@ const Index = () => {
           <Link to="/journal/1" className="block">
             <div className="relative aspect-square mb-4">
               <img 
-                src="/lovable-uploads/29b0770e-1ae6-4e2c-b680-aa6a22207749.png" 
+                src="/lovable-uploads/e599283a-a3a2-4e3a-88b8-9a782e14152f.png" 
                 alt="NOLL Store" 
                 className="w-full h-full object-cover rounded-sm"
               />

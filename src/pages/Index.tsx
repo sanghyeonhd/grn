@@ -157,15 +157,15 @@ const Index = () => {
           <Link to="/journal/3" className="block">
             <div className="relative aspect-square mb-4">
               <img 
-                src="/lovable-uploads/1c54ad66-eeb0-40ee-aed3-bddf3c223463.png" 
+                src="/lovable-uploads/a773021d-65d3-4dde-bb9b-a24d88982a50.png" 
                 alt="Green Circle" 
                 className="w-full h-full object-cover rounded-sm"
               />
-            </div>
-            <div className="space-y-2">
-              <span className="text-xs text-gray-600">#Essay</span>
-              <h3 className="text-base font-medium">초록의 고리 속에서</h3>
-              <p className="text-xs text-gray-500">2023-07-08 조회 412</p>
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
+                <span className="text-xs">#Essay</span>
+                <h3 className="text-base font-medium mt-1">초록의 고리 속에서</h3>
+                <p className="text-xs mt-1 text-gray-200">2023-07-08 조회 412</p>
+              </div>
             </div>
           </Link>
 

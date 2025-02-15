@@ -9,60 +9,60 @@ const Index = () => {
       {/* 메인 배너 */}
       <div className="relative">
         <img
-          src="/lovable-uploads/af93f711-1913-442a-9299-1234e0ea018a.png"
+          src="/lovable-uploads/37b1c7df-4bbb-4c58-b171-5ec71e892e39.png"
           alt="2025 Calendar"
-          className="w-full"
+          className="w-full aspect-[3/4] object-cover"
         />
-        <div className="absolute top-4 left-4">
-          <h1 className="text-2xl font-medium mb-1">2025<br/>Calender</h1>
-          <p className="text-sm">1월 뉴스레터에서 신청하세요</p>
+        <div className="absolute top-[50%] left-6 text-white">
+          <h1 className="text-4xl font-bold mb-2">2025<br/>Calender</h1>
+          <p className="text-base">1월 뉴스레터에서 신청하세요</p>
         </div>
-        <div className="absolute bottom-2 right-2 text-xs">
+        <div className="absolute bottom-4 right-4 text-white text-sm">
           1/3
         </div>
       </div>
 
       {/* 네비게이션 메뉴 */}
-      <nav className="flex justify-between px-4 py-3 border-b border-gray-200">
-        <Link to="/journal" className="text-sm">JOURNAL</Link>
-        <Link to="/event" className="text-sm">EVENT</Link>
-        <Link to="/awards" className="text-sm">AWARDS</Link>
-        <Link to="/stores" className="text-sm">STORES</Link>
+      <nav className="flex justify-between px-6 py-4 border-b border-gray-200">
+        <Link to="/journal" className="text-sm font-medium">JOURNAL</Link>
+        <Link to="/event" className="text-sm font-medium">EVENT</Link>
+        <Link to="/awards" className="text-sm font-medium">AWARDS</Link>
+        <Link to="/stores" className="text-sm font-medium">STORES</Link>
       </nav>
 
       {/* 브랜드 숍 */}
-      <section className="px-4 py-6">
-        <h2 className="text-sm mb-4">BRAND SHOP</h2>
-        <div className="grid grid-cols-3 gap-3">
-          <Link to="/granshop" className="bg-gray-100 rounded-lg py-3 text-center">
-            <span className="text-sm">GRANHAND.</span>
+      <section className="px-6 py-8">
+        <h2 className="text-sm font-medium mb-6">브랜드 숍</h2>
+        <div className="grid grid-cols-3 gap-4">
+          <Link to="/granshop" className="text-center">
+            <span className="text-sm font-medium">GRANHAND.</span>
           </Link>
-          <Link to="/heliotrope" className="bg-gray-100 rounded-lg py-3 text-center">
-            <span className="text-sm">helion</span>
+          <Link to="/heliotrope" className="text-center">
+            <span className="text-sm font-medium">heiion</span>
           </Link>
-          <Link to="/komfortabel" className="bg-gray-100 rounded-lg py-3 text-center">
-            <span className="text-sm">Komfortabel coffee</span>
+          <Link to="/komfortabel" className="text-center">
+            <span className="text-sm font-medium">Komfortabel coffee</span>
           </Link>
         </div>
       </section>
 
-      {/* 콘텐츠 리스트 */}
-      <div className="px-4 space-y-4">
-        <div className="relative">
-          <img 
-            src="/lovable-uploads/2c24b0e5-3019-42e4-a3fa-ec7ac94dc6c9.png" 
-            alt="Sometimes You win Sometimes you learn"
-            className="w-full aspect-[4/3] object-cover"
-          />
-          <div className="absolute bottom-2 left-2 text-white">
-            <h2 className="text-lg font-medium">Sometimes You win<br/>Sometimes you learn.</h2>
-          </div>
-          <div className="absolute bottom-2 right-2 text-xs text-white">
-            1/3
-          </div>
+      {/* 바텀 배너 */}
+      <div className="relative mb-8">
+        <img 
+          src="/lovable-uploads/2c24b0e5-3019-42e4-a3fa-ec7ac94dc6c9.png" 
+          alt="Sometimes You win Sometimes you learn"
+          className="w-full aspect-[4/3] object-cover"
+        />
+        <div className="absolute bottom-6 left-6 text-white">
+          <h2 className="text-2xl font-medium">Sometimes You win<br/>Sometimes you learn.</h2>
         </div>
+        <div className="absolute bottom-4 right-4 text-white text-sm">
+          1/3
+        </div>
+      </div>
 
-        {/* 추가 콘텐츠 아이템들 */}
+      {/* 저널 리스트 (기존 코드 유지) */}
+      <div className="px-4 space-y-4">
         <Link to="/article/1" className="block">
           <div className="aspect-[4/3] bg-gray-100 mb-2">
             <img 

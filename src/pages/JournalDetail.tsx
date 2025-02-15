@@ -128,21 +128,23 @@ const JournalDetail = () => {
         )}
       </header>
 
-      <nav className="flex space-x-4 px-4 py-3 overflow-x-auto whitespace-nowrap border-b">
-        {categories.map((category) => (
-          <button 
-            key={category.id}
-            onClick={() => handleCategoryClick(category.slug)}
-            className={`text-sm transition-colors ${
-              activeCategory === category.slug 
-                ? 'text-black font-medium' 
-                : 'text-gray-500 hover:text-gray-900'
-            }`}
-          >
-            {category.name}
-          </button>
-        ))}
-      </nav>
+      {!id && (
+        <nav className="flex space-x-4 px-4 py-3 overflow-x-auto whitespace-nowrap border-b">
+          {categories.map((category) => (
+            <button 
+              key={category.id}
+              onClick={() => handleCategoryClick(category.slug)}
+              className={`text-sm transition-colors ${
+                activeCategory === category.slug 
+                  ? 'text-black font-medium' 
+                  : 'text-gray-500 hover:text-gray-900'
+              }`}
+            >
+              {category.name}
+            </button>
+          ))}
+        </nav>
+      )}
 
       {renderContent()}
     </div>

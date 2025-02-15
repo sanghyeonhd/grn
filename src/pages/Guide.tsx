@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Check, Search, ShoppingBag } from 'lucide-react';
@@ -67,7 +66,6 @@ const Guide = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* 헤더 */}
       <div className="sticky top-0 z-10 bg-white border-b">
         <div className="px-4 py-3 flex justify-between items-center">
           <h1 className="text-lg font-bold">GUIDE</h1>
@@ -83,14 +81,12 @@ const Guide = () => {
         </div>
       </div>
 
-      {/* 안내 문구 */}
       <div className="p-4">
         <div className="flex items-center gap-2 bg-gray-100 p-3 rounded-lg">
           <span className="text-amber-400 text-lg">✨</span>
           <p className="text-sm text-gray-600">원하시는 항목 주제에 들어나서, 아래 항목을 모두 선택해 주세요.</p>
         </div>
 
-        {/* 질문 목록 */}
         <div className="mt-6 space-y-6">
           {questions.map((question, index) => (
             <div key={question.id} className="relative pl-6 pb-6">
@@ -132,7 +128,6 @@ const Guide = () => {
           ))}
         </div>
 
-        {/* 결과보기 버튼 */}
         {isAllCompleted && (
           <button
             onClick={handleSubmit}
@@ -143,7 +138,6 @@ const Guide = () => {
         )}
       </div>
 
-      {/* 하단 네비게이션 */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t">
         <div className="flex justify-around py-3">
           <button className="flex flex-col items-center">
@@ -157,7 +151,7 @@ const Guide = () => {
               <path d="M16 2H8V4H16V2Z" fill="black"/>
               <path d="M3 7V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V7H3Z" fill="black"/>
             </svg>
-            <span className="text-xs mt-1">퍼가이드</span>
+            <span className="text-xs mt-1">향가이드</span>
           </button>
           <button className="flex flex-col items-center">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">

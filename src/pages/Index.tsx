@@ -7,6 +7,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { Separator } from "@/components/ui/separator";
 
 const Index = () => {
   return <div className="min-h-screen bg-white">
@@ -33,15 +34,17 @@ const Index = () => {
       {/* 브랜드 숍 */}
       <section className="px-6 py-8">
         <h2 className="text-sm font-medium mb-6">브랜드 숍</h2>
-        <div className="grid grid-cols-3 gap-4">
-          <Link to="/granshop" className="text-center">
-            <img src="/lovable-uploads/66df05bf-51f9-4241-8db3-1d9289f9bd21.png" alt="GRANHAND." className="h-3 w-auto mx-auto" />
+        <div className="flex items-center justify-between">
+          <Link to="/granshop" className="flex-1 flex items-end justify-center">
+            <img src="/lovable-uploads/66df05bf-51f9-4241-8db3-1d9289f9bd21.png" alt="GRANHAND." className="h-3 w-auto" />
           </Link>
-          <Link to="/heliotrope" className="text-center">
-            <img src="/lovable-uploads/e2d45399-1ffd-41f7-b123-c8856c1408d4.png" alt="heiion" className="h-6 w-auto mx-auto" />
+          <Separator orientation="vertical" className="h-6 bg-gray-300" />
+          <Link to="/heliotrope" className="flex-1 flex items-center justify-center">
+            <img src="/lovable-uploads/e2d45399-1ffd-41f7-b123-c8856c1408d4.png" alt="heiion" className="h-6 w-auto" />
           </Link>
-          <Link to="/komfortabel" className="text-center">
-            <img src="/lovable-uploads/64dfd9b8-2894-4518-803c-3b7324c4147a.png" alt="Komfortabel coffee" className="h-6 w-auto mx-auto" />
+          <Separator orientation="vertical" className="h-6 bg-gray-300" />
+          <Link to="/komfortabel" className="flex-1 flex items-center justify-center">
+            <img src="/lovable-uploads/64dfd9b8-2894-4518-803c-3b7324c4147a.png" alt="Komfortabel coffee" className="h-6 w-auto" />
           </Link>
         </div>
         <div className="mt-8">

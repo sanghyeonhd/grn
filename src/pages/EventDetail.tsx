@@ -1,7 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Share } from 'lucide-react';
 
 interface EventDetail {
   id: string;
@@ -49,7 +48,11 @@ const EventDetail = () => {
             <h1 className="text-lg font-medium">EVNET</h1>
           </div>
           <button className="p-2">
-            <Share className="w-5 h-5" />
+            <img 
+              src="/lovable-uploads/isbne.png" 
+              alt="Share" 
+              className="w-5 h-5 brightness-0" 
+            />
           </button>
         </header>
 
@@ -88,7 +91,11 @@ const EventDetail = () => {
           <h1 className="text-lg font-medium">EVNET</h1>
         </div>
         <button className="p-2">
-          <Share className="w-5 h-5" />
+          <img 
+            src="/lovable-uploads/isbne.png" 
+            alt="Share" 
+            className="w-5 h-5 brightness-0" 
+          />
         </button>
       </header>
 

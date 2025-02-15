@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Heart, Search, ShoppingCart } from "lucide-react";
+import { Heart, Search, ShoppingCart, ChevronDown } from "lucide-react";
 import { addToWishlist, removeFromWishlist, isInWishlist, WishlistItem } from '../utils/wishlist';
 import { useToast } from "@/components/ui/use-toast";
 import BottomNavigation from '@/components/common/BottomNavigation';
@@ -262,7 +262,7 @@ const GranShop = () => {
                   alt={selectedBrand}
                   className={currentBrandLogo.className}
                 />
-                <CircleChevronDown className="w-5 h-5" />
+                <ChevronDown className="w-5 h-5" />
               </DropdownMenuTrigger>
               <DropdownMenuContent 
                 className="w-screen rounded-none border-x-0 z-50 !bg-white" 

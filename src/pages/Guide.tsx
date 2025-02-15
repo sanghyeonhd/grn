@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Check, Search, ShoppingBag } from 'lucide-react';
+import { Check, Search, ShoppingBag, Circle } from 'lucide-react';
 
 interface Question {
   id: number;
@@ -13,6 +13,7 @@ interface Question {
 
 const Guide = () => {
   const navigate = useNavigate();
+  const [cartItemCount, setCartItemCount] = useState(2); // 장바구니 상품 개수
   const [questions, setQuestions] = useState<Question[]>([
     {
       id: 1,
@@ -74,9 +75,11 @@ const Guide = () => {
             <Search className="w-6 h-6" />
             <div className="relative">
               <ShoppingBag className="w-6 h-6" />
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-[10px] text-white flex items-center justify-center">
-                new
-              </div>
+              {cartItemCount > 0 && (
+                <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-[10px] text-white flex items-center justify-center">
+                  {cartItemCount}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -97,7 +100,14 @@ const Guide = () => {
                 {question.isCompleted && <Check className="w-4 h-4 text-green-500" />}
                 <h3 className="text-sm flex items-center gap-2">
                   {question.id}
-                  {index < questions.length - 1 && <span className="text-gray-400">:</span>}
+                  {index < questions.length - 1 && (
+                    <div className="flex items-center">
+                      <span className="text-gray-400 mx-2">:</span>
+                      {question.isCompleted && (
+                        <Circle className="w-2 h-2 text-gray-300 fill-gray-300" />
+                      )}
+                    </div>
+                  )}
                   {question.text}
                 </h3>
               </div>

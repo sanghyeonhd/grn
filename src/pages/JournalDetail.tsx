@@ -32,10 +32,21 @@ const JournalDetail = () => {
               alt="NOLL Store Interior"
               className="w-full"
             />
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
-              <p className="text-sm">#Team</p>
-              <h2 className="text-xl font-medium mb-1">NOLL 놀에 대한 모든 것.</h2>
-              <p className="text-sm">2023-07-08 조회 412</p>
+            <div className="absolute top-0 left-0 right-0 h-full flex flex-col justify-between">
+              <header className="z-10 flex items-center justify-between px-4 py-3">
+                <div className="flex items-center">
+                  <button onClick={() => navigate(-1)} className="text-2xl mr-4 text-white">←</button>
+                  <h1 className="text-lg font-medium text-white">JOURNAL</h1>
+                </div>
+                <button className="p-2">
+                  <Share className="w-5 h-5 text-white" />
+                </button>
+              </header>
+              <div className="p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
+                <p className="text-sm">#Team</p>
+                <h2 className="text-xl font-medium mb-1">NOLL 놀에 대한 모든 것.</h2>
+                <p className="text-sm">2023-07-08 조회 412</p>
+              </div>
             </div>
           </div>
           <div className="px-4">
@@ -121,15 +132,6 @@ const JournalDetail = () => {
     <div className="min-h-screen bg-white">
       {id ? (
         <div className="relative">
-          <header className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-4 py-3">
-            <div className="flex items-center">
-              <button onClick={() => navigate(-1)} className="text-2xl mr-4 text-white">←</button>
-              <h1 className="text-lg font-medium text-white">JOURNAL</h1>
-            </div>
-            <button className="p-2">
-              <Share className="w-5 h-5 text-white" />
-            </button>
-          </header>
           {renderContent()}
         </div>
       ) : (

@@ -19,8 +19,6 @@ const Stores = () => {
       "/lovable-uploads/f840d0b4-5178-4b14-9014-8889798756d3.png"
     ],
     '시청': [
-      "/lovable-uploads/8281c082-a0c5-4f00-be7b-d23871ccf7b0.png",
-      "/lovable-uploads/d787b2b8-abaa-47ab-a192-dfa4adafd4cc.png",
       "/lovable-uploads/5cc24d62-62a5-411c-b26f-3dfab302a6a5.png"
     ],
     '광화문': [

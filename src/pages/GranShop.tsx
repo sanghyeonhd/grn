@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Heart, Search, ShoppingCart, Home, BookOpen, Scan, User } from "lucide-react";
+import { Heart, Search, ShoppingCart, Home, BookOpen, Scan, User, ChevronDown } from "lucide-react";
 import { addToWishlist, removeFromWishlist, isInWishlist, WishlistItem } from '../utils/wishlist';
 import { useToast } from "@/components/ui/use-toast";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const products = {
   perfumes: [
@@ -146,6 +152,7 @@ const ProductCard = ({ product }: { product: any }) => {
 const GranShop = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [selectedBrand, setSelectedBrand] = useState('GRANHAND.');
 
   const isCurrentPath = (path: string) => {
     return location.pathname.includes(path);
@@ -180,7 +187,46 @@ const GranShop = () => {
     <div className="min-h-screen bg-white">
       <div className="fixed top-0 left-0 right-0 bg-white z-50">
         <div className="flex items-center justify-between p-4">
-          <h1 className="text-xl font-bold">GRANHAND.</h1>
+          <div className="flex items-center gap-2">
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1">
+                <h1 className="text-xl font-bold">{selectedBrand}</h1>
+                <ChevronDown className="w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-[200px] bg-white">
+                <DropdownMenuItem 
+                  className="flex items-center justify-center py-3"
+                  onClick={() => setSelectedBrand('GRANHAND.')}
+                >
+                  <img 
+                    src="/lovable-uploads/66df05bf-51f9-4241-8db3-1d9289f9bd21.png" 
+                    alt="GRANHAND." 
+                    className="h-3"
+                  />
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  className="flex items-center justify-center py-3"
+                  onClick={() => setSelectedBrand('heiion')}
+                >
+                  <img 
+                    src="/lovable-uploads/e2d45399-1ffd-41f7-b123-c8856c1408d4.png" 
+                    alt="heiion" 
+                    className="h-6"
+                  />
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  className="flex items-center justify-center py-3"
+                  onClick={() => setSelectedBrand('Komfortabel')}
+                >
+                  <img 
+                    src="/lovable-uploads/64dfd9b8-2894-4518-803c-3b7324c4147a.png" 
+                    alt="Komfortabel coffee" 
+                    className="h-6"
+                  />
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
           <div className="flex items-center gap-4">
             <button onClick={() => navigate('/search')}>
               <Search className="w-5 h-5" />

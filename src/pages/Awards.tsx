@@ -1,21 +1,50 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useToast } from "@/hooks/use-toast";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import ShareLinkPanel from '@/components/journal/ShareLinkPanel';
 
 const Awards = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [activeTab, setActiveTab] = useState('필름사진상');
   const [submenuTab, setSubmenuTab] = useState('행사안내');
   const [showShareDialog, setShowShareDialog] = useState(false);
+  const [linkCopied, setLinkCopied] = useState(false);
 
   const mainTabs = ['필름사진상', '사생대회', '문예공모전'];
   const subTabs = ['행사안내', '참가접수', '당선작'];
+
+  const handleShare = () => {
+    setShowShareDialog(true);
+    setLinkCopied(false);
+  };
+
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(`https://granhand.com/awards/11832`);
+      setLinkCopied(true);
+      toast({
+        description: "링크가 복사되었습니다.",
+        className: "fixed bottom-4 right-4",
+      });
+      setTimeout(() => {
+        setShowShareDialog(false);
+      }, 1000);
+    } catch (err) {
+      toast({
+        description: "링크 복사에 실패했습니다.",
+        variant: "destructive",
+        className: "fixed bottom-4 right-4",
+      });
+    }
+  };
 
   const getTitle = (tab: string) => {
     switch(tab) {
@@ -52,9 +81,9 @@ const Awards = () => {
           </svg>
         </button>
         <h1 className="text-[18px] font-bold leading-[28px] text-[#1A1A1A]">AWARDS</h1>
-        <button className="ml-auto" onClick={() => setShowShareDialog(true)}>
+        <button className="ml-auto" onClick={handleShare}>
           <img 
-            src="/public/lovable-uploads/f640fedb-0ab0-4890-8253-529a0922016d.png" 
+            src="/lovable-uploads/f640fedb-0ab0-4890-8253-529a0922016d.png" 
             alt="share"
             className="w-5 h-5"
           />
@@ -100,7 +129,7 @@ const Awards = () => {
         <div className="px-4 py-8">
           <div className="mb-8">
             <img 
-              src="/public/lovable-uploads/707d314f-2527-46c5-a639-c450c208981a.png" 
+              src="/lovable-uploads/707d314f-2527-46c5-a639-c450c208981a.png" 
               alt="FPAG Logo"
               className="w-full h-auto mb-6"
             />
@@ -140,7 +169,7 @@ const Awards = () => {
         <div className="p-4">
           <div className="w-full h-[180px] bg-[#F5F5F5] mb-4">
             <img 
-              src="/public/lovable-uploads/983770e1-f9fd-4581-bec2-3b910c2630fc.png"
+              src="/lovable-uploads/983770e1-f9fd-4581-bec2-3b910c2630fc.png"
               alt="FPAG Award"
               className="w-full h-full object-contain bg-[#F5F5F5]"
             />
@@ -169,7 +198,7 @@ const Awards = () => {
         <div className="p-4 space-y-4">
           <div className="aspect-video bg-[#F5F5F5] rounded-lg">
             <img 
-              src="/public/lovable-uploads/63303077-f358-433e-921d-30b925a8b863.png"
+              src="/lovable-uploads/63303077-f358-433e-921d-30b925a8b863.png"
               alt="당선작"
               className="w-full h-full object-cover rounded-lg"
             />
@@ -181,28 +210,13 @@ const Awards = () => {
         </div>
       )}
 
-      {/* 공유하기 다이얼로그 */}
-      <Dialog open={showShareDialog} onOpenChange={setShowShareDialog}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle className="text-sm mb-4">공유하기</DialogTitle>
-          </DialogHeader>
-          <div className="flex items-center border border-[#EAEAEA] rounded p-3">
-            <input 
-              type="text" 
-              value="https://granhand.com/evnet/11832" 
-              readOnly
-              className="flex-1 text-sm text-[#999999] bg-transparent outline-none"
-            />
-            <button className="ml-2">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M16.6667 7.5H8.33333C7.41286 7.5 6.66667 8.24619 6.66667 9.16667V16.6667C6.66667 17.5871 7.41286 18.3333 8.33333 18.3333H16.6667C17.5871 18.3333 18.3333 17.5871 18.3333 16.6667V9.16667C18.3333 8.24619 17.5871 7.5 16.6667 7.5Z" stroke="#999999" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M3.33333 12.5H2.5C2.03976 12.5 1.66667 12.1269 1.66667 11.6667V4.16667C1.66667 3.70643 2.03976 3.33333 2.5 3.33333H10.8333C11.2936 3.33333 11.6667 3.70643 11.6667 4.16667V5" stroke="#999999" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-          </div>
-        </DialogContent>
-      </Dialog>
+      {showShareDialog && (
+        <ShareLinkPanel 
+          id="11832" 
+          linkCopied={linkCopied}
+          onCopyLink={handleCopyLink}
+        />
+      )}
     </div>
   );
 };

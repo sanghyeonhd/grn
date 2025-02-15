@@ -93,29 +93,31 @@ const Guide = () => {
         {/* 질문 목록 */}
         <div className="mt-6 space-y-6">
           {questions.map((question, index) => (
-            <div key={question.id} className="relative border-b pb-6">
-              <div className="flex items-start gap-2 mb-4">
-                <div className="relative mt-1">
-                  {question.isCompleted && <Check className="w-4 h-4 text-green-500" />}
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-sm mb-3">
-                    {question.id}. {question.text}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {question.options.map((option) => (
-                      <button
-                        key={option}
-                        onClick={() => handleOptionSelect(question.id, option)}
-                        className={`px-4 py-2 text-sm border ${
-                          question.selected === option 
-                            ? 'bg-black text-white' 
-                            : 'bg-white text-black'
-                        }`}
-                      >
-                        {option}
-                      </button>
-                    ))}
+            <div key={question.id} className="relative pl-6 pb-6">
+              <div className="border-b ml-4">
+                <div className="flex items-start gap-2 mb-4">
+                  <div className="relative mt-1 ml-[-1.5rem]">
+                    {question.isCompleted && <Check className="w-4 h-4 text-green-500" />}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-sm mb-3">
+                      {question.id}. {question.text}
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {question.options.map((option) => (
+                        <button
+                          key={option}
+                          onClick={() => handleOptionSelect(question.id, option)}
+                          className={`px-4 py-2 text-sm border ${
+                            question.selected === option 
+                              ? 'bg-black text-white' 
+                              : 'bg-white text-black'
+                          }`}
+                        >
+                          {option}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>

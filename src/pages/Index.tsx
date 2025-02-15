@@ -48,8 +48,8 @@ const Index = () => {
           <Carousel opts={{ loop: true, align: "start" }} className="w-full">
             <CarouselContent>
               <CarouselItem>
-                <div className="relative">
-                  <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full aspect-[4/3] object-cover" />
+                <div className="relative w-[342px] h-[100px]">
+                  <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full h-full object-cover" />
                   <div className="absolute bottom-6 left-6 text-white">
                     <h2 className="text-2xl font-medium">Sometimes You win<br />Sometimes you learn.</h2>
                   </div>
@@ -57,8 +57,8 @@ const Index = () => {
                 </div>
               </CarouselItem>
               <CarouselItem>
-                <div className="relative">
-                  <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full aspect-[4/3] object-cover" />
+                <div className="relative w-[342px] h-[100px]">
+                  <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full h-full object-cover" />
                   <div className="absolute bottom-6 left-6 text-white">
                     <h2 className="text-2xl font-medium">Another slide text<br />Goes here.</h2>
                   </div>
@@ -66,8 +66,8 @@ const Index = () => {
                 </div>
               </CarouselItem>
               <CarouselItem>
-                <div className="relative">
-                  <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full aspect-[4/3] object-cover" />
+                <div className="relative w-[342px] h-[100px]">
+                  <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full h-full object-cover" />
                   <div className="absolute bottom-6 left-6 text-white">
                     <h2 className="text-2xl font-medium">Final slide text<br />Goes here.</h2>
                   </div>

@@ -41,6 +41,18 @@ const OrderItem = ({ item, onCancelClick }: OrderItemProps) => {
       );
     }
 
+    // 결제 완료 상태이고 id가 5인 세 번째 주문 카드
+    if (item.id === '5' && item.status === '결제 완료') {
+      return (
+        <button 
+          className="w-full py-3 border text-sm"
+          onClick={onCancelClick}
+        >
+          주문 취소
+        </button>
+      );
+    }
+
     // 구매 확정 버튼이 있는 주문 카드
     if (item.id === "2") {
       return (

@@ -28,7 +28,7 @@ interface OrderItem {
 }
 
 const OrderHistory = () => {
-  const [selectedPeriod, setSelectedPeriod] = useState("최근 1년");
+  const [selectedPeriod, setSelectedPeriod] = useState("전체");
   const [startDate, setStartDate] = useState("2022.10.28");
   const [endDate, setEndDate] = useState("2023.10.28");
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
@@ -50,7 +50,7 @@ const OrderHistory = () => {
     {
       id: "2",
       date: "2023.10.16",
-      status: "결제 완료",
+      status: "배송 완료",
       product: {
         name: "Roland Multi Perfume",
         option: "롤랑 멀티퍼퓸 100ml / 1개",
@@ -83,7 +83,7 @@ const OrderHistory = () => {
     {
       id: "5",
       date: "2023.10.16",
-      status: "배송 완료",
+      status: "결제 완료",
       product: {
         name: "Roland Multi Perfume",
         option: "롤랑 멀티퍼퓸 200ml / 1개",

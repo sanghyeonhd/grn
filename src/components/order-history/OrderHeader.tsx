@@ -35,10 +35,11 @@ const OrderHeader = ({
         </button>
         <h1 className="text-lg font-medium">주문 내역</h1>
       </div>
+      <div className="font-medium mt-4">전체</div>
       <div className="flex justify-between items-center mt-4">
         <div className="font-medium">최근 1년</div>
       </div>
-      <div className="flex justify-end mt-2">
+      <div className="flex justify-end mt-2 border-t pt-2">
         <Sheet>
           <SheetTrigger asChild>
             <button className="text-sm">

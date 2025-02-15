@@ -38,6 +38,17 @@ const OrderHistory = () => {
 
   const orderItems: OrderItem[] = [
     {
+      id: "1",
+      date: "2023.10.23",
+      status: "입금 대기",
+      product: {
+        name: "Roland Multi Perfume",
+        option: "롤랑 멀티퍼퓸 100ml / 1개",
+        price: 35000,
+        image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png"
+      }
+    },
+    {
       id: "5",
       date: "2023.10.16",
       status: "결제 완료",

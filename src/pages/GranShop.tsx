@@ -376,7 +376,7 @@ const GranShop = () => {
         </div>
       </div>
 
-      {isGiftsetPath && (
+      {!isGiftsetPath && (
         <div className="px-4 border-b">
           <div className="flex items-center gap-4 py-3 text-[0.688rem] overflow-x-auto scrollbar-hide">
             <button className="whitespace-nowrap text-gray-600">시그니처</button>
@@ -388,7 +388,7 @@ const GranShop = () => {
 
       <div className="px-4 py-3 flex items-center justify-between border-b">
         {isAllCategory && <span className="text-[0.688rem]">전체</span>}
-        {!isAllCategory && <div />}
+        {!isAllCategory && <div />} {/* 빈 div로 레이아웃 유지 */}
         <DropdownMenu>
           <DropdownMenuTrigger className="text-[0.688rem] flex items-center gap-1">
             {sortOption}

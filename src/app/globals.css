@@ -4,11 +4,11 @@
 @tailwind utilities;
  
 :root {
-  --background: 0 0% 100%;
+  --background: 253, 251, 244;
   --foreground: 240 10% 3.9%;
-  --card: 0 0% 100%;
+  --card: 253, 251, 244;
   --card-foreground: 240 10% 3.9%;
-  --popover: 0 0% 100%;
+  --popover: 253, 251, 244;
   --popover-foreground: 240 10% 3.9%;
   --primary: 240 5.9% 10%;
   --primary-foreground: 0 0% 98%;
@@ -26,27 +26,33 @@
   --radius: 0.5rem;
 }
 
-* {
-  @apply border-border;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-[#FDFBF4] text-foreground min-h-screen;
+  }
 }
 
-body {
-  @apply bg-background text-foreground;
-  background-color: #FDFBF4;
-}
-
-.bg-default {
-  background-color: #FDFBF4;
-}
-
-.sheet-custom {
+/* Default background color for all major UI components */
+.bg-default,
+.sheet-custom,
+.dialog-custom,
+[data-radix-popper-content-wrapper],
+[data-radix-select-content],
+[data-radix-dropdown-menu-content] {
   background-color: #FDFBF4 !important;
 }
 
-.dialog-custom {
+/* Reset any white backgrounds to use our theme color */
+.bg-white {
   background-color: #FDFBF4 !important;
 }
 
-[data-radix-popper-content-wrapper] {
+/* Ensure modals and overlays use the correct background */
+[role="dialog"],
+.modal-content {
   background-color: #FDFBF4 !important;
 }

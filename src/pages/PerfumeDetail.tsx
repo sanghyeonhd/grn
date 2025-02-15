@@ -34,7 +34,7 @@ const PerfumeDetail = () => {
     name: 'Roland Multi Perfume',
     description: '롤랑 멀티퍼퓸 100ml / 200ml',
     price: 35000,
-    image: '/lovable-uploads/08efa1b0-ba21-48e2-bec5-bf00fd09e49e.png',
+    image: '/lovable-uploads/21fa37c7-fef3-4a02-9062-c9825bb7638e.png',
     story: '롤랑의 멀티 퍼퓸은 일상 생활 속 다양한 곳에서 품격있게 사용할 수 있습니다.',
     isOutOfStock: true,
   };

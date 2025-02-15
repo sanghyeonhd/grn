@@ -29,14 +29,16 @@ const OrderHeader = ({
 
   return (
     <header className="flex flex-col p-4 border-b">
-      <div className="flex items-center gap-4 mb-4">
+      <div className="flex items-center gap-4">
         <button onClick={() => navigate(-1)}>
           <ChevronLeft className="w-6 h-6" />
         </button>
         <h1 className="text-lg font-medium">주문 내역</h1>
       </div>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center mt-4">
         <div className="font-medium">최근 1년</div>
+      </div>
+      <div className="flex justify-end mt-2">
         <Sheet>
           <SheetTrigger asChild>
             <button className="text-sm">

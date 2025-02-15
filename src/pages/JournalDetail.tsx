@@ -42,6 +42,47 @@ const JournalDetail = () => {
               <p>열 정리를 마친 때에, 이는 노란 빛깔의 늦여 세우는 찬란한 안개 속에서 부끄러워지다. 선홍을 발은 물처럼 다기를 끼네 테라스에 꽂혔는다. 잣곡에 버들숲을 노랗게로 진해지는 석을 알아니 바라보다 버린 새벽이 난 두 구름으로 들리던다. 낮정고에 거는 체론을 가네 있에 램이 뒤귀 뒤에 잣곡에 물담했다.</p>
             </div>
           </div>
+          
+          <div className="space-y-6 mt-8 px-4">
+            <div className="relative aspect-square">
+              <img 
+                src="/lovable-uploads/26818efa-30ea-4335-9455-38183496a890.png" 
+                alt="Sometimes you win Sometimes you learn" 
+                className="w-full h-full object-cover rounded-sm"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
+                <span className="text-xs">#Team</span>
+                <h3 className="text-base font-medium mt-1">여름의 끝에서 틸 그랑핸드가 꼽은 최고의 공포영화 Top 10</h3>
+                <p className="text-xs mt-1 text-gray-200">2023-07-08 조회 412</p>
+              </div>
+            </div>
+
+            <div className="relative aspect-square">
+              <img 
+                src="/lovable-uploads/a773021d-65d3-4dde-bb9b-a24d88982a50.png" 
+                alt="Green Circle" 
+                className="w-full h-full object-cover rounded-sm"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
+                <span className="text-xs">#Essay</span>
+                <h3 className="text-base font-medium mt-1">초록의 고리 속에서</h3>
+                <p className="text-xs mt-1 text-gray-200">2023-07-08 조회 412</p>
+              </div>
+            </div>
+
+            <div className="relative aspect-square">
+              <img 
+                src="/lovable-uploads/2a0cabfd-61ab-4dbf-be41-3b8c9d808e8f.png" 
+                alt="One Second Every Day" 
+                className="w-full h-full object-cover rounded-sm"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
+                <span className="text-xs">#Film</span>
+                <h3 className="text-base font-medium mt-1">One Second Every Day Off, 2023 Summer</h3>
+                <p className="text-xs mt-1 text-gray-200">2023-07-08 조회 412</p>
+              </div>
+            </div>
+          </div>
         </div>
       );
     }

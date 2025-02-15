@@ -12,3 +12,13 @@
     display: none;  /* Chrome, Safari and Opera */
   }
 }
+
+body {
+  background-color: #FDFBF4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

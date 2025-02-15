@@ -15,7 +15,6 @@ const MyCoupon = () => {
   const [sortType, setSortType] = useState<'latest' | 'expiry'>('latest');
   const [selectedCoupon, setSelectedCoupon] = useState<number | null>(null);
 
-  // 임시 쿠폰 데이터
   const coupons = [
     {
       id: 1,
@@ -54,7 +53,7 @@ const MyCoupon = () => {
   const selectedCouponData = coupons.find(coupon => coupon.id === selectedCoupon);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       <div className="p-4 flex items-center gap-4 border-b">
         <button onClick={() => navigate(-1)}>
           <ChevronLeft className="w-6 h-6" />
@@ -137,7 +136,7 @@ const MyCoupon = () => {
       </div>
 
       <Sheet open={selectedCoupon !== null} onOpenChange={() => setSelectedCoupon(null)}>
-        <SheetContent side="bottom" className="h-[90vh] p-0 bg-white">
+        <SheetContent side="bottom" className="h-[90vh] p-0">
           <div className="p-4 border-b relative">
             <button 
               onClick={() => setSelectedCoupon(null)}
@@ -145,7 +144,7 @@ const MyCoupon = () => {
             >
               <X className="h-5 w-5" />
             </button>
-            <h2 className="text-center">쿠폰바로 교환권</h2>
+            <h2 className="text-center">쿠폰바코드 교환권</h2>
           </div>
           <div className="flex flex-col h-full p-4">
             <div className="mb-6">
@@ -154,7 +153,6 @@ const MyCoupon = () => {
               <p className="text-left text-xs text-gray-400 mt-1">{selectedCouponData?.validUntil}</p>
             </div>
             <div className="w-full aspect-square max-w-[280px] mx-auto border rounded-lg flex items-center justify-center">
-              {/* QR 코드 이미지가 들어갈 자리 */}
               <div className="text-center">QR 코드</div>
             </div>
           </div>

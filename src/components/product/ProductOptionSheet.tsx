@@ -179,8 +179,9 @@ const ProductOptionSheet = ({
 
       <Dialog open={showCartDialog} onOpenChange={() => setShowCartDialog(false)}>
         <DialogContent className="sm:max-w-md bg-white/90 backdrop-blur-sm">
-          <DialogDescription className="text-center py-4">
-            상품을 장바구니에 담았어요.
+          <DialogDescription className="text-center">
+            <p className="py-4">상품을 장바구니에 담았어요.</p>
+            <p className="text-gray-500 text-sm pb-4">장바구니를 확인하시겠어요?</p>
           </DialogDescription>
           <DialogFooter className="sm:flex-row gap-2">
             <button

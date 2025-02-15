@@ -10,6 +10,10 @@ const BottomNavigation = () => {
   const { toast } = useToast();
 
   const isActive = (path: string) => {
+    // GranShop 페이지의 모든 경로에 대해 스캔 버튼이 활성화되지 않도록 수정
+    if (path === '/granshop' && location.pathname.startsWith('/granshop')) {
+      return false;
+    }
     return location.pathname === path;
   };
 
@@ -60,7 +64,7 @@ const BottomNavigation = () => {
             alt="스캔"
             className="w-5 h-5"
           />
-          <span className={`text-xs ${isActive('/granshop') ? 'font-bold text-black' : 'text-gray-400'}`}>스캔</span>
+          <span className="text-xs text-gray-400">스캔</span>
         </button>
         
         <button 

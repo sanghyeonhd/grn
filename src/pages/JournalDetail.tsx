@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Copy, Check } from "lucide-react";
@@ -59,8 +58,8 @@ const JournalDetail = () => {
         <div className="space-y-4">
           <div className="relative">
             <img 
-              src="/lovable-uploads/b92726f4-c1f3-40bd-b305-083e40650a19.png"
-              alt="Store Interior"
+              src="/lovable-uploads/745e71b8-c7dc-479a-b5a5-734da100ee40.png"
+              alt="NOLL Store Interior"
               className="w-full"
             />
             <div className="absolute top-0 left-0 right-0 h-full flex flex-col justify-between">

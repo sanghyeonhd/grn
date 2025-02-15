@@ -11,18 +11,21 @@ const AttendanceCheck = () => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [attendanceCount, setAttendanceCount] = useState(0);
   const [totalPoints, setTotalPoints] = useState(0);
-  const [checkDate, setCheckDate] = useState<number | null>(null);
+  const [checkedDates, setCheckedDates] = useState<number[]>([]);
   const { toast: shadowToast } = useToast();
 
   const handleAttendanceCheck = () => {
-    setAttendanceCount(prev => prev + 1);
-    setTotalPoints(prev => prev + 500);
-    setCheckDate(1); // 1일에 체크 표시
-    shadowToast({
-      title: "출석체크 완료!",
-      description: "500포인트가 지급되었습니다.",
-      className: "bg-red-500 text-white border-none",
-    });
+    const today = new Date().getDate();
+    if (!checkedDates.includes(today)) {
+      setCheckedDates(prev => [...prev, today]);
+      setAttendanceCount(prev => prev + 1);
+      setTotalPoints(prev => prev + 500);
+      shadowToast({
+        title: "출석체크 완료!",
+        description: "500포인트가 지급되었습니다.",
+        className: "bg-red-500 text-white border-none",
+      });
+    }
   };
 
   const handleLuckyDraw = () => {
@@ -63,7 +66,7 @@ const AttendanceCheck = () => {
             {Array(31).fill(null).map((_, i) => (
               <div key={i} className="text-center py-2 text-sm relative">
                 {i + 1}
-                {checkDate === i + 1 && (
+                {checkedDates.includes(i + 1) && (
                   <div className="absolute -bottom-1 right-1">
                     <div className="w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
                       <Check className="w-3 h-3 text-white" />
@@ -74,20 +77,24 @@ const AttendanceCheck = () => {
             ))}
           </div>
 
-          <div className="flex justify-center gap-20 mt-12">
-            <div className="text-center">
+          <div className="grid grid-cols-2 divide-x divide-gray-200 mt-12">
+            <div className="text-center px-4">
               <p className="text-sm text-gray-500">누적 참여 횟수</p>
               <p className="font-medium text-xl mt-1">{attendanceCount} 일</p>
             </div>
-            <div className="text-center">
+            <div className="text-center px-4">
               <p className="text-sm text-gray-500">누적 획득 포인트</p>
               <p className="font-medium text-xl mt-1">{totalPoints}</p>
             </div>
           </div>
 
-          <p className="text-center text-sm text-[#D25B68] mt-8">
-            1주 연속 시 500 포인트 추가 지급
-          </p>
+          <div className="relative mt-8 mb-4">
+            <div className="absolute left-1/2 -top-3 transform -translate-x-1/2">
+              <div className="bg-red-500 text-white text-xs px-3 py-1 rounded-full whitespace-nowrap">
+                1주 연속 시 500 포인트 추가 지급
+              </div>
+            </div>
+          </div>
 
           <Button 
             onClick={handleAttendanceCheck}

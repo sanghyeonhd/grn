@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Heart, Search, ShoppingCart, ChevronDown } from "lucide-react";
+import { Heart, Search, ShoppingBag, ChevronDown } from "lucide-react";
 import { addToWishlist, removeFromWishlist, isInWishlist, WishlistItem } from '../utils/wishlist';
 import { useToast } from "@/components/ui/use-toast";
 import BottomNavigation from '@/components/common/BottomNavigation';
@@ -251,7 +251,7 @@ const GranShop = () => {
                        !location.pathname.includes('body');
 
   return (
-    <div className="min-h-screen bg-[#FDFBF4] pb-[60px]">
+    <div className="min-h-screen bg-[#FDFBF4]">
       <div className="fixed top-0 left-0 right-0 bg-[#FDFBF4] z-10">
         <div className="flex items-center justify-between p-4">
           <div className="flex items-center gap-2">
@@ -317,7 +317,7 @@ const GranShop = () => {
               <Search className="w-5 h-5" />
             </button>
             <button onClick={() => navigate('/cart')} className="relative">
-              <ShoppingCart className="w-5 h-5" />
+              <ShoppingBag className="w-5 h-5" />
               <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">2</span>
             </button>
           </div>

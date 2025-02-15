@@ -15,10 +15,10 @@ const MyPage = () => {
             <button onClick={() => navigate('/notifications')}>
               <Bell className="w-6 h-6" />
             </button>
-            <div className="relative">
+            <button onClick={() => navigate('/cart')} className="relative">
               <ShoppingBag className="w-6 h-6" />
               <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">2</span>
-            </div>
+            </button>
           </div>
         </div>
       </header>

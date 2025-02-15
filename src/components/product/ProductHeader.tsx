@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronLeft, Heart, Share2 } from 'lucide-react';
+import { ChevronLeft, Heart, Share2, ShoppingBag } from 'lucide-react';
 
 const ProductHeader = () => {
   const navigate = useNavigate();
@@ -18,7 +18,10 @@ const ProductHeader = () => {
           </button>
           <button className="relative">
             <Heart className="w-5 h-5" />
-            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">50</span>
+          </button>
+          <button onClick={() => navigate('/cart')} className="relative">
+            <ShoppingBag className="w-5 h-5" />
+            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">2</span>
           </button>
         </div>
       </div>

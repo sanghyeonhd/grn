@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useToast } from "@/hooks/use-toast";
@@ -23,7 +24,7 @@ const mockEvents: EventDetail[] = [
     id: "2",
     title: "그랜핸드 온라인 스토어 혜택 안내",
     date: "2023-07-08",
-    image: "/lovable-uploads/89f6fe96-ab03-417c-9ef2-17932ea6fa25.png",
+    image: "/lovable-uploads/02ba4942-211a-4df9-bd82-5cb66bd619f8.png",
     content: "그랜핸드 온라인 스토어의 다양한 혜택을 소개합니다..."
   }
 ];

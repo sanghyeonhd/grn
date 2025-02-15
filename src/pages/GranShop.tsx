@@ -153,6 +153,7 @@ const GranShop = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [selectedBrand, setSelectedBrand] = useState('GRANHAND.');
+  const [sortOption, setSortOption] = useState('추천순');
 
   const dropdownStyles = {
     backgroundColor: '#FFFFFF',
@@ -192,7 +193,6 @@ const GranShop = () => {
   };
 
   const isGiftsetPath = location.pathname.includes('giftset');
-  const displayProducts = getDisplayProducts();
 
   const getBrandLogo = (brand: string) => {
     switch (brand) {
@@ -220,6 +220,30 @@ const GranShop = () => {
   };
 
   const currentBrandLogo = getBrandLogo(selectedBrand);
+
+  const sortProducts = (products: any[]) => {
+    switch (sortOption) {
+      case '인기순':
+        // 실제로는 조회수나 판매량 등의 데이터를 기반으로 정렬해야 합니다
+        return [...products];
+      case '낮은 가격순':
+        return [...products].sort((a, b) => 
+          Number(a.price.replace(/[^0-9]/g, '')) - Number(b.price.replace(/[^0-9]/g, ''))
+        );
+      case '높은 가격순':
+        return [...products].sort((a, b) => 
+          Number(b.price.replace(/[^0-9]/g, '')) - Number(a.price.replace(/[^0-9]/g, ''))
+        );
+      case '상품명 오름차순':
+        return [...products].sort((a, b) => a.name.localeCompare(b.name));
+      case '상품명 내림차순':
+        return [...products].sort((a, b) => b.name.localeCompare(a.name));
+      default: // 추천순
+        return [...products];
+    }
+  };
+
+  const displayProducts = sortProducts(getDisplayProducts());
 
   return (
     <div className="min-h-screen bg-white">
@@ -359,12 +383,25 @@ const GranShop = () => {
 
       <div className="px-4 py-3 flex items-center justify-between border-b">
         <span className="text-sm">전체</span>
-        <button className="text-sm flex items-center gap-1">
-          추천순
-          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
-            <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2"/>
-          </svg>
-        </button>
+        <DropdownMenu>
+          <DropdownMenuTrigger className="text-sm flex items-center gap-1">
+            {sortOption}
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
+              <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2"/>
+            </svg>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-36">
+            {['추천순', '인기순', '낮은 가격순', '높은 가격순', '상품명 오름차순', '상품명 내림차순'].map((option) => (
+              <DropdownMenuItem 
+                key={option} 
+                onClick={() => setSortOption(option)}
+                className="cursor-pointer"
+              >
+                {option}
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
 
       <div className="px-4 py-4">

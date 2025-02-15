@@ -32,6 +32,17 @@ const GiftBox = () => {
       }
     },
     {
+      id: "4",
+      date: "2023.10.23",
+      status: "결제 완료 (선물 수락 대기)",
+      product: {
+        name: "Roland Multi Perfume",
+        option: "롤랑 멀티퍼퓸 100ml / 1개",
+        price: 35000,
+        image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png"
+      }
+    },
+    {
       id: "2",
       date: "2023.10.16",
       status: "배송 완료 (선물 수락)",

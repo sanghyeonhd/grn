@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useToast } from "@/hooks/use-toast";
+import { Copy, Check } from "lucide-react";
 
 interface EventDetail {
   id: string;
@@ -151,20 +152,12 @@ const EventDetail = () => {
             />
             <button 
               onClick={handleCopyLink}
-              className="px-3 py-2 border-l"
+              className="px-3 py-2 border-l hover:bg-gray-50"
             >
               {linkCopied ? (
-                <img 
-                  src="/lovable-uploads/c88ccaa5-f220-4b67-abfa-12569abb4f73.png" 
-                  alt="Copied" 
-                  className="w-5 h-5 object-contain" 
-                />
+                <Check className="w-5 h-5 text-gray-600" />
               ) : (
-                <img 
-                  src="/lovable-uploads/c146ce12-2756-4129-8551-d7e011b861b4.png" 
-                  alt="Copy" 
-                  className="w-5 h-5 object-contain" 
-                />
+                <Copy className="w-5 h-5 text-gray-600" />
               )}
             </button>
           </div>

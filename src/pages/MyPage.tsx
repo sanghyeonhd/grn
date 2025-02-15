@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Bell, ShoppingBag, Wallet, CalendarCheck, Gift, ScrollText, Home, BookOpen, Scan, Heart, User } from 'lucide-react';
@@ -111,7 +112,12 @@ const MyPage = () => {
           >
             최근 본 상품
           </button>
-          <button className="w-full py-3 text-left border-t">챌린지</button>
+          <button 
+            className="w-full py-3 text-left border-t"
+            onClick={() => navigate('/challenge')}
+          >
+            챌린지
+          </button>
           <button 
             className="w-full py-3 text-left border-t"
             onClick={() => navigate('/order-status-history')}

@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -36,6 +37,9 @@ const Index = () => {
           <Link to="/komfortabel" className="text-center">
             <img src="/lovable-uploads/64dfd9b8-2894-4518-803c-3b7324c4147a.png" alt="Komfortabel coffee" className="h-6 w-auto mx-auto" />
           </Link>
+        </div>
+        <div className="mt-8">
+          <img src="/lovable-uploads/67278580-3aa3-431e-8df2-daec9a7bedd0.png" alt="ROLAND. GRANHAND." className="w-full aspect-[4/3] object-cover" />
         </div>
       </section>
 

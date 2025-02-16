@@ -1,3 +1,4 @@
+
 import { ChevronRight } from "lucide-react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useState } from "react";
@@ -144,7 +145,7 @@ const GiftItem = ({ item }: GiftItemProps) => {
             </Dialog>
           </div>
         ) : item.id === "4" ? (
-          <div className="grid grid-cols-2 gap-2">
+          <div className="w-full grid grid-cols-2 gap-2">
             <button className="py-3 border text-sm bg-white" onClick={() => setOpenAddressDialog(true)}>
               배송지 입력
             </button>
@@ -165,12 +166,23 @@ const GiftItem = ({ item }: GiftItemProps) => {
           </button>
         )
       ) : (
-        <button 
-          className="w-full py-3 border text-sm" 
-          onClick={() => navigate(`/order-history/${item.id}`)}
-        >
-          주문 상세보기
-        </button>
+        item.id === "s1" || item.id === "s2" ? (
+          <div className="grid grid-cols-2 gap-2">
+            <button className="py-3 border text-sm">
+              주문 취소
+            </button>
+            <button className="py-3 border text-sm">
+              다른 사람에게 선물하기
+            </button>
+          </div>
+        ) : (
+          <button 
+            className="w-full py-3 border text-sm" 
+            onClick={() => navigate(`/order-history/${item.id}`)}
+          >
+            주문 상세보기
+          </button>
+        )
       )}
     </div>
   );

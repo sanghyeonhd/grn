@@ -41,7 +41,7 @@ const CoffeeStamp = () => {
         </div>
         
         <div className="flex justify-between items-center px-2">
-          <button onClick={() => navigate(-1)} className="text-sm text-gray-600">
+          <button onClick={() => navigate('/my-qr')} className="text-sm text-gray-600">
             뒤로가기
           </button>
           <span className="text-sm text-gray-600">{currentStamps} / {totalStamps}</span>

@@ -13,28 +13,28 @@ interface Stamp {
 }
 
 const STAMP_LOCATIONS = [
-  { name: '광화문', image: '/lovable-uploads/49950af0-c308-4706-9628-6fc190caba7f.png' },
-  { name: '도산', image: '/lovable-uploads/4ed1a11b-9cd7-4c5b-9991-6adeda1ecdef.png' },
-  { name: '남산', image: '/lovable-uploads/5543f85b-0d24-4ab3-a996-08c599742a75.png' },
-  { name: '서교', image: '/lovable-uploads/55a68fca-eb33-480d-bb5a-e14c8a947254.png' },
-  { name: '마포', image: '/lovable-uploads/569b0ab8-dafd-4552-b7c1-a7996f402d41.png' },
-  { name: '서촌', image: '/lovable-uploads/5cc24d62-62a5-411c-b26f-3dfab302a6a5.png' },
-  { name: '소격', image: '/lovable-uploads/5efa3b32-af2d-4af0-9928-c99bfed9e19a.png' },
-  { name: '북촌', image: '/lovable-uploads/63303077-f358-433e-921d-30b925a8b863.png' },
+  { name: '광화문', image: '/lovable-uploads/0cdcd0fd-1460-4af3-ba80-2d4a15a97472.png' },
+  { name: '도산', image: '/lovable-uploads/f3e65266-d8f6-4122-b19f-da01f6ab44c0.png' },
+  { name: '남산', image: '/lovable-uploads/52cda84b-62de-42f3-a589-b3e09df0ac8d.png' },
+  { name: '서교', image: '/lovable-uploads/6c4f10a0-14d6-41d5-b374-4f092f849b9d.png' },
+  { name: '마포', image: '/lovable-uploads/0cdcd0fd-1460-4af3-ba80-2d4a15a97472.png' },
+  { name: '서촌', image: '/lovable-uploads/f3e65266-d8f6-4122-b19f-da01f6ab44c0.png' },
+  { name: '소격', image: '/lovable-uploads/52cda84b-62de-42f3-a589-b3e09df0ac8d.png' },
+  { name: '북촌', image: '/lovable-uploads/6c4f10a0-14d6-41d5-b374-4f092f849b9d.png' },
 ];
 
 const Passport = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [stamps, setStamps] = useState<Stamp[]>([
-    { location: '광화문', date: '2023.11.06', image: '/icons/granhand-gwanghwamun.png' },
-    { location: '도산', date: '2023.11.06', image: '/icons/granhand-dosan.png' },
-    { location: '남산', date: '2023.11.06', image: '/icons/granhand-namsan.png' },
-    { location: '서교', date: '2023.11.06', image: '/icons/granhand-seogyo.png' },
-    { location: '마포', date: '2023.12.07', image: '/icons/granhand-mapo.png' },
-    { location: '서촌', date: '2023.12.07', image: '/icons/granhand-seochon.png' },
-    { location: '소격', date: '2023.08.11', image: '/icons/granhand-sogyeok.png' },
-    { location: '북촌', date: '2024.01.01', image: '/icons/granhand-bukchon.png' },
+    { location: '광화문', date: '2023.11.06', image: '/lovable-uploads/0cdcd0fd-1460-4af3-ba80-2d4a15a97472.png' },
+    { location: '도산', date: '2023.11.06', image: '/lovable-uploads/f3e65266-d8f6-4122-b19f-da01f6ab44c0.png' },
+    { location: '남산', date: '2023.11.06', image: '/lovable-uploads/52cda84b-62de-42f3-a589-b3e09df0ac8d.png' },
+    { location: '서교', date: '2023.11.06', image: '/lovable-uploads/6c4f10a0-14d6-41d5-b374-4f092f849b9d.png' },
+    { location: '마포', date: '2023.12.07', image: '/lovable-uploads/0cdcd0fd-1460-4af3-ba80-2d4a15a97472.png' },
+    { location: '서촌', date: '2023.12.07', image: '/lovable-uploads/f3e65266-d8f6-4122-b19f-da01f6ab44c0.png' },
+    { location: '소격', date: '2023.08.11', image: '/lovable-uploads/52cda84b-62de-42f3-a589-b3e09df0ac8d.png' },
+    { location: '북촌', date: '2024.01.01', image: '/lovable-uploads/6c4f10a0-14d6-41d5-b374-4f092f849b9d.png' },
   ]);
   const [showSuccessDialog, setShowSuccessDialog] = useState(false);
   const [showCouponDialog, setShowCouponDialog] = useState(false);

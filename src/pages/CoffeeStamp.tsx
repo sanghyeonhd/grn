@@ -1,12 +1,26 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { useToast } from "@/components/ui/use-toast";
 
 const CoffeeStamp = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const totalStamps = 20;
   const currentStamps = 2;
+  const [showCouponDialog, setShowCouponDialog] = useState(false);
+
+  const handleGetCoupon = () => {
+    if (currentStamps >= 5) {
+      toast({
+        title: "쿠폰 발급 완료",
+        description: "음료 무료 쿠폰이 발급되었습니다.",
+      });
+    }
+    setShowCouponDialog(true);
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -59,6 +73,29 @@ const CoffeeStamp = () => {
             );
           })}
         </div>
+
+        <button 
+          onClick={handleGetCoupon}
+          className="w-full py-3 bg-gray-900 text-white rounded-lg mt-4"
+        >
+          쿠폰받기
+        </button>
+
+        <Dialog open={showCouponDialog} onOpenChange={setShowCouponDialog}>
+          <DialogContent>
+            <div className="p-6 text-center space-y-4">
+              <h3 className="text-lg font-medium">
+                {currentStamps >= 5 ? "음료 무료 쿠폰 1개" : "아직 쿠폰을 다 모으지 못했습니다"}
+              </h3>
+              <button
+                onClick={() => setShowCouponDialog(false)}
+                className="w-full py-2 bg-gray-900 text-white rounded-lg"
+              >
+                확인
+              </button>
+            </div>
+          </DialogContent>
+        </Dialog>
 
         <div className="bg-gray-50 p-4 rounded-lg mt-6">
           <h3 className="font-medium mb-2">스탬프 적립 안내</h3>

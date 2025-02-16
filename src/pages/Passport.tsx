@@ -74,7 +74,7 @@ const Passport = () => {
   return (
     <div className="min-h-screen bg-white">
       <header className="flex items-center p-4 border-b">
-        <button onClick={() => navigate('/my-qr')} className="mr-2">
+        <button onClick={() => navigate('/')} className="mr-2">
           <ChevronLeft className="h-6 w-6" />
         </button>
         <h1 className="text-lg font-medium">그랑핸드 패스포트</h1>
@@ -91,7 +91,7 @@ const Passport = () => {
         </div>
 
         <div className="flex justify-between items-center px-2">
-          <button onClick={() => navigate('/my-qr')} className="text-sm text-gray-600">
+          <button onClick={() => navigate('/')} className="text-sm text-gray-600">
             뒤로가기
           </button>
           <span className="text-sm text-gray-600">{stamps.length} / {STAMP_LOCATIONS.length}</span>

@@ -5,6 +5,8 @@ import { ChevronLeft } from 'lucide-react';
 
 const CoffeeStamp = () => {
   const navigate = useNavigate();
+  const totalStamps = 20;
+  const currentStamps = 2;
 
   return (
     <div className="min-h-screen bg-white">
@@ -12,29 +14,58 @@ const CoffeeStamp = () => {
         <button onClick={() => navigate(-1)} className="mr-2">
           <ChevronLeft className="h-6 w-6" />
         </button>
-        <h1 className="text-lg font-medium">콤포타블 커피 스탬프</h1>
+        <h1 className="text-lg font-medium">콤포타블 스탬프</h1>
       </header>
 
       <div className="p-4 space-y-6">
-        <div className="text-center text-sm text-gray-500">12개 중 3개의 스탬프를 모았어요</div>
+        <div>
+          <h2 className="text-center text-xl font-bold mb-2">콤포타블 스탬프</h2>
+          <p className="text-center text-gray-600 text-sm">
+            콤포타블 커피에서 스탬프를 모아보세요!<br />
+            5/10/15/20개를 모으면 쿠폰으로 사용할 수 있어요.
+          </p>
+        </div>
         
-        <div className="grid grid-cols-4 gap-4">
-          {Array(12).fill(null).map((_, index) => (
-            <div 
-              key={index}
-              className={`aspect-square rounded-full border ${
-                index < 3 ? 'bg-gray-100' : 'border-dashed'
-              }`}
-            />
-          ))}
+        <div className="flex justify-between items-center px-2">
+          <button onClick={() => navigate(-1)} className="text-sm text-gray-600">
+            뒤로가기
+          </button>
+          <span className="text-sm text-gray-600">{currentStamps} / {totalStamps}</span>
+        </div>
+        
+        <div className="grid grid-cols-5 gap-4">
+          {Array(totalStamps).fill(null).map((_, index) => {
+            const isFree = (index + 1) % 5 === 0;
+            const isStamped = index < currentStamps;
+            
+            return (
+              <div 
+                key={index}
+                className={`relative aspect-square rounded-full border 
+                  ${isStamped ? 'border-gray-400' : 'border-dashed border-gray-300'}
+                  ${isFree ? 'bg-white' : ''} flex items-center justify-center`}
+              >
+                {isStamped && (
+                  <div className="text-[8px] text-center">
+                    <div>Komfortabel</div>
+                    <div>COFFEE</div>
+                    <div className="text-[6px] mt-1 text-gray-400">2025.01.01</div>
+                  </div>
+                )}
+                {isFree && !isStamped && (
+                  <span className="text-sm text-gray-400">FREE</span>
+                )}
+              </div>
+            );
+          })}
         </div>
 
-        <div className="bg-gray-50 p-4 rounded-lg">
+        <div className="bg-gray-50 p-4 rounded-lg mt-6">
           <h3 className="font-medium mb-2">스탬프 적립 안내</h3>
           <ul className="text-sm text-gray-600 space-y-2">
-            <li>• 스탬프 12개 적립 시 아메리카노 1잔 무료 증정</li>
-            <li>• 스탬프는 음료 구매 시 1개씩 적립됩니다.</li>
-            <li>• 유효기간: 2024.12.31까지</li>
+            <li>• 5/10/15/20개 적립 시 쿠폰으로 교환 가능</li>
+            <li>• 스탬프는 음료 구매 시 1개씩 적립됩니다</li>
+            <li>• 유효기간: 2025.12.31까지</li>
           </ul>
         </div>
       </div>

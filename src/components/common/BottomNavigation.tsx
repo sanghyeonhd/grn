@@ -1,18 +1,15 @@
 
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { openCamera, startScan, stopScan } from './CameraScanner';
+import { startScan, stopScan } from './CameraScanner';
 import { useToast } from "@/components/ui/use-toast";
-import {
-  Dialog,
-  DialogContent,
-} from "@/components/ui/dialog";
+import MyQRCode from './MyQRCode';
 
 const BottomNavigation = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { toast } = useToast();
-  const [showScanOptions, setShowScanOptions] = useState(false);
+  const [showMyQR, setShowMyQR] = useState(false);
 
   const isActive = (path: string) => {
     if (path === '/granshop' && location.pathname.startsWith('/granshop')) {
@@ -21,29 +18,12 @@ const BottomNavigation = () => {
     return location.pathname === path;
   };
 
-  const handleScanClick = () => {
-    setShowScanOptions(true);
-  };
-
-  const handleCameraOpen = async () => {
-    setShowScanOptions(false);
-    try {
-      await openCamera();
-    } catch (error) {
-      toast({
-        description: "카메라를 실행할 수 없습니다. 카메라 권한을 확인해주세요.",
-        variant: "destructive",
-      });
-    }
-  };
-
-  const handleQRScan = async () => {
-    setShowScanOptions(false);
+  const handleScanClick = async () => {
     try {
       const result = await startScan();
       if (result) {
         toast({
-          description: "QR 코드가 성공적으로 스캔되었습니다.",
+          description: "남산점 스탬프를 받았어요!",
         });
         // 여기서 스캔된 QR 코드 데이터를 처리할 수 있습니다
         console.log('스캔된 QR 코드:', result);
@@ -60,24 +40,7 @@ const BottomNavigation = () => {
 
   return (
     <>
-      <Dialog open={showScanOptions} onOpenChange={setShowScanOptions}>
-        <DialogContent className="sm:max-w-[425px]">
-          <div className="grid gap-4 py-4">
-            <button
-              onClick={handleCameraOpen}
-              className="flex items-center justify-center gap-2 p-4 border rounded-lg"
-            >
-              <span>카메라</span>
-            </button>
-            <button
-              onClick={handleQRScan}
-              className="flex items-center justify-center gap-2 p-4 border rounded-lg"
-            >
-              <span>QR 스캔</span>
-            </button>
-          </div>
-        </DialogContent>
-      </Dialog>
+      <MyQRCode isOpen={showMyQR} onClose={() => setShowMyQR(false)} />
 
       <nav className="fixed bottom-0 left-0 right-0 bg-[#FDFBF4] border-t">
         <div className="flex justify-around items-center h-[60px] px-4">
@@ -106,7 +69,7 @@ const BottomNavigation = () => {
           </button>
           
           <button 
-            onClick={handleScanClick}
+            onClick={() => setShowMyQR(true)}
             className="flex flex-col items-center justify-center gap-1 w-16"
           >
             <img 

@@ -13,14 +13,14 @@ interface Stamp {
 }
 
 const STAMP_LOCATIONS = [
-  { name: '광화문', image: '/icons/granhand-gwanghwamun.png' },
-  { name: '도산', image: '/icons/granhand-dosan.png' },
-  { name: '남산', image: '/icons/granhand-namsan.png' },
-  { name: '서교', image: '/icons/granhand-seogyo.png' },
-  { name: '마포', image: '/icons/granhand-mapo.png' },
-  { name: '서촌', image: '/icons/granhand-seochon.png' },
-  { name: '소격', image: '/icons/granhand-sogyeok.png' },
-  { name: '북촌', image: '/icons/granhand-bukchon.png' },
+  { name: '광화문', image: '/lovable-uploads/49950af0-c308-4706-9628-6fc190caba7f.png' },
+  { name: '도산', image: '/lovable-uploads/4ed1a11b-9cd7-4c5b-9991-6adeda1ecdef.png' },
+  { name: '남산', image: '/lovable-uploads/5543f85b-0d24-4ab3-a996-08c599742a75.png' },
+  { name: '서교', image: '/lovable-uploads/55a68fca-eb33-480d-bb5a-e14c8a947254.png' },
+  { name: '마포', image: '/lovable-uploads/569b0ab8-dafd-4552-b7c1-a7996f402d41.png' },
+  { name: '서촌', image: '/lovable-uploads/5cc24d62-62a5-411c-b26f-3dfab302a6a5.png' },
+  { name: '소격', image: '/lovable-uploads/5efa3b32-af2d-4af0-9928-c99bfed9e19a.png' },
+  { name: '북촌', image: '/lovable-uploads/63303077-f358-433e-921d-30b925a8b863.png' },
 ];
 
 const Passport = () => {
@@ -107,7 +107,7 @@ const Passport = () => {
                 } flex items-center justify-center mb-2`}>
                   {stamp && (
                     <div className="text-center">
-                      <img src={stamp.image} alt={stamp.location} className="w-8 h-8 mx-auto mb-1" />
+                      <img src={location.image} alt={location.name} className="w-8 h-8 mx-auto mb-1" />
                       <div className="text-[6px] text-gray-400">{stamp.date}</div>
                     </div>
                   )}

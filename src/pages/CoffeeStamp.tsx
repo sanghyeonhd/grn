@@ -25,7 +25,7 @@ const CoffeeStamp = () => {
   return (
     <div className="min-h-screen bg-white">
       <header className="flex items-center p-4 border-b">
-        <button onClick={() => navigate(-1)} className="mr-2">
+        <button onClick={() => navigate('/my-qr')} className="mr-2">
           <ChevronLeft className="h-6 w-6" />
         </button>
         <h1 className="text-lg font-medium">콤포타블 스탬프</h1>

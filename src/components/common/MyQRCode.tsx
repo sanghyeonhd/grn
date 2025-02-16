@@ -26,7 +26,7 @@ const MyQRCode = ({ isOpen, onClose }: MyQRCodeProps) => {
             <h2 className="text-center text-xl font-medium">나의 QR 코드</h2>
             <div className="flex justify-center py-4">
               <img 
-                src="/lovable-uploads/c57c2987-e0a2-4373-8ed1-e82a4c5f8503.png" 
+                src="/lovable-uploads/9fbb845c-24f9-4334-a45e-08699ba32c76.png" 
                 alt="QR Code" 
                 className="w-64 h-64" 
               />

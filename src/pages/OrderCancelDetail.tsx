@@ -1,4 +1,3 @@
-
 import { X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -48,14 +47,13 @@ const OrderCancelDetail = () => {
                 <span>GRANHAND❤️</span>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div className="bg-white p-4 rounded-lg space-y-4">
-          <div className="text-red-500 font-medium">취소 거부</div>
-          <div className="border-t border-dashed pt-4 space-y-1 text-sm text-gray-500">
-            <div>└ 취소 사유 : 재주문</div>
-            <div>└ 취소 거부 사유 : 배송 시작</div>
+            <div className="mt-4 pt-4 border-t border-dashed">
+              <div className="text-red-500 font-medium">취소 거부</div>
+              <div className="mt-4 space-y-1 text-sm text-gray-500">
+                <div>└ 취소 사유 : 재주문</div>
+                <div>└ 취소 거부 사유 : 배송 시작</div>
+              </div>
+            </div>
           </div>
         </div>
 

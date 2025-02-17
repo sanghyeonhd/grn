@@ -137,16 +137,14 @@ const PassportModal = ({ isOpen, onClose }: PassportModalProps) => {
       <div className="fixed bottom-16 left-0 right-0 flex justify-center">
         <button 
           onClick={handleScanQR}
-          className="flex flex-col items-center space-y-1"
+          className="flex items-center space-x-2 text-white"
         >
-          <div className="bg-white rounded-lg p-2">
-            <img 
-              src="/lovable-uploads/c0630d17-83de-4bad-bdda-aed41e533c58.png" 
-              alt="QR 스캔" 
-              className="w-6 h-6"
-            />
-          </div>
-          <span className="text-white text-xs">QR 스캔으로 스탬프 찍기</span>
+          <img 
+            src="/lovable-uploads/c0630d17-83de-4bad-bdda-aed41e533c58.png" 
+            alt="QR" 
+            className="w-5 h-5"
+          />
+          <span className="text-sm">QR 스캔으로 스탬프 찍기</span>
         </button>
       </div>
     </div>

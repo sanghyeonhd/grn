@@ -1,4 +1,3 @@
-
 import { X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -99,7 +98,6 @@ const OrderCancelDetail = () => {
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-[#C0BCB6]">└ 신용카드 (현대카드)</span>
-              <span>20,500원</span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-gray-500">포인트 환불</span>

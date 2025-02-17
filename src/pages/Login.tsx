@@ -1,9 +1,8 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -12,6 +11,10 @@ const Login = () => {
     email: '',
     password: ''
   });
+  const [errors, setErrors] = useState({
+    email: false,
+    password: false
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -19,6 +22,16 @@ const Login = () => {
       ...prev,
       [name]: value
     }));
+    
+    // 테스트 케이스 처리
+    if (value === '1') {
+      setErrors({ email: false, password: false });
+    } else if (value === '2') {
+      setErrors({
+        email: true,
+        password: true
+      });
+    }
   };
 
   const handleLogin = (e: React.FormEvent) => {
@@ -33,50 +46,72 @@ const Login = () => {
       return;
     }
 
-    // TODO: Implement actual login logic
+    if (errors.email || errors.password) {
+      toast({
+        title: "로그인 실패",
+        description: "아이디 또는 비밀번호를 다시 확인해 주세요.",
+        variant: "destructive"
+      });
+      return;
+    }
+
     navigate('/');
   };
 
   return (
-    <div className="min-h-screen bg-white px-4 py-8">
-      <div className="max-w-md mx-auto space-y-8">
-        <div className="text-center space-y-2">
-          <h1 className="text-2xl font-bold">로그인</h1>
-          <p className="text-gray-500 text-sm">
-            콤포타블 커피에 오신 것을 환영합니다
-          </p>
-        </div>
+    <div className="min-h-screen bg-white px-4 pt-12">
+      <div className="max-w-md mx-auto">
+        <h1 className="text-2xl font-bold mb-12">GRANHAND.</h1>
 
-        <form onSubmit={handleLogin} className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-6">
           <div className="space-y-2">
-            <label className="text-sm font-medium">이메일</label>
+            <label className="block text-sm">아이디</label>
             <Input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="이메일을 입력해주세요"
-              className="w-full"
+              placeholder="이메일을 입력해 주세요."
+              className={`w-full border ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
             />
+            {errors.email && (
+              <p className="text-red-500 text-xs mt-1">올바른 이메일 형식으로 입력해 주세요.</p>
+            )}
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium">비밀번호</label>
+            <label className="block text-sm">비밀번호</label>
             <Input
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
-              placeholder="비밀번호를 입력해주세요"
-              className="w-full"
+              placeholder="비밀번호를 입력해 주세요."
+              className={`w-full border ${errors.password ? 'border-red-500' : 'border-gray-300'}`}
             />
+            {errors.password && (
+              <p className="text-red-500 text-xs mt-1">아이디 또는 비밀번호를 다시 확인해 주세요.</p>
+            )}
           </div>
 
-          <Button type="submit" className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a]">
+          <button 
+            type="submit"
+            className={`w-full py-3 rounded-none ${
+              formData.email && formData.password && !errors.email && !errors.password
+                ? 'bg-[#2C2C2C] text-white'
+                : 'bg-[#E9E9E9] text-gray-500'
+            }`}
+          >
             로그인
-          </Button>
+          </button>
 
-          <div className="flex justify-center gap-4 text-sm text-gray-600">
+          <div className="pt-4">
+            <button type="button" className="w-full py-3 text-sm border-t border-b">
+              이메일 회원가입
+            </button>
+          </div>
+
+          <div className="flex justify-center gap-4 text-sm text-gray-500">
             <button type="button" onClick={() => navigate('/find-id')}>
               아이디 찾기
             </button>
@@ -84,37 +119,33 @@ const Login = () => {
             <button type="button" onClick={() => navigate('/find-password')}>
               비밀번호 찾기
             </button>
-            <span>|</span>
-            <button type="button" onClick={() => navigate('/signup')}>
-              회원가입
-            </button>
           </div>
 
-          <div className="pt-8 space-y-4">
-            <button 
-              type="button"
-              className="w-full flex items-center justify-center gap-2 py-3 border border-[#FEE500] bg-[#FEE500] rounded-lg"
-              onClick={() => navigate('/')}
-            >
-              <img 
-                src="/lovable-uploads/67b9ce1b-3980-4a7d-b4e3-ab972160348b.png" 
-                alt="Kakao" 
-                className="w-5 h-5"
-              />
-              카카오로 시작하기
-            </button>
-            <button 
-              type="button"
-              className="w-full flex items-center justify-center gap-2 py-3 border border-black rounded-lg"
-              onClick={() => navigate('/')}
-            >
-              <img 
-                src="/lovable-uploads/e178991f-6cc6-4587-9caa-4c0cd4eeeca6.png" 
-                alt="Apple" 
-                className="w-5 h-5"
-              />
-              Apple로 시작하기
-            </button>
+          <div className="pt-8">
+            <p className="text-center text-sm text-gray-500 mb-6">간편 로그인</p>
+            <div className="flex justify-center gap-8">
+              <button type="button">
+                <img 
+                  src="/lovable-uploads/e178991f-6cc6-4587-9caa-4c0cd4eeeca6.png" 
+                  alt="Apple" 
+                  className="w-12 h-12"
+                />
+              </button>
+              <button type="button">
+                <img 
+                  src="/lovable-uploads/67b9ce1b-3980-4a7d-b4e3-ab972160348b.png" 
+                  alt="Naver" 
+                  className="w-12 h-12"
+                />
+              </button>
+              <button type="button">
+                <img 
+                  src="/lovable-uploads/67b9ce1b-3980-4a7d-b4e3-ab972160348b.png" 
+                  alt="Kakao" 
+                  className="w-12 h-12"
+                />
+              </button>
+            </div>
           </div>
         </form>
       </div>

@@ -1,4 +1,3 @@
-
 import { X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -20,7 +19,7 @@ const OrderExchangeDetail = () => {
           <div className="bg-gray-50 p-4 rounded-lg">
             <div className="flex gap-4">
               <img 
-                src="/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png"
+                src="/lovable-uploads/1387ae01-4bb2-487d-bb50-e804b1224422.png"
                 alt="Roland Multi Perfume"
                 className="w-20 h-20 object-cover rounded"
               />
@@ -87,10 +86,10 @@ const OrderExchangeDetail = () => {
           <button className="py-3 border rounded-lg">배송 조회</button>
         </div>
 
-        <div className="text-sm text-gray-500 space-y-1">
-          <div>교환 접수 안내</div>
-          <div>• 지난 결제에 반영한 할우 회돌 쿠폰 수령 수단(카드, 카카오쇼핑머니 페이, 쿠팡) {">"} 쿠폰 포인트 순)에서 차감 후 환불됩니다.</div>
-          <div>• 환불 상품 추가 반품 물품 금액이 확정됩니다.</div>
+        <div className="bg-white p-4 rounded-lg">
+          <div className="text-[10px] text-gray-500">
+            교환 접수 안내 • 지난 결제에 반영한 할우 회돌 쿠폰 수령 수단(카드, 카카오쇼핑머니 페이, 쿠팡) {">"} 쿠폰 포인트 순)에서 차감 후 환불됩니다. • 환불 상품 추가 반품 물품 금액이 확정됩니다.
+          </div>
         </div>
       </div>
     </div>

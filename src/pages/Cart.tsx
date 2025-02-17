@@ -187,33 +187,15 @@ const Cart = () => {
                 className="mt-2"
               />
               <img src={item.image} alt={item.name} className="w-20 h-20 object-cover" />
-              <div className="flex-1">
+              <div className="flex-1 space-y-2">
                 <h3 className="font-medium">{item.name}</h3>
-                <p className="text-sm text-gray-500">{item.price.toLocaleString()}원</p>
-                <div className="mt-2 space-y-1 text-sm">
-                  <p className="text-gray-600">옵션: {item.option}</p>
-                  <p className="text-gray-600">쇼핑백: {item.shippingOption}</p>
-                </div>
-                <div className="mt-3 flex items-center gap-2">
-                  <div className="flex items-center border rounded-md">
-                    <button 
-                      onClick={() => handleQuantityChange(item.id, false)}
-                      className="px-3 py-1"
-                    >
-                      <Minus className="w-4 h-4" />
-                    </button>
-                    <span className="px-3 py-1 border-x">{item.quantity}</span>
-                    <button 
-                      onClick={() => handleQuantityChange(item.id, true)}
-                      className="px-3 py-1"
-                    >
-                      <Plus className="w-4 h-4" />
-                    </button>
-                  </div>
+                <p className="text-base">{item.price.toLocaleString()}원</p>
+                
+                <div className="flex items-center justify-between">
                   <Sheet>
                     <SheetTrigger asChild>
                       <button 
-                        className="px-3 py-1 border rounded-md text-sm"
+                        className="text-xs text-gray-500"
                         onClick={() => setSelectedItemForOptions(item)}  
                       >
                         옵션변경
@@ -260,6 +242,27 @@ const Cart = () => {
                       </div>
                     </SheetContent>
                   </Sheet>
+
+                  <div className="flex items-center gap-2">
+                    <button 
+                      onClick={() => handleQuantityChange(item.id, false)}
+                      className="p-1"
+                    >
+                      <Minus className="w-4 h-4" />
+                    </button>
+                    <span className="w-8 text-center">{item.quantity}</span>
+                    <button 
+                      onClick={() => handleQuantityChange(item.id, true)}
+                      className="p-1"
+                    >
+                      <Plus className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+
+                <div className="space-y-1 text-xs text-gray-500">
+                  <p>옵션: {item.option}</p>
+                  <p>쇼핑백: {item.shippingOption}</p>
                 </div>
               </div>
             </div>

@@ -74,7 +74,7 @@ const FindIdPhone = () => {
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
               placeholder="+1 12 234 5678"
-              className="flex-1 border-[#C0BCB6] rounded"
+              className="flex-1 border-[#C0BCB6] rounded bg-[#FFFFFF]"
             />
             <Button
               onClick={handlePhoneSubmit}
@@ -93,7 +93,7 @@ const FindIdPhone = () => {
               value={verificationCode}
               onChange={(e) => setVerificationCode(e.target.value)}
               placeholder="인증번호 6자리 입력"
-              className="w-full pr-16 border-[#C0BCB6] rounded"
+              className="w-full pr-16 border-[#C0BCB6] rounded bg-[#FFFFFF]"
             />
             {isTimerRunning && (
               <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500">

@@ -1,9 +1,9 @@
-
 import { ChevronRight } from "lucide-react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddressForm from "@/pages/AddressForm";
+import PurchaseConfirmation from "@/components/PurchaseConfirmation";
 
 interface GiftItemProps {
   item: {
@@ -28,6 +28,7 @@ const GiftItem = ({
   const [openRejectDialog, setOpenRejectDialog] = useState(false);
   const [openRejectConfirmDialog, setOpenRejectConfirmDialog] = useState(false);
   const [openAddressDialog, setOpenAddressDialog] = useState(false);
+  const [openPurchaseConfirmation, setOpenPurchaseConfirmation] = useState(false);
   const isSentGift = item.id.startsWith('s');
 
   return (
@@ -173,9 +174,34 @@ const GiftItem = ({
               <button className="py-3 border text-sm">배송 조회</button>
               <button className="py-3 border text-sm">교환/반품 신청</button>
             </div>
-            <button className="w-full py-3 border text-sm">
+            <button 
+              className="w-full py-3 border text-sm"
+              onClick={() => setOpenPurchaseConfirmation(true)}
+            >
               구매 확정
             </button>
+
+            <PurchaseConfirmation
+              isOpen={openPurchaseConfirmation}
+              onClose={() => setOpenPurchaseConfirmation(false)}
+              onConfirm={(selectedProducts) => {
+                console.log('Selected products:', selectedProducts);
+                setOpenPurchaseConfirmation(false);
+              }}
+              products={[
+                {
+                  id: "1",
+                  brand: "GRANHAND",
+                  name: "Roland Multi Perfume",
+                  price: 55000,
+                  image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png",
+                  option: "롤링 멀티퍼퓸 200ml / 1개",
+                  stampingLabel: "",
+                  stampingType: "",
+                  points: 500
+                }
+              ]}
+            />
           </div>
         ) : (
           <button className="w-full py-3 border text-sm bg-[#F6F6F7]">

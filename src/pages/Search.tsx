@@ -54,6 +54,11 @@ const Search = () => {
     }
   }, [searchTerm]);
 
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    console.error('Image failed to load:', e.currentTarget.src);
+    e.currentTarget.src = '/placeholder.svg';  // 기본 플레이스홀더 이미지로 대체
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <div className="relative">
@@ -113,6 +118,7 @@ const Search = () => {
                     <img 
                       src={product.image} 
                       alt={product.name}
+                      onError={handleImageError}
                       className="w-20 h-20 object-cover bg-gray-100"
                     />
                     <div className="flex-1">

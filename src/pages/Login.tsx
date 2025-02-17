@@ -94,19 +94,19 @@ const Login = () => {
             )}
           </div>
 
-          <button 
-            type="submit"
-            className={`w-full py-3 rounded-none ${
-              formData.email && formData.password && !errors.email && !errors.password
-                ? 'bg-[#2C2C2C] text-white'
-                : 'bg-[#E9E9E9] text-gray-500'
-            }`}
-          >
-            로그인
-          </button>
-
           <div className="pt-4">
-            <button type="button" className="w-full py-3 text-sm border-t border-b">
+            <button 
+              type="submit"
+              className={`w-full py-3 rounded-none ${
+                formData.email && formData.password && !errors.email && !errors.password
+                  ? 'bg-[#2C2C2C] text-white'
+                  : 'bg-[#E9E9E9] text-gray-500'
+              }`}
+            >
+              로그인
+            </button>
+
+            <button type="button" className="w-full py-3 text-sm border-t border-b mt-4">
               이메일 회원가입
             </button>
           </div>

@@ -124,8 +124,9 @@ const Withdraw = () => {
 
   const renderStep3 = () => (
     <div className="p-4">
-      <p className="mb-4">유의사항을 확인해 주세요.</p>
-      <div className="bg-gray-50 p-4 rounded text-sm space-y-6">
+      <p className="mb-8">유의사항을 확인해 주세요.</p>
+      <h3 className="text-[14px] font-medium mb-4">탈퇴 시 유의사항</h3>
+      <div className="bg-[#F9F9F9] p-4 rounded-lg text-[10px] space-y-4">
         <div>
           <h3 className="font-medium mb-1">회원 탈퇴 후 재가입</h3>
           <p className="text-gray-600">동일한 본인 정보 휴대폰으로는 30일 이후에 재가입 가능합니다.</p>

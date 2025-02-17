@@ -23,7 +23,7 @@ const FindId = () => {
       </header>
 
       <div className="mt-auto space-y-6">
-        <div className="bg-[#F9F9F9] p-5 space-y-2.5 rounded-none">
+        <div className="bg-[#322A24]/[0.03] p-5 space-y-2.5 rounded-none">
           <p className="text-[11px] text-gray-600">• SNS 계정으로 가입하신 회원님은 아이디 찾기가 불가능합니다.</p>
           <p className="text-[11px] text-gray-600">• 가입하신 계정이 기억나지 않을 경우 hello@granhand.com으로 문의 하시기 바랍니다.</p>
         </div>

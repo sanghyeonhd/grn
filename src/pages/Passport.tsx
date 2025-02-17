@@ -13,28 +13,28 @@ interface Stamp {
 }
 
 const STAMP_LOCATIONS = [
-  { name: '광화문', image: '/lovable-uploads/0cdcd0fd-1460-4af3-ba80-2d4a15a97472.png' },
-  { name: '도산', image: '/lovable-uploads/f3e65266-d8f6-4122-b19f-da01f6ab44c0.png' },
-  { name: '남산', image: '/lovable-uploads/52cda84b-62de-42f3-a589-b3e09df0ac8d.png' },
-  { name: '서교', image: '/lovable-uploads/6c4f10a0-14d6-41d5-b374-4f092f849b9d.png' },
-  { name: '마포', image: '/lovable-uploads/0cdcd0fd-1460-4af3-ba80-2d4a15a97472.png' },
-  { name: '서촌', image: '/lovable-uploads/f3e65266-d8f6-4122-b19f-da01f6ab44c0.png' },
-  { name: '소격', image: '/lovable-uploads/52cda84b-62de-42f3-a589-b3e09df0ac8d.png' },
-  { name: '북촌', image: '/lovable-uploads/6c4f10a0-14d6-41d5-b374-4f092f849b9d.png' },
+  { name: '광화문', image: '/lovable-uploads/9d085eec-239a-4424-9c5c-443346f4eaa4.png' },
+  { name: '도산', image: '/lovable-uploads/9d085eec-239a-4424-9c5c-443346f4eaa4.png' },
+  { name: '남산', image: '/lovable-uploads/9d085eec-239a-4424-9c5c-443346f4eaa4.png' },
+  { name: '서교', image: '/lovable-uploads/9d085eec-239a-4424-9c5c-443346f4eaa4.png' },
+  { name: '마포', image: '/lovable-uploads/9d085eec-239a-4424-9c5c-443346f4eaa4.png' },
+  { name: '서촌', image: '/lovable-uploads/9d085eec-239a-4424-9c5c-443346f4eaa4.png' },
+  { name: '소격', image: '/lovable-uploads/9d085eec-239a-4424-9c5c-443346f4eaa4.png' },
+  { name: '북촌', image: '/lovable-uploads/9d085eec-239a-4424-9c5c-443346f4eaa4.png' },
 ];
 
 const Passport = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [stamps, setStamps] = useState<Stamp[]>([
-    { location: '광화문', date: '2023.11.06', image: '/lovable-uploads/0cdcd0fd-1460-4af3-ba80-2d4a15a97472.png' },
-    { location: '도산', date: '2023.11.06', image: '/lovable-uploads/f3e65266-d8f6-4122-b19f-da01f6ab44c0.png' },
-    { location: '남산', date: '2023.11.06', image: '/lovable-uploads/52cda84b-62de-42f3-a589-b3e09df0ac8d.png' },
-    { location: '서교', date: '2023.11.06', image: '/lovable-uploads/6c4f10a0-14d6-41d5-b374-4f092f849b9d.png' },
-    { location: '마포', date: '2023.12.07', image: '/lovable-uploads/0cdcd0fd-1460-4af3-ba80-2d4a15a97472.png' },
-    { location: '서촌', date: '2023.12.07', image: '/lovable-uploads/f3e65266-d8f6-4122-b19f-da01f6ab44c0.png' },
-    { location: '소격', date: '2023.08.11', image: '/lovable-uploads/52cda84b-62de-42f3-a589-b3e09df0ac8d.png' },
-    { location: '북촌', date: '2024.01.01', image: '/lovable-uploads/6c4f10a0-14d6-41d5-b374-4f092f849b9d.png' },
+    { location: '광화문', date: '2023.11.06', image: '/lovable-uploads/9d085eec-239a-4424-9c5c-443346f4eaa4.png' },
+    { location: '도산', date: '2023.11.06', image: '/lovable-uploads/9d085eec-239a-4424-9c5c-443346f4eaa4.png' },
+    { location: '남산', date: '2023.11.06', image: '/lovable-uploads/9d085eec-239a-4424-9c5c-443346f4eaa4.png' },
+    { location: '서교', date: '2023.11.06', image: '/lovable-uploads/9d085eec-239a-4424-9c5c-443346f4eaa4.png' },
+    { location: '마포', date: '2023.12.07', image: '/lovable-uploads/9d085eec-239a-4424-9c5c-443346f4eaa4.png' },
+    { location: '서촌', date: '2023.12.07', image: '/lovable-uploads/9d085eec-239a-4424-9c5c-443346f4eaa4.png' },
+    { location: '소격', date: '2023.08.11', image: '/lovable-uploads/9d085eec-239a-4424-9c5c-443346f4eaa4.png' },
+    { location: '북촌', date: '2024.01.01', image: '/lovable-uploads/9d085eec-239a-4424-9c5c-443346f4eaa4.png' },
   ]);
   const [showSuccessDialog, setShowSuccessDialog] = useState(false);
   const [showCouponDialog, setShowCouponDialog] = useState(false);
@@ -104,15 +104,15 @@ const Passport = () => {
               <div key={index} className="text-center">
                 <div className={`aspect-square rounded-full border ${
                   stamp ? 'bg-gray-100' : 'border-dashed'
-                } flex items-center justify-center mb-2`}>
+                } flex items-center justify-center mb-1`}>
                   {stamp && (
-                    <div className="text-center">
-                      <img src={location.image} alt={location.name} className="w-8 h-8 mx-auto mb-1" />
-                      <div className="text-[6px] text-gray-400">{stamp.date}</div>
-                    </div>
+                    <img src={stamp.image} alt={location.name} className="w-8 h-8" />
                   )}
                 </div>
-                <div className="text-xs">{location.name}</div>
+                <div className="text-xs mb-1">{location.name}</div>
+                {stamp && (
+                  <div className="text-[10px] text-gray-400">{stamp.date}</div>
+                )}
               </div>
             );
           })}

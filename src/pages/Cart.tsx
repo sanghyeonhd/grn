@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, Minus, Plus, ChevronDown } from 'lucide-react';
@@ -126,12 +127,30 @@ const Cart = () => {
   return (
     <div className="min-h-screen bg-white pb-20">
       <div className="sticky top-0 bg-white border-b">
-        <div className="flex items-center justify-between p-4">
+        <div className="flex items-center p-4">
+          <button onClick={() => navigate(-1)} className="mr-4">
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <h1 className="text-lg">장바구니</h1>
+        </div>
+      </div>
+
+      <div className="divide-y">
+        <div className="p-4 flex items-center justify-between">
           <div className="flex items-center">
-            <button onClick={() => navigate(-1)} className="mr-4">
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <h1 className="text-lg">장바구니</h1>
+            <input
+              type="checkbox"
+              checked={selectedItems.length === cartItems.length}
+              onChange={() => {
+                if (selectedItems.length === cartItems.length) {
+                  setSelectedItems([]);
+                } else {
+                  setSelectedItems(cartItems.map(item => item.id));
+                }
+              }}
+              className="mr-2"
+            />
+            <span>전체 선택 ({selectedItems.length}/{cartItems.length})</span>
           </div>
           <AlertDialog>
             <AlertDialogTrigger asChild>
@@ -156,24 +175,6 @@ const Cart = () => {
               </AlertDialogContent>
             )}
           </AlertDialog>
-        </div>
-      </div>
-
-      <div className="divide-y">
-        <div className="p-4 flex items-center">
-          <input
-            type="checkbox"
-            checked={selectedItems.length === cartItems.length}
-            onChange={() => {
-              if (selectedItems.length === cartItems.length) {
-                setSelectedItems([]);
-              } else {
-                setSelectedItems(cartItems.map(item => item.id));
-              }
-            }}
-            className="mr-2"
-          />
-          <span>전체 선택 ({selectedItems.length}/{cartItems.length})</span>
         </div>
 
         {cartItems.map((item) => (

@@ -13,6 +13,7 @@ const OrderReturn = () => {
   const [step, setStep] = useState<"select" | "reason" | "delivery" | "complete">("select");
   const [reason, setReason] = useState("");
   const [reasonDetail, setReasonDetail] = useState("");
+  const [selectedMethod, setSelectedMethod] = useState<"exchange" | "refund">("exchange");
 
   const products: Product[] = [
     {
@@ -29,7 +30,7 @@ const OrderReturn = () => {
   ];
 
   if (step === "complete") {
-    return <CompleteStep />;
+    return <CompleteStep method={selectedMethod} />;
   }
 
   return (
@@ -63,7 +64,12 @@ const OrderReturn = () => {
           setReasonDetail={setReasonDetail}
         />
       )}
-      {step === "delivery" && <DeliveryStep />}
+      {step === "delivery" && (
+        <DeliveryStep 
+          selectedMethod={selectedMethod}
+          onMethodChange={setSelectedMethod}
+        />
+      )}
 
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t">
         <button 

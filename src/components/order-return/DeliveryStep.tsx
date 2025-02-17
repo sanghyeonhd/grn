@@ -2,7 +2,12 @@
 import { ChevronRight } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
-const DeliveryStep = () => {
+interface DeliveryStepProps {
+  selectedMethod: "exchange" | "refund";
+  onMethodChange: (value: "exchange" | "refund") => void;
+}
+
+const DeliveryStep = ({ selectedMethod, onMethodChange }: DeliveryStepProps) => {
   return (
     <div className="p-4">
       <div className="mb-6 text-lg font-medium">교환/반품 상품 정보</div>
@@ -38,7 +43,11 @@ const DeliveryStep = () => {
       <div className="mt-6">
         <div className="font-medium mb-2">해결 방법 선택</div>
         <div>
-          <RadioGroup defaultValue="exchange" className="space-y-3">
+          <RadioGroup 
+            value={selectedMethod} 
+            onValueChange={(value: "exchange" | "refund") => onMethodChange(value)} 
+            className="space-y-3"
+          >
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="exchange" id="exchange" />
               <label htmlFor="exchange" className="text-sm">교환</label>

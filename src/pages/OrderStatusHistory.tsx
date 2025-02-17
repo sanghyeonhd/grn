@@ -34,7 +34,7 @@ const OrderStatusHistory = () => {
     {
       id: "2",
       date: "2024.10.23",
-      status: "취소 진행 중",
+      status: "교환 진행 중",
       type: "exchange",
       product: {
         name: "Roland Multi Perfume",
@@ -46,7 +46,7 @@ const OrderStatusHistory = () => {
     {
       id: "3",
       date: "2024.10.16",
-      status: "취소 진행 중",
+      status: "반품 진행 중",
       type: "return",
       product: {
         name: "Roland Multi Perfume",

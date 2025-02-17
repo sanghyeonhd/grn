@@ -126,21 +126,21 @@ const Login = () => {
             <div className="flex justify-center gap-8">
               <button type="button">
                 <img 
-                  src="/lovable-uploads/e178991f-6cc6-4587-9caa-4c0cd4eeeca6.png" 
+                  src="/lovable-uploads/8d0a9713-11f0-4d4f-b93d-71d5332424f1.png" 
                   alt="Apple" 
                   className="w-12 h-12"
                 />
               </button>
               <button type="button">
                 <img 
-                  src="/lovable-uploads/67b9ce1b-3980-4a7d-b4e3-ab972160348b.png" 
+                  src="/lovable-uploads/f91f72da-47de-4e10-8263-b19a3741d98b.png" 
                   alt="Naver" 
                   className="w-12 h-12"
                 />
               </button>
               <button type="button">
                 <img 
-                  src="/lovable-uploads/67b9ce1b-3980-4a7d-b4e3-ab972160348b.png" 
+                  src="/lovable-uploads/132e0477-dd85-44e2-b4f5-a3c72e07e332.png" 
                   alt="Kakao" 
                   className="w-12 h-12"
                 />

@@ -11,8 +11,8 @@ const Index = () => {
 
   return (
     <div className="pb-[72px]">
-      <Navigation />
       <MainBanner />
+      <Navigation />
       <BrandShop />
       <JournalList />
       <BottomNavigation />

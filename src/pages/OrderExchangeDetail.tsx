@@ -1,3 +1,4 @@
+
 import { X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -88,7 +89,7 @@ const OrderExchangeDetail = () => {
 
         <div className="bg-white p-4 rounded-lg">
           <div className="text-[10px] text-gray-500">
-            교환 접수 안내 • 지난 결제에 반영한 할우 회돌 쿠폰 수령 수단(카드, 카카오쇼핑머니 페이, 쿠팡) {">"} 쿠폰 포인트 순)에서 차감 후 환불됩니다. • 환불 상품 추가 반품 물품 금액이 확정됩니다.
+            교환 절차 안내 • 차감 금액이 발생할 경우 최종 결제 수단(카드, 카카오네이버 페이, 무통장 {">"} 충전 포인트 순)에서 차감 후 환불됩니다. • 반품 상품 수거 완료 이후 환불 금액이 확정됩니다.
           </div>
         </div>
       </div>

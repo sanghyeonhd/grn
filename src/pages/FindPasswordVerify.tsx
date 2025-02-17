@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { useToast } from "@/components/ui/use-toast"
+import { useToast } from "@/hooks/use-toast"
 
 const FindPasswordVerify = () => {
   const navigate = useNavigate();
@@ -62,7 +62,7 @@ const FindPasswordVerify = () => {
     <div className="min-h-screen bg-white px-4 py-6">
       <header className="flex items-center mb-8">
         <button onClick={() => navigate(-1)} className="text-2xl mr-4">←</button>
-        <h1 className="text-xl font-medium">휴대폰 인증을 해주세요.</h1>
+        <h1 className="text-[18px] font-medium">휴대폰 인증을 해주세요.</h1>
       </header>
 
       <div className="space-y-6">
@@ -74,11 +74,11 @@ const FindPasswordVerify = () => {
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
               placeholder="+1 12 234 5678"
-              className="flex-1"
+              className="flex-1 border-[#C0BCB6] rounded bg-[#FFFFFF]"
             />
             <Button
               onClick={handlePhoneSubmit}
-              className="bg-[#2C2C2C] px-4 rounded-none"
+              className="bg-[#2C2C2C] px-4 text-white rounded hover:bg-[#2C2C2C]"
             >
               {showVerification ? '다시 요청' : '인증 요청'}
             </Button>
@@ -94,7 +94,7 @@ const FindPasswordVerify = () => {
                 value={verificationCode}
                 onChange={(e) => setVerificationCode(e.target.value)}
                 placeholder="인증번호 6자리 입력"
-                className="w-full pr-16"
+                className="w-full pr-16 border-[#C0BCB6] rounded bg-[#FFFFFF]"
               />
               {isTimerRunning && (
                 <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500">
@@ -108,7 +108,7 @@ const FindPasswordVerify = () => {
         {showVerification && (
           <Button
             onClick={handleVerificationSubmit}
-            className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white rounded-none h-12 mt-4"
+            className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white h-[52px] rounded-none mt-4"
           >
             다음
           </Button>

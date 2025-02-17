@@ -41,7 +41,7 @@ const FindPasswordReset = () => {
     <div className="min-h-screen bg-white px-4 py-6">
       <header className="flex items-center mb-8">
         <button onClick={() => navigate(-1)} className="text-2xl mr-4">←</button>
-        <h1 className="text-xl font-medium">비밀번호 재설정</h1>
+        <h1 className="text-[18px] font-medium">비밀번호 재설정</h1>
       </header>
 
       {showError && (
@@ -66,7 +66,7 @@ const FindPasswordReset = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="새 비밀번호를 입력해 주세요."
-              className="w-full"
+              className={`w-full border-[#C0BCB6] rounded ${password ? 'bg-white' : 'bg-[#f8f8f8]'}`}
             />
           </div>
 
@@ -76,14 +76,14 @@ const FindPasswordReset = () => {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder="새 비밀번호를 확인해 주세요."
-              className="w-full"
+              className={`w-full border-[#C0BCB6] rounded ${confirmPassword ? 'bg-white' : 'bg-[#f8f8f8]'}`}
             />
           </div>
         </div>
 
         <Button
           onClick={handleSubmit}
-          className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white rounded-none h-12 mt-4"
+          className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white h-[52px] rounded-none mt-4"
         >
           비밀번호 재설정
         </Button>

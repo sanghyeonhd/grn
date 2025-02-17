@@ -98,7 +98,11 @@ const OrderCancelDetail = () => {
               <span className="font-medium">25,500원</span>
             </div>
             <div className="flex justify-between text-sm">
-              <span className="text-gray-500">• 신용카드 (현대카드)</span>
+              <span className="text-[#C0BCB6]">└ 신용카드 (현대카드)</span>
+              <span>20,500원</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-500">포인트 환불</span>
               <span>5,000</span>
             </div>
           </div>

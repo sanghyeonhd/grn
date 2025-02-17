@@ -7,7 +7,7 @@ const SignupComplete = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-white px-4 py-6">
+    <div className="min-h-screen bg-white px-4 py-6 flex flex-col">
       <div className="flex w-full h-1 mb-12">
         <div className="w-1/4 bg-gray-200" />
         <div className="w-1/4 bg-gray-200" />
@@ -19,7 +19,7 @@ const SignupComplete = () => {
         <h1 className="text-2xl font-medium text-center">그랭핸드의 회원이 되신 것을 환영합니다!</h1>
       </header>
 
-      <div className="space-y-6">
+      <div className="flex-1 space-y-6">
         <div className="space-y-4">
           <div className="flex items-start space-x-3">
             <img src="/lovable-uploads/1.png" alt="신규가입 혜택" className="w-6 h-6" />
@@ -38,10 +38,12 @@ const SignupComplete = () => {
             <p className="text-base">하나만 구매해도 전 제품 무료 배송</p>
           </div>
         </div>
+      </div>
 
+      <div className="mt-auto pt-4">
         <Button
           onClick={() => navigate('/')}
-          className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white rounded-none h-12 mt-8"
+          className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white rounded-none h-12"
         >
           그랭핸드 시작하기
         </Button>

@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -7,8 +7,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 const TermDetail = () => {
   const navigate = useNavigate();
   const { type } = useParams();
-  const [isButtonEnabled, setIsButtonEnabled] = useState(false);
-  const contentRef = useRef<HTMLDivElement>(null);
+  const [isChecked, setIsChecked] = useState(false);
 
   const getTermTitle = () => {
     switch(type) {
@@ -25,20 +24,8 @@ const TermDetail = () => {
     }
   };
 
-  const handleScroll = () => {
-    if (!contentRef.current) return;
-
-    const { scrollTop, scrollHeight, clientHeight } = contentRef.current;
-    // 스크롤이 거의 하단에 도달했을 때 (약간의 여유를 둠)
-    const scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight - 10;
-
-    if (scrolledToBottom && !isButtonEnabled) {
-      setIsButtonEnabled(true);
-    }
-  };
-
   const handleAgree = () => {
-    if (type) {
+    if (type && isChecked) {
       navigate(`/signup/terms?agreed=${type}`);
     }
   };
@@ -51,14 +38,15 @@ const TermDetail = () => {
 
       <div className="px-4 pt-4 pb-20 flex-1 flex flex-col">
         <div className="flex items-center gap-2 mb-6">
-          <Checkbox checked={false} disabled />
+          <Checkbox 
+            checked={isChecked} 
+            onCheckedChange={(checked) => setIsChecked(checked as boolean)} 
+          />
           <h1 className="text-lg font-medium">{getTermTitle()}</h1>
         </div>
 
         <div className="flex-1 border border-gray-200 rounded-lg">
           <div 
-            ref={contentRef} 
-            onScroll={handleScroll}
             className="h-full overflow-y-auto text-sm text-gray-600 p-4"
           >
             <p>
@@ -77,7 +65,7 @@ const TermDetail = () => {
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-white">
         <Button
           onClick={handleAgree}
-          disabled={!isButtonEnabled}
+          disabled={!isChecked}
           className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white rounded-none h-12"
         >
           약관 동의

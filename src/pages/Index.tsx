@@ -1,15 +1,12 @@
 
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 
 const Index = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    navigate('/signup/complete');
-  }, [navigate]);
-
-  return null;
+  return (
+    <div>
+      <h1>그랭핸드 홈</h1>
+    </div>
+  );
 };
 
 export default Index;

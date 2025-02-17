@@ -10,7 +10,6 @@ const FindPasswordVerify = () => {
   const { toast } = useToast();
   const [phoneNumber, setPhoneNumber] = useState('');
   const [verificationCode, setVerificationCode] = useState('');
-  const [showVerification, setShowVerification] = useState(false);
   const [timer, setTimer] = useState(180); // 3분
   const [isTimerRunning, setIsTimerRunning] = useState(false);
 
@@ -23,7 +22,6 @@ const FindPasswordVerify = () => {
       });
       return;
     }
-    setShowVerification(true);
     setIsTimerRunning(true);
     setTimer(180);
   };
@@ -59,33 +57,34 @@ const FindPasswordVerify = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white px-4 py-6">
-      <header className="flex items-center mb-8">
+    <div className="min-h-screen bg-white px-4 py-6 flex flex-col">
+      <header className="flex items-center">
         <button onClick={() => navigate(-1)} className="text-2xl mr-4">←</button>
-        <h1 className="text-[18px] font-medium">휴대폰 인증을 해주세요.</h1>
       </header>
 
-      <div className="space-y-6">
-        <div className="space-y-2">
-          <label className="text-sm">휴대폰 번호</label>
-          <div className="flex space-x-2">
-            <Input
-              type="tel"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-              placeholder="+1 12 234 5678"
-              className="flex-1 border-[#C0BCB6] rounded bg-[#FFFFFF]"
-            />
-            <Button
-              onClick={handlePhoneSubmit}
-              className="bg-[#2C2C2C] px-4 text-white rounded hover:bg-[#2C2C2C]"
-            >
-              {showVerification ? '다시 요청' : '인증 요청'}
-            </Button>
-          </div>
-        </div>
+      <div className="flex-1 flex flex-col">
+        <h1 className="text-[18px] font-medium mt-12 mb-8">휴대폰 인증을 해주세요.</h1>
 
-        {showVerification && (
+        <div className="space-y-6">
+          <div className="space-y-2">
+            <label className="text-sm">휴대폰 번호</label>
+            <div className="flex space-x-2">
+              <Input
+                type="tel"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                placeholder="+1 12 234 5678"
+                className="flex-1 border-[#C0BCB6] rounded bg-[#FFFFFF]"
+              />
+              <Button
+                onClick={handlePhoneSubmit}
+                className="bg-[#2C2C2C] px-4 text-white rounded hover:bg-[#2C2C2C]"
+              >
+                인증 요청
+              </Button>
+            </div>
+          </div>
+
           <div className="space-y-2">
             <label className="text-sm">인증번호</label>
             <div className="relative">
@@ -103,16 +102,16 @@ const FindPasswordVerify = () => {
               )}
             </div>
           </div>
-        )}
+        </div>
 
-        {showVerification && (
+        <div className="mt-auto">
           <Button
             onClick={handleVerificationSubmit}
-            className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white h-[52px] rounded-none mt-4"
+            className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white h-[52px] rounded-none"
           >
             다음
           </Button>
-        )}
+        </div>
       </div>
     </div>
   );

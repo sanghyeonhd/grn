@@ -88,8 +88,10 @@ const OrderExchangeDetail = () => {
         </div>
 
         <div className="bg-white p-4 rounded-lg">
-          <div className="text-[10px] text-gray-500">
-            교환 절차 안내 • 차감 금액이 발생할 경우 최종 결제 수단(카드, 카카오네이버 페이, 무통장 {">"} 충전 포인트 순)에서 차감 후 환불됩니다. • 반품 상품 수거 완료 이후 환불 금액이 확정됩니다.
+          <div className="text-[10px] text-gray-500 space-y-1">
+            <div>교환 절차 안내</div>
+            <div>• 차감 금액이 발생할 경우 최종 결제 수단(카드, 카카오네이버 페이, 무통장 {">"} 충전 포인트 순)에서 차감 후 환불됩니다.</div>
+            <div>• 반품 상품 수거 완료 이후 환불 금액이 확정됩니다.</div>
           </div>
         </div>
       </div>

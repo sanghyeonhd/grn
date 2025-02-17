@@ -8,6 +8,13 @@ const SignupComplete = () => {
 
   return (
     <div className="min-h-screen bg-white px-4 py-6">
+      <div className="flex w-full h-1 mb-12">
+        <div className="w-1/4 bg-gray-200" />
+        <div className="w-1/4 bg-gray-200" />
+        <div className="w-1/4 bg-gray-200" />
+        <div className="w-1/4 bg-[#2C2C2C]" />
+      </div>
+
       <header className="mb-12">
         <h1 className="text-2xl font-medium text-center">그랭핸드의 회원이 되신 것을 환영합니다!</h1>
       </header>

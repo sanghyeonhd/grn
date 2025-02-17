@@ -20,7 +20,7 @@ const SignupComplete = () => {
       </header>
 
       <div className="flex-1 space-y-6">
-        <div className="space-y-4">
+        <div className="space-y-8">
           <div className="flex items-start space-x-3">
             <img src="/lovable-uploads/7eb19491-2084-4393-a572-97f6037e7ee8.png" alt="신규가입 혜택" className="w-6 h-6" />
             <p className="text-base">신규 가입 축하 쿠폰 10,000원</p>

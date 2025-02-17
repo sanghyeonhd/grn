@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ChevronLeft } from 'lucide-react';
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -39,7 +38,6 @@ const PassportModal = ({ isOpen, onClose }: PassportModalProps) => {
     { location: '소격', date: '2023.08.11', image: '/lovable-uploads/eeeb6c16-beaa-4b49-ab3b-bf248ad9cc17.png' },
     { location: '북촌', date: '2024.01.01', image: '/lovable-uploads/eeeb6c16-beaa-4b49-ab3b-bf248ad9cc17.png' },
   ]);
-  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
   const [showCouponDialog, setShowCouponDialog] = useState(false);
 
   const handleScanQR = async () => {
@@ -72,6 +70,10 @@ const PassportModal = ({ isOpen, onClose }: PassportModalProps) => {
 
   const handleSaveCoupon = () => {
     setShowCouponDialog(true);
+  };
+
+  const handleCloseCouponDialog = () => {
+    setShowCouponDialog(false);
   };
 
   return (
@@ -135,6 +137,46 @@ const PassportModal = ({ isOpen, onClose }: PassportModalProps) => {
               className="w-full py-3 bg-[#2C2C2C] text-white rounded-none"
             >
               QR 스캔으로 스탬프 찍기
+            </button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* 쿠폰 저장 완료 모달 */}
+      <Dialog open={showCouponDialog} onOpenChange={handleCloseCouponDialog}>
+        <DialogContent className="sm:max-w-[425px] p-0 bg-[#2C2C2C] text-white">
+          <div className="p-6 space-y-6">
+            <div className="flex items-center justify-between">
+              <button onClick={handleCloseCouponDialog} className="text-sm text-white">
+                뒤로가기
+              </button>
+              <span className="text-sm">8 / 8</span>
+            </div>
+
+            <div className="text-center space-y-4">
+              <h2 className="text-2xl font-bold">쿠폰 저장 완료!</h2>
+              <p className="text-base">
+                그랑핸드 다이어리 교환 쿠폰을 쿠폰함에 쏙 넣어드렸어요.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-4 gap-6">
+              {stamps.map((stamp, index) => (
+                <div key={index} className="text-center">
+                  <div className="aspect-square rounded-full bg-white/10 flex items-center justify-center mb-2">
+                    <img src={stamp.image} alt={stamp.location} className="w-6 h-8" />
+                  </div>
+                  <div className="text-xs mb-1">{stamp.location}</div>
+                  <div className="text-[10px] text-gray-400">{stamp.date}</div>
+                </div>
+              ))}
+            </div>
+
+            <button 
+              onClick={handleCloseCouponDialog}
+              className="w-full py-3 bg-white text-black mt-4"
+            >
+              확인
             </button>
           </div>
         </DialogContent>

@@ -9,8 +9,6 @@ const Signup = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
-    name: '',
-    birthdate: '',
     email: '',
     password: '',
     confirmPassword: ''
@@ -26,7 +24,7 @@ const Signup = () => {
 
   const handleSubmit = () => {
     // 모든 필드 검증
-    if (!formData.name || !formData.birthdate || !formData.email || !formData.password || !formData.confirmPassword) {
+    if (!formData.email || !formData.password || !formData.confirmPassword) {
       toast({
         title: "입력 오류",
         description: "모든 필드를 입력해주세요.",
@@ -49,61 +47,41 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white px-4 py-6">
-      <header className="flex items-center mb-8">
-        <button onClick={() => navigate(-1)} className="text-2xl mr-4">←</button>
+    <div className="min-h-screen bg-white flex flex-col">
+      <div className="px-4 py-6 space-y-4">
+        <button onClick={() => navigate(-1)} className="text-2xl">←</button>
+        
+        <div className="flex w-full h-1">
+          <div className="w-2/4 bg-[#2C2C2C]" />
+          <div className="w-2/4 bg-gray-200" />
+        </div>
+
         <h1 className="text-xl font-medium">회원가입</h1>
-      </header>
-
-      <div className="space-y-6">
+        
         <p className="text-base">로그인에 사용할 아이디와 비밀번호를 입력해 주세요.</p>
+      </div>
 
+      <div className="flex-1 px-4 space-y-6">
         <div className="space-y-4">
           <div className="space-y-2">
-            <label className="text-sm">성명<span className="text-red-500">*</span></label>
-            <Input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="성명을 입력해 주세요."
-              className="w-full"
-            />
-          </div>
-
-          <div className="space-y-2">
-            <label className="text-sm">생년월일<span className="text-red-500">*</span></label>
-            <Input
-              type="text"
-              name="birthdate"
-              value={formData.birthdate}
-              onChange={handleChange}
-              placeholder="YY/DD/MM"
-              className="w-full"
-            />
-          </div>
-
-          <div className="space-y-2">
-            <label className="text-sm">아이디<span className="text-red-500">*</span></label>
+            <label className="text-sm">아이디</label>
             <Input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
               placeholder="이메일을 입력해 주세요."
-              className="w-full"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm">비밀번호<span className="text-red-500">*</span></label>
+            <label className="text-sm">비밀번호</label>
             <Input
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
               placeholder="비밀번호 입력(8자 이상 영문,숫자,특수문자 포함)"
-              className="w-full"
             />
             <Input
               type="password"
@@ -111,16 +89,17 @@ const Signup = () => {
               value={formData.confirmPassword}
               onChange={handleChange}
               placeholder="비밀번호 재입력"
-              className="w-full"
             />
           </div>
         </div>
+      </div>
 
+      <div className="px-4 py-4 mt-auto">
         <Button
           onClick={handleSubmit}
           className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white rounded-none h-12"
         >
-          휴대폰 인증하고 가입하기
+          다음
         </Button>
       </div>
     </div>

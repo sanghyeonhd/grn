@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
@@ -17,6 +16,7 @@ const Withdraw = () => {
   const [detailReason, setDetailReason] = useState("");
   const [agreed, setAgreed] = useState(false);
   const [showCompleteModal, setShowCompleteModal] = useState(false);
+  const [showPendingOrderModal, setShowPendingOrderModal] = useState(false);
 
   const reasons = [
     "원하는 상품이 없어요.",
@@ -44,7 +44,13 @@ const Withdraw = () => {
     }
 
     if (step === 3) {
-      setShowCompleteModal(true);
+      const hasPendingOrder = true;
+      
+      if (hasPendingOrder) {
+        setShowPendingOrderModal(true);
+      } else {
+        setShowCompleteModal(true);
+      }
     } else {
       setStep(step + 1);
     }
@@ -196,6 +202,26 @@ const Withdraw = () => {
             <Button 
               onClick={handleComplete} 
               className="w-full rounded-none bg-[#2C2C2C] text-white hover:bg-[#1a1a1a]"
+            >
+              확인
+            </Button>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      <AlertDialog open={showPendingOrderModal} onOpenChange={setShowPendingOrderModal}>
+        <AlertDialogContent className="bg-[#FDFBF4] p-6">
+          <div className="text-center mb-4">
+            <h2 className="text-lg font-medium mb-2">아직 진행 중인 주문이 있어요!</h2>
+            <p className="text-sm text-gray-600">
+              진행 중인 주문이 있는 경우에는 탈퇴가 불가능해요.<br/>
+              주문 처리가 그래야만 이후 다시 시도해 주세요.
+            </p>
+          </div>
+          <AlertDialogFooter className="flex flex-col gap-2">
+            <Button 
+              onClick={() => setShowPendingOrderModal(false)}
+              className="w-full bg-[#2C2C2C] text-white hover:bg-[#1a1a1a]"
             >
               확인
             </Button>

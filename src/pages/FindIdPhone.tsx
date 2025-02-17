@@ -84,7 +84,7 @@ const FindIdPhone = () => {
             />
             <Button
               onClick={handlePhoneSubmit}
-              className="bg-[#2C2C2C] px-4 text-[#FFFFFF] rounded border-[#C0BCB6] hover:opacity-90"
+              className="bg-[#2C2C2C] px-4 text-[#FFFFFF] rounded border-[#C0BCB6] hover:bg-[#2C2C2C]"
             >
               인증요청
             </Button>

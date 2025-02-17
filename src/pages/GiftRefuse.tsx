@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -14,6 +13,7 @@ interface Product {
   option: string;
   shoppingBag: string;
   stampingType: string;
+  stampingLabel: string;
   image: string;
 }
 
@@ -32,6 +32,7 @@ const GiftRefuse = () => {
       option: "롤랑 멀티퍼퓸 100ml / 1개",
       shoppingBag: "추가 구매 (+500원)",
       stampingType: "Y",
+      stampingLabel: "GRANHAND❤️",
       image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png"
     },
     {
@@ -41,7 +42,8 @@ const GiftRefuse = () => {
       price: 110000,
       option: "캐스크 시그니처퍼퓸 100ml / 1개",
       shoppingBag: "추가 구매 (+500원)",
-      stampingType: "GRANHAND❤️",
+      stampingType: "Y",
+      stampingLabel: "GRANHAND❤️",
       image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png"
     }
   ];
@@ -53,6 +55,7 @@ const GiftRefuse = () => {
     option: "롤랑 멀티퍼퓸 100ml / 1개",
     shoppingBag: "추가 구매 (+500원)",
     stampingType: "Y",
+    stampingLabel: "GRANHAND❤️",
     image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png"
   };
 
@@ -113,6 +116,10 @@ const GiftRefuse = () => {
               <div className="flex">
                 <div className="w-20 text-sm text-gray-500">스탬핑 여부</div>
                 <div className="text-sm">{product.stampingType}</div>
+              </div>
+              <div className="flex">
+                <div className="w-20 text-sm text-gray-500">스탬핑 문구</div>
+                <div className="text-sm">{product.stampingLabel}</div>
               </div>
             </div>
           </div>
@@ -253,9 +260,10 @@ const GiftRefuse = () => {
           <div className="space-y-4">
             {products.map((product) => (
               <div key={product.id} className="flex gap-3">
-                <Checkbox id={`product-${product.id}`} className="mt-1" />
+                <div className="pt-[30px]">
+                  <Checkbox id={`product-${product.id}`} />
+                </div>
                 <div className="flex-1">
-                  <div className="text-sm text-gray-500">{product.brand}</div>
                   <div className="mt-1 flex gap-4">
                     <img 
                       src={product.image} 
@@ -263,20 +271,25 @@ const GiftRefuse = () => {
                       className="w-20 h-20 object-cover"
                     />
                     <div className="flex-1">
-                      <div className="font-medium">{product.name}</div>
+                      <div className="text-sm text-gray-500">{product.brand}</div>
+                      <div className="font-medium mt-1">{product.name}</div>
                       <div className="font-medium">{product.price.toLocaleString()}원</div>
-                      <div className="mt-4 space-y-1">
+                      <div className="mt-4 space-y-1 text-sm text-gray-600">
                         <div className="flex">
-                          <div className="w-20 text-sm text-gray-500">옵션</div>
-                          <div className="flex-1 text-sm">{product.option}</div>
+                          <div className="w-[72px]">옵션</div>
+                          <div className="flex-1">{product.option}</div>
                         </div>
                         <div className="flex">
-                          <div className="w-20 text-sm text-gray-500">쇼핑백</div>
-                          <div className="flex-1 text-sm">{product.shoppingBag}</div>
+                          <div className="w-[72px]">쇼핑백</div>
+                          <div className="flex-1">{product.shoppingBag}</div>
                         </div>
                         <div className="flex">
-                          <div className="w-20 text-sm text-gray-500">스탬핑 문구</div>
-                          <div className="flex-1 text-sm">{product.stampingType}</div>
+                          <div className="w-[72px]">스탬핑 여부</div>
+                          <div className="flex-1">{product.stampingType}</div>
+                        </div>
+                        <div className="flex">
+                          <div className="w-[72px]">스탬핑 문구</div>
+                          <div className="flex-1">{product.stampingLabel}</div>
                         </div>
                       </div>
                     </div>

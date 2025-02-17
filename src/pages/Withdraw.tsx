@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
@@ -75,7 +76,7 @@ const Withdraw = () => {
           onChange={(e) => setDetailReason(e.target.value)}
           onFocus={handleTextareaFocus}
           placeholder="탈퇴 사유를 입력해 주세요"
-          className="resize-none"
+          className="resize-none bg-[#FFFFFF]"
           maxLength={200}
         />
         <div className="text-right text-sm text-gray-500 mt-1">

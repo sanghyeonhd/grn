@@ -91,28 +91,28 @@ const Withdraw = () => {
       <p className="mb-6">지금 탈퇴하시면, 아래 혜택이 모두 사라져요!</p>
       <div className="space-y-6">
         <div className="flex items-start space-x-3">
-          <div className="bg-[#F7E4D0] p-2 rounded">🎁</div>
+          <img src="/lovable-uploads/c18860bc-168a-4d89-9195-0662bf027427.png" alt="쿠폰" className="w-10 h-10" />
           <div>
             <p className="text-gray-600 text-sm">즉시 사용 가능한</p>
             <p className="font-medium">쿠폰 4개</p>
           </div>
         </div>
         <div className="flex items-start space-x-3">
-          <div className="bg-[#F7E4D0] p-2 rounded">💰</div>
+          <img src="/lovable-uploads/982073f1-db89-47d0-84e2-9ecf1d95caa4.png" alt="포인트" className="w-10 h-10" />
           <div>
             <p className="text-gray-600 text-sm">구매 시 사용 가능한</p>
             <p className="font-medium">2,500 포인트</p>
           </div>
         </div>
         <div className="flex items-start space-x-3">
-          <div className="bg-[#F7E4D0] p-2 rounded">💝</div>
+          <img src="/lovable-uploads/00dff35f-6e86-4acf-ab2b-9d545aafc151.png" alt="장바구니" className="w-10 h-10" />
           <div>
             <p className="text-gray-600 text-sm">소중하게 담아놓으신</p>
             <p className="font-medium">장바구니,관심상품 5개</p>
           </div>
         </div>
         <div className="flex items-start space-x-3">
-          <div className="bg-[#F7E4D0] p-2 rounded">⭐</div>
+          <img src="/lovable-uploads/ede0265f-a0a2-4df7-9713-9dc29179d57f.png" alt="회원등급" className="w-10 h-10" />
           <div>
             <p className="text-gray-600 text-sm">소중 멤버십 주어지는</p>
             <p className="font-medium">고객님의 회원등급 SILVER</p>

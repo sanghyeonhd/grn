@@ -155,6 +155,8 @@ const App = () => {
               <Route path="/challenge" element={<Challenge />} />
               <Route path="/challenge/seasons" element={<ChallengeSeasons />} />
               <Route path="*" element={<NotFound />} />
+              <Route path="/signup/terms" element={<SignupTerms />} />
+              <Route path="/terms/:type" element={<TermDetail />} />
             </Routes>
           </TooltipProvider>
         </BrowserRouter>

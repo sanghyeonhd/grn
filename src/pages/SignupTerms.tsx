@@ -1,11 +1,11 @@
-
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 
 const SignupTerms = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [agreements, setAgreements] = useState({
     all: false,
     age: false,
@@ -14,6 +14,16 @@ const SignupTerms = () => {
     marketing: false,
     advertisement: false
   });
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const agreedTerm = params.get('agreed');
+    
+    if (agreedTerm) {
+      handleSingleCheck(agreedTerm, true);
+      navigate('/signup/terms', { replace: true });
+    }
+  }, [location.search]);
 
   const handleAllCheck = (checked: boolean) => {
     setAgreements({
@@ -106,7 +116,7 @@ const SignupTerms = () => {
             </div>
             <button
               onClick={() => handleTermDetail('service')}
-              className="text-sm text-gray-500"
+              className="text-sm text-gray-500 p-2"
             >
               &gt;
             </button>

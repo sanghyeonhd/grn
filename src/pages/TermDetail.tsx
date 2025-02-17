@@ -28,15 +28,15 @@ const TermDetail = () => {
     if (!contentRef.current) return;
 
     const { scrollTop, scrollHeight, clientHeight } = contentRef.current;
-    const scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
+    // 스크롤이 거의 하단에 도달했을 때 (약간의 여유를 둠)
+    const scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight - 10;
 
-    if (scrolledToBottom) {
+    if (scrolledToBottom && !isButtonEnabled) {
       setIsButtonEnabled(true);
     }
   };
 
   const handleAgree = () => {
-    // 체크박스 상태를 변경하기 위해 state를 URL 파라미터로 전달
     if (type) {
       navigate(`/signup/terms?agreed=${type}`);
     }
@@ -51,14 +51,14 @@ const TermDetail = () => {
 
       <div 
         ref={contentRef} 
-        className="flex-1 overflow-y-auto text-sm text-gray-600 space-y-4"
         onScroll={handleScroll}
+        className="flex-1 overflow-y-auto text-sm text-gray-600 space-y-4 pb-4"
       >
         <p>
-          주작권 어떤 내용 해당 파이나르보이 아주 쉽게 같이 나는 까닭입니다. 가슴속에 아이들 겨, 파란하다. 하여도 토끼, 이웃 그리고 둘러싸여 자되는 거위다. 내내는 책을 것은 이름을 멀리 동키, 별이 노루, 파란 나의 않이 까닭입니다. 둘러싸여 자되는 거위다. 내내는 책을 것은 이름을 멀리 동키, 별이 노루, 파란 나의 않이 까닭입니다.
+          이용약관 내용이 여기에 표시됩니다. 스크롤을 끝까지 내려주세요.
         </p>
         {/* 스크롤이 가능하도록 충분한 내용을 추가 */}
-        {Array.from({ length: 10 }).map((_, i) => (
+        {Array.from({ length: 20 }).map((_, i) => (
           <p key={i}>
             주작권 어떤 내용 해당 파이나르보이 아주 쉽게 같이 나는 까닭입니다. 가슴속에 아이들 겨, 파란하다. 하여도 토끼, 이웃 그리고 둘러싸여 자되는 거위다.
           </p>

@@ -28,7 +28,7 @@ const GiftBox = () => {
         name: "Roland Multi Perfume",
         option: "롤랑 멀티퍼퓸 100ml / 1개",
         price: 35000,
-        image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png"
+        image: "/lovable-uploads/11f4c675-9f43-465f-a75c-10e60b9379e8.png"
       }
     },
     {
@@ -39,7 +39,7 @@ const GiftBox = () => {
         name: "Roland Multi Perfume",
         option: "롤랑 멀티퍼퓸 100ml / 1개",
         price: 35000,
-        image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png"
+        image: "/lovable-uploads/11f4c675-9f43-465f-a75c-10e60b9379e8.png"
       }
     },
     {
@@ -50,7 +50,7 @@ const GiftBox = () => {
         name: "Roland Multi Perfume",
         option: "롤랑 멀티퍼퓸 200ml / 1개",
         price: 55000,
-        image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png"
+        image: "/lovable-uploads/11f4c675-9f43-465f-a75c-10e60b9379e8.png"
       }
     },
     {
@@ -61,7 +61,7 @@ const GiftBox = () => {
         name: "Roland Multi Perfume",
         option: "롤랑 멀티퍼퓸 100ml / 1개",
         price: 35000,
-        image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png"
+        image: "/lovable-uploads/11f4c675-9f43-465f-a75c-10e60b9379e8.png"
       }
     }
   ];
@@ -75,7 +75,7 @@ const GiftBox = () => {
         name: "Roland Multi Perfume",
         option: "롤랑 멀티퍼퓸 100ml / 1개",
         price: 35000,
-        image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png"
+        image: "/lovable-uploads/11f4c675-9f43-465f-a75c-10e60b9379e8.png"
       }
     },
     {
@@ -86,7 +86,7 @@ const GiftBox = () => {
         name: "Roland Multi Perfume",
         option: "롤랑 멀티퍼퓸 200ml / 1개",
         price: 55000,
-        image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png"
+        image: "/lovable-uploads/11f4c675-9f43-465f-a75c-10e60b9379e8.png"
       }
     },
     {
@@ -97,7 +97,7 @@ const GiftBox = () => {
         name: "Roland Multi Perfume",
         option: "롤랑 멀티퍼퓸 100ml / 1개",
         price: 35000,
-        image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png"
+        image: "/lovable-uploads/11f4c675-9f43-465f-a75c-10e60b9379e8.png"
       }
     },
     {
@@ -108,7 +108,7 @@ const GiftBox = () => {
         name: "Roland Multi Perfume",
         option: "롤랑 멀티퍼퓸 100ml / 1개",
         price: 35000,
-        image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png"
+        image: "/lovable-uploads/11f4c675-9f43-465f-a75c-10e60b9379e8.png"
       }
     }
   ];

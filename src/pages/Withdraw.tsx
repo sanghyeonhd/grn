@@ -185,12 +185,21 @@ const Withdraw = () => {
       {step === 3 && renderStep3()}
 
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-[#FDFBF4] border-t">
-        <Button 
-          onClick={handleNext} 
-          className="w-full bg-[#2C2C2C] text-white hover:bg-[#1a1a1a]"
-        >
-          {step === 3 ? '본인인증하고 탈퇴하기' : '탈퇴하기'}
-        </Button>
+        <div className="flex gap-2">
+          <Button 
+            onClick={() => navigate('/member-general-info')} 
+            variant="outline"
+            className="w-full border-[#2C2C2C] text-[#2C2C2C] hover:bg-[#2C2C2C] hover:text-white"
+          >
+            취소
+          </Button>
+          <Button 
+            onClick={handleNext} 
+            className="w-full bg-[#2C2C2C] text-white hover:bg-[#1a1a1a]"
+          >
+            {step === 3 ? '본인인증하고 탈퇴하기' : '탈퇴하기'}
+          </Button>
+        </div>
       </div>
 
       <AlertDialog open={showCompleteModal} onOpenChange={setShowCompleteModal}>

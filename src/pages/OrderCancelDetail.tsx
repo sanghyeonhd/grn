@@ -18,16 +18,35 @@ const OrderCancelDetail = () => {
         <div>
           <h2 className="text-lg font-medium mb-4">취소 상품 정보</h2>
           <div className="bg-gray-50 p-4 rounded-lg">
-            <div className="text-gray-500 mb-1">GRANHAND</div>
-            <div className="flex justify-between items-start mb-1">
-              <div className="font-medium">Roland Multui Perfume</div>
-              <div className="font-medium">35,500원</div>
+            <div className="flex gap-4">
+              <img 
+                src="/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png"
+                alt="Roland Multi Perfume"
+                className="w-20 h-20 object-cover rounded"
+              />
+              <div className="flex-1">
+                <div className="text-gray-500 text-sm mb-1">GRANHAND</div>
+                <div className="font-medium mb-1">Roland Multui Perfume</div>
+                <div className="font-medium">35,500원</div>
+              </div>
             </div>
-            <div className="space-y-1 text-sm text-gray-500">
-              <div>롤링 멀티퍼퓸 100ml / 1개</div>
-              <div>추가 구매 (+500원)</div>
-              <div>Y</div>
-              <div>GRANHAND❤️</div>
+            <div className="mt-4 pt-4 border-t border-dashed space-y-2">
+              <div className="flex justify-between text-sm text-gray-500">
+                <span>옵션</span>
+                <span>롤링 멀티퍼퓸 100ml / 1개</span>
+              </div>
+              <div className="flex justify-between text-sm text-gray-500">
+                <span>쇼핑백</span>
+                <span>추가 구매 (+500원)</span>
+              </div>
+              <div className="flex justify-between text-sm text-gray-500">
+                <span>스탬핑 여부</span>
+                <span>Y</span>
+              </div>
+              <div className="flex justify-between text-sm text-gray-500">
+                <span>스탬핑 문구</span>
+                <span>GRANHAND❤️</span>
+              </div>
             </div>
           </div>
         </div>

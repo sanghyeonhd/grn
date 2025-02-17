@@ -38,15 +38,16 @@ const DeliveryStep = () => {
       <div className="mt-6">
         <div className="font-medium mb-2">해결 방법 선택</div>
         <div>
-          <RadioGroup defaultValue="exchange">
+          <RadioGroup defaultValue="exchange" className="space-y-3">
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="exchange" id="exchange" />
-              <label htmlFor="exchange">교환</label>
+              <label htmlFor="exchange" className="text-sm">교환</label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="refund" id="refund" />
+              <label htmlFor="refund" className="text-sm">반품 후 환불</label>
             </div>
           </RadioGroup>
-        </div>
-        <div className="mt-4">
-          <div className="text-sm mb-2">방법 후 환불</div>
         </div>
       </div>
 

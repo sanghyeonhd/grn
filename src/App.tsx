@@ -16,6 +16,7 @@ import GiftCheckout from "./pages/GiftCheckout";
 import NotFound from "./pages/NotFound";
 import InternetError from "./pages/InternetError";
 import ErrorPage from "./pages/ErrorPage";
+import UnderConstruction from "./pages/UnderConstruction";
 import JournalDetail from "./pages/JournalDetail";
 import EventDetail from "./pages/EventDetail";
 import Awards from "./pages/Awards";
@@ -106,6 +107,7 @@ const App = () => {
               <Route path="/internet-error" element={<InternetError />} />
               <Route path="/error" element={<ErrorPage />} />
               <Route path="/notfound" element={<NotFound />} />
+              <Route path="/under-construction" element={<UnderConstruction />} />
 
               <Route path="/guide" element={<Guide />} />
               <Route path="/guide/result" element={<GuideResult />} />

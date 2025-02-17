@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -47,7 +48,7 @@ const GiftRefuse = () => {
 
   const product = {
     brand: "GRANHAND",
-    name: "Roland Multi Perfume",
+    name: "Roland Multi Perfume", 
     price: 35500,
     option: "롤랑 멀티퍼퓸 100ml / 1개",
     shoppingBag: "추가 구매 (+500원)",
@@ -233,13 +234,13 @@ const GiftRefuse = () => {
           <h1 className="flex-1 text-center pr-10">주문 취소</h1>
         </div>
         <div className="flex">
-          <div className={`flex-1 py-3 ${step === "select" ? "border-b-2 border-black" : "text-gray-400"}`}>
+          <div className={`flex-1 py-3 text-center ${step === "select" ? "border-b-2 border-black" : "text-gray-400"}`}>
             상품 선택
           </div>
-          <div className={`flex-1 py-3 ${step === "reason" ? "border-b-2 border-black" : "text-gray-400"}`}>
+          <div className={`flex-1 py-3 text-center ${step === "reason" ? "border-b-2 border-black" : "text-gray-400"}`}>
             사유 작성
           </div>
-          <div className={`flex-1 py-3 ${step === "confirm" ? "border-b-2 border-black" : "text-gray-400"}`}>
+          <div className={`flex-1 py-3 text-center ${step === "confirm" ? "border-b-2 border-black" : "text-gray-400"}`}>
             취소 정보 확인
           </div>
         </div>

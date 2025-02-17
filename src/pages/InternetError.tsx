@@ -1,7 +1,12 @@
+
 import React from 'react';
 import { Button } from "@/components/ui/button";
 
 const InternetError = () => {
+  const handleRefresh = () => {
+    window.location.reload();
+  };
+
   return (
     <div className="min-h-screen bg-[#FDFBF4] px-4 py-6">
       <header className="text-2xl font-bold mb-12">
@@ -24,6 +29,7 @@ const InternetError = () => {
 
         <Button 
           variant="outline"
+          onClick={handleRefresh}
           className="w-full border-gray-300 rounded-none h-12 mt-8"
         >
           새로고침

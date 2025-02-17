@@ -1,7 +1,11 @@
+
 import React from 'react';
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const ErrorPage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-[#FDFBF4] px-4 py-6">
       <header className="text-2xl font-bold mb-12">
@@ -23,6 +27,7 @@ const ErrorPage = () => {
 
         <Button 
           variant="outline"
+          onClick={() => navigate('/')}
           className="w-full border-gray-300 rounded-none h-12 mt-8"
         >
           홈으로

@@ -14,6 +14,8 @@ import AddressForm from "./pages/AddressForm";
 import Checkout from "./pages/Checkout";
 import GiftCheckout from "./pages/GiftCheckout";
 import NotFound from "./pages/NotFound";
+import InternetError from "./pages/InternetError";
+import ErrorPage from "./pages/ErrorPage";
 import JournalDetail from "./pages/JournalDetail";
 import EventDetail from "./pages/EventDetail";
 import Awards from "./pages/Awards";
@@ -154,6 +156,8 @@ const App = () => {
               <Route path="/cart" element={<Cart />} />
               <Route path="/challenge" element={<Challenge />} />
               <Route path="/challenge/seasons" element={<ChallengeSeasons />} />
+              <Route path="/internet-error" element={<InternetError />} />
+              <Route path="/error" element={<ErrorPage />} />
               <Route path="*" element={<NotFound />} />
               <Route path="/signup/terms" element={<SignupTerms />} />
               <Route path="/terms/:type" element={<TermDetail />} />

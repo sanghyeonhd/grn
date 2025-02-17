@@ -10,7 +10,6 @@ const FindIdPhone = () => {
   const { toast } = useToast();
   const [phoneNumber, setPhoneNumber] = useState('');
   const [verificationCode, setVerificationCode] = useState('');
-  const [showVerification, setShowVerification] = useState(false);
   const [timer, setTimer] = useState(180); // 3분
   const [isTimerRunning, setIsTimerRunning] = useState(false);
 
@@ -23,7 +22,6 @@ const FindIdPhone = () => {
       });
       return;
     }
-    setShowVerification(true);
     setIsTimerRunning(true);
     setTimer(180);
     // 인증번호 요청 API 호출 필요
@@ -62,12 +60,12 @@ const FindIdPhone = () => {
 
   return (
     <div className="min-h-screen bg-white px-4 py-6">
-      <header className="flex items-center mb-8">
-        <button onClick={() => navigate(-1)} className="text-2xl mr-4">←</button>
-        <h1 className="text-xl font-medium">휴대폰 인증을 해주세요.</h1>
+      <header className="flex flex-col">
+        <button onClick={() => navigate(-1)} className="text-2xl w-fit">&lt;</button>
+        <h1 className="text-[16px] font-medium mt-8">휴대폰 인증을 해주세요.</h1>
       </header>
 
-      <div className="space-y-6">
+      <div className="space-y-6 mt-12">
         <div className="space-y-2">
           <label className="text-sm">휴대폰 번호</label>
           <div className="flex space-x-2">
@@ -80,41 +78,37 @@ const FindIdPhone = () => {
             />
             <Button
               onClick={handlePhoneSubmit}
-              className="bg-[#2C2C2C] px-4 rounded-none"
+              className="bg-[#2C2C2C] px-4 rounded-none text-[#FFFFFF]"
             >
-              {showVerification ? '다시 요청' : '인증 요청'}
+              인증요청
             </Button>
           </div>
         </div>
 
-        {showVerification && (
-          <div className="space-y-2">
-            <label className="text-sm">인증번호</label>
-            <div className="relative">
-              <Input
-                type="number"
-                value={verificationCode}
-                onChange={(e) => setVerificationCode(e.target.value)}
-                placeholder="인증번호 6자리 입력"
-                className="w-full pr-16"
-              />
-              {isTimerRunning && (
-                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500">
-                  {formatTime(timer)}
-                </span>
-              )}
-            </div>
+        <div className="space-y-2">
+          <label className="text-sm">인증번호</label>
+          <div className="relative">
+            <Input
+              type="number"
+              value={verificationCode}
+              onChange={(e) => setVerificationCode(e.target.value)}
+              placeholder="인증번호 6자리 입력"
+              className="w-full pr-16"
+            />
+            {isTimerRunning && (
+              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500">
+                {formatTime(timer)}
+              </span>
+            )}
           </div>
-        )}
+        </div>
 
-        {showVerification && (
-          <Button
-            onClick={handleVerificationSubmit}
-            className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white rounded-none h-12 mt-4"
-          >
-            다음
-          </Button>
-        )}
+        <Button
+          onClick={handleVerificationSubmit}
+          className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white rounded-none h-[52px] mt-4"
+        >
+          다음
+        </Button>
       </div>
     </div>
   );

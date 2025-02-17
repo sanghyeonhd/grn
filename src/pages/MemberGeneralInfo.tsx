@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, User } from 'lucide-react';
@@ -54,16 +55,20 @@ const MemberGeneralInfo = () => {
     <div className="p-4">
       <div className="mb-8">
         <h2 className="text-lg font-medium mb-4">로그인 정보</h2>
-        <div className="flex items-center justify-center bg-gray-100 w-16 h-16 rounded-full mb-2">
-          <span className="text-2xl">B</span>
+        <div className="flex flex-col items-center">
+          <div className="flex items-center justify-center bg-gray-100 w-16 h-16 rounded-full mb-2">
+            <span className="text-2xl">B</span>
+          </div>
+          <p className="text-gray-600 text-sm mb-2">{id}</p>
+          <div className="inline-block bg-[#322A240D] rounded px-3 py-1">
+            <button 
+              onClick={() => navigate('/find-password/reset')}
+              className="text-sm"
+            >
+              비밀번호 변경
+            </button>
+          </div>
         </div>
-        <p className="text-gray-600 text-sm">{id}</p>
-        <button 
-          onClick={() => navigate('/find-password/reset')}
-          className="text-sm underline"
-        >
-          비밀번호 변경
-        </button>
       </div>
 
       <div className="space-y-6">

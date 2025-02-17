@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from "@/components/ui/button"
@@ -116,7 +117,7 @@ const SignupTerms = () => {
             </div>
             <button
               onClick={() => handleTermDetail('service')}
-              className="text-sm text-gray-500 p-2"
+              className="w-8 h-8 flex items-center justify-center text-gray-500"
             >
               &gt;
             </button>
@@ -135,7 +136,7 @@ const SignupTerms = () => {
             </div>
             <button
               onClick={() => handleTermDetail('privacy')}
-              className="text-sm text-gray-500"
+              className="w-8 h-8 flex items-center justify-center text-gray-500"
             >
               &gt;
             </button>
@@ -154,7 +155,7 @@ const SignupTerms = () => {
             </div>
             <button
               onClick={() => handleTermDetail('marketing')}
-              className="text-sm text-gray-500"
+              className="w-8 h-8 flex items-center justify-center text-gray-500"
             >
               &gt;
             </button>
@@ -173,7 +174,7 @@ const SignupTerms = () => {
             </div>
             <button
               onClick={() => handleTermDetail('advertisement')}
-              className="text-sm text-gray-500"
+              className="w-8 h-8 flex items-center justify-center text-gray-500"
             >
               &gt;
             </button>

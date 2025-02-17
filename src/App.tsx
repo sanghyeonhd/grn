@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,7 +9,6 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import CoffeeStamp from "./pages/CoffeeStamp";
 import Passport from "./pages/Passport";
-import WishList from "./pages/WishList";
 import AddressList from "./pages/AddressList";
 import AddressForm from "./pages/AddressForm";
 import Checkout from "./pages/Checkout";
@@ -72,6 +70,7 @@ import Challenge from "./pages/Challenge";
 import ChallengeSeasons from "./pages/ChallengeSeasons";
 import GiftSetDetail from "./pages/GiftSetDetail";
 import PerfumeDetail from "./pages/PerfumeDetail";
+import WishList from "./pages/WishList";
 import OrderDetailNew from "./pages/OrderDetailNew";
 import OrderDetailNew2 from "./pages/OrderDetailNew2";
 
@@ -105,10 +104,13 @@ const App = () => {
               <Route path="/event" element={<EventDetail />} />
               <Route path="/awards" element={<Awards />} />
               <Route path="/stores" element={<Stores />} />
+
+              {/* Error Pages */}
               <Route path="/internet-error" element={<InternetError />} />
               <Route path="/error" element={<ErrorPage />} />
               <Route path="/notfound" element={<NotFound />} />
               <Route path="/under-construction" element={<UnderConstruction />} />
+
               <Route path="/guide" element={<Guide />} />
               <Route path="/guide/result" element={<GuideResult />} />
               <Route path="/journal/:id" element={<JournalDetail />} />
@@ -131,7 +133,7 @@ const App = () => {
               <Route path="/points" element={<Points />} />
               <Route path="/attendance" element={<AttendanceCheck />} />
               <Route path="/order-history" element={<OrderHistory />} />
-              <Route path="/order-history/:id" element={<OrderDetailNew />} />
+              <Route path="/order-history/:id" element={<OrderDetail />} />
               <Route path="/gift-box" element={<GiftBox />} />
               <Route path="/order/refuse" element={<GiftRefuse />} />
               <Route path="/order/return" element={<OrderReturn />} />
@@ -164,10 +166,15 @@ const App = () => {
               <Route path="/cart" element={<Cart />} />
               <Route path="/challenge" element={<Challenge />} />
               <Route path="/challenge/seasons" element={<ChallengeSeasons />} />
-              <Route path="/terms/:type" element={<TermDetail />} />
-              <Route path="/orders/detail/:id" element={<OrderDetail />} />
-              <Route path="/orders/detail2/:id" element={<OrderDetailNew2 />} />
+              <Route path="/internet-error" element={<InternetError />} />
+              <Route path="/error" element={<ErrorPage />} />
+              
+              {/* 404 catch-all route should always be last */}
               <Route path="*" element={<NotFound />} />
+              <Route path="/signup/terms" element={<SignupTerms />} />
+              <Route path="/terms/:type" element={<TermDetail />} />
+              <Route path="/orders/detail/:id" element={<OrderDetailNew />} />
+              <Route path="/orders/detail2/:id" element={<OrderDetailNew2 />} />
             </Routes>
           </TooltipProvider>
         </BrowserRouter>

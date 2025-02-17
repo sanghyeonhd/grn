@@ -32,9 +32,9 @@ const GiftItem = ({
 
   const handleDetailClick = () => {
     if (isSentGift) {
-      navigate(`/orders/detail2/${item.id.substring(1)}`); // OrderDetailNew2로 이동
+      navigate(`/orders/detail/${item.id.substring(1)}`); // Remove 's' prefix for sent gifts
     } else {
-      navigate(`/order-history/${item.id}`); // OrderDetailNew로 이동
+      navigate(`/order-history/${item.id}`);
     }
   };
 

@@ -106,7 +106,11 @@ const Login = () => {
               로그인
             </button>
 
-            <button type="button" className="w-full py-3 text-sm border-t border-b mt-4">
+            <button 
+              type="button" 
+              onClick={() => navigate('/signup/terms')} 
+              className="w-full py-3 text-sm border-t border-b mt-4"
+            >
               이메일 회원가입
             </button>
           </div>

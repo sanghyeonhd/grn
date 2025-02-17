@@ -22,19 +22,19 @@ const SignupComplete = () => {
       <div className="space-y-6">
         <div className="space-y-4">
           <div className="flex items-start space-x-3">
-            <span className="text-2xl">🎉</span>
+            <img src="/lovable-uploads/1.png" alt="신규가입 혜택" className="w-6 h-6" />
             <p className="text-base">신규 가입 축하 쿠폰 10,000원</p>
           </div>
           <div className="flex items-start space-x-3">
-            <span className="text-2xl">💰</span>
+            <img src="/lovable-uploads/2.png" alt="출석체크 혜택" className="w-6 h-6" />
             <p className="text-base">출석 체크만 해도 적립 포인트를 드려요</p>
           </div>
           <div className="flex items-start space-x-3">
-            <span className="text-2xl">❤️</span>
+            <img src="/lovable-uploads/3.png" alt="포인트 혜택" className="w-6 h-6" />
             <p className="text-base">매일 만나는 행운! 최대 5,000원 포인트</p>
           </div>
           <div className="flex items-start space-x-3">
-            <span className="text-2xl">💬</span>
+            <img src="/lovable-uploads/4.png" alt="무료배송 혜택" className="w-6 h-6" />
             <p className="text-base">하나만 구매해도 전 제품 무료 배송</p>
           </div>
         </div>

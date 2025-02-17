@@ -3,7 +3,7 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddressForm from "@/pages/AddressForm";
-import PurchaseConfirmation from "@/components/PurchaseConfirmation";
+import PurchaseConfirmation from "@/components/order-history/PurchaseConfirmation";
 
 interface GiftItemProps {
   item: {

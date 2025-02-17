@@ -101,6 +101,12 @@ const App = () => {
               <Route path="/event" element={<EventDetail />} />
               <Route path="/awards" element={<Awards />} />
               <Route path="/stores" element={<Stores />} />
+
+              {/* Error Pages */}
+              <Route path="/internet-error" element={<InternetError />} />
+              <Route path="/error" element={<ErrorPage />} />
+              <Route path="/notfound" element={<NotFound />} />
+
               <Route path="/guide" element={<Guide />} />
               <Route path="/guide/result" element={<GuideResult />} />
               <Route path="/journal/:id" element={<JournalDetail />} />
@@ -158,6 +164,8 @@ const App = () => {
               <Route path="/challenge/seasons" element={<ChallengeSeasons />} />
               <Route path="/internet-error" element={<InternetError />} />
               <Route path="/error" element={<ErrorPage />} />
+              
+              {/* 404 catch-all route should always be last */}
               <Route path="*" element={<NotFound />} />
               <Route path="/signup/terms" element={<SignupTerms />} />
               <Route path="/terms/:type" element={<TermDetail />} />

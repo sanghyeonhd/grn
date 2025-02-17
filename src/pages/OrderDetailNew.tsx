@@ -25,7 +25,7 @@ const OrderDetailNew = () => {
           <div className="text-lg font-medium mb-4">주문 상품 정보</div>
           <div className="flex gap-4">
             <img 
-              src="/lovable-uploads/46818b07-f1f4-4d46-bef2-ea0c281bbac6.png" 
+              src="/lovable-uploads/88e6b05d-060d-427f-bb38-dd36f8145516.png" 
               alt="Roland Multi Perfume"
               className="w-20 h-20 object-cover rounded"
             />

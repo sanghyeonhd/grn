@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button"
@@ -16,7 +17,8 @@ const SignupVerify = () => {
         <button onClick={() => navigate(-1)} className="text-2xl">←</button>
         
         <div className="flex w-full h-1">
-          <div className="w-2/4 bg-[#2C2C2C]" />
+          <div className="w-1/4 bg-gray-200" />
+          <div className="w-1/4 bg-gray-200" />
           <div className="w-1/4 bg-[#2C2C2C]" />
           <div className="w-1/4 bg-gray-200" />
         </div>

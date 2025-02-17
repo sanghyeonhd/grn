@@ -1,13 +1,8 @@
-
 import { X } from "lucide-react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const OrderDetail = () => {
   const navigate = useNavigate();
-  const { id } = useParams();
-
-  // id를 사용하여 해당 주문의 상세 정보를 조회하는 로직을 추가할 수 있습니다
-  console.log("Order ID:", id);
 
   return (
     <div className="min-h-screen bg-[#FDFBF4]">

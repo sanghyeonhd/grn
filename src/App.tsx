@@ -71,8 +71,6 @@ import ChallengeSeasons from "./pages/ChallengeSeasons";
 import GiftSetDetail from "./pages/GiftSetDetail";
 import PerfumeDetail from "./pages/PerfumeDetail";
 import WishList from "./pages/WishList";
-import OrderDetailNew from "./pages/OrderDetailNew";
-import OrderDetailNew2 from "./pages/OrderDetailNew2";
 
 const queryClient = new QueryClient();
 
@@ -173,8 +171,6 @@ const App = () => {
               <Route path="*" element={<NotFound />} />
               <Route path="/signup/terms" element={<SignupTerms />} />
               <Route path="/terms/:type" element={<TermDetail />} />
-              <Route path="/orders/detail/:id" element={<OrderDetailNew />} />
-              <Route path="/orders/detail2/:id" element={<OrderDetailNew2 />} />
             </Routes>
           </TooltipProvider>
         </BrowserRouter>

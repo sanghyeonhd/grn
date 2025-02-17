@@ -30,11 +30,19 @@ const GiftItem = ({
   const [openAddressDialog, setOpenAddressDialog] = useState(false);
   const isSentGift = item.id.startsWith('s');
 
+  const handleDetailClick = () => {
+    if (isSentGift) {
+      navigate(`/orders/detail/${item.id.substring(1)}`); // Remove 's' prefix for sent gifts
+    } else {
+      navigate(`/order-history/${item.id}`);
+    }
+  };
+
   return (
     <div className="space-y-4 pb-6 border-b last:border-b-0">
       <div 
         className="flex justify-between items-center cursor-pointer" 
-        onClick={() => navigate(`/order-history/${item.id}`)}
+        onClick={handleDetailClick}
       >
         <div className="text-lg">{item.date}</div>
         <ChevronRight className="w-5 h-5" />
@@ -195,7 +203,7 @@ const GiftItem = ({
         ) : (
           <button 
             className="w-full py-3 border text-sm"
-            onClick={() => navigate(`/order-history/${item.id}`)}
+            onClick={handleDetailClick}
           >
             주문 상세보기
           </button>

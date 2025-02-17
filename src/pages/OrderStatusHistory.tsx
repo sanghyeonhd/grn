@@ -28,7 +28,7 @@ const OrderStatusHistory = () => {
         name: "Roland Multi Perfume",
         option: "롤랑 멀티퍼퓸 100ml / 1개",
         price: 35000,
-        image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png"
+        image: "/lovable-uploads/befffbc2-1526-4009-a956-9e69fe010a26.png"
       }
     },
     {
@@ -40,7 +40,7 @@ const OrderStatusHistory = () => {
         name: "Roland Multi Perfume",
         option: "롤랑 멀티퍼퓸 100ml / 1개",
         price: 35000,
-        image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png"
+        image: "/lovable-uploads/befffbc2-1526-4009-a956-9e69fe010a26.png"
       }
     },
     {
@@ -52,7 +52,7 @@ const OrderStatusHistory = () => {
         name: "Roland Multi Perfume",
         option: "롤랑 멀티퍼퓸 100ml / 1개",
         price: 35000,
-        image: "/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png"
+        image: "/lovable-uploads/befffbc2-1526-4009-a956-9e69fe010a26.png"
       }
     }
   ];

@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
 
 const TermDetail = () => {
   const navigate = useNavigate();
@@ -43,35 +44,45 @@ const TermDetail = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white px-4 py-6 flex flex-col">
-      <header className="flex items-center mb-8">
-        <button onClick={() => navigate(-1)} className="text-2xl mr-4">←</button>
-        <h1 className="text-xl font-medium">{getTermTitle()}</h1>
+    <div className="min-h-screen bg-white flex flex-col">
+      <header className="p-4">
+        <button onClick={() => navigate(-1)} className="text-2xl">←</button>
       </header>
 
-      <div 
-        ref={contentRef} 
-        onScroll={handleScroll}
-        className="flex-1 overflow-y-auto text-sm text-gray-600 space-y-4 pb-4"
-      >
-        <p>
-          이용약관 내용이 여기에 표시됩니다. 스크롤을 끝까지 내려주세요.
-        </p>
-        {/* 스크롤이 가능하도록 충분한 내용을 추가 */}
-        {Array.from({ length: 20 }).map((_, i) => (
-          <p key={i}>
-            주작권 어떤 내용 해당 파이나르보이 아주 쉽게 같이 나는 까닭입니다. 가슴속에 아이들 겨, 파란하다. 하여도 토끼, 이웃 그리고 둘러싸여 자되는 거위다.
-          </p>
-        ))}
+      <div className="px-4 pt-4 pb-20 flex-1 flex flex-col">
+        <div className="flex items-center gap-2 mb-6">
+          <Checkbox checked={false} disabled />
+          <h1 className="text-lg font-medium">{getTermTitle()}</h1>
+        </div>
+
+        <div className="flex-1 border border-gray-200 rounded-lg">
+          <div 
+            ref={contentRef} 
+            onScroll={handleScroll}
+            className="h-full overflow-y-auto text-sm text-gray-600 p-4"
+          >
+            <p>
+              주작권 어떤 내용 해당 파이나르보이 아주 쉽게 같이 나는 까닭입니다. 가슴속에 아이들 겨, 파란하다. 하여도 토끼, 이웃 그리고 둘러싸여 자되는 거위다. 내내는 책을 것은 이름을 멀리 동키, 별이 노루, 파란 나의 않이 까닭입니다. 둘러싸여 자되는 거위다. 내내는 책을 것은 이름을 멀리 동키, 별이 노루, 파란 나의 않이 까닭입니다.
+            </p>
+            {/* 스크롤이 가능하도록 충분한 내용을 추가 */}
+            {Array.from({ length: 20 }).map((_, i) => (
+              <p key={i} className="mt-4">
+                주작권 어떤 내용 해당 파이나르보이 아주 쉽게 같이 나는 까닭입니다. 가슴속에 아이들 겨, 파란하다. 하여도 토끼, 이웃 그리고 둘러싸여 자되는 거위다.
+              </p>
+            ))}
+          </div>
+        </div>
       </div>
 
-      <Button
-        onClick={handleAgree}
-        disabled={!isButtonEnabled}
-        className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white rounded-none h-12 mt-4"
-      >
-        약관 동의
-      </Button>
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-white">
+        <Button
+          onClick={handleAgree}
+          disabled={!isButtonEnabled}
+          className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white rounded-none h-12"
+        >
+          약관 동의
+        </Button>
+      </div>
     </div>
   );
 };

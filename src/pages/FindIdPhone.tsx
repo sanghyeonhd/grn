@@ -48,6 +48,12 @@ const FindIdPhone = () => {
       }, 1000);
     } else if (timer === 0) {
       setIsTimerRunning(false);
+      setVerificationCode(''); // 인증번호 초기화
+      toast({
+        title: "인증 시간 만료",
+        description: "인증번호가 만료되었습니다. 다시 요청해주세요.",
+        variant: "destructive"
+      });
     }
     return () => clearInterval(interval);
   }, [isTimerRunning, timer]);

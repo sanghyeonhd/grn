@@ -23,6 +23,11 @@
   input[type="number"] {
     -moz-appearance: textfield;
   }
+
+  /* Set default background color for all inputs */
+  input {
+    background-color: #FFFFFF !important;
+  }
 }
 
 @font-face {

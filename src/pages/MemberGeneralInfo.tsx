@@ -57,7 +57,7 @@ const MemberGeneralInfo = () => {
         <h2 className="text-lg font-medium mb-4">로그인 정보</h2>
         <div className="flex flex-col items-center">
           <div className="flex items-center justify-center bg-gray-100 w-16 h-16 rounded-full mb-2">
-            <span className="text-2xl">B</span>
+            <span className="text-2xl text-white">B</span>
           </div>
           <p className="text-gray-600 text-sm mb-2">{id}</p>
           <div className="inline-block bg-[#322A240D] rounded px-3 py-1">

@@ -106,7 +106,7 @@ const Passport = () => {
                   stamp ? 'bg-gray-100' : 'border-dashed'
                 } flex items-center justify-center mb-1 w-[60px] h-[60px] mx-auto`}>
                   {stamp && (
-                    <img src={stamp.image} alt={location.name} className="w-10 h-10" />
+                    <img src={stamp.image} alt={location.name} className="w-[26px] h-[32px]" />
                   )}
                 </div>
                 <div className="text-xs mb-1">{location.name}</div>

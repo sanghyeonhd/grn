@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -133,7 +134,7 @@ const App = () => {
               <Route path="/points" element={<Points />} />
               <Route path="/attendance" element={<AttendanceCheck />} />
               <Route path="/order-history" element={<OrderHistory />} />
-              <Route path="/order-history/:id" element={<OrderDetail />} />
+              <Route path="/order-history/:id" element={<OrderDetailNew />} />
               <Route path="/gift-box" element={<GiftBox />} />
               <Route path="/order/refuse" element={<GiftRefuse />} />
               <Route path="/order/return" element={<OrderReturn />} />
@@ -173,7 +174,7 @@ const App = () => {
               <Route path="*" element={<NotFound />} />
               <Route path="/signup/terms" element={<SignupTerms />} />
               <Route path="/terms/:type" element={<TermDetail />} />
-              <Route path="/orders/detail/:id" element={<OrderDetailNew />} />
+              <Route path="/orders/detail/:id" element={<OrderDetail />} />
               <Route path="/orders/detail2/:id" element={<OrderDetailNew2 />} />
             </Routes>
           </TooltipProvider>

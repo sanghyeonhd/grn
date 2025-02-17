@@ -1,3 +1,4 @@
+
 import { ChevronRight } from "lucide-react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useState } from "react";
@@ -11,10 +12,15 @@ interface GiftItemProps {
     date: string;
     status: string;
     product: {
+      id: string;
+      brand: string;
       name: string;
       option: string;
       price: number;
       image: string;
+      shoppingBag: string;
+      stampingType: string;
+      stampingLabel: string;
     };
   };
 }

@@ -28,6 +28,11 @@
   input {
     background-color: #FFFFFF !important;
   }
+
+  /* Set placeholder text color */
+  input::placeholder {
+    color: #C0BCB6 !important;
+  }
 }
 
 @font-face {

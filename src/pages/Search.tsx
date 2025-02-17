@@ -26,7 +26,7 @@ const Search = () => {
       name: 'Kyujang Diffuser Set',
       subCategory: 'GRANHAND × Diffuser',
       price: '60,000 KRW',
-      image: '/lovable-uploads/e0745317-f898-418f-abb0-01b631e273c4.png'
+      image: '/lovable-uploads/ffa83a92-3ba5-457e-ad69-56babae50bb1.png'
     },
     {
       id: 2,
@@ -34,7 +34,7 @@ const Search = () => {
       name: 'Kyujang Diffuser Set',
       subCategory: 'GRANHAND × Diffuser',
       price: '60,000 KRW',
-      image: '/lovable-uploads/e0745317-f898-418f-abb0-01b631e273c4.png'
+      image: '/lovable-uploads/ffa83a92-3ba5-457e-ad69-56babae50bb1.png'
     },
     {
       id: 3,
@@ -42,7 +42,7 @@ const Search = () => {
       name: 'Kyujang Diffuser Set',
       subCategory: 'GRANHAND × Diffuser',
       price: '60,000 KRW',
-      image: '/lovable-uploads/e0745317-f898-418f-abb0-01b631e273c4.png'
+      image: '/lovable-uploads/ffa83a92-3ba5-457e-ad69-56babae50bb1.png'
     }
   ];
 

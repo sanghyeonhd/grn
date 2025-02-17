@@ -104,7 +104,7 @@ const GiftItem = ({
             </Dialog>
 
             <Dialog open={openAddressDialog} onOpenChange={setOpenAddressDialog}>
-              <DialogContent className="bg-white sm:max-w-[425px]">
+              <DialogContent className="bg-white sm:max-w-[425px] max-h-[85vh] overflow-y-auto">
                 <AddressForm />
               </DialogContent>
             </Dialog>
@@ -155,7 +155,7 @@ const GiftItem = ({
         ) : item.id === "4" ? (
           <div className="w-full">
             <Dialog open={openAddressDialog} onOpenChange={setOpenAddressDialog}>
-              <DialogContent className="bg-white sm:max-w-[425px]">
+              <DialogContent className="bg-white sm:max-w-[425px] max-h-[85vh] overflow-y-auto">
                 <AddressForm />
               </DialogContent>
             </Dialog>

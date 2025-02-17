@@ -15,17 +15,6 @@ const Index = () => {
       <MainBanner />
       <BrandShop />
       <JournalList />
-      
-      {/* 테스트용 버튼 추가 */}
-      <div className="p-4">
-        <button 
-          onClick={() => navigate('/order-cancel-detail')}
-          className="w-full py-3 bg-gray-100 rounded"
-        >
-          주문 취소 상세 보기 (테스트)
-        </button>
-      </div>
-
       <BottomNavigation />
     </div>
   );

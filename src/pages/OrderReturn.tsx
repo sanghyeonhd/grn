@@ -23,6 +23,7 @@ const OrderReturn = () => {
       option: "롤랑 멀티퍼퓸 200ml / 1개",
       shoppingBag: "구매 안함",
       stampingType: "N",
+      stampingLabel: "",
       image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png"
     }
   ];

@@ -104,39 +104,29 @@ const PurchaseConfirmation = ({
                     checked={selectedProducts.includes(product.id)}
                     onCheckedChange={() => handleSelectProduct(product.id)}
                   />
-                  <div className="flex-1">
-                    <div className="text-sm text-gray-400">{product.brand}</div>
-                    <div className="font-medium">{product.name}</div>
-                    <div className="font-medium mt-1">
-                      {product.price.toLocaleString()}원
-                    </div>
-                    <div className="flex items-start gap-4 mt-4">
-                      <img 
-                        src={product.image} 
-                        alt={product.name}
-                        className="w-20 h-20 object-cover"
-                      />
-                      <div className="flex-1 space-y-1">
-                        <div className="flex">
-                          <div className="w-20 text-sm text-gray-400">옵션</div>
-                          <div className="flex-1 text-sm">{product.option}</div>
+                  <div className="flex gap-4 flex-1">
+                    <img 
+                      src={product.image} 
+                      alt={product.name}
+                      className="w-20 h-20 object-cover"
+                    />
+                    <div className="flex-1 space-y-4">
+                      <div>
+                        <div className="text-sm text-gray-400">{product.brand}</div>
+                        <div className="font-medium">{product.name}</div>
+                        <div className="font-medium mt-1">
+                          {product.price.toLocaleString()}원
                         </div>
-                        {product.stampingLabel && (
-                          <div className="flex">
-                            <div className="w-20 text-sm text-gray-400">스탬핑 네임</div>
-                            <div className="flex-1 text-sm">{product.stampingLabel}</div>
-                          </div>
+                      </div>
+                      <div className="space-y-1 text-sm">
+                        <div>옵션: {product.option}</div>
+                        <div>쇼핑백: {product.points ? `추가 구매 (+${product.points}P)` : '-'}</div>
+                        {product.stampingType === "Y" && (
+                          <>
+                            <div>스탬핑 여부: Y</div>
+                            <div>스탬핑 문구: {product.stampingLabel}</div>
+                          </>
                         )}
-                        {product.stampingType && (
-                          <div className="flex">
-                            <div className="w-20 text-sm text-gray-400">스탬핑 종류</div>
-                            <div className="flex-1 text-sm">{product.stampingType}</div>
-                          </div>
-                        )}
-                        <div className="flex">
-                          <div className="w-20 text-sm text-gray-400">쇼핑백</div>
-                          <div className="flex-1 text-sm">{product.points ? `추가 구매 (+${product.points}P)` : '-'}</div>
-                        </div>
                       </div>
                     </div>
                   </div>

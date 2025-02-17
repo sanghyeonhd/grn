@@ -1,3 +1,4 @@
+
 import { X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -59,7 +60,7 @@ const OrderCancelDetail = () => {
 
         <div>
           <h3 className="font-medium mb-4">환불 정보</h3>
-          <div className="space-y-3">
+          <div className="bg-white p-4 rounded-lg space-y-3">
             <div className="flex justify-between text-sm">
               <span className="text-gray-500">결제 금액</span>
               <span>25,500원</span>

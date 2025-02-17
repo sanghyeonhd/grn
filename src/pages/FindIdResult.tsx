@@ -31,9 +31,16 @@ const FindIdResult = () => {
 
         <div className="mt-auto space-y-4">
           <div className="bg-[rgba(50,42,36,0.03)] p-4 rounded">
-            <p className="text-sm text-gray-500">
-              SNS 계정으로 가입하신 회원님은 비밀번호를 재설정할 수 없습니다. 로그인 화면에서 간편 로그인 계정을 이용해 주세요.
-            </p>
+            <ul className="text-[10px] text-gray-500 space-y-1">
+              <li className="flex items-start">
+                <span className="mr-1">•</span>
+                <span>SNS 계정으로 가입하신 회원님은 비밀번호를 재설정할 수 없습니다.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-1">•</span>
+                <span>로그인 화면에서 간편 로그인 계정을 이용해 주세요.</span>
+              </li>
+            </ul>
           </div>
 
           <Button 

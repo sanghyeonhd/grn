@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, Minus, Plus, ChevronDown } from 'lucide-react';
@@ -243,19 +242,19 @@ const Cart = () => {
                     </SheetContent>
                   </Sheet>
 
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center">
                     <button 
                       onClick={() => handleQuantityChange(item.id, false)}
-                      className="p-1"
+                      className="w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center"
                     >
-                      <Minus className="w-4 h-4" />
+                      <Minus className="w-3 h-3" />
                     </button>
-                    <span className="w-8 text-center">{item.quantity}</span>
+                    <span className="w-6 text-center">{item.quantity}</span>
                     <button 
                       onClick={() => handleQuantityChange(item.id, true)}
-                      className="p-1"
+                      className="w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center"
                     >
-                      <Plus className="w-4 h-4" />
+                      <Plus className="w-3 h-3" />
                     </button>
                   </div>
                 </div>

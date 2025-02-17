@@ -163,8 +163,8 @@ const Withdraw = () => {
   );
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="sticky top-0 bg-white border-b">
+    <div className="min-h-screen bg-[#FDFBF4]">
+      <div className="sticky top-0 bg-[#FDFBF4] border-b">
         <div className="p-4 flex items-center">
           <button onClick={() => navigate(-1)} className="mr-4">
             <ArrowLeft className="w-6 h-6" />
@@ -177,7 +177,7 @@ const Withdraw = () => {
       {step === 2 && renderStep2()}
       {step === 3 && renderStep3()}
 
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t">
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-[#FDFBF4] border-t">
         <Button 
           onClick={handleNext} 
           className="w-full bg-[#2C2C2C] text-white hover:bg-[#1a1a1a]"
@@ -187,7 +187,7 @@ const Withdraw = () => {
       </div>
 
       <AlertDialog open={showCompleteModal} onOpenChange={setShowCompleteModal}>
-        <AlertDialogContent className="bg-white p-0 gap-0">
+        <AlertDialogContent className="bg-[#FDFBF4] p-0 gap-0">
           <div className="p-6 text-center">
             <p>회원탈퇴가 정상적으로 완료되었습니다.</p>
           </div>

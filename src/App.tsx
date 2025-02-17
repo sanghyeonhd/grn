@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { StrictMode, useState } from "react";
 import Splash from "./components/Splash";
 import Index from "./pages/Index";
+import Login from "./pages/Login";
 import CoffeeStamp from "./pages/CoffeeStamp";
 import Passport from "./pages/Passport";
 import AddressList from "./pages/AddressList";
@@ -86,6 +87,7 @@ const App = () => {
             <Sonner />
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/coffee-stamp" element={<CoffeeStamp />} />
               <Route path="/passport" element={<Passport />} />
               <Route path="/wishlist" element={<WishList />} />

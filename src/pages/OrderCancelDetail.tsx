@@ -20,7 +20,7 @@ const OrderCancelDetail = () => {
           <div className="bg-gray-50 p-4 rounded-lg">
             <div className="flex gap-4">
               <img 
-                src="/lovable-uploads/1d4dae74-da46-4207-9339-a9e1b84fc6eb.png"
+                src="/lovable-uploads/1de8625e-503e-4bad-a356-99b9db162841.png"
                 alt="Roland Multi Perfume"
                 className="w-20 h-20 object-cover rounded"
               />
@@ -51,11 +51,11 @@ const OrderCancelDetail = () => {
           </div>
         </div>
 
-        <div>
-          <div className="text-red-500 font-medium mb-2">취소 완료</div>
-          <div className="space-y-1 text-sm text-gray-500">
-            <div>• 취소 사유 : 재주문</div>
-            <div>• 취소 거부 사유 : 배송 시작</div>
+        <div className="bg-white p-4 rounded-lg space-y-4">
+          <div className="text-red-500 font-medium">취소 거부</div>
+          <div className="border-t border-dashed pt-4 space-y-1 text-sm text-gray-500">
+            <div>└ 취소 사유 : 재주문</div>
+            <div>└ 취소 거부 사유 : 배송 시작</div>
           </div>
         </div>
 

@@ -36,34 +36,26 @@ const PassportModal = ({ isOpen, onClose }: PassportModalProps) => {
     { location: '북촌', date: '2024.01.01', image: '/lovable-uploads/eeeb6c16-beaa-4b49-ab3b-bf248ad9cc17.png' },
   ]);
   const [showCouponDialog, setShowCouponDialog] = useState(false);
-  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
+  const [showQRScanner, setShowQRScanner] = useState(false);
+  const [showStampSuccess, setShowStampSuccess] = useState(false);
 
-  const handleScanQR = async () => {
-    try {
-      const result = await startScan();
-      if (result) {
-        const newStamp = {
-          location: '신규 방문',
-          date: new Date().toLocaleDateString('ko-KR', {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit'
-          }).replace(/\. /g, '.').replace('.', ''),
-          image: '/icons/granhand-new.png'
-        };
-        setStamps(prev => [...prev, newStamp]);
-        setShowSuccessDialog(true);
-      }
-    } catch (error) {
-      console.error('QR 스캔 에러:', error);
-      toast({
-        variant: "destructive",
-        title: "QR 스캔 실패",
-        description: "QR 코드를 다시 스캔해주세요."
-      });
-    } finally {
-      await stopScan();
-    }
+  const handleScanQR = () => {
+    setShowQRScanner(true);
+  };
+
+  const handleQRClick = () => {
+    const newStamp = {
+      location: '남산',
+      date: new Date().toLocaleDateString('ko-KR', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+      }).replace(/\. /g, '.').replace('.', ''),
+      image: '/lovable-uploads/eeeb6c16-beaa-4b49-ab3b-bf248ad9cc17.png'
+    };
+    setStamps(prev => [...prev, newStamp]);
+    setShowQRScanner(false);
+    setShowStampSuccess(true);
   };
 
   const handleSaveCoupon = () => {
@@ -72,6 +64,10 @@ const PassportModal = ({ isOpen, onClose }: PassportModalProps) => {
 
   const handleCloseCouponDialog = () => {
     setShowCouponDialog(false);
+  };
+
+  const handleCloseStampSuccess = () => {
+    setShowStampSuccess(false);
   };
 
   return (
@@ -135,6 +131,48 @@ const PassportModal = ({ isOpen, onClose }: PassportModalProps) => {
               className="w-full py-3 bg-[#2C2C2C] text-white rounded-none"
             >
               QR 스캔으로 스탬프 찍기
+            </button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* QR 스캐너 모달 */}
+      <Dialog open={showQRScanner} onOpenChange={() => setShowQRScanner(false)}>
+        <DialogContent className="sm:max-w-[425px] p-0 bg-black h-screen">
+          <div className="relative h-full" onClick={handleQRClick}>
+            <button 
+              onClick={() => setShowQRScanner(false)} 
+              className="absolute top-4 left-4 text-white"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-64 h-64 border-2 border-white/50 relative">
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-white"></div>
+                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-white"></div>
+                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-white"></div>
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-white"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-6 h-6 text-white">+</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* 스탬프 획득 성공 모달 */}
+      <Dialog open={showStampSuccess} onOpenChange={handleCloseStampSuccess}>
+        <DialogContent className="sm:max-w-[425px] p-6 bg-white">
+          <div className="space-y-4">
+            <div className="text-center">
+              <h2 className="text-xl font-medium mb-6">남산점 스탬프를 받았어요!</h2>
+            </div>
+            <button 
+              onClick={handleCloseStampSuccess}
+              className="w-full py-3 bg-[#2C2C2C] text-white"
+            >
+              확인
             </button>
           </div>
         </DialogContent>

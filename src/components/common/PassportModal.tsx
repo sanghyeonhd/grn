@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { ChevronLeft } from 'lucide-react';
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -29,16 +30,13 @@ const STAMP_LOCATIONS = [
 const PassportModal = ({ isOpen, onClose }: PassportModalProps) => {
   const { toast } = useToast();
   const [stamps, setStamps] = useState<Stamp[]>([
-    { location: '광화문', date: '2023.11.06', image: '/lovable-uploads/eeeb6c16-beaa-4b49-ab3b-bf248ad9cc17.png' },
-    { location: '도산', date: '2023.11.06', image: '/lovable-uploads/eeeb6c16-beaa-4b49-ab3b-bf248ad9cc17.png' },
-    { location: '남산', date: '2023.11.06', image: '/lovable-uploads/eeeb6c16-beaa-4b49-ab3b-bf248ad9cc17.png' },
-    { location: '서교', date: '2023.11.06', image: '/lovable-uploads/eeeb6c16-beaa-4b49-ab3b-bf248ad9cc17.png' },
     { location: '마포', date: '2023.12.07', image: '/lovable-uploads/eeeb6c16-beaa-4b49-ab3b-bf248ad9cc17.png' },
     { location: '서촌', date: '2023.12.07', image: '/lovable-uploads/eeeb6c16-beaa-4b49-ab3b-bf248ad9cc17.png' },
     { location: '소격', date: '2023.08.11', image: '/lovable-uploads/eeeb6c16-beaa-4b49-ab3b-bf248ad9cc17.png' },
     { location: '북촌', date: '2024.01.01', image: '/lovable-uploads/eeeb6c16-beaa-4b49-ab3b-bf248ad9cc17.png' },
   ]);
   const [showCouponDialog, setShowCouponDialog] = useState(false);
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
 
   const handleScanQR = async () => {
     try {

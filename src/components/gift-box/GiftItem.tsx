@@ -196,9 +196,9 @@ const GiftItem = ({
                   price: 55000,
                   image: "/lovable-uploads/bd410fec-4c86-460a-9aa6-b3fd0fe4e20b.png",
                   option: "롤링 멀티퍼퓸 200ml / 1개",
+                  shoppingBag: "추가 구매 (+500원)",
+                  stampingType: "N",
                   stampingLabel: "",
-                  stampingType: "",
-                  points: 500
                 }
               ]}
             />

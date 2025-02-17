@@ -70,7 +70,7 @@ const GiftBox = () => {
     {
       id: "s1",
       date: "2023.10.23",
-      status: "결제 완료 (수락 대기)",
+      status: "결제 완료 (선물 수락 대기)",
       product: {
         name: "Roland Multi Perfume",
         option: "롤랑 멀티퍼퓸 100ml / 1개",
@@ -81,7 +81,7 @@ const GiftBox = () => {
     {
       id: "s2",
       date: "2023.10.20",
-      status: "결제 완료 (배송지 입력 대기)",
+      status: "결제 완료 (선물 수락)",
       product: {
         name: "Roland Multi Perfume",
         option: "롤랑 멀티퍼퓸 200ml / 1개",
@@ -92,7 +92,7 @@ const GiftBox = () => {
     {
       id: "s3",
       date: "2023.10.16",
-      status: "배송 완료 (수락)",
+      status: "배송 완료 (선물 수락)",
       product: {
         name: "Roland Multi Perfume",
         option: "롤랑 멀티퍼퓸 100ml / 1개",
@@ -103,7 +103,7 @@ const GiftBox = () => {
     {
       id: "s4",
       date: "2023.09.18",
-      status: "배송 완료 (거절)",
+      status: "선물 거절",
       product: {
         name: "Roland Multi Perfume",
         option: "롤랑 멀티퍼퓸 100ml / 1개",

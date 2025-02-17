@@ -117,8 +117,16 @@ const Partnership = () => {
               onChange={(e) => setFormData({...formData, content: e.target.value})}
               required
             />
-            <div className="text-right text-sm text-gray-400">
-              {formData.content.length}/1000
+            <div className="flex justify-between items-center mt-2">
+              <button
+                type="button"
+                className="w-[86px] h-[26px] bg-[#E9E6E0] rounded text-sm"
+              >
+                첨부파일
+              </button>
+              <span className="text-sm text-gray-400">
+                {formData.content.length}/1000
+              </span>
             </div>
           </div>
 

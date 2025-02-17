@@ -1,10 +1,15 @@
 
 import React from 'react';
+import MainBanner from '@/components/home/MainBanner';
+import BrandShop from '@/components/home/BrandShop';
+import JournalList from '@/components/home/JournalList';
 
 const Index = () => {
   return (
     <div>
-      <h1>그랭핸드 홈</h1>
+      <MainBanner />
+      <BrandShop />
+      <JournalList />
     </div>
   );
 };

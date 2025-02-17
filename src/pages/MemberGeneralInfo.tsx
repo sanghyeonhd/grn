@@ -78,8 +78,9 @@ const MemberGeneralInfo = () => {
           <input
             type="text"
             value={name}
+            disabled
             onChange={(e) => setName(e.target.value)}
-            className="w-full p-3 bg-gray-100 rounded border mt-1"
+            className="w-full p-3 bg-[#E9E6E0] text-[#6F6963] rounded border mt-1"
           />
         </div>
         <div>
@@ -87,8 +88,9 @@ const MemberGeneralInfo = () => {
           <input
             type="text"
             value={birthdate}
+            disabled
             onChange={(e) => setBirthdate(e.target.value)}
-            className="w-full p-3 bg-gray-100 rounded border mt-1"
+            className="w-full p-3 bg-[#E9E6E0] text-[#6F6963] rounded border mt-1"
           />
         </div>
         <div>
@@ -96,8 +98,9 @@ const MemberGeneralInfo = () => {
           <input
             type="tel"
             value={phone}
+            disabled
             onChange={(e) => setPhone(e.target.value)}
-            className="w-full p-3 bg-gray-100 rounded border mt-1"
+            className="w-full p-3 bg-[#E9E6E0] text-[#6F6963] rounded border mt-1"
           />
         </div>
       </div>

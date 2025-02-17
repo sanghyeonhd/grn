@@ -129,24 +129,16 @@ const PassportModal = ({ isOpen, onClose }: PassportModalProps) => {
             >
               쿠폰 저장
             </button>
+
+            <button 
+              onClick={handleScanQR}
+              className="w-full py-3 bg-[#2C2C2C] text-white rounded-none"
+            >
+              QR 스캔으로 스탬프 찍기
+            </button>
           </div>
         </DialogContent>
       </Dialog>
-
-      {/* QR 스캔 버튼 - 모달 밖에 위치 */}
-      <div className="fixed bottom-16 left-0 right-0 flex justify-center">
-        <button 
-          onClick={handleScanQR}
-          className="flex items-center space-x-2 text-white"
-        >
-          <img 
-            src="/lovable-uploads/c0630d17-83de-4bad-bdda-aed41e533c58.png" 
-            alt="QR" 
-            className="w-5 h-5"
-          />
-          <span className="text-sm">QR 스캔으로 스탬프 찍기</span>
-        </button>
-      </div>
     </div>
   );
 };

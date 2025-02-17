@@ -32,7 +32,6 @@ const SignupTerms = () => {
       [key]: checked
     };
     
-    // all 체크박스 상태 업데이트
     const allChecked = Object.keys(newAgreements)
       .filter(k => k !== 'all')
       .every(k => newAgreements[k as keyof typeof newAgreements]);
@@ -54,13 +53,19 @@ const SignupTerms = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white px-4 py-6">
-      <header className="flex items-center mb-8">
-        <button onClick={() => navigate(-1)} className="text-2xl mr-4">←</button>
-        <h1 className="text-xl font-medium">그랭핸드 서비스 이용 약관에 동의해 주세요.</h1>
-      </header>
+    <div className="min-h-screen bg-white px-4 py-6 flex flex-col">
+      <div className="space-y-4">
+        <button onClick={() => navigate(-1)} className="text-2xl">←</button>
+        
+        <div className="flex w-full h-1">
+          <div className="w-1/4 bg-[#2C2C2C]" />
+          <div className="w-3/4 bg-gray-200" />
+        </div>
 
-      <div className="space-y-6">
+        <h1 className="text-xl font-medium">그랭핸드 서비스 이용 약관에 동의해 주세요.</h1>
+      </div>
+
+      <div className="flex-1 mt-8 space-y-6">
         <div className="flex items-center">
           <Checkbox
             checked={agreements.all}
@@ -164,15 +169,15 @@ const SignupTerms = () => {
             </button>
           </div>
         </div>
-
-        <Button
-          onClick={handleNext}
-          className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white rounded-none h-12 mt-4"
-          disabled={!(agreements.age && agreements.service && agreements.privacy)}
-        >
-          동의하고 가입하기
-        </Button>
       </div>
+
+      <Button
+        onClick={handleNext}
+        className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white rounded-none h-12 mt-4"
+        disabled={!(agreements.age && agreements.service && agreements.privacy)}
+      >
+        동의하고 가입하기
+      </Button>
     </div>
   );
 };

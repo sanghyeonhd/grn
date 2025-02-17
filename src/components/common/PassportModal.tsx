@@ -75,69 +75,81 @@ const PassportModal = ({ isOpen, onClose }: PassportModalProps) => {
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px] p-0">
-        <div className="p-4 space-y-6">
-          <div className="flex items-center">
-            <button onClick={onClose} className="mr-2">
-              <ChevronLeft className="h-6 w-6" />
-            </button>
-            <h1 className="text-lg font-medium">그랑핸드 패스포트</h1>
-          </div>
+    <div className="relative min-h-screen">
+      <Dialog open={isOpen} onOpenChange={onClose}>
+        <DialogContent className="sm:max-w-[425px] p-0">
+          <div className="p-4 space-y-6">
+            <div className="flex items-center">
+              <button onClick={onClose} className="mr-2">
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+              <h1 className="text-lg font-medium">그랑핸드 패스포트</h1>
+            </div>
 
-          <div>
-            <h2 className="text-center text-xl font-bold mb-2">그랑핸드 패스포트</h2>
-            <p className="text-center text-gray-600 text-sm">
-              그랑핸드 전 매장에서 스탬프를 모아보세요!<br />
-              전 지점 스탬프를 모으시면<br />
-              패스포트 챌린지 달성 쿠폰을 선물해 드려요.
-            </p>
-          </div>
+            <div>
+              <h2 className="text-center text-xl font-bold mb-2">그랑핸드 패스포트</h2>
+              <p className="text-center text-gray-600 text-sm">
+                그랑핸드 전 매장에서 스탬프를 모아보세요!<br />
+                전 지점 스탬프를 모으시면<br />
+                패스포트 챌린지 달성 쿠폰을 선물해 드려요.
+              </p>
+            </div>
 
-          <div className="flex justify-between items-center px-2">
-            <button onClick={onClose} className="text-sm text-gray-600">
-              뒤로가기
-            </button>
-            <span className="text-sm text-gray-600">{stamps.length} / {STAMP_LOCATIONS.length}</span>
-          </div>
+            <div className="flex justify-between items-center px-2">
+              <button onClick={onClose} className="text-sm text-gray-600">
+                뒤로가기
+              </button>
+              <span className="text-sm text-gray-600">{stamps.length} / {STAMP_LOCATIONS.length}</span>
+            </div>
 
-          <div className="grid grid-cols-4 gap-4">
-            {STAMP_LOCATIONS.map((location, index) => {
-              const stamp = stamps.find(s => s.location === location.name);
-              return (
-                <div key={index} className="text-center">
-                  <div className={`aspect-square rounded-full border ${
-                    stamp ? 'bg-gray-100' : 'border-dashed'
-                  } flex items-center justify-center mb-1 w-[60px] h-[60px] mx-auto`}>
+            <div className="grid grid-cols-4 gap-4">
+              {STAMP_LOCATIONS.map((location, index) => {
+                const stamp = stamps.find(s => s.location === location.name);
+                return (
+                  <div key={index} className="text-center">
+                    <div className={`aspect-square rounded-full border ${
+                      stamp ? 'bg-gray-100' : 'border-dashed'
+                    } flex items-center justify-center mb-1 w-[60px] h-[60px] mx-auto`}>
+                      {stamp && (
+                        <img src={stamp.image} alt={location.name} className="w-[26px] h-[32px]" />
+                      )}
+                    </div>
+                    <div className="text-xs mb-1">{location.name}</div>
                     {stamp && (
-                      <img src={stamp.image} alt={location.name} className="w-[26px] h-[32px]" />
+                      <div className="text-[10px] text-gray-400">{stamp.date}</div>
                     )}
                   </div>
-                  <div className="text-xs mb-1">{location.name}</div>
-                  {stamp && (
-                    <div className="text-[10px] text-gray-400">{stamp.date}</div>
-                  )}
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
+
+            <button 
+              onClick={handleSaveCoupon}
+              className="w-full py-3 bg-[#2C2C2C] text-white rounded-none"
+            >
+              쿠폰 저장
+            </button>
           </div>
+        </DialogContent>
+      </Dialog>
 
-          <button 
-            onClick={handleSaveCoupon}
-            className="w-full py-3 bg-gray-900 text-white rounded-lg"
-          >
-            쿠폰 저장하기
-          </button>
-
-          <button 
-            onClick={handleScanQR}
-            className="w-full py-3 bg-gray-900 text-white rounded-lg"
-          >
-            QR 스캔으로 스탬프 찍기
-          </button>
-        </div>
-      </DialogContent>
-    </Dialog>
+      {/* QR 스캔 버튼 - 모달 밖에 위치 */}
+      <div className="fixed bottom-16 left-0 right-0 flex justify-center">
+        <button 
+          onClick={handleScanQR}
+          className="flex flex-col items-center space-y-1"
+        >
+          <div className="bg-white rounded-lg p-2">
+            <img 
+              src="/lovable-uploads/c0630d17-83de-4bad-bdda-aed41e533c58.png" 
+              alt="QR 스캔" 
+              className="w-6 h-6"
+            />
+          </div>
+          <span className="text-white text-xs">QR 스캔으로 스탬프 찍기</span>
+        </button>
+      </div>
+    </div>
   );
 };
 

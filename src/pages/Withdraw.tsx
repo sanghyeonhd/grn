@@ -70,16 +70,16 @@ const Withdraw = () => {
           </div>
         ))}
       </RadioGroup>
-      <div className="mt-6">
+      <div className="mt-6 relative">
         <Textarea
           value={detailReason}
           onChange={(e) => setDetailReason(e.target.value)}
           onFocus={handleTextareaFocus}
-          placeholder="탈퇴 사유를 입력해 주세요"
-          className="resize-none bg-[#FFFFFF]"
+          placeholder="더 나은 그랑핸드가 될 수 있도록 의견을 남겨주세요"
+          className="resize-none bg-[#FFFFFF] placeholder:text-[#C0BCB6]"
           maxLength={200}
         />
-        <div className="text-right text-sm text-gray-500 mt-1">
+        <div className="absolute bottom-2 right-2 text-sm text-[#C0BCB6]">
           {detailReason.length}/200
         </div>
       </div>

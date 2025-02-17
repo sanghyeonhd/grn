@@ -5,7 +5,7 @@ import { ArrowLeft, User } from 'lucide-react';
 
 const MemberGeneralInfo = () => {
   const navigate = useNavigate();
-  const [step, setStep] = useState(2);
+  const [step] = useState(3);  // 기본값을 3으로 변경
   const [id] = useState('gran****@****.com');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('홍길동');

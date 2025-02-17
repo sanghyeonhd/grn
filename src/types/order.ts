@@ -7,5 +7,6 @@ export interface Product {
   option: string;
   shoppingBag: string;
   stampingType: string;
+  stampingLabel: string;
   image: string;
 }

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
@@ -55,10 +54,14 @@ const Withdraw = () => {
     navigate('/');
   };
 
+  const handleTextareaFocus = () => {
+    setReason("직접입력");
+  };
+
   const renderStep1 = () => (
     <div className="p-4">
-      <p className="mb-4">그랑앤블를 떠나시려는 이유를 알려주세요.</p>
-      <RadioGroup value={reason} onValueChange={setReason} className="space-y-3">
+      <p className="mb-8">그랑핸드를 떠나시려는 이유를 알려주세요.</p>
+      <RadioGroup value={reason} onValueChange={setReason} className="space-y-6">
         {reasons.map((text) => (
           <div key={text} className="flex items-center space-x-2">
             <RadioGroupItem value={text} id={text} />
@@ -66,20 +69,19 @@ const Withdraw = () => {
           </div>
         ))}
       </RadioGroup>
-      {reason === "직접입력" && (
-        <div className="mt-6">
-          <Textarea
-            value={detailReason}
-            onChange={(e) => setDetailReason(e.target.value)}
-            placeholder="탈퇴 사유를 입력해 주세요"
-            className="resize-none"
-            maxLength={200}
-          />
-          <div className="text-right text-sm text-gray-500 mt-1">
-            {detailReason.length}/200
-          </div>
+      <div className="mt-6">
+        <Textarea
+          value={detailReason}
+          onChange={(e) => setDetailReason(e.target.value)}
+          onFocus={handleTextareaFocus}
+          placeholder="탈퇴 사유를 입력해 주세요"
+          className="resize-none"
+          maxLength={200}
+        />
+        <div className="text-right text-sm text-gray-500 mt-1">
+          {detailReason.length}/200
         </div>
-      )}
+      </div>
     </div>
   );
 
@@ -174,22 +176,13 @@ const Withdraw = () => {
       {step === 2 && renderStep2()}
       {step === 3 && renderStep3()}
 
-      <div className="fixed bottom-0 left-0 right-0 p-4 flex gap-3 bg-white border-t">
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t">
         <Button 
-          variant="outline" 
-          onClick={() => navigate(-1)} 
-          className="flex-1"
+          onClick={handleNext} 
+          className="w-full bg-[#2C2C2C] text-white hover:bg-[#1a1a1a]"
         >
-          취소
+          {step === 3 ? '본인인증하고 탈퇴하기' : '탈퇴하기'}
         </Button>
-        {step < 4 && (
-          <Button 
-            onClick={handleNext} 
-            className="flex-1 bg-[#2C2C2C] text-white hover:bg-[#1a1a1a]"
-          >
-            {step === 3 ? '본인인증하고 탈퇴하기' : '탈퇴하기'}
-          </Button>
-        )}
       </div>
 
       <AlertDialog open={showCompleteModal} onOpenChange={setShowCompleteModal}>

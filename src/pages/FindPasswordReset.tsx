@@ -101,7 +101,7 @@ const FindPasswordReset = () => {
             onClick={handleSubmit}
             className="w-full bg-[#2C2C2C] hover:bg-[#1a1a1a] text-white h-[52px] rounded-none"
           >
-            비밀번호 재설정
+            저장하기
           </Button>
         </div>
       </div>

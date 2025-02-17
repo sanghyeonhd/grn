@@ -122,7 +122,11 @@ const Login = () => {
           </div>
 
           <div className="pt-8">
-            <p className="text-center text-sm text-gray-500 mb-6">간편 로그인</p>
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="w-12 h-[1px] bg-gray-300"></div>
+              <p className="text-center text-sm text-gray-500">간편 로그인</p>
+              <div className="w-12 h-[1px] bg-gray-300"></div>
+            </div>
             <div className="flex justify-center gap-8">
               <button type="button">
                 <img 
